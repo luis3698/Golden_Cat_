@@ -22,7 +22,7 @@
         <v-btn flat>¿Que es golden cat
           <v-icon >help</v-icon>
         </v-btn>
-        <v-btn flat>Crear cuenta
+        <v-btn flat>Cuenta
           <v-icon >account_circle</v-icon>
         </v-btn>
     </v-toolbar>
