@@ -27,6 +27,7 @@
         </v-btn>
     </v-toolbar>
      <v-toolbar-title  left>Hotel Golden Cat </v-toolbar-title >
+     
   </v-app>
 
 </template>
@@ -34,7 +35,7 @@
 <script>
 import Logo from '@/assets/golden_cat.png'
 export default {
-  data() {
+  data () {
     return {
       logo: Logo
     }
