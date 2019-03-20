@@ -25,4 +25,3 @@
     </v-toolbar>
   </v-card>
 </template>
-
