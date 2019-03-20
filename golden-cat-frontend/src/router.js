@@ -35,7 +35,7 @@ export default new Router({
       component: Registro
     },
     {
-      path:'/contactos',
+      path: '/contactos',
       name: 'contactos',
       component: contactos
     }
