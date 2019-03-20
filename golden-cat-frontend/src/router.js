@@ -5,7 +5,6 @@ import AdministradorlLayout from './layouts/AdministradorLayout.vue'
 import Registro from './views/Registro.vue'
 import contactos from './views/Contactanos.vue'
 
-
 import Inicio from './views/Inicio.vue'
 
 Vue.use(Router)
@@ -35,7 +34,7 @@ export default new Router({
       component: Registro
     },
     {
-      path:'/contactos',
+      path: '/contactos',
       name: 'contactos',
       component: contactos
     }
