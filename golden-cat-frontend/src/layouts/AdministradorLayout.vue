@@ -79,13 +79,13 @@
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <span class="hidden-sm-and-down">Golden Cat </span>
       </v-toolbar-title>
-      
+
       <v-spacer></v-spacer>
-      
+
         <v-btn icon>
           <v-icon>perm_identity</v-icon>
         </v-btn>
-        
+
       <v-btn icon>
         <v-icon>power_settings_new</v-icon>
       </v-btn>
@@ -93,7 +93,7 @@
     <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
-          
+
         </v-layout>
       </v-container>
     </v-content>
@@ -168,32 +168,32 @@
 <script>
 
 export default {
-    data: () => ({
-      dialog: false,
-      drawer: null,
-      items: [
-        { icon: 'mode_edit', text: 'Reservas' },
-        { icon: 'view_module', text: 'Habitaciones' },
-        { icon: 'supervisor_account', text: 'Administrar usuarios' },
-        {
-          icon: 'contact_phone',
-          'icon-alt': 'contact_phone',
-          text: 'Atención al cliente',
-          model: false,
-          children: [
-            { icon: 'gmail', text: 'Gmail' },
-            { icon: 'gmail', text: 'Hangoust' },
-            { icon: 'gmail', text: 'Outlook' },
-            { icon: 'gmail', text: 'Yahoo' },
-            { icon: 'web', text: 'Facebook' },
-            { icon: 'web', text: 'Instagram' },
-            { icon: 'web', text: 'Whatshap' },
-            { icon: 'web', text: 'Messenger' }
-          ]},
-        { icon: 'settings', text: 'Configuración' },
-        { icon: 'spellcheck', text: 'Realizar reserva' }
-      ]
-    }),
+  data: () => ({
+    dialog: false,
+    drawer: null,
+    items: [
+      { icon: 'mode_edit', text: 'Reservas' },
+      { icon: 'view_module', text: 'Habitaciones' },
+      { icon: 'supervisor_account', text: 'Administrar usuarios' },
+      {
+        icon: 'contact_phone',
+        'icon-alt': 'contact_phone',
+        text: 'Atención al cliente',
+        model: false,
+        children: [
+          { icon: 'gmail', text: 'Gmail' },
+          { icon: 'gmail', text: 'Hangoust' },
+          { icon: 'gmail', text: 'Outlook' },
+          { icon: 'gmail', text: 'Yahoo' },
+          { icon: 'web', text: 'Facebook' },
+          { icon: 'web', text: 'Instagram' },
+          { icon: 'web', text: 'Whatshap' },
+          { icon: 'web', text: 'Messenger' }
+        ] },
+      { icon: 'settings', text: 'Configuración' },
+      { icon: 'spellcheck', text: 'Realizar reserva' }
+    ]
+  })
 }
 
 </script>
