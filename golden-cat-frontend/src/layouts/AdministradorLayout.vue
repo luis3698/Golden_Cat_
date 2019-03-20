@@ -97,7 +97,7 @@
         </v-layout>
       </v-container>
     </v-content>
-    
+
     <v-dialog v-model="dialog" width="800px">
       <v-card>
         <v-card-title

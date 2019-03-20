@@ -60,7 +60,6 @@
   </v-app>
 </template>
 
-
 <script>
 export default {
   data: () => ({
@@ -70,6 +69,5 @@ export default {
     source: String
   }
 }
-
 
 </script>
