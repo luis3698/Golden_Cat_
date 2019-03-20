@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import PrincipalLayout from './layouts/PrincipalLayout.vue'
 import AdministradorlLayout from './layouts/AdministradorLayout.vue'
 import Registro from './views/Registro.vue'
-
+import restaurar_contraseña from './views/restaurar_contraseña.vue'
 import Inicio from './views/Inicio.vue'
 
 Vue.use(Router)
@@ -31,6 +31,11 @@ export default new Router({
       path: '/registro',
       name: 'registro',
       component: Registro
+    },
+    {
+      path: '/restaurar_contraseña',
+      name: 'restaurar',
+      component: restaurar_contraseña
     }
 
   ]
