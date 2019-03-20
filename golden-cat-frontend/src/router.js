@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import PrincipalLayout from './layouts/PrincipalLayout.vue'
 import AdministradorlLayout from './layouts/AdministradorLayout.vue'
+import Registro from './views/Registro.vue'
 
 import Inicio from './views/Inicio.vue'
 
@@ -25,6 +26,12 @@ export default new Router({
       path: '/inicio',
       name: 'inicio',
       component: Inicio
+    },
+    {
+      path: '/registro',
+      name: 'registro',
+      component: Registro
     }
+
   ]
 })
