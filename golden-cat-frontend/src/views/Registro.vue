@@ -1,7 +1,7 @@
 <template>
 
   <v-app id="inspire">
-    <v-content>
+    <v-content >
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
@@ -44,7 +44,7 @@
   </v-app>
 </template>
 
-<style>
+<style scoped>
 .v-toolbar__content {
     background-color: #efe8ec;
     height: 0px;
