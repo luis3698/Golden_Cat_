@@ -2,13 +2,10 @@
   <v-flex xs12 sm8 md4>
     <v-card class="elevation-12">
       <v-toolbar dark color="primary">
-        <v-toolbar-title>Registrate</v-toolbar-title>
+        <v-toolbar-title>Regístrate</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
-            <!--<v-btn :href="source" icon large target="_blank" v-on="on">
-              <v-icon large>code</v-icon>
-            </v-btn>-->
           </template>
           <span>Source</span>
           </v-tooltip>
@@ -28,27 +25,23 @@
         </v-form>
       </v-card-text>
       <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary">Registrarse</v-btn>
+        <v-btn block class="purple darken-4">Registrarse</v-btn>
+        <div>
+          <v-btn flat small color="primary">Primary</v-btn>
+        </div>
       </v-card-actions>
     </v-card>
+    
   </v-flex>
+  
 </template>
-
 <style scoped>
 .v-toolbar__content {
     background-color: #efe8ec;
     height: 0px;
 }
-.v-toolbar__title {
-    font-size: 20px;
-    text-emphasis-color:red;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
+
 title{
     background-color: black;
 }
@@ -63,7 +56,9 @@ title{
 :root {
     --v-primary-base: #180aec;
 
-}
+  }
+
+
 
 </style>
 
