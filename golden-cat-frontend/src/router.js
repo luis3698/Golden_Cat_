@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Registro from './views/Principal/Registro.vue'
-//import Contactos from './views/Principal/Contactos.vue'
+// import Contactos from './views/Principal/Contactos.vue'
 import Servicios from './views/Principal/Servicios.vue'
 
 import RestaurarContrasena from './views/Principal/restaurar_contraseña.vue'
