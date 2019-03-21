@@ -38,16 +38,16 @@ export default new Router({
       component: Registro
     },
     {
-<<<<<<< HEAD
       path: '/restaurar_contraseña',
       name: 'restaurar',
-      component: restaurar_contraseña
-=======
-      path: '/contactos',
-      name: 'contactos',
-      component: contactos
->>>>>>> 18061281f252307238486e20ccd4ae7569404b62
-    }
+       component: restaurar_contraseñ
+      },
+      {
+        path: '/contactos',
+  
+        name: 'contactos',
+        component: contactos
+      }
 
   ]
 })
