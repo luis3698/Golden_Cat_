@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PrincipalLayout from './layouts/PrincipalLayout.vue'
-import AdministradorlLayout from './layouts/AdministradorLayout.vue'
 import Registro from './views/Registro.vue'
 import Contactos from './views/Contactos.vue'
 import Servicios from './views/Servicios.vue'
+
 import RestaurarContrasena from './views/restaurar_contraseña.vue'
 import Inicio from './views/Inicio.vue'
+import Reservas from './views/Reservas.vue'
 import QueEsGoldenCat from './views/Que_es_golden_cat.vue'
 
 Vue.use(Router)
@@ -18,12 +18,7 @@ export default new Router({
     {
       path: '/',
       name: 'principal',
-      component: PrincipalLayout
-    },
-    {
-      path: '/administrador',
-      name: 'administrador',
-      component: AdministradorlLayout
+      component: Inicio
     },
     {
       path: '/inicio',
@@ -54,6 +49,11 @@ export default new Router({
       path: '/Que_es_golden_cat.vue',
       name: 'restaurar_contraseña',
       component: QueEsGoldenCat
+    },
+    {
+      path: '/reservas',
+      name: 'reservas',
+      component: Reservas
     }
   ]
 })

@@ -1,11 +1,12 @@
 <template>
-    <div><h1>hola mundo</h1></div>
+    <div><h1>Reservas</h1></div>
 
 </template>
 
 <script>
-new Vue({
-  el: '#app'
-
-})
+export default {
+  created () {
+    this.$store.commit('SET_LAYOUT', 'administrador-layout')
+  }
+}
 </script>

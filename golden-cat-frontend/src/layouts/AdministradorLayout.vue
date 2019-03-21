@@ -156,13 +156,10 @@
     </v-toolbar>
 
     <v-content>
-      <v-app id="inspire">
-
-        </v-app>
 
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
-
+          <router-view></router-view>
         </v-layout>
       </v-container>
 
@@ -280,5 +277,9 @@ export default {
       width: 40px;
       margin: -17px 0px;
       padding-top: 20px;
+    }
+    .v-content{
+      background-image: url('../assets/fondo golden.jpg');
+      background-size: cover;
     }
 </style>
