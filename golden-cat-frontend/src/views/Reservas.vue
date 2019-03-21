@@ -1,0 +1,11 @@
+<template>
+    <div><h1>hola mundo</h1></div>
+
+</template>
+
+<script>
+new Vue({
+  el: '#app'
+
+})
+</script>
