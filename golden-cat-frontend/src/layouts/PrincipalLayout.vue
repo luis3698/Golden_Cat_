@@ -1,58 +1,45 @@
 
 <template>
   <v-app id="inspire">
-    <v-toolbar color="cyan" dark fixed app>
-      <v-spacer></v-spacer>
+    <v-toolbar color="indigo darken-4" dark  app>
+
         <v-layout row wrap>
-           <v-img  height="60px" :src="logo" ></v-img>
-      </v-layout>
+            <v-flex xs2>
+          <v-img height="60px" :src="logo" ></v-img>
+        </v-flex>
+        </v-layout>
         <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-       <v-spacer></v-spacer>
-         <v-btn small flat >inicio
-          <v-icon>business</v-icon>
+
+        <v-btn small flat left>inicio
+          <v-icon small>business</v-icon>
         </v-btn>
-        <v-btn small flat>Servicios extra
-          <v-icon>bookmarks</v-icon>
+        <v-btn small flat left>Servicios extra
+          <v-icon small>bookmarks</v-icon>
         </v-btn>
-        <v-btn small flat>Contactanos
-          <v-icon>email</v-icon>
+        <v-btn small flat left>Contactanos
+          <v-icon small>email</v-icon>
         </v-btn>
-        <v-btn small flat>¿que es golden cat?
-          <v-icon>help</v-icon>
+        <v-btn small flat left>¿que es golden cat?
+          <v-icon small>help</v-icon>
         </v-btn>
         <div class="text-xs-center">
-    <v-menu v-model="menu" :close-on-content-click="false" :nudge-height="2" :nudge-width="1" offset-x>
+    <v-menu >
       <template v-slot:activator="{ on }">
-        <v-btn v-on="on" small flat> cuenta
-          <v-icon>account_circle</v-icon>
+        <v-btn v-on="on" small flat left> cuenta
+          <v-icon small>account_circle</v-icon>
         </v-btn>
       </template>
-      <v-card>
+
+      <v-card >
         <v-list>
           <v-list-tile avatar>
             <v-list-tile-avatar>
               <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
             </v-list-tile-avatar>
 
-            <v-list-tile-content>
+            <v-list-tile-content >
               <v-list-tile-title>John Leider</v-list-tile-title>
-              <v-list-tile-sub-title>Founder of Vuetify.js</v-list-tile-sub-title>
             </v-list-tile-content>
-
-            <v-list-tile-action>
-              <v-btn :class="fav ? 'red--text' : ''" icon @click="fav = !fav">
-                <v-icon>favorite</v-icon>
-              </v-btn>
-            </v-list-tile-action>
           </v-list-tile>
         </v-list>
 
@@ -61,13 +48,13 @@
         <v-list >
           <v-list-tile>
             <v-btn small flat>configuracion
-          <v-icon>settings</v-icon>
+          <v-icon small>settings</v-icon>
         </v-btn>
           </v-list-tile>
 
           <v-list-tile>
             <v-btn small flat>cerrar sesion
-          <v-icon>close</v-icon>
+          <v-icon small>close</v-icon>
         </v-btn>
           </v-list-tile>
         </v-list>
@@ -75,12 +62,7 @@
     </v-menu>
   </div>
     </v-toolbar>
-    <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center>
-        </v-layout>
-      </v-container>
-    </v-content>
+
   </v-app>
 </template>
 
@@ -97,3 +79,10 @@ export default {
 }
 
 </script>
+
+<style scoped >
+
+.v-toolbar__content {
+    background-color: rgb(45, 5, 83);
+}
+</style>

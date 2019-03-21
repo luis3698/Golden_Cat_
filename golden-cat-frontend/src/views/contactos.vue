@@ -25,3 +25,7 @@
     </v-toolbar>
   </v-card>
 </template>
+
+<style lang="sass" scoped>
+
+</style>

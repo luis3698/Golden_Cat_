@@ -3,8 +3,8 @@ import Router from 'vue-router'
 import PrincipalLayout from './layouts/PrincipalLayout.vue'
 import AdministradorlLayout from './layouts/AdministradorLayout.vue'
 import Registro from './views/Registro.vue'
-import contactos from './views/Contactanos.vue'
-
+import Contactos from './views/Contactos.vue'
+import Servicios from './views/Servicios.vue'
 import Inicio from './views/Inicio.vue'
 
 Vue.use(Router)
@@ -36,7 +36,12 @@ export default new Router({
     {
       path: '/contactos',
       name: 'contactos',
-      component: contactos
+      component: Contactos
+    },
+    {
+      path: '/servicios',
+      name: 'servicios',
+      component: Servicios
     }
 
   ]
