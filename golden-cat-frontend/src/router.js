@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Registro from './views/Principal/Registro.vue'
 // import Contactos from './views/Principal/Contactos.vue'
 import Servicios from './views/Principal/Servicios.vue'
-
+import Configuracion from './views/Principal/Configuracion.vue'
 import RestaurarContrasena from './views/Principal/restaurar_contraseña.vue'
 import Inicio from './views/Principal/Inicio.vue'
 import Reservas from './views/Administrador/Reservas.vue'
@@ -54,6 +54,11 @@ export default new Router({
       path: '/reservas',
       name: 'reservas',
       component: Reservas
+    },
+    {
+      path: '/configuracion',
+      name: 'configuracion',
+      component: Configuracion
     }
   ]
 })
