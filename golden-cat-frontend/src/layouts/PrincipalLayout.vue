@@ -1,7 +1,7 @@
 
 <template>
   <v-app id="inspire">
-    <v-toolbar color="indigo darken-4" dark  app>
+    <v-toolbar  dark  app color="indigo darken-4">
 
         <v-layout row wrap>
             <v-flex xs2>
@@ -40,12 +40,19 @@
             <v-list-tile-content >
               <v-list-tile-title>John Leider</v-list-tile-title>
             </v-list-tile-content>
+
           </v-list-tile>
         </v-list>
 
         <v-divider></v-divider>
 
         <v-list >
+           <v-list-tile>
+            <v-btn small flat>reservas
+          <v-icon small>assignment</v-icon>
+        </v-btn>
+          </v-list-tile>
+
           <v-list-tile>
             <v-btn small flat>configuracion
           <v-icon small>settings</v-icon>
@@ -69,6 +76,40 @@
       </v-layout>
     </v-container>
   </v-content>
+   <v-card
+        flat
+        tile
+        class="indigo lighten-1 white--text text-xs-center" color="indigo darken-4"
+      >
+        <v-card-text>
+          <v-btn
+            v-for="icon in icons"
+            :key="icon"
+            class="mx-3 white--text"
+            icon
+          >
+            <v-icon size="24px">{{ icon }}</v-icon>
+          </v-btn>
+        </v-card-text>
+
+        <v-card-text class="white--text pt-0">
+          Phasellus feugiat arcu sapien, et iaculis ipsum elementum
+          sit amet. Mauris cursus commodo interdum. Praesent ut risus
+          eget metus luctus accumsan id ultrices nunc. Sed at orci sed
+          massa consectetur dignissim a sit amet dui. Duis commodo vitae
+          velit et faucibus. Morbi vehicula lacinia malesuada. Nulla
+          placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin.
+          Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci
+          varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus.
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text class="white--text">
+          &copy;2018 — <strong>Vuetify</strong>
+        </v-card-text>
+      </v-card>
   </v-app>
 </template>
 
@@ -76,8 +117,17 @@
 import Logo from '@/assets/golden_cat.png'
 export default {
   data: () => ({
+
     drawer: null,
+    icons: [
+      'fab fa-facebook',
+      'fab fa-twitter',
+      'fab fa-google-plus',
+      'fab fa-linkedin',
+      'fab fa-instagram'
+    ],
     logo: Logo
+
   }),
   props: {
     source: String
@@ -88,7 +138,4 @@ export default {
 
 <style scoped >
 
-.v-toolbar__content {
-    background-color: rgb(45, 5, 83);
-}
 </style>
