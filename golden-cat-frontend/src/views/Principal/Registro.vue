@@ -41,7 +41,6 @@
     height: 0px;
 }
 
-
 title{
     background-color: black;
 }
@@ -57,8 +56,6 @@ title{
     --v-primary-base: #180aec;
 
   }
-
-
 
 </style>
 

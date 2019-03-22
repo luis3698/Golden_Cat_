@@ -109,7 +109,7 @@
                     <v-list-tile-sub-title>Michaell Sanchez</v-list-tile-sub-title>
                   </v-list-tile-content>
                   <v-list-tile-action>
-                   
+
                   </v-list-tile-action>
                 </v-list-tile>
               </v-list>
@@ -121,7 +121,7 @@
                   </v-list-tile-action>
                   <v-list-tile-title>Mensajes activos</v-list-tile-title>
                 </v-list-tile>
-                
+
               </v-list>
               <v-card-actions>
                 <v-spacer></v-spacer>
