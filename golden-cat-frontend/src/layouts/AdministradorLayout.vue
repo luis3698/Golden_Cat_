@@ -266,7 +266,7 @@ export default {
       margin: -17px 0px;
       padding-top: 20px;
     }
-    .v-content{
+        .v-content{
       background-image: url('../assets/fondo golden.jpg');
       background-size: cover;
     }

@@ -31,9 +31,9 @@
         </div>
       </v-card-actions>
     </v-card>
-    
+
   </v-flex>
-  
+
 </template>
 <style scoped>
 .v-toolbar__content {
