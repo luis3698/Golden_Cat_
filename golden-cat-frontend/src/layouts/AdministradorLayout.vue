@@ -256,7 +256,7 @@ export default {
 
 </script>
 
-<style >
+<style scoped >
     .v-toolbar__content{
         background-color: rgb(88, 22, 150);
     }
