@@ -9,7 +9,7 @@
             <v-container  fill-height fluid>
               <v-layout fill-height>
                 <v-flex  justify-center align-center xs12 align-end flexbox>
-                  <span class="headline">BAR Y CAFETERIA</span>
+                  <v-card-title class="headline font-weight-regular indigo darken-4 white--text">BAR Y CAFETERIA</v-card-title>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -47,7 +47,7 @@
             <v-container fill-height fluid>
               <v-layout fill-height>
                 <v-flex xs12 align-end flexbox>
-                  <span class="headline">ZONA HUMEDA</span>
+                  <v-card-title class="headline font-weight-regular indigo darken-4   white--text">ZONA HUMEDA</v-card-title>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -73,8 +73,8 @@
             <v-card-text>
             <v-container fill-height fluid>
               <v-layout fill-height>
-                  <span  class="headline">RESTAURANTE</span>
                 <v-flex xs12 align-end flexbox>
+                  <v-card-title class="headline font-weight-regular indigo darken-4 white--text">RESTAURANTE</v-card-title>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -101,13 +101,19 @@
 
 </template>
 <script>
-import BAR from '@/assets/restaurante.jpg'
+import BAR from '@/assets/bar.jpg'
+import RESTAURANTE from '@/assets/restaurante.jpg'
+import SPA from '@/assets/spa.jpg'
 
 export default {
 
   data: () => ({
     drawer: null,
-    bar: BAR
+
+    bar: BAR,
+    restaurante: RESTAURANTE,
+    spa: SPA
+
   }),
   created () {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
