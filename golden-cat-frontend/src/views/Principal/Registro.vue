@@ -31,16 +31,15 @@
         </div>
       </v-card-actions>
     </v-card>
-    
+
   </v-flex>
-  
+
 </template>
 <style scoped>
 .v-toolbar__content {
     background-color: #efe8ec;
     height: 0px;
 }
-
 
 title{
     background-color: black;
@@ -57,8 +56,6 @@ title{
     --v-primary-base: #180aec;
 
   }
-
-
 
 </style>
 

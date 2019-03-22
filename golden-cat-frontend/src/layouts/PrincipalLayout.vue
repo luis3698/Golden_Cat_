@@ -40,12 +40,19 @@
             <v-list-tile-content >
               <v-list-tile-title>John Leider</v-list-tile-title>
             </v-list-tile-content>
+
           </v-list-tile>
         </v-list>
 
         <v-divider></v-divider>
 
         <v-list >
+           <v-list-tile>
+            <v-btn small flat>reservas
+          <v-icon small>assignment</v-icon>
+        </v-btn>
+          </v-list-tile>
+
           <v-list-tile>
             <v-btn small flat>configuracion
           <v-icon small>settings</v-icon>
@@ -72,7 +79,7 @@
    <v-card
         flat
         tile
-        class="indigo lighten-1 white--text text-xs-center"
+        class="indigo lighten-1 white--text text-xs-center" color="indigo darken-4"
       >
         <v-card-text>
           <v-btn
