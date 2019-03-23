@@ -46,8 +46,8 @@ export default new Router({
       component: RestaurarContrasena
     },
     {
-      path: '/Que_es_golden_cat.vue',
-      name: 'restaurar_contraseña',
+      path: '/Que_es_golden_cat',
+      name: 'Que_es_golden_cat',
       component: QueEsGoldenCat
     },
     {

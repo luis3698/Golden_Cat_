@@ -1,6 +1,10 @@
+<template>
+
+</template>
+
 <script>
 export default {
-    created () {
+  created () {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
   }
 }
