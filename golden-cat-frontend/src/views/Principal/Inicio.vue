@@ -15,7 +15,7 @@
         <v-text-field label="Numero de Niños" outline></v-text-field>
       </v-flex>
     </v-layout>
-  </div>  
+  </div>
 </template>
 <script>
 export default {
@@ -30,4 +30,3 @@ export default {
   background-color: white !important
 }
 </style>
-
