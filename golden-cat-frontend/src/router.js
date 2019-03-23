@@ -8,6 +8,7 @@ import RestaurarContrasena from './views/Principal/restaurar_contraseña.vue'
 import Inicio from './views/Principal/Inicio.vue'
 import Reservas from './views/Administrador/Reservas.vue'
 import QueEsGoldenCat from './views/Principal/Que_es_golden_cat.vue'
+import AdministrarUsuarios from './views/Administrador/AdministrarUsuarios.vue'
 
 Vue.use(Router)
 
@@ -59,6 +60,11 @@ export default new Router({
       path: '/configuracion',
       name: 'configuracion',
       component: Configuracion
+    },
+    {
+      path: '/administrarusuarios',
+      name: 'adiministrarusuarios',
+      component: AdministrarUsuarios
     }
   ]
 })
