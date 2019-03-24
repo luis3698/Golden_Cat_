@@ -10,7 +10,7 @@
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="500px">
                 <template v-slot:activator="{ on }">
-                    <v-btn color="primary" dark class="mb-2" v-on="on">Registrar Usuario</v-btn>
+                    <v-btn color="indigo" dark class="mb-2" v-on="on">Registrar Usuario</v-btn>
                 </template>
                 <v-card>
                     <v-card-title>
@@ -41,8 +41,8 @@
 
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn color="blue darken-1" flat @click="close">Cancel</v-btn>
-                        <v-btn color="blue darken-1" flat @click="save">Save</v-btn>
+                        <v-btn color="indigo" flat @click="close">Cancel</v-btn>
+                        <v-btn color="indigo" flat @click="save">Save</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>
@@ -75,7 +75,7 @@
             </td>
         </template>
         <template v-slot:no-data>
-            <v-btn color="primary" @click="initialize">Cargar</v-btn>
+            <v-btn color="indigo" @click="initialize">Cargar</v-btn>
         </template>
     </v-data-table>
     </div>

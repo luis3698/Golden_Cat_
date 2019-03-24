@@ -9,6 +9,7 @@ import Inicio from './views/Principal/Inicio.vue'
 import Reservas from './views/Administrador/Reservas.vue'
 import QueEsGoldenCat from './views/Principal/Que_es_golden_cat.vue'
 import AdministrarUsuarios from './views/Administrador/AdministrarUsuarios.vue'
+import Realizarreserva from './views/Administrador/Realizarreserva.vue'
 
 Vue.use(Router)
 
@@ -65,6 +66,11 @@ export default new Router({
       path: '/administrarusuarios',
       name: 'adiministrarusuarios',
       component: AdministrarUsuarios
+    },
+    {
+      path: '/realizarreserva',
+      name: 'realizarreserva',
+      component: Realizarreserva
     }
   ]
 })
