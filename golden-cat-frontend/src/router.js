@@ -9,12 +9,9 @@ import Inicio from './views/Principal/Inicio.vue'
 import Reservas from './views/Administrador/Reservas.vue'
 import QueEsGoldenCat from './views/Principal/Que_es_golden_cat.vue'
 import AdministrarUsuarios from './views/Administrador/AdministrarUsuarios.vue'
-<<<<<<< HEAD
 import Realizarreserva from './views/Administrador/Realizarreserva.vue'
-
-=======
 import Login from './views/Principal/Login.vue'
->>>>>>> de2283dfc70dee6a3dd0aeee01478d2934ca0311
+
 Vue.use(Router)
 
 export default new Router({
@@ -72,15 +69,15 @@ export default new Router({
       component: AdministrarUsuarios
     },
     {
-<<<<<<< HEAD
       path: '/realizarreserva',
       name: 'realizarreserva',
       component: Realizarreserva
-=======
+    },
+    {
       path: '/login',
       name: 'login',
       component: Login
->>>>>>> de2283dfc70dee6a3dd0aeee01478d2934ca0311
+
     }
   ]
 })
