@@ -18,113 +18,118 @@
                 </v-btn>
         </v-toolbar>
 
-         <v-layout justify-center>
-    <v-flex md12>
-      <v-card ref="form">
-        <v-card-text>
-          <v-text-field
-            ref="nombre"
-            v-model="nombre"
-            :rules="[() => !!nombre || 'Este campo es requerido',
-            () => !!nombre && nombre.length <= 25 || 'Haz superado el maximo de caracteres']"
-            counter="25"
-            :error-messages="errorMessages"
-            label="Nombre completo"
+          <v-flex md12>
+            <v-card ref="form">
+              <v-card-text>
+                <v-text-field
+                  ref="nombre"
+                  v-model="nombre"
+                  :rules="[() => !!nombre || 'Este campo es requerido',
+                  () => !!nombre && nombre.length <= 25 || 'Haz superado el maximo de caracteres']"
+                  counter="25"
+                  :error-messages="errorMessages"
+                  label="Nombre completo"
 
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="identificacion"
-            v-model="identificacion"
-            :rules="[
-              () => !!identificacion || 'Este campo es requerido',
-              () => !!identificacion && identificacion.length <= 25 || 'Haz superado el maximo de caracteres']"
-            label="Identificación"
-            counter="25"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="correoelectronico"
-            v-model="correoelectronico"
-            :rules="[() => !!correoelectronico || 'Este campo es requerido',
-            () => !!correoelectronico && correoelectronico.length <= 25 || 'Haz superado el maximo de caracteres']"
-            label="Correo electronico"
-            counter="25"
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="fechaentrada"
-            v-model="fechaentrada"
-            :rules="[() => !!fechaentrada || 'Este campo es requerido']"
-            label="Fecha entrada"
-            required
-            placeholder="dd/mm/aa"
-          ></v-text-field>
-          <v-text-field
-            ref="fechasalida"
-            v-model="fechasalida"
-            :rules="[() => !!fechasalida || 'Este campo es requerido']"
-            label="Fecha salida"
-            required
-           placeholder="dd/mm/aa"
-          ></v-text-field>
-          <v-autocomplete
-            ref="personas"
-            v-model="personas"
-            :rules="[() => !!personas || 'Este campo es requerido',
-            ]"
-            :items="personass"
-            label="No. personas"
-            placeholder="Select..."
-            required
-          ></v-autocomplete>
-          <v-autocomplete
-            ref="adultos"
-            v-model="adultos"
-            :rules="[() => !!adultos || 'Este campo es requerido',
-            ]"
-            :items="adultoss"
-            label="No. adultos"
-            placeholder="Select..."
-            required
-          ></v-autocomplete>
-          <v-autocomplete
-            ref="niños"
-            v-model="niños"
-            :rules="[() => !!niños || 'Este campo es requerido']"
-            :items="niñoss"
-            label="No. niños"
-            placeholder="Select..."
-            required
-          ></v-autocomplete>
-        </v-card-text>
-        <v-divider class="mt-5"></v-divider>
-        <v-card-actions>
-          <v-btn flat>Cancelar</v-btn>
-          <v-spacer></v-spacer>
-          <v-slide-x-reverse-transition>
-            <v-tooltip
-              v-if="formHasErrors"
-              left
-            >
-              <template v-slot:activator="{ on }">
-                <v-btn
-                  icon
-                  class="my-0"
-                  @click="resetForm"
-                  v-on="on"
-                >
-                  <v-icon>refresh</v-icon>
-                </v-btn>
-              </template>
-              <span>Refresh form</span>
-            </v-tooltip>
-          </v-slide-x-reverse-transition>
-          <v-btn color="primary" flat @click="submit">Aceptar</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+                  required
+                ></v-text-field>
+                <v-text-field
+                  ref="identificacion"
+                  v-model="identificacion"
+                  :rules="[
+                    () => !!identificacion || 'Este campo es requerido',
+                    () => !!identificacion && identificacion.length <= 25 || 'Haz superado el maximo de caracteres']"
+                  label="Identificación"
+                  type="number"
+                  counter="25"
+                  required
+                ></v-text-field>
+                <v-text-field
+                  ref="correoelectronico"
+                  v-model="correoelectronico"
+                  :rules="[() => !!correoelectronico || 'Este campo es requerido',
+                  () => !!correoelectronico && correoelectronico.length <= 25 || 'Haz superado el maximo de caracteres']"
+                  label="Correo electronico"
+                  counter="25"
+                  required
+                ></v-text-field>
+                <v-text-field
+                  ref="fechaentrada"
+                  v-model="fechaentrada"
+                  :rules="[() => !!fechaentrada || 'Este campo es requerido']"
+                  label="Fecha entrada"
+                  type="number"
+                  required
+                  placeholder="dd/mm/aa"
+                ></v-text-field>
+                <v-text-field
+                  ref="fechasalida"
+                  v-model="fechasalida"
+                  :rules="[() => !!fechasalida || 'Este campo es requerido']"
+                  label="Fecha salida"
+                  type="number"
+                  required
+                placeholder="dd/mm/aa"
+                ></v-text-field>
+                <v-autocomplete
+                  ref="personas"
+                  v-model="personas"
+                  :rules="[() => !!personas || 'Este campo es requerido',
+                  ]"
+                  :items="personass"
+                  label="No. personas"
+                  tupe="number"
+                  placeholder="Select..."
+                  required
+                ></v-autocomplete>
+                <v-autocomplete
+                  ref="adultos"
+                  v-model="adultos"
+                  :rules="[() => !!adultos || 'Este campo es requerido',
+                  ]"
+                  :items="adultoss"
+                  label="No. adultos"
+                  type="number"
+                  placeholder="Select..."
+                  required
+                ></v-autocomplete>
+                <v-autocomplete
+                  ref="niños"
+                  v-model="niños"
+                  :rules="[() => !!niños || 'Este campo es requerido']"
+                  :items="niñoss"
+                  label="No. niños"
+                  type="number"
+                  placeholder="Select..."
+                  required
+                ></v-autocomplete>
+              </v-card-text>
+                <v-divider class="mt-5"></v-divider>
+              <v-card-actions>
+                <v-btn flat>Cancelar</v-btn>
+                  <v-spacer></v-spacer>
+                  <v-slide-x-reverse-transition>
+                    <v-tooltip
+                      v-if="formHasErrors"
+                      left
+                    >
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          icon
+                          class="my-0"
+                          @click="resetForm"
+                          v-on="on"
+                        >
+                          <v-icon>refresh</v-icon>
+                        </v-btn>
+                      </template>
+                      <span>Refresh form</span>
+                    </v-tooltip>
+                  </v-slide-x-reverse-transition>
+                <v-btn color="primary" flat @click="submit">Aceptar</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-flex>
+
     </div>
 </template>
 

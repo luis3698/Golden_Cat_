@@ -11,6 +11,7 @@ import QueEsGoldenCat from './views/Principal/Que_es_golden_cat.vue'
 import AdministrarUsuarios from './views/Administrador/AdministrarUsuarios.vue'
 import Realizarreserva from './views/Administrador/Realizarreserva.vue'
 import Login from './views/Principal/Login.vue'
+import Configuracionadmi from './views/Administrador/Configuracionadmi.vue'
 
 Vue.use(Router)
 
@@ -77,7 +78,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
-
+    },
+    {
+      path: '/configuracionadmi',
+      name: 'configuracionadmi',
+      component: Configuracionadmi
     }
   ]
 })
