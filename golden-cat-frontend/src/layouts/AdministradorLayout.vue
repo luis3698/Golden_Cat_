@@ -223,7 +223,7 @@ export default {
   })
 }
 
-</script> 
+</script>
 
 <style scoped >
     .v-toolbar__content{
