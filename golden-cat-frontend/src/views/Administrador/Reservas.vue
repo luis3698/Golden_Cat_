@@ -31,6 +31,7 @@
           solo
         ></v-text-field>
       </v-flex>
+      
       <v-btn><v-icon>search</v-icon></v-btn>
 
       <v-flex xs12 sm4>

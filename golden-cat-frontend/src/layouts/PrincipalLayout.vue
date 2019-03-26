@@ -70,8 +70,8 @@
   </div>
     </v-toolbar>
   <v-content>
-    <v-container fill-height>
-      <v-layout justify-center >
+    <v-container>
+      <v-layout row wrap>
         <router-view></router-view>
       </v-layout>
     </v-container>
@@ -113,6 +113,7 @@
 <script>
 import Logo from '@/assets/golden_cat.png'
 export default {
+  name: 'principal-layout',
   data: () => ({
 
     drawer: null,
