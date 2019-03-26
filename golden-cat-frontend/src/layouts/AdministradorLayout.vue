@@ -215,17 +215,8 @@ export default {
         icon: 'contact_phone',
         'icon-alt': 'contact_phone',
         text: 'Atención al cliente',
-        model: false,
-        children: [
-          { icon: 'gmail', text: 'Gmail' },
-          { icon: 'gmail', text: 'Hangoust' },
-          { icon: 'gmail', text: 'Outlook' },
-          { icon: 'gmail', text: 'Yahoo' },
-          { icon: 'web', text: 'Facebook' },
-          { icon: 'web', text: 'Instagram' },
-          { icon: 'web', text: 'Whatshap' },
-          { icon: 'web', text: 'Messenger' }
-        ] },
+        model: false
+      },
       { icon: 'spellcheck', text: 'Realizar reserva' }
     ]
   })
