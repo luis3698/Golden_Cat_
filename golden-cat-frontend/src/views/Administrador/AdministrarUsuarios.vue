@@ -47,37 +47,37 @@
                 </v-card>
             </v-dialog>
         </v-toolbar>
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      class="elevation-1"
-    >
-        <template v-slot:items="props">
-            <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.calories }}</td>
-            <td class="text-xs-right">{{ props.item.fat }}</td>
-            <td class="text-xs-right">{{ props.item.carbs }}</td>
-            <td class="text-xs-right">{{ props.item.protein }}</td>
-            <td class="justify-center layout px-0">
-            <v-icon
-                small
-                class="mr-2"
-                @click="editItem(props.item)"
-            >
-                edit
-            </v-icon>
-            <v-icon
-                small
-                @click="deleteItem(props.item)"
-            >
-                delete
-            </v-icon>
-            </td>
-        </template>
-        <template v-slot:no-data>
-            <v-btn color="indigo" @click="initialize">Cargar</v-btn>
-        </template>
-    </v-data-table>
+      <v-data-table
+        :headers="headers"
+        :items="desserts"
+        class="elevation-1"
+      >
+          <template v-slot:items="props">
+              <td>{{ props.item.name }}</td>
+              <td class="text-xs-right">{{ props.item.calories }}</td>
+              <td class="text-xs-right">{{ props.item.fat }}</td>
+              <td class="text-xs-right">{{ props.item.carbs }}</td>
+              <td class="text-xs-right">{{ props.item.protein }}</td>
+              <td class="justify-center layout px-0">
+              <v-icon
+                  small
+                  class="mr-2"
+                  @click="editItem(props.item)"
+              >
+                  edit
+              </v-icon>
+              <v-icon
+                  small
+                  @click="deleteItem(props.item)"
+              >
+                  delete
+              </v-icon>
+              </td>
+          </template>
+          <template v-slot:no-data>
+              <v-btn color="indigo" @click="initialize">Cargar</v-btn>
+          </template>
+      </v-data-table>
     </v-flex>
 </template>
 
@@ -135,77 +135,7 @@ export default {
   methods: {
     initialize () {
       this.desserts = [
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        },
-        {
-          name: '',
-          calories: '',
-          fat: '',
-          carbs: '',
-          protein: ''
-        }
+        
       ]
     },
 
