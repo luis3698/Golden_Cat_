@@ -1,14 +1,11 @@
 <template>
   <v-flex xs12 sm8 md4>
     <v-card class="elevation-12">
-      <v-toolbar dark color="primary">
-        <v-toolbar-title>Registrate</v-toolbar-title>
+      <v-toolbar dark color="indigo darken-4">
+        <v-toolbar-title>Regístrate</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
-            <!--<v-btn :href="source" icon large target="_blank" v-on="on">
-              <v-icon large>code</v-icon>
-            </v-btn>-->
           </template>
           <span>Source</span>
           </v-tooltip>
@@ -28,40 +25,39 @@
         </v-form>
       </v-card-text>
       <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn color="primary">Registrarse</v-btn>
+        <v-btn block class="indigo darken-4" to="/">Registrarse</v-btn>
+        <div>
+          <v-btn block class="indigo darken-4"to= "/">Iniciar Sesion</v-btn>
+        </div>
       </v-card-actions>
     </v-card>
-  </v-flex>
-</template>
 
+  </v-flex>
+
+</template>
 <style scoped>
 .v-toolbar__content {
     background-color: #efe8ec;
     height: 0px;
 }
-.v-toolbar__title {
-    font-size: 20px;
-    text-emphasis-color:red;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-title{
-    background-color: black;
-}
+
 .theme--dark.v-toolbar {
     background-color: #212121;
-    color: #080808;
+    color: white ;
 }
-:root {
-    --v-primary-base:#efe8ec;
- }
 
 :root {
-    --v-primary-base: #180aec;
+    --v-primary-base: #180aec ;
+
+  }
+  .v-btn__content {
+    color: white;
+
+}
+
+.v-btn {
+margin: 8px;
+padding: 10px 20px;
 
 }
 
