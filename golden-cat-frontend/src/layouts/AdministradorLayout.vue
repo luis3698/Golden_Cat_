@@ -86,7 +86,7 @@
           <v-menu
           v-model="menu"
           :close-on-content-click="false"
-          :nudge-width="200"
+          :nudge-width="80"
           offset-x
           >
             <template v-slot:activator="{ on }">
@@ -108,26 +108,16 @@
                     <v-list-tile-title>Administrador</v-list-tile-title>
                     <v-list-tile-sub-title>Michaell Sanchez</v-list-tile-sub-title>
                   </v-list-tile-content>
-                  <v-list-tile-action>
 
-                  </v-list-tile-action>
                 </v-list-tile>
               </v-list>
-              <v-divider></v-divider>
+
               <v-list>
                 <v-list-tile>
-                  <v-list-tile-action>
-                    <v-switch v-model="message" color="purple"></v-switch>
-                  </v-list-tile-action>
-                  <v-list-tile-title>Mensajes activos</v-list-tile-title>
+                  <v-btn small flat>configuracion<v-icon small>settings</v-icon></v-btn>
                 </v-list-tile>
-
               </v-list>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn flat @click="menu = false">Cancelar</v-btn>
-                <v-btn color="primary" flat @click="menu = false">Guardar</v-btn>
-              </v-card-actions>
+
             </v-card>
           </v-menu>
           <v-btn icon>
@@ -220,24 +210,13 @@ export default {
     drawer: null,
     items: [
       { icon: 'mode_edit', text: 'Reservas' },
-      { icon: 'view_module', text: 'Habitaciones' },
       { icon: 'supervisor_account', text: 'Administrar usuarios' },
       {
         icon: 'contact_phone',
         'icon-alt': 'contact_phone',
         text: 'Atención al cliente',
-        model: false,
-        children: [
-          { icon: 'gmail', text: 'Gmail' },
-          { icon: 'gmail', text: 'Hangoust' },
-          { icon: 'gmail', text: 'Outlook' },
-          { icon: 'gmail', text: 'Yahoo' },
-          { icon: 'web', text: 'Facebook' },
-          { icon: 'web', text: 'Instagram' },
-          { icon: 'web', text: 'Whatshap' },
-          { icon: 'web', text: 'Messenger' }
-        ] },
-      { icon: 'settings', text: 'Configuración' },
+        model: false
+      },
       { icon: 'spellcheck', text: 'Realizar reserva' }
     ]
   })
