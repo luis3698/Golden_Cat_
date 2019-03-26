@@ -1,6 +1,6 @@
 
 <template>
-  <v-app id="inspire">
+  <v-app id="inspire"  dark>
     <v-toolbar  dark  app color="indigo darken-4">
 
         <v-layout row wrap>
@@ -23,14 +23,14 @@
           <v-icon small>help</v-icon>
         </v-btn>
         <div class="text-xs-center">
-    <v-menu >
+    <v-menu posicion-x >
       <template v-slot:activator="{ on }">
         <v-btn v-on="on" small flat left> cuenta
           <v-icon small>account_circle</v-icon>
         </v-btn>
       </template>
 
-      <v-card >
+      <v-card>
         <v-list>
           <v-list-tile avatar>
             <v-list-tile-avatar>
@@ -48,7 +48,7 @@
 
         <v-list >
            <v-list-tile>
-            <v-btn small flat>reservas
+            <v-btn small flat >reservas
           <v-icon small>assignment</v-icon>
         </v-btn>
           </v-list-tile>
