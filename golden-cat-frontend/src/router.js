@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Registro from './views/Principal/Registro.vue'
-//import Contactos from './views/Principal/Contactos.vue'
+// import Contactos from './views/Principal/Contactos.vue'
 import Servicios from './views/Principal/Servicios.vue'
 
 import RestaurarContrasena from './views/Principal/restaurar_contraseña.vue'
 import Inicio from './views/Principal/Inicio.vue'
 import Reservas from './views/Administrador/Reservas.vue'
 import QueEsGoldenCat from './views/Principal/Que_es_golden_cat.vue'
+import contactanos from './views/Principal/contactanos.vue'
 
 Vue.use(Router)
 
@@ -54,6 +55,11 @@ export default new Router({
       path: '/reservas',
       name: 'reservas',
       component: Reservas
+    },
+    {
+      path: '/contactanos',
+      name: 'contactanos',
+      component: contactanos
     }
   ]
 })
