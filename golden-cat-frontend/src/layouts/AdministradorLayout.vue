@@ -7,7 +7,7 @@
         app
         v-model="drawer"
         width="250"
-        class="deep-purple"
+        class="blue darken-4"
       >
         <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
         <v-list dense style="color: white;">
@@ -71,7 +71,7 @@
         </v-list>
       </v-navigation-drawer>
         <v-toolbar
-        color="purple darken-4"
+        color="blue darken-4"
         dark
         app
         :clipped-left="$vuetify.breakpoint.mdAndUp"
@@ -84,6 +84,7 @@
           </v-toolbar-title>
           <v-spacer></v-spacer>
           <v-menu
+          color="blue darken-4"
           v-model="menu"
           :close-on-content-click="false"
           :nudge-width="80"
@@ -226,13 +227,13 @@ export default {
 </script>
 
 <style scoped >
-    .v-toolbar__content{
-        background-color: rgb(88, 22, 150);
-    }
     img{
       height: 70px;
       width: 40px;
       margin: -17px 0px;
       padding-top: 20px;
+    }
+        .v-content{
+          background-color: rgb(90, 81, 81)
     }
 </style>

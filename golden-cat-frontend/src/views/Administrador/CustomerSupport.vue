@@ -2,7 +2,7 @@
 
         <v-flex xs12 sm12 md12>
             <v-card>
-                <v-toolbar color="orange lighten-1" dark>
+                <v-toolbar color="blue darken-4" dark>
                     <v-toolbar-side-icon></v-toolbar-side-icon>
 
                     <v-toolbar-title>Message Board</v-toolbar-title>
