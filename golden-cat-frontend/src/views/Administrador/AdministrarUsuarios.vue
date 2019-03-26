@@ -135,7 +135,7 @@ export default {
   methods: {
     initialize () {
       this.desserts = [
-        
+
       ]
     },
 
