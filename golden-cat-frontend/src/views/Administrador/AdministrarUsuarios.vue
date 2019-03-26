@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-flex xs12 sm12 md12>
         <v-toolbar flat color="white" height="100px">
             <v-toolbar-title>Usuarios</v-toolbar-title>
             <v-divider
@@ -78,7 +78,7 @@
             <v-btn color="indigo" @click="initialize">Cargar</v-btn>
         </template>
     </v-data-table>
-    </div>
+    </v-flex>
 </template>
 
 <script>

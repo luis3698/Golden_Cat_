@@ -1,5 +1,5 @@
 <template>
-    <div>
+   <v-flex xs12 sm12 md12>
         <v-toolbar
         color="indigo"
         dark
@@ -130,7 +130,7 @@
             </v-card>
           </v-flex>
 
-    </div>
+   </v-flex>
 </template>
 
 <script>

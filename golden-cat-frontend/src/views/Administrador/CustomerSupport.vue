@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <v-flex xs12 sm8 md12>
+  
+        <v-flex xs12 sm12 md12>
             <v-card>
                 <v-toolbar color="orange lighten-1" dark>
                     <v-toolbar-side-icon></v-toolbar-side-icon>
@@ -49,7 +49,7 @@
                 </v-list>
             </v-card>
       </v-flex>
-    </div>
+ 
 </template>
 
 <script>

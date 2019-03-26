@@ -197,7 +197,8 @@
     </v-app>
   </div>
 </template>
-<script>
+
+<script scoped>
 
 export default {
   name: 'reservas',
@@ -222,7 +223,7 @@ export default {
   })
 }
 
-</script>
+</script> 
 
 <style scoped >
     .v-toolbar__content{
@@ -233,9 +234,5 @@ export default {
       width: 40px;
       margin: -17px 0px;
       padding-top: 20px;
-    }
-        .v-content{
-      background-image: url('../assets/fondo golden.jpg');
-      background-size: cover;
     }
 </style>
