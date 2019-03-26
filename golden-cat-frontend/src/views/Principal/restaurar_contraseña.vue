@@ -3,11 +3,11 @@
   <v-app id="inspire">
     <v-content>
       <v-container fluid fill-height>
-        <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4>
-            <v-card class="elevation-12">
-              <v-toolbar dark color="trasparent">
-                <v-toolbar-title>RESTAURA CONTRASEÑA </v-toolbar-title>
+        <v-layout justify-center>
+          <v-flex >
+            <v-card class="">
+              <v-toolbar dark color="">
+                <v-toolbar-title >RESTAURA CONTRASEÑA </v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tooltip bottom>
 
@@ -21,12 +21,12 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="red">Enviar Codigo de Restauracion </v-btn>
+                <v-btn depressed large color="black">Enviar Codigo de Restauracion </v-btn>
 
               </v-card-actions>
                <div>
-          <v-btn depressed large>iniciar sesion</v-btn>
-        </div>
+          <v-btn depressed large color="black">iniciar sesion</v-btn>
+            </div>
             </v-card>
 
           </v-flex>

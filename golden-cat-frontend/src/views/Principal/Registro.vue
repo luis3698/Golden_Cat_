@@ -1,7 +1,7 @@
 <template>
   <v-flex xs12 sm8 md4>
     <v-card class="elevation-12">
-      <v-toolbar dark color="primary">
+      <v-toolbar dark color="indigo darken-4">
         <v-toolbar-title>Regístrate</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-tooltip bottom>
@@ -25,9 +25,9 @@
         </v-form>
       </v-card-text>
       <v-card-actions>
-        <v-btn block class="purple darken-4">Registrarse</v-btn>
+        <v-btn block class="indigo darken-4">Registrarse</v-btn>
         <div>
-          <v-btn flat small color="primary">Primary</v-btn>
+          <v-btn block class="indigo darken-4">Iniciar Sesion</v-btn>
         </div>
       </v-card-actions>
     </v-card>
@@ -41,21 +41,25 @@
     height: 0px;
 }
 
-title{
-    background-color: black;
-}
 .theme--dark.v-toolbar {
     background-color: #212121;
-    color: #080808;
+    color: white ;
 }
-:root {
-    --v-primary-base:#efe8ec;
- }
 
 :root {
-    --v-primary-base: #180aec;
+    --v-primary-base: #180aec ;
 
   }
+  .v-btn__content {
+    color: white;
+
+}
+
+.v-btn {
+margin: 8px;
+padding: 10px 20px;
+
+}
 
 </style>
 
