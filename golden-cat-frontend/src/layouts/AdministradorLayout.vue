@@ -202,7 +202,7 @@
 <script scoped>
 
 export default {
-  name: 'reservas',
+  name: 'administrador-layout',
   data: () => ({
     fav: true,
     menu: false,
