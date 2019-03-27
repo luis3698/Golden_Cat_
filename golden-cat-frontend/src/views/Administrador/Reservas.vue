@@ -31,7 +31,7 @@
           solo
         ></v-text-field>
       </v-flex>
-      
+
       <v-btn><v-icon>search</v-icon></v-btn>
     <v-layout wrap  justify-space-between row>
      <template v-for="n in 6">
