@@ -10,16 +10,16 @@
         </v-layout>
         <v-spacer></v-spacer>
 
-        <v-btn small flat left>inicio
+        <v-btn small flat left to="/" >inicio
           <v-icon small>business</v-icon>
         </v-btn>
-        <v-btn small flat left>Servicios extra
+        <v-btn small flat left to= "/servicios">Servicios extra
           <v-icon small>bookmarks</v-icon>
         </v-btn>
-        <v-btn small flat left>Contactanos
+        <v-btn small flat left to="/contactanos">Contactanos
           <v-icon small>email</v-icon>
         </v-btn>
-        <v-btn small flat left>¿que es golden cat?
+        <v-btn small flat left to="Que_es_golden_cat">¿que es golden cat?
           <v-icon small>help</v-icon>
         </v-btn>
         <div class="text-xs-center">
@@ -28,7 +28,7 @@
         <v-btn v-on="on" small flat left> cuenta
           <v-icon small>account_circle</v-icon>
         </v-btn>
-      </template>
+       </template >
 
       <v-card>
         <v-list>
@@ -54,13 +54,13 @@
           </v-list-tile>
 
           <v-list-tile>
-            <v-btn small flat>configuracion
+            <v-btn small flat to="/configuracion">configuracion
           <v-icon small>settings</v-icon>
         </v-btn>
           </v-list-tile>
 
           <v-list-tile>
-            <v-btn small flat>cerrar sesion
+            <v-btn small flat to="/login">cerrar sesion
           <v-icon small>close</v-icon>
         </v-btn>
           </v-list-tile>
