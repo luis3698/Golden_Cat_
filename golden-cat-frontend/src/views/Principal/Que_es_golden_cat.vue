@@ -91,25 +91,25 @@
       <v-layout row wrap>
         <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="habitacion1" ></v-img>
+            <v-img  :src="camarera" ></v-img>
           </v-card-text>
         </v-flex >
 
          <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="habitacion3" ></v-img>
+            <v-img  :src="piscina1" ></v-img>
           </v-card-text>
         </v-flex >
 
       <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="piscina1" ></v-img>
+            <v-img  :src="habitacion1" ></v-img>
           </v-card-text>
         </v-flex >
 
         <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="almuerzo" ></v-img>
+            <v-img  :src="hotel" ></v-img>
           </v-card-text>
         </v-flex >
 
@@ -124,7 +124,7 @@
 
          <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="camarera" ></v-img>
+            <v-img  :src="habitacion3" ></v-img>
           </v-card-text>
         </v-flex >
 
@@ -136,7 +136,7 @@
 
         <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="hotel" ></v-img>
+            <v-img  :src="almuerzo" ></v-img>
           </v-card-text>
         </v-flex >
 
