@@ -4,6 +4,7 @@
   <div class="transparent text-xs-center">
       <h1 class="font-weight-regular. ">¿QUÉ ES GOLDEN CAT?</h1>
     </div>
+
 <v-card-text flatcolor="transparent">
       <v-layout row wrap>
         <v-flex d-flex xs3 sm md>
@@ -37,6 +38,12 @@
 
       </v-layout>
 </v-card-text>
+
+<template>
+  <div class="indigo darken-3 text-xs-center">
+    <span class="white--tex">Golden Cat</span>
+  </div>
+</template>
 
 <v-card-text>
       <v-layout row wrap>
@@ -84,7 +91,7 @@
       <v-layout row wrap>
         <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="hotel" ></v-img>
+            <v-img  :src="habitacion1" ></v-img>
           </v-card-text>
         </v-flex >
 
@@ -129,7 +136,7 @@
 
         <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="habitacion1" ></v-img>
+            <v-img  :src="hotel" ></v-img>
           </v-card-text>
         </v-flex >
 
