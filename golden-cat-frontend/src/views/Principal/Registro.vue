@@ -1,39 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <v-flex xs12 sm8 md4>
-    <v-card class="elevation-12">
-      <v-toolbar dark color="indigo darken-4">
-        <v-toolbar-title>Regístrate</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on }">
-          </template>
-          <span>Source</span>
-          </v-tooltip>
-        <!-- <v-tooltip right>
-          <template v-slot:activator="{ on }">
-            <v-btn icon large href="https://codepen.io/johnjleider/pen/wyYVVj" target="_blank" v-on="on">
-              <v-icon large>mdi-codepen</v-icon>
-            </v-btn>
-          </template>
-          <span>Codepen</span>
-        </v-tooltip> -->
-      </v-toolbar>
-      <v-card-text>
-        <v-form>
-          <v-text-field prepend-icon="person" name="Correo Electronico" label="Correo Electronico" type="text"></v-text-field>
-          <v-text-field id="Contraseña" prepend-icon="lock" name="Contraseña" label="Contraseña" type="Contraseña"></v-text-field>
-        </v-form>
-      </v-card-text>
-      <v-card-actions>
-        <v-btn block class="indigo darken-4" to="/">Registrarse</v-btn>
-        <div>
-          <v-btn block class="indigo darken-4" to= "/">Iniciar Sesion</v-btn>
-        </div>
-      </v-card-actions>
-    </v-card>
-=======
->>>>>>> 2f3947ae087e547f783aa9f161d106e29cc0c4b8
 
  <v-layout row>
         <v-flex xs6>
