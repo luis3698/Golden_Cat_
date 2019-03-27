@@ -5,7 +5,7 @@
                 <v-toolbar color="blue darken-4" dark>
                     <v-toolbar-side-icon></v-toolbar-side-icon>
 
-                    <v-toolbar-title>Message Board</v-toolbar-title>
+                    <v-toolbar-title>Mensajes recibidos</v-toolbar-title>
 
                     <v-spacer></v-spacer>
 

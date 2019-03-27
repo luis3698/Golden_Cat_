@@ -17,8 +17,8 @@
       <v-btn><v-icon>search</v-icon></v-btn>
     </v-layout>
     <v-layout wrap justify-space-around row>
-      <template v-for="n in 8">  
-        <v-flex xs12 sm3 :key="n">        
+      <template v-for="n in 8">
+        <v-flex xs12 sm3 :key="n">
           <v-card>
             <v-img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px"></v-img>
             <v-card-title primary-title>

@@ -8,11 +8,13 @@ import RestaurarContrasena from './views/Principal/restaurar_contraseña.vue'
 import Inicio from './views/Principal/Inicio.vue'
 import Reservas from './views/Administrador/Reservas.vue'
 import QueEsGoldenCat from './views/Principal/Que_es_golden_cat.vue'
+import contactanos from './views/Principal/contactanos.vue'
 import AdministrarUsuarios from './views/Administrador/AdministrarUsuarios.vue'
 import Realizarreserva from './views/Administrador/Realizarreserva.vue'
 import Login from './views/Principal/Login.vue'
 import Configuracionadmi from './views/Administrador/Configuracionadmi.vue'
 import CustomerSupport from './views/Administrador/CustomerSupport.vue'
+import Temporadas from './views/Administrador/Temporadas.vue'
 
 Vue.use(Router)
 
@@ -56,6 +58,11 @@ export default new Router({
       component: Reservas
     },
     {
+      path: '/contactanos',
+      name: 'contactanos',
+      component: contactanos
+    },
+    {
       path: '/configuracion',
       name: 'configuracion',
       component: Configuracion
@@ -84,6 +91,11 @@ export default new Router({
       path: '/customersupport',
       name: 'customersupport',
       component: CustomerSupport
+    },
+    {
+      path: '/temporadas',
+      name: 'temporadas',
+      component: Temporadas
     }
   ]
 })
