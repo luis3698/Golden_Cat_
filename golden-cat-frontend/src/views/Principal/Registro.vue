@@ -27,7 +27,7 @@
       <v-card-actions>
         <v-btn block class="indigo darken-4" to="/">Registrarse</v-btn>
         <div>
-          <v-btn block class="indigo darken-4"to= "/">Iniciar Sesion</v-btn>
+          <v-btn block class="indigo darken-4" to= "/">Iniciar Sesion</v-btn>
         </div>
       </v-card-actions>
     </v-card>
