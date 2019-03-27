@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Registro from './views/Principal/Registro.vue'
-// import Contactos from './views/Principal/Contactos.vue'
 import Servicios from './views/Principal/Servicios.vue'
 import Configuracion from './views/Principal/Configuracion.vue'
 import RestaurarContrasena from './views/Principal/restaurar_contraseña.vue'
@@ -15,6 +14,7 @@ import Login from './views/Principal/Login.vue'
 import Configuracionadmi from './views/Administrador/Configuracionadmi.vue'
 import CustomerSupport from './views/Administrador/CustomerSupport.vue'
 import Temporadas from './views/Administrador/Temporadas.vue'
+import ReservasCliente from './views/Principal/Reservas_Cliente.vue'
 
 Vue.use(Router)
 
@@ -32,11 +32,6 @@ export default new Router({
       name: 'registro',
       component: Registro
     },
-    // {
-    //   path: '/contactos',
-    //   name: 'contactos',
-    //   component: Contactos
-    // },
     {
       path: '/servicios',
       name: 'servicios',
@@ -96,6 +91,11 @@ export default new Router({
       path: '/temporadas',
       name: 'temporadas',
       component: Temporadas
+    },
+    {
+      path: '/Reservas_Cliente',
+      name: 'Reservas_Cliente',
+      component: ReservasCliente
     }
   ]
 })
