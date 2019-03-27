@@ -26,11 +26,6 @@ export default new Router({
       component: Inicio
     },
     {
-      path: '/inicio',
-      name: 'inicio',
-      component: Inicio
-    },
-    {
       path: '/registro',
       name: 'registro',
       component: Registro
