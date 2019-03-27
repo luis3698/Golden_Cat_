@@ -10,7 +10,7 @@
         </v-layout>
         <v-spacer></v-spacer>
 
-        <v-btn small flat left to="/inicio" >inicio
+        <v-btn small flat left to="/" >inicio
           <v-icon small>business</v-icon>
         </v-btn>
         <v-btn small flat left to= "/servicios">Servicios extra
