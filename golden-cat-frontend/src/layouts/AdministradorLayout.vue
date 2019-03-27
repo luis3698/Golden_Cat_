@@ -34,9 +34,9 @@
               :prepend-icon="item.model ? item.icon : item['icon-alt']"
               append-icon=""
             >
-              <v-list-tile slot="activator">
+              <v-list-tile slot="activator"  >
                 <v-list-tile-content>
-                  <v-list-tile-title>
+                  <v-list-tile-title >
                     {{ item.text }}
                   </v-list-tile-title>
                 </v-list-tile-content>
@@ -44,7 +44,6 @@
               <v-list-tile
                 v-for="(child, i) in item.children"
                 :key="i"
-                @click=""
 
               >
                 <v-list-tile-action v-if="child.icon">
@@ -57,7 +56,7 @@
                 </v-list-tile-content>
               </v-list-tile>
             </v-list-group>
-            <v-list-tile v-else @click="" :key="item.text">
+            <v-list-tile  @click="clicMenu(item)" :key="item.text">
               <v-list-tile-action>
                 <v-icon>{{ item.icon }}</v-icon>
               </v-list-tile-action>
@@ -115,7 +114,7 @@
 
               <v-list>
                 <v-list-tile>
-                  <v-btn small flat>configuracion<v-icon small>settings</v-icon></v-btn>
+                  <v-btn small flat to="/configuracionadmi">configuracion<v-icon small>settings</v-icon></v-btn>
                 </v-list-tile>
               </v-list>
 
@@ -203,6 +202,12 @@
 
 export default {
   name: 'administrador-layout',
+  methods: {
+    clicMenu (value) {
+      console.log(value.link)
+      this.$router.push(value.link)
+    }
+  },
   data: () => ({
     fav: true,
     menu: false,
@@ -210,16 +215,18 @@ export default {
     hints: true,
     dialog: false,
     drawer: null,
+
     items: [
-      { icon: 'mode_edit', text: 'Reservas' },
-      { icon: 'supervisor_account', text: 'Administrar usuarios' },
+      { icon: 'mode_edit', text: 'Reservas', link: '/reservas' },
+      { icon: 'supervisor_account', text: 'Administrar usuarios', link: '/administrarusuarios' },
       {
         icon: 'contact_phone',
         'icon-alt': 'contact_phone',
         text: 'Atención al cliente',
+        link: 'customersupport',
         model: false
       },
-      { icon: 'spellcheck', text: 'Realizar reserva' }
+      { icon: 'spellcheck', text: 'Realizar reserva', link: 'realizarreserva' }
     ]
   })
 }
