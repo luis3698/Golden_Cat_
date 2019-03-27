@@ -8,16 +8,16 @@
                             <v-container >
                                 <v-layout wrap>
                                     <v-flex xs12 md6>
-                                    <v-text-field class="purple-input" label="Usuario" outline/>
+                                    <v-text-field class="purple-input" label="Usuario" solo/>
                                     </v-flex>
                                     <v-flex xs12 md6>
-                                    <v-text-field label="Correo electronico" class="purple-input" outline/>
+                                    <v-text-field label="Correo electronico" class="purple-input" solo/>
                                     </v-flex>
                                     <v-flex xs12 md6 >
-                                    <v-text-field label="Nombres" class="purple-input" outline/>
+                                    <v-text-field label="Nombres" class="purple-input" solo/>
                                     </v-flex>
                                     <v-flex xs12 md6>
-                                    <v-text-field label="Apellidos" class="purple-input" outline/>
+                                    <v-text-field label="Apellidos" class="purple-input" solo/>
                                     </v-flex>
                                     <v-flex md12>
                                     <v-text-field
@@ -30,14 +30,14 @@
                                         value=""
                                         class="input-group--focused"
                                         @click:append="show3 = !show3"
-                                        outline
+                                        solo
                                     ></v-text-field>
                                     </v-flex>
                                     <v-flex xs12 md4>
-                                    <v-text-field label="Ciudad" class="purple-input" outline/>
+                                    <v-text-field label="Ciudad" class="purple-input" solo/>
                                     </v-flex>
                                     <v-flex xs12 md4>
-                                    <v-text-field label="Pais"  class="purple-input" outline/>
+                                    <v-text-field label="Pais"  class="purple-input" solo/>
                                     </v-flex>
                                     <v-flex
                                     xs12
@@ -46,7 +46,7 @@
                                         class="purple-input"
                                         label="Telefono"
                                         type="number"
-                                        outline/>
+                                        solo/>
                                     </v-flex>
                                     <v-flex xs12>
 
@@ -60,6 +60,13 @@
                                         color="success"
                                     >
                                         Actualizar perfil
+                                    </v-btn>
+                                    <v-spacer></v-spacer>
+                                    <v-btn
+                                        class="mx-0 font-weight-light"
+                                        color="success"
+                                    >
+                                        Configurar temporada
                                     </v-btn>
                                     </v-flex>
                                 </v-layout>
