@@ -53,14 +53,7 @@ export default {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
   },
   data: () => ({
-    show1: false,
-    show2: false,
-    show3: false,
-    show4: false,
-    show5: false,
-    show6: false,
-    show7: false,
-    show8: false
+    show1: false
   })
 }
 </script>
