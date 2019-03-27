@@ -65,6 +65,7 @@
                                     <v-btn
                                         class="mx-0 font-weight-light"
                                         color="success"
+                                       
                                     >
                                         Configurar temporada
                                     </v-btn>
