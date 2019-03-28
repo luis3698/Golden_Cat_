@@ -25,7 +25,7 @@
                 </v-form>
               </v-card-text>
               <v-card-text class="text-xs-center">
-                   <v-btn color="indigo darken-4"   to="/login" >olvide mi contraseña</v-btn>
+                   <v-btn color="indigo darken-4"   to="/login" >Enviar correo</v-btn>
                  </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>

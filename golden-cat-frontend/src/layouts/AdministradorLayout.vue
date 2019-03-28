@@ -120,7 +120,7 @@
 
             </v-card>
           </v-menu>
-          <v-btn icon>
+          <v-btn icon to="/login">
             <v-icon>power_settings_new</v-icon>
           </v-btn>
         </v-toolbar>
