@@ -1,0 +1,9 @@
+{
+  "name": "@golden-cat/errors",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}
