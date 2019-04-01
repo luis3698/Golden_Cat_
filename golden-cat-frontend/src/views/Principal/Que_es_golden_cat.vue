@@ -97,13 +97,13 @@
 
          <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="piscina1" ></v-img>
+            <v-img  :src="habitacion1" ></v-img>
           </v-card-text>
         </v-flex >
 
       <v-flex d-flex xs3 sm md>
           <v-card-text flatcolor="transparent" >
-            <v-img  :src="habitacion1" ></v-img>
+            <v-img  :src="piscina1" ></v-img>
           </v-card-text>
         </v-flex >
 
@@ -152,6 +152,18 @@ import PISCINA1 from '@/assets/piscina1.jpg'
 import ALMUERZO from '@/assets/almuerzo.png'
 import GYM from '@/assets/gym.jpg'
 import CAMARERA from '@/assets/camarera.jpg'
+
+
+
+
+
+
+
+
+
+
+
+
 import HABITACION2 from '@/assets/habitacion2.png'
 import HABITACION1 from '@/assets/habitacion1.png'
 import HABITACION3 from '@/assets/habitacion3.png'
