@@ -35,7 +35,6 @@
                             :key="item.title"
                             avatar
                             ripple
-                            @click=""
                         >
                             <v-list-tile-avatar>
                             <img :src="item.avatar">
