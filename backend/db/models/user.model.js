@@ -27,4 +27,5 @@ module.exports = function setupMetricModel (config) {
       allowNull: false
     }
   })
+  
 }

@@ -12,6 +12,7 @@ module.exports = async function (config) {
 
   CountryModel.hasMany(UserModel)
   UserModel.belongsTo(CountryModel)
+  
 
   await sequelize.authenticate()
 

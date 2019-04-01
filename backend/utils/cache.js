@@ -1,12 +1,10 @@
 'use strict'
 
-const cache = require('./cache')
-const terminate = require('./terminate')
-const { getLogger, logHandler } = require('./logger')
+const LRU = require('lru-cache')
 
-module.exports = {
-  cache,
-  terminate,
-  getLogger,
-  logHandler
-}
+const cache = new LRU({
+  max: 100,
+  maxAge: 1000 * 60 * 60 // 1 hour
+})
+
+module.exports = cache

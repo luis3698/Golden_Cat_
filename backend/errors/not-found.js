@@ -5,6 +5,7 @@ class NotFound extends Error {
     super(...args)
     this.name = this.constructor.name
     this.code = 404
+    
     Error.captureStackTrace(this, NotFound)
   }
 }

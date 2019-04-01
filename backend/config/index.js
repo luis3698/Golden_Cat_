@@ -12,6 +12,7 @@ const config = {
   }
 }
 
+
 Object.assign(config, { pkg })
 
 module.exports = config

@@ -8,5 +8,4 @@ class BadRequest extends Error {
     Error.captureStackTrace(this, BadRequest)
   }
 }
-
 module.exports = BadRequest
