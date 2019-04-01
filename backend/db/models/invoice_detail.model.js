@@ -23,7 +23,7 @@ module.exports = function setupMetricModel(config) {
             allowNull: false
         },
         value: {
-             type: Sequelize.TEXT,
+             type: Sequelize.INTEGER,
              allowNull: false
          }
     })
