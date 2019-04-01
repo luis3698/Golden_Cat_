@@ -9,6 +9,7 @@ module.exports = async function (config) {
   const sequelize = setupDatabase(config)
   const UserModel = setupUserModel(config)
   const CountryModel = setupCountryModel(config)
+  
 
   CountryModel.hasMany(UserModel)
   UserModel.belongsTo(CountryModel)
