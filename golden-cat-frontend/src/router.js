@@ -15,6 +15,7 @@ import Configuracionadmi from './views/Administrador/Configuracionadmi.vue'
 import CustomerSupport from './views/Administrador/CustomerSupport.vue'
 import Temporadas from './views/Administrador/Temporadas.vue'
 import ReservasCliente from './views/Principal/Reservas_Cliente.vue'
+import Contabilidad from './views/Administrador/Contabilidad.vue'
 
 Vue.use(Router)
 
@@ -96,6 +97,11 @@ export default new Router({
       path: '/Reservas_Cliente',
       name: 'Reservas_Cliente',
       component: ReservasCliente
+    },
+    {
+      path: '/contabilidad',
+      name: 'contabilidad',
+      component: Contabilidad
     }
   ]
 })

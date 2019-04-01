@@ -48,7 +48,7 @@
 
         <v-list >
            <v-list-tile>
-            <v-btn small flat >reservas
+            <v-btn small flat to="/Reservas_Cliente" >reservas
           <v-icon small>assignment</v-icon>
         </v-btn>
           </v-list-tile>
