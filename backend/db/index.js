@@ -35,6 +35,8 @@ module.exports = async function (config) {
 
     UserModel.hasMany(UserModel)
     InvoceModel.belongsTo(InvoceModel)
+
+    
   await sequelize.authenticate()
 
   if (config.setup) {
