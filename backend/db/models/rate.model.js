@@ -11,20 +11,20 @@ module.exports = function setupMetricModel (config) {
       defaultValue: Sequelize.UUIDV4
     },
     room: {
-      type:Sequelize.TEXT,
+      type: Sequelize.TEXT,
       allowNull: false
     },
     season: {
-      type:Sequelize.TEXT,
+      type: Sequelize.TEXT,
       allowNull: false
     },
     value_adult: {
-      type:Sequelize.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     value_children: {
-      type:Sequelize.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false
     }
-})
+  })
 }

@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize')
 const setupDatabase = require('../lib/db')
 
-module.exports = function setupMetricModel(config) {
+module.exports = function setupMetricModel (config) {
   const sequelize = setupDatabase(config)
   return sequelize.define('invoice_detail', {
     uuid: {
@@ -25,7 +25,6 @@ module.exports = function setupMetricModel(config) {
     value: {
       type: Sequelize.INTEGER,
       allowNull: false
-      }
-    })
-    
+    }
+  })
 }

@@ -17,7 +17,7 @@ const levels = {
   error: chalk.red,
   warn: chalk.yellow,
   debug: chalk.magenta
-  
+
 }
 
 const rotator = streamFile({

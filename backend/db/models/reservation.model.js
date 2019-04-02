@@ -10,7 +10,7 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-    id_type_room:{
+    id_type_room: {
       type: Sequelize.CHAR(36),
       allowNull: false
     },
@@ -18,14 +18,13 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.DATE,
       allowNull: false
     },
-    date_exit:{
+    date_exit: {
       type: Sequelize.DATE,
       allowNull: false
     },
     state: {
-      type:Sequelize.CHAR(36),
+      type: Sequelize.CHAR(36),
       allowNull: false
     }
   })
 }
- 

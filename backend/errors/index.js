@@ -6,5 +6,5 @@ const BadRequest = require('./bad-request')
 module.exports = {
   NotFound,
   BadRequest
-  
+
 }

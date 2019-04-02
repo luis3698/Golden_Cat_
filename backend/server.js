@@ -4,7 +4,7 @@ const http = require('http')
 const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
-const { errorHandler, /*media, image,*/ home } = require('@golden-cat/api')
+const { errorHandler, /* media, image, */ home } = require('@golden-cat/api')
 const { getLogger, logHandler, terminate } = require('@golden-cat/utils')
 
 const app = express()

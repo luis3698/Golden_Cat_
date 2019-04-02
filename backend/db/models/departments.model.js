@@ -10,7 +10,7 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-    code:{
+    code: {
       type: Sequelize.CHAR(36),
       allowNull: false
     },
@@ -18,7 +18,7 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       allowNull: false
     },
-    country:{
+    country: {
       type: Sequelize.CHAR(36),
       allowNull: false
     }

@@ -11,7 +11,6 @@ function terminate (code, reason) {
       params.error = error
       params.message = error.message
       params.stack = error.stack
-      
     }
 
     if (p) {

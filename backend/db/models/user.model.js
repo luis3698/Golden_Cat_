@@ -11,11 +11,11 @@ module.exports = function setupMetricModel (config) {
       defaultValue: Sequelize.UUIDV4
     },
     typeUser: {
-      type:Sequelize.TEXT,
+      type: Sequelize.TEXT,
       allowNull: false
     },
     name: {
-      type:Sequelize.TEXT,
+      type: Sequelize.TEXT,
       allowNull: false
     },
     lastName: {
@@ -27,5 +27,4 @@ module.exports = function setupMetricModel (config) {
       allowNull: false
     }
   })
-  
 }

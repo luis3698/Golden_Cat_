@@ -11,7 +11,7 @@ module.exports = function setupMetricModel (config) {
       defaultValue: Sequelize.UUIDV4
     },
     name: {
-      type:Sequelize.TEXT,
+      type: Sequelize.TEXT,
       allowNull: false
     },
     type: {
@@ -25,22 +25,22 @@ module.exports = function setupMetricModel (config) {
     namber_adult: {
       type: Sequelize.TEXT,
       allowNull: false
-     },
+    },
     namber_children: {
       type: Sequelize.TEXT,
       allowNull: false
-     },
+    },
     value_adult: {
-      type:Sequelize.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false
-     },
-     value_children: {
-      type:Sequelize.INTEGER,
+    },
+    value_children: {
+      type: Sequelize.INTEGER,
       allowNull: false
-     },
-     service_room: {
-      type:Sequelize.TEXT,
+    },
+    service_room: {
+      type: Sequelize.TEXT,
       allowNull: false
-     }
+    }
   })
 }

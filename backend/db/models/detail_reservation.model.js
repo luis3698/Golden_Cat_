@@ -10,7 +10,7 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-    reservation:{
+    reservation: {
       type: Sequelize.CHAR(36),
       allowNull: false
     },
@@ -19,15 +19,15 @@ module.exports = function setupMetricModel (config) {
       allowNull: false
     },
     namber_adult: {
-      type:  Sequelize.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     namber_children: {
-      type:  Sequelize.INTEGER,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
-    value:{
-      type: Sequelize.INTEGER ,
+    value: {
+      type: Sequelize.INTEGER,
       allowNull: false
     }
   })

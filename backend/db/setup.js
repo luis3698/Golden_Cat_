@@ -8,7 +8,6 @@ const { db } = require('@golden-cat/config')
 const log = getLogger(__dirname, __filename)
 
 const prompt = inquirer.createPromptModule()
-
 async function setup () {
   const answer = await prompt([
     {
