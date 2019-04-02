@@ -28,3 +28,4 @@ module.exports = function setupMetricModel (config) {
     }
   })
 }
+ 

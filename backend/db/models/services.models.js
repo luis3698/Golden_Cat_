@@ -18,10 +18,10 @@ module.exports = function setupMetricModel(config) {
             type: Sequelize.TEXT,
             allowNull: false
         },
-      pressure: {
+        pressure: {
             type: Sequelize.TEXT,
             allowNull: false
-        }
-    })
+            }
+        })
 
-}
+    }
