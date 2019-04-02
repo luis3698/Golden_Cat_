@@ -14,10 +14,6 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.TEXT,
       allowNull: false
     },
-    invoice: {
-      type: Sequelize.TEXT,
-      allowNull: false
-    },
     service: {
       type: Sequelize.TEXT,
       allowNull: false
