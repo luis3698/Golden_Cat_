@@ -10,10 +10,7 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-    season: {
-      type: Sequelize.CHAR(36),
-      allowNull: false
-    },
+
     date: {
       type: Sequelize.DATE,
       allowNull: false

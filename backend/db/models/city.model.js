@@ -17,10 +17,8 @@ module.exports = function setupMetricModel (config) {
     name: {
       type: Sequelize.CHAR(36),
       allowNull: false
-    },
-    department: {
-      type: Sequelize.CHAR(36),
-      allowNull: false
+      
     }
+
   })
 }

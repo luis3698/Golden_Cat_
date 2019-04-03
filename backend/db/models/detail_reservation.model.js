@@ -10,14 +10,7 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-    reservation: {
-      type: Sequelize.CHAR(36),
-      allowNull: false
-    },
-    room: {
-      type: Sequelize.CHAR(36),
-      allowNull: false
-    },
+    
     namber_adult: {
       type: Sequelize.INTEGER,
       allowNull: false
