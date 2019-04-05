@@ -1,30 +1,35 @@
 <template>
-      <v-tabs v-model="active" color="cyan" dark  slider-color="yellow" >
-        <v-tab v-for="n in 3" :key="n" ripple  >
-          Item {{ n }}
-        </v-tab>
+ 
+   <v-footer
+    dark
+    height="auto"
+  >
+    <v-card
+      class="flex"
+      flat
+      tile
+    >
+      <v-card-title class="teal">
+        <strong class="subheading">Get connected with us on social networks!</strong>
 
-        <v-tab-item v-for="n in 3" :key="n">
-          <v-card flat>
-            <v-card-text>{{ text }}</v-card-text>
-          </v-card>
-        </v-tab-item>
+        <v-spacer></v-spacer>
 
-        <v-tab-item v-for="n in 3" :key="n">
-          <v-card flat>
-            <v-card-text>{{ text }}</v-card-text>
-          </v-card>
-        </v-tab-item>
+        <v-btn
+          v-for="icon in icons"
+          :key="icon"
+          class="mx-3"
+          dark
+          icon
+        >
+          <v-icon size="24px">{{ icon }}</v-icon>
+        </v-btn>
+      </v-card-title>
 
-        <v-tab-item v-for="n in 3" :key="n">
-          <v-card flat>
-            <v-card-text>{{ text }}</v-card-text>
-          </v-card>
-        </v-tab-item>
-      </v-tabs>
-
-      
-
+      <v-card-actions class="grey darken-3 justify-center">
+        &copy;2018 — <strong>Vuetify</strong>
+      </v-card-actions>
+    </v-card>
+  </v-footer>
 </template>
 
 
