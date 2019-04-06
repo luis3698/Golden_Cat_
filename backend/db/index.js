@@ -41,7 +41,7 @@ module.exports = async function(config) {
   Invoice_DetailModel.belongsTo(InvoiceModel)
 
   ServicesModel.hasMany(Invoice_DetailModel)
-  Invoce_DetailModel.belongsTo(ServicesDetailModel)
+  Invoice_DetailModel.belongsTo(ServicesDetailModel)
 
   UserModel.hasMany(InvoiceModel)
   InvoiceModel.belongsTo(UserModel)
