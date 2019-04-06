@@ -23,12 +23,7 @@
         </v-tab-item>
       </v-tabs>
 
-      
-
 </template>
-
-
-
 
 <script>
 export default {
@@ -38,7 +33,7 @@ export default {
   }
 }
 </script>
-  
+
 <style>
 
 </style>

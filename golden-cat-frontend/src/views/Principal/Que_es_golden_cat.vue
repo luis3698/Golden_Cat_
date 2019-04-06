@@ -153,17 +153,6 @@ import ALMUERZO from '@/assets/almuerzo.png'
 import GYM from '@/assets/gym.jpg'
 import CAMARERA from '@/assets/camarera.jpg'
 
-
-
-
-
-
-
-
-
-
-
-
 import HABITACION2 from '@/assets/habitacion2.png'
 import HABITACION1 from '@/assets/habitacion1.png'
 import HABITACION3 from '@/assets/habitacion3.png'
