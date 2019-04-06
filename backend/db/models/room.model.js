@@ -14,10 +14,7 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.TEXT,
       allowNull: false
     },
-    type: {
-      type: Sequelize.TEXT,
-      allowNull: false
-    },
+    
     state_activeinactiva: {
       type: Sequelize.TEXT,
       allowNull: false
@@ -37,10 +34,7 @@ module.exports = function setupMetricModel (config) {
     value_children: {
       type: Sequelize.INTEGER,
       allowNull: false
-    },
-    service_room: {
-      type: Sequelize.TEXT,
-      allowNull: false
+
     }
   })
 }

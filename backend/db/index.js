@@ -20,84 +20,66 @@ module.exports = async function(config) {
   const sequelize = setupDatabase(config)
   const UserModel = setupUserModel(config)
   const CountryModel = setupCountryModel(config)
-
+  const RateModel = setupRateModel(config)
+  const RoomModel = setupRoomModel(config)
+  const Invoice_DetailModel = setupInvoice_DetailModel(config)
+  const InvoiceModel = setupInvoiceModel(config)
+  const ServicesModel = setupServicesModel(config)
+  const ReservationModel = setupReservationModel(config)
+  const Detail_ReservationModel = setupDetail_ReservationModel(config)
+  const CityModel = setupCityModel(config)
+  const DepartmentsModel = setupDepartmentsModel(config)
+  const Type_RoomModel = setupType_RoomModel(config)
+  const Season_DateModel = setupSeason_DateModel(config)
+  const SeasonModel = setupSeasonModel(config)
+  
+  
   CountryModel.hasMany(UserModel)
   UserModel.belongsTo(CountryModel)
 
-   const Invoice_DetailModel = setupInvoice_DetailModel(config)
-   const InvoiceModel = setupInvoiceModel(config)
+  InvoiceModel.hasMany(Invoice_DetailModel)
+  Invoice_DetailModel.belongsTo(InvoiceModel)
 
-   InvoiceModel.hasMany(Invoice_DetailModel)
-   Invoice_DetailModel.belongsTo(InvoiceModel)
-
-   const Invoice_DetailModel = setupInvoice_DetailModel(config)
-   const ServicesModel = setupServicesModel(config)
-
-   ServicesModel.hasMany(Invoice_DetailModel)
-   Invoce_DetailModel.belongsTo(ServicesDetailModel)
-
-  const InvoiceModel = setupInvoiceModel(config)
-  const UserModel = setupUserModel(config)
+  ServicesModel.hasMany(Invoice_DetailModel)
+  Invoice_DetailModel.belongsTo(ServicesModel)
 
   UserModel.hasMany(InvoiceModel)
   InvoiceModel.belongsTo(UserModel)
 
- const InvoiceModel = setupInvoiceModel(config)
- const ReservationModel = setupReservationModel(config)
+  ReservationModel.hasMany(InvoiceModel)
+  InvoiceModel.belongsTo(ReservationModel)
 
- ReservationModel.hasMany(InvoiceModel)
- InvoiceModel.belongsTo(ReservationModel)
+  Detail_ReservationModel.hasMany(ReservationModel)
+  ReservationModel.belongsTo(Detail_ReservationModel)
 
- const ReservationModel = setupReservationnModel(config)
- const Detail_ReservationModel = setupDetail_ReservationModel(config)
-
- Detail_ReservationModel.hasMany(ReservationModel)
- ReservationModel.belongsTo(Detail_ReservationModel)
-
- const Detail_ReservationModel = setupDetail_ReservationModel(config)
- const RoomModel = setupRoomModel(config)
 
  RoomModel.hasMany(Detail_ReservationModel)
  Detail_ReservationModel.belongsTo(RoomModel)
 
- const CityModel = setupCityModel(config)
- const DepartmentsModel = setupDepartamentsModel(config)
 
  DepartmentsModel.hasMany(CityModel)
  CityModel.belongsTo(DepartmentsModel)
 
- const DepartmentsModel = setupDepartmentsModel(config)
- const CountryModel = setupCountryModel(config)
+ 
 
  CountryModel.hasMany(DepartmentsModel)
  DepartmentsModel.belongsTo(CountryModel)
 
- const ServicesModel = setupServicesModel(config)
- const RoomModel = setupRoomModel(config)
-
  RoomModel.hasMany(ServicesModel)
  ServicesModel.belongsTo(RoomModel)
 
- const Type_RoomModel = setupType_RoomModel(config)
- const RoomModel = setupRoomModel(config)
 
  RoomModel.hasMany(Type_RoomModel)
  Type_RoomModel.belongsTo(RoomModel)
 
- const Season_DateModel = setupSeason_DateModel(config)
- const SeasonModel = setupSeasonModel(config)
 
  SeasonModel.hasMany(Season_DateModel)
  Season_DateModel.belongsTo(SeasonModel)
 
- const RateModel = setupRateModel(config)
- const SeasonModel = setupSeasonModel(config)
 
  SeasonModel.hasMany(RateModel)
  RateModel.belongsTo(SeasonModel)
 
- const RateModel = setupRateModel(config)
- const RoomModel = setupRoomModel(config)
 
  RoomModel.hasMany(RateModel)
  RateModel.belongsTo(RoomModel)
