@@ -28,7 +28,6 @@ module.exports = async function(config) {
   const ReservationModel = setupReservationModel(config)
   const Detail_ReservationModel = setupDetail_ReservationModel(config)
   const CityModel = setupCityModel(config)
-  const DepartmentsModel = setupDepartamentsModel(config)
   const DepartmentsModel = setupDepartmentsModel(config)
   const Type_RoomModel = setupType_RoomModel(config)
   const Season_DateModel = setupSeason_DateModel(config)
