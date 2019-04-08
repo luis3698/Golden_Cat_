@@ -32,9 +32,6 @@
   </v-footer>
 </template>
 
-
-
-
 <script>
 export default {
   name: 'inicio',
@@ -43,7 +40,7 @@ export default {
   }
 }
 </script>
-  
+
 <style>
 
 </style>
