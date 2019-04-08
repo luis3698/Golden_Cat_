@@ -18,7 +18,7 @@
     </v-layout>
     <v-layout wrap justify-space-around row>
       <template v-for="n in 8">
-        <v-flex xs12 sm3 :key="n">
+        <v-flex xs12 sm3 :key="n" mb-3>
           <v-card>
             <v-img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px"></v-img>
             <v-card-title primary-title>
@@ -58,5 +58,4 @@ export default {
 }
 </script>
 <style>
-
 </style>

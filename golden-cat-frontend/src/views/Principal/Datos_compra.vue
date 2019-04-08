@@ -1,5 +1,7 @@
 <template>
-    <h1>puto michael</h1>
+    <div>
+      
+    </div>
 </template>
 <script>
 export default {
