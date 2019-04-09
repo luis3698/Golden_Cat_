@@ -1,5 +1,5 @@
 <template>
- 
+
    <v-footer
     dark
     height="auto"

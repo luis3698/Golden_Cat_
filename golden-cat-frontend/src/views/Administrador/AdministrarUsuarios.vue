@@ -11,14 +11,20 @@
                               <v-flex xs12 md6>
                               <v-text-field class="purple-input" label="Usuario" solo/>
                               </v-flex>
-                              <v-flex xs12 md6>
+                              <v-flex
+                              xs12
+                              md6>
+                              <v-text-field
+                                  class="purple-input"
+                                  label="Telefono"
+                                  type="number"
+                                  solo/>
+                              </v-flex>
+                              <v-flex xs12 md12>
                               <v-text-field label="Correo electronico" class="purple-input" solo/>
                               </v-flex>
-                              <v-flex xs12 md6 >
-                              <v-text-field label="Nombres" class="purple-input" solo/>
-                              </v-flex>
-                              <v-flex xs12 md6>
-                              <v-text-field label="Apellidos" class="purple-input" solo/>
+                              <v-flex xs12 md12 >
+                              <v-text-field label="Nombres y apellidos" class="purple-input" solo/>
                               </v-flex>
                               <v-flex md6>
                               <v-text-field
@@ -34,22 +40,9 @@
                                   solo
                               ></v-text-field>
                               </v-flex>
-                              <v-flex xs12 md6>
-                              <v-text-field label="Ciudad" class="purple-input" solo/>
+                              <v-flex xs12 md6 >
+                              <v-text-field label="Identificación" class="purple-input" solo/>
                               </v-flex>
-                              <v-flex xs12 md6>
-                              <v-text-field label="Pais"  class="purple-input" solo/>
-                              </v-flex>
-                              <v-flex
-                              xs12
-                              md6>
-                              <v-text-field
-                                  class="purple-input"
-                                  label="Telefono"
-                                  type="number"
-                                  solo/>
-                              </v-flex>
-
                               <v-flex
                               xs12 md1
                               text-xs-right
@@ -58,7 +51,7 @@
 
                                   color="success"
                               >
-                                  Actualizar perfil
+                                  Guardar usuario
                               </v-btn>
                               </v-flex>
                           </v-layout>
@@ -121,97 +114,31 @@ export default {
           sortable: false,
           value: 'name'
         },
-        { text: 'Codigo', value: 'calories' },
-        { text: 'Identificación', value: 'fat' },
-        { text: 'Carbs (g)', value: 'carbs' },
-        { text: 'Protein (g)', value: 'protein' },
-        { text: 'Iron (%)', value: 'iron' }
+        { text: 'Usuario', value: 'calories', align: 'center' },
+        { text: 'Identificación', value: 'fat', align: 'center' },
+        { text: 'Correo', value: 'carbs', align: 'center' },
+        { text: 'Telefono', value: 'protein', align: 'center' },
+        { text: 'Acciones', value: 'iron' }
       ],
       desserts: [
         {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          iron: '1%'
+          name: 'Maicol Sánchez',
+          calories: 'Maicky',
+          fat: 10456456,
+          carbs: 'mssanchez@gmail.com',
+          protein: 345435345
         },
         {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          iron: '1%'
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: '7%'
-        },
-        {
-          name: 'Cupcake',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          iron: '8%'
-        },
-        {
-          name: 'Gingerbread',
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
-          iron: '16%'
-        },
-        {
-          name: 'Jelly bean',
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
-          iron: '0%'
-        },
-        {
-          name: 'Lollipop',
-          calories: 392,
-          fat: 0.2,
-          carbs: 98,
-          protein: 0,
-          iron: '2%'
-        },
-        {
-          name: 'Honeycomb',
-          calories: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5,
-          iron: '45%'
-        },
-        {
-          name: 'Donut',
-          calories: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9,
-          iron: '22%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
+          name: 'Maicol Sánchez',
+          calories: 'Maicky',
+          fat: 10456456,
+          carbs: 'mssanchez@gmail.com',
+          protein: 345435345
         }
       ],
       deleteItem (item) {
         const index = this.desserts.indexOf(item)
-        confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+        confirm('Estas seguro que quieres eliminar este item?') && this.desserts.splice(index, 1)
       },
 
       close () {
