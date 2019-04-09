@@ -96,7 +96,7 @@
       </v-card-title>
 
       <v-card-actions class="indigo darken- justify-center">
-        &copy;2018 — <strong>Vuetify</strong>
+        &copy;2018 — <strong>golden cat</strong>
       </v-card-actions>
     </v-card>
   </v-footer>
@@ -124,7 +124,6 @@ export default {
     source: String
   }
 }
-
 
 </script>
 

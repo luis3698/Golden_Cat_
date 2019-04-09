@@ -17,7 +17,7 @@ import Temporadas from './views/Administrador/Temporadas.vue'
 import ReservasCliente from './views/Principal/Reservas_Cliente.vue'
 import Contabilidad from './views/Administrador/Contabilidad.vue'
 import DatosCompra from './views/Principal/Datos_compra.vue'
- 
+
 Vue.use(Router)
 
 export default new Router({
