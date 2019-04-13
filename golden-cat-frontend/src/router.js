@@ -50,7 +50,7 @@ export default new Router({
       component: QueEsGoldenCat
     },
     {
-      path: '/reservas',
+      path: '/administrador/reservas',
       name: 'reservas',
       component: Reservas
     },
@@ -65,12 +65,12 @@ export default new Router({
       component: Configuracion
     },
     {
-      path: '/administrarusuarios',
+      path: '/administrador/usuarios',
       name: 'adiministrarusuarios',
       component: AdministrarUsuarios
     },
     {
-      path: '/realizarreserva',
+      path: '/administrador/realizarreserva',
       name: 'realizarreserva',
       component: Realizarreserva
     },
@@ -80,17 +80,17 @@ export default new Router({
       component: Login
     },
     {
-      path: '/configuracionadmi',
+      path: '/administrador/configuracion',
       name: 'configuracionadmi',
       component: Configuracionadmi
     },
     {
-      path: '/customersupport',
+      path: '/administrador/customersupport',
       name: 'customersupport',
       component: CustomerSupport
     },
     {
-      path: '/temporadas',
+      path: '/administrador/temporadas',
       name: 'temporadas',
       component: Temporadas
     },
@@ -100,7 +100,7 @@ export default new Router({
       component: ReservasCliente
     },
     {
-      path: '/contabilidad',
+      path: '/administrador/contabilidad',
       name: 'contabilidad',
       component: Contabilidad
     },

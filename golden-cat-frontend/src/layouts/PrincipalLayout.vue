@@ -80,7 +80,7 @@
   >
     <v-card class="flex" flat tile>
       <v-card-title class="indigo darken-4">
-        <strong class="subheading">Get connected with us on social networks!</strong>
+        <strong class="subheading" text-alingent-center>Get connected with us on social networks!</strong>
 
         <v-spacer></v-spacer>
 

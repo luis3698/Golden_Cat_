@@ -6,6 +6,7 @@
         <v-text-field label="Fecha de Entrada" outline color: black></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md2>
+        
         <v-text-field label="Fecha de Salida" outline></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md2>
