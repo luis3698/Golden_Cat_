@@ -67,48 +67,46 @@
         </v-list>
       </v-card>
     </v-menu>
-  </div>
-    </v-toolbar>
-  <v-content>
-    <v-container>
-      <v-layout row wrap>
-        <router-view></router-view>
-      </v-layout>
-    </v-container>
-  </v-content>
-   <v-footer  dark height="auto"
-  >
-    <v-card class="flex" flat tile>
-      <v-card-title class="indigo darken-4">
-        <strong class="subheading">Get connected with us on social networks!</strong>
+    </div>
+      </v-toolbar>
+    <v-content>
+      <v-container>
+        <v-layout row wrap>
+          <router-view></router-view>
+        </v-layout>
+      </v-container>
+    </v-content>
+    <v-footer  dark height="auto"
+    >
+      <v-card class="flex" flat tile>
+        <v-card-title class="indigo darken-4">
+          <strong class="subheading">Get connected with us on social networks!</strong>
 
-        <v-spacer></v-spacer>
+          <v-spacer></v-spacer>
 
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-3"
-          dark
-          icon
-        >
-          <v-icon size="24px">{{ icon }}</v-icon>
-        </v-btn>
-      </v-card-title>
+          <v-btn
+            v-for="icon in icons"
+            :key="icon"
+            class="mx-3"
+            dark
+            icon
+          >
+            <v-icon size="24px">{{ icon }}</v-icon>
+          </v-btn>
+        </v-card-title>
 
-      <v-card-actions class="indigo darken- justify-center">
-        &copy;2018 — <strong>golden cat</strong>
-      </v-card-actions>
-    </v-card>
-  </v-footer>
+        <v-card-actions class="indigo darken- justify-center">
+          &copy;2018 — <strong>golden cat</strong>
+        </v-card-actions>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
-
 <script>
 import Logo from '@/assets/golden_cat.png'
 export default {
   name: 'principal-layout',
   data: () => ({
-
     drawer: null,
     icons: [
       'fab fa-facebook',
@@ -126,7 +124,3 @@ export default {
 }
 
 </script>
-
-<style scoped >
-
-</style>

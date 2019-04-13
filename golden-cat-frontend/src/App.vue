@@ -11,10 +11,6 @@ import { mapState } from 'vuex'
 export default {
   name: 'App',
   components: { PrincipalLayout, AdministradorLayout },
-  data () {
-    return {
-    }
-  },
   computed: mapState(['layout'])
 }
 </script>
