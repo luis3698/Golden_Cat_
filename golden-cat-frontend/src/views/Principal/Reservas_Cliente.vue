@@ -173,6 +173,7 @@
     </div>
   </v-flex>
 </template>
+
 <script>
 import HABITACION2 from '@/assets/habitacion2.png'
 export default {
