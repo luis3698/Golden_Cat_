@@ -61,14 +61,6 @@
                                     >
                                         Actualizar perfil
                                     </v-btn>
-                                    <v-spacer></v-spacer>
-                                    <v-btn
-                                        class="mx-0 font-weight-light"
-                                        color="success"
-                                        to="/temporadas"
-                                    >
-                                        Configurar temporada
-                                    </v-btn>
                                     </v-flex>
                                 </v-layout>
                             </v-container>

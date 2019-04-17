@@ -114,7 +114,7 @@
 
               <v-list>
                 <v-list-tile>
-                  <v-btn small flat to="/configuracionadmi">configuracion<v-icon small>settings</v-icon></v-btn>
+                  <v-btn small flat to="/administrador/configuracion">configuracion<v-icon small>settings</v-icon></v-btn>
                 </v-list-tile>
               </v-list>
 
@@ -217,8 +217,8 @@ export default {
     drawer: null,
 
     items: [
-      { icon: 'mode_edit', text: 'Reservas', link: '/reservas' },
-      { icon: 'supervisor_account', text: 'Administrar usuarios', link: '/administrarusuarios' },
+      { icon: 'mode_edit', text: 'Reservas', link: '/administrador/reservas' },
+      { icon: 'supervisor_account', text: 'Usuarios', link: '/administrador/usuarios' },
       {
         icon: 'contact_phone',
         'icon-alt': 'contact_phone',
@@ -226,7 +226,8 @@ export default {
         link: 'customersupport',
         model: false
       },
-      { icon: 'spellcheck', text: 'Realizar reserva', link: 'realizarreserva' }
+      { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
+      { icon: 'today', text: 'Configurar temporada', link: '/administrador/temporadas' }
     ]
   })
 }

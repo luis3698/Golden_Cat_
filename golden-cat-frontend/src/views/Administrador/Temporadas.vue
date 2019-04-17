@@ -1,71 +1,48 @@
 <template>
-    <v-layout wrap>
-        <v-flex
-        xs12
-        class="mb-3"
+  <div id="app">
+  <v-app id="inspire">
+    <v-layout row wrap>
+      <v-flex xs12 sm6>
+        <v-date-picker
+          v-model="dates"
+          multiple
+        ></v-date-picker>
+      </v-flex>
+      <v-flex xs12 sm6>
+        <v-menu
+          ref="menu"
+          v-model="menu"
+          :close-on-content-click="false"
+          :nudge-right="40"
+          :return-value.sync="dates"
+          lazy
+          transition="scale-transition"
+          offset-y
+          full-width
+          min-width="290px"
         >
-            <v-sheet height="500">
-                <v-calendar
-                ref="calendar"
-                v-model="start"
-                :type="type"
-                :end="end"
-                color="primary"
-                ></v-calendar>
-            </v-sheet>
-        </v-flex>
-
-        <v-flex
-        sm4
-        xs12
-        class="text-sm-left text-xs-center"
-        >
-            <v-btn @click="$refs.calendar.prev()">
-                <v-icon
-                dark
-                left
-                >
-                keyboard_arrow_left
-                </v-icon>
-                Prev
-            </v-btn>
-        </v-flex>
-        <v-flex
-        sm4
-        xs12
-        class="text-xs-center"
-        >
-            <v-select
-                v-model="type"
-                :items="typeOptions"
-                label="Type"
-                solo
-            ></v-select>
-        </v-flex>
-        <v-flex
-        sm4
-        xs12
-        class="text-sm-right text-xs-center"
-        >
-            <v-btn @click="$refs.calendar.next()">
-                Next
-                <v-icon
-                right
-                dark
-                >
-                keyboard_arrow_right
-                </v-icon>
-            </v-btn>
-        </v-flex>
-        <v-btn @click="$refs.calendar.next()">
-            Guardar
-            <v-icon
-            right
-            dark
-            >
-            </v-icon>
-        </v-btn>
+          <template v-slot:activator="{ on }">
+            <v-combobox
+              v-model="dates"
+              multiple
+              chips
+              small-chips
+              label="Multiple picker in menu"
+              prepend-icon="event"
+              readonly
+              v-on="on"
+            ></v-combobox>
+          </template>
+          <v-date-picker v-model="dates" multiple no-title scrollable>
+            <v-spacer></v-spacer>
+            <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
+            <v-btn flat color="primary" @click="$refs.menu.save(dates)">OK</v-btn>
+          </v-date-picker>
+        </v-menu>
+      </v-flex>
     </v-layout>
+  </v-app>
+</div>
 </template>
 
 <script>
@@ -73,18 +50,11 @@ export default {
   created () {
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
   },
+  el: '#app',
   data: () => ({
-    type: 'month',
-    start: '2019-01-01',
-    end: '2019-01-06',
-    typeOptions: [
-      { text: 'Day', value: 'day' },
-      { text: '4 Day', value: '4day' },
-      { text: 'Week', value: 'week' },
-      { text: 'Month', value: 'month' },
-      { text: 'Custom Daily', value: 'custom-daily' },
-      { text: 'Custom Weekly', value: 'custom-weekly' }
-    ]
+    dates: ['2018-09-15', '2018-09-20'],
+    menu: false
   })
 }
+
 </script>
