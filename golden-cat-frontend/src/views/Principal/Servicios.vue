@@ -158,13 +158,12 @@
 </template>
 <script>
 
-
 export default {
-  
-data () {
+
+  data () {
     return {
       items1: [
-      
+
       ],
       items2: [
         {
@@ -223,7 +222,6 @@ data () {
   }
 }
 
- 
 </script>
 
 <style scoped>
