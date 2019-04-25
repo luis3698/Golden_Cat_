@@ -22,7 +22,7 @@
         <v-btn small flat left to="Que_es_golden_cat">¿que es golden cat?
           <v-icon small>help</v-icon>
         </v-btn>
-        <div class="text-xs-center">
+        <div color="indigo darken-4" class="text-xs-center">
     <v-menu posicion-x >
       <template v-slot:activator="{ on }">
         <v-btn v-on="on" small flat left> cuenta
@@ -30,7 +30,7 @@
         </v-btn>
        </template >
 
-      <v-card>
+      <v-card   class="clase">
         <v-list>
           <v-list-tile avatar>
             <v-list-tile-avatar>
@@ -84,13 +84,7 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          class="mx-3"
-          dark
-          icon
-        >
+        <v-btn  v-for="icon in icons"  :key="icon" class="mx-3" dark icon  >
           <v-icon size="24px">{{ icon }}</v-icon>
         </v-btn>
       </v-card-title>
@@ -102,6 +96,7 @@
   </v-footer>
   </v-app>
 </template>
+
 <script>
 import Logo from '@/assets/golden_cat.png'
 export default {
@@ -124,3 +119,8 @@ export default {
 }
 
 </script>
+<style scoped>
+.clase{
+  margin-top: 46px !important
+}
+</style>

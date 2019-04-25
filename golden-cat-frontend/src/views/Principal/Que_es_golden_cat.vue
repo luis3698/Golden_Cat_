@@ -39,11 +39,9 @@
       </v-layout>
 </v-card-text>
 
-<template>
   <div class="indigo darken-3 text-xs-center">
     <span class="white--tex">Golden Cat</span>
   </div>
-</template>
 
 <v-card-text>
       <v-layout row wrap>
@@ -152,7 +150,6 @@ import PISCINA1 from '@/assets/piscina1.jpg'
 import ALMUERZO from '@/assets/almuerzo.png'
 import GYM from '@/assets/gym.jpg'
 import CAMARERA from '@/assets/camarera.jpg'
-
 import HABITACION2 from '@/assets/habitacion2.png'
 import HABITACION1 from '@/assets/habitacion1.png'
 import HABITACION3 from '@/assets/habitacion3.png'
