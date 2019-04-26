@@ -11,7 +11,7 @@
           <v-flex md12>
             <v-card ref="form">
               <v-card-text>
-                <v-text-field 
+                <v-text-field
                   ref="nombre"
                   v-model="nombre"
                   :rules="[() => !!nombre || 'Este campo es requerido',
@@ -22,7 +22,7 @@
 
                   required
                 ></v-text-field>
-                <v-text-field 
+                <v-text-field
                   ref="identificacion"
                   v-model="identificacion"
                   :rules="[
