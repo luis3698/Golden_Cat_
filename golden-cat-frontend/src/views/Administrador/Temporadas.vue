@@ -21,7 +21,7 @@
           full-width
           min-width="290px"
         >
-          <template v-slot:activator="{ on }">
+          <template  v-slot:activator="{ on }">
             <v-combobox
               v-model="dates"
               multiple
@@ -58,3 +58,9 @@ export default {
 }
 
 </script>
+
+<style>
+  v-menu{
+    padding: 20px,20px,auto,auto;
+  }
+</style>
