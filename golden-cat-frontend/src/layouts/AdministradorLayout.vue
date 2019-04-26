@@ -219,13 +219,6 @@ export default {
     items: [
       { icon: 'mode_edit', text: 'Reservas', link: '/administrador/reservas' },
       { icon: 'supervisor_account', text: 'Usuarios', link: '/administrador/usuarios' },
-      {
-        icon: 'contact_phone',
-        'icon-alt': 'contact_phone',
-        text: 'Atención al cliente',
-        link: 'customersupport',
-        model: false
-      },
       { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
       { icon: 'today', text: 'Configurar temporada', link: '/administrador/temporadas' }
     ]

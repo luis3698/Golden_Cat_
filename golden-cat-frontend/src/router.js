@@ -12,7 +12,6 @@ import AdministrarUsuarios from './views/Administrador/AdministrarUsuarios.vue'
 import Realizarreserva from './views/Administrador/Realizarreserva.vue'
 import Login from './views/Principal/Login.vue'
 import Configuracionadmi from './views/Administrador/Configuracionadmi.vue'
-import CustomerSupport from './views/Administrador/CustomerSupport.vue'
 import Temporadas from './views/Administrador/Temporadas.vue'
 import ReservasCliente from './views/Principal/Reservas_Cliente.vue'
 import Contabilidad from './views/Administrador/Contabilidad.vue'
@@ -83,11 +82,6 @@ export default new Router({
       path: '/administrador/configuracion',
       name: 'configuracionadmi',
       component: Configuracionadmi
-    },
-    {
-      path: '/administrador/customersupport',
-      name: 'customersupport',
-      component: CustomerSupport
     },
     {
       path: '/administrador/temporadas',

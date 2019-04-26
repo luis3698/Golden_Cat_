@@ -1,7 +1,7 @@
 <template>
   <div id="app">
   <v-app id="inspire">
-    <v-layout row wrap>
+    <v-layout row wrap >20px, 50p20px, 50px !importantx !important
       <v-flex xs12 sm6>
         <v-date-picker
           v-model="dates"
@@ -53,14 +53,12 @@ export default {
   el: '#app',
   data: () => ({
     dates: ['2018-09-15', '2018-09-20'],
-    menu: false
+    menu: true
   })
 }
 
 </script>
 
 <style>
-  v-menu{
-    padding: 20px,20px,auto,auto;
-  }
+
 </style>

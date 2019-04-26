@@ -169,6 +169,6 @@ export default {
 <style>
   h1{
     padding-left: 40px;
-    color: white
+    color: white;
   }
 </style>
