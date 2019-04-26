@@ -161,6 +161,11 @@ const avatars = [
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms))
 export default {
   data () {
+    active: []
+    avatar: null
+    open: []
+    users: []
+
     return {
       show1: false,
       show2: true,
@@ -171,6 +176,41 @@ export default {
         required: value => !!value || 'Requirido',
         min: v => v.length >= 8 || 'Minimo 8 caracteres'
 
+      },
+      computed: {
+        items () {
+          return [
+            {
+              name: 'Users',
+              children: this.users
+            }
+          ]
+        },
+        selected () {
+          if (!this.active.length) return undefined
+
+          const id = this.active[0]
+
+          return this.users.find(user => user.id === id)
+        }
+      },
+
+      watch: {
+        selected: 'randomAvatar'
+      },
+
+      methods: {
+        async fetchUsers (item) {
+          await pause(1500)
+
+          return fetch('https://jsonplaceholder.typicode.com/users')
+            .then(res => res.json())
+            .then(json => (item.children.push(...json)))
+            .catch(err => console.warn(err))
+        },
+        randomAvatar () {
+          this.avatar = avatars[Math.floor(Math.random() * avatars.length)]
+        }
       }
     }
   },
