@@ -26,7 +26,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="indigo darken-4" to="/inicio">Iniciar sesion</v-btn>
+                <v-btn color="indigo darken-4" to="/">Iniciar sesion</v-btn>
                  <v-btn color="indigo darken-4" to="/registro">crear cuenta</v-btn>
                  <v-spacer></v-spacer>
               </v-card-actions>
