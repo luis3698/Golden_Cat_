@@ -123,4 +123,5 @@ export default {
 .clase{
   margin-top: 46px !important
 }
+
 </style>

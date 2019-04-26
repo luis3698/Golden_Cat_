@@ -40,7 +40,7 @@
 </v-card-text>
 
   <div class="indigo darken-3 text-xs-center">
-    <span class="white--tex">Golden Cat</span>
+    <span class="white--tex ">Golden Cat</span>
   </div>
 
 <v-card-text>
