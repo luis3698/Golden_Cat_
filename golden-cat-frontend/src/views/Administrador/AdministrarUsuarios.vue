@@ -160,8 +160,7 @@ const avatars = [
 
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms))
 export default {
-    data () {
-      
+  data () {
     return {
       show1: false,
       show2: true,
@@ -172,7 +171,7 @@ export default {
         required: value => !!value || 'Requirido',
         min: v => v.length >= 8 || 'Minimo 8 caracteres'
 
-      },
+      }
     }
   },
   created () {
