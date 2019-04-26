@@ -4,24 +4,14 @@
         color="indigo"
         dark
         tabs
-
         >
-            <v-text-field
-                class="mx-3"
-
-                label="No. reserva"
-                solo-inverted
-            >
-            </v-text-field>
-                <v-btn fab dark small color="indigo">
-                    <v-icon dark>search</v-icon>
-                </v-btn>
+        <h1>Formulario de reservas</h1>
         </v-toolbar>
 
           <v-flex md12>
             <v-card ref="form">
               <v-card-text>
-                <v-text-field
+                <v-text-field 
                   ref="nombre"
                   v-model="nombre"
                   :rules="[() => !!nombre || 'Este campo es requerido',
@@ -32,7 +22,7 @@
 
                   required
                 ></v-text-field>
-                <v-text-field
+                <v-text-field 
                   ref="identificacion"
                   v-model="identificacion"
                   :rules="[

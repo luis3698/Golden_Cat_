@@ -19,7 +19,7 @@
                                     <v-flex xs12 md6>
                                     <v-text-field label="Apellidos" class="purple-input" solo/>
                                     </v-flex>
-                                    <v-flex md12>
+                                    <v-flex md8>
                                     <v-text-field
                                         :append-icon="show3 ? 'visibility' : 'visibility_off'"
                                         :rules="[rules.required, rules.min]"
@@ -32,6 +32,14 @@
                                         @click:append="show3 = !show3"
                                         solo
                                     ></v-text-field>
+                                    </v-flex>
+                                    <v-flex
+                                    xs12
+                                    md4>
+                                    <v-text-field
+                                        label="Cedula"
+                                        type="text"
+                                        solo/>
                                     </v-flex>
                                     <v-flex xs12 md4>
                                     <v-text-field label="Ciudad" class="purple-input" solo/>
@@ -59,7 +67,7 @@
                                         class="mx-0 font-weight-light"
                                         color="success"
                                     >
-                                        Actualizar perfil
+                                        Editar perfil
                                     </v-btn>
                                     </v-flex>
                                 </v-layout>
