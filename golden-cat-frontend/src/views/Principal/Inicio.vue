@@ -3,33 +3,37 @@
     <v-container>
        <p class="text-md-center display-2  font-weight-bold">Encuenta tu Habitacion</p>
     </v-container>
-    <v-toolbar color="indigo" >
-      <v-layout color="light-green accent-4"  class="justify-space-around row wrap align-center">
-        <v-flex xs12 sm6 md2>
-          <v-text-field  label="Fecha de Entrada" outline></v-text-field>
+    <v-container class="indigo" pa-2>
+      <v-layout color="light-green accent-4"  class=" justify-space-between row wrap align-center">
+        <v-flex xs12 sm6 md2 pb-0>
+          <v-text-field  label="Fecha de Entrada" outline hide-details></v-text-field>
         </v-flex>
         <v-flex xs12 sm6 md2>
-            <v-text-field  label="Fecha de Salida" outline ></v-text-field>
+            <v-text-field  label="Fecha de Salida" outline hide-details ></v-text-field>
         </v-flex>
         <v-flex xs12 sm6 md2>
-          <v-text-field  label="Numero de Adultos" outline></v-text-field>
+          <v-text-field  label="Numero de Adultos" outline hide-details></v-text-field>
         </v-flex>
         <v-flex xs12 sm6 md2>
-          <v-text-field   label="Numero de niños" outline></v-text-field>
+          <v-text-field   label="Numero de niños" outline hide-details></v-text-field>
         </v-flex>
         <v-flex xs12 sm6 md2>
-        <v-btn round color="white" ><v-icon color="black">search</v-icon></v-btn>
+          <v-btn round color="white" ><v-icon color="black">search</v-icon></v-btn>
          </v-flex>
-
-         <v-radio-group v-model="row" row>
-        <v-radio color="light-green accent-4" label="individual" value="radio-1"></v-radio>
-        <v-radio color="light-green accent-4" label="doble" value="radio-2"></v-radio>
-        <v-radio color="light-green accent-4" label="suite" value="radio-3"></v-radio>
-        <v-radio color="light-green accent-4" label="matrimonial" value="radio-4"></v-radio>
-      </v-radio-group>
+      </v-layout>
+      <v-layout color="light-green accent-4"  class="align-center justify-start row align-center">
+          <v-flex xs12 sm6 md6>
+          <v-radio-group v-model="acomodacion" row>
+            <v-radio color="light-green accent-4" label="individual" value="radio-1"></v-radio>
+            <v-radio color="light-green accent-4" label="doble" value="radio-2"></v-radio>
+            <v-radio color="light-green accent-4" label="suite" value="radio-3"></v-radio>
+            <v-radio color="light-green accent-4" label="matrimonial" value="radio-4"></v-radio>
+          </v-radio-group>
+         </v-flex>
+      </v-layout>
 
       </v-layout>
-      </v-toolbar>
+      </v-container>
 
     <v-layout wrap justify-space-around row>
       <template v-for="n in 12">
@@ -77,15 +81,14 @@ export default {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
   },
   data: () => ({
-
+    acomodacion: '',
     habitacion2: HABITACION2,
     show1: false
   })
 }
 </script>
-<style>
-.ancho{
-  height: 204px;
+<style scoped>
+nav.buscar>.v-toolbar__content{
+  background-color: aqua !important;
 }
-
 </style>

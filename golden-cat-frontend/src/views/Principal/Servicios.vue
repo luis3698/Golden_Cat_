@@ -7,7 +7,7 @@
             <v-container  fill-height fluid>
               <v-layout fill-height>
                 <v-flex  justify-center align-center xs12 align-end flexbox>
-                  <v-card-title class="headline font-weight-regular indigo darken-4 white--text">BAR Y CAFETERIA</v-card-title>
+                  <v-card-title class="headline center font-weight-regular indigo darken-4 ">BAR Y CAFETERIA</v-card-title>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -163,6 +163,18 @@ export default {
   data () {
     return {
       items1: [
+        {
+          src: 'https://static.iris.net.co/arcadia/upload/images/2017/10/6/66024_1.jpg'
+        },
+        {
+          src: 'https://globalmediarocks.s3-us-west-1.amazonaws.com/uploads/cae2f693-0295-4e67-90fd-f9bd7a2a6999/BARES.jpg'
+        },
+        {
+          src: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/69/76/c2/sanno-cafeteria.jpg'
+        },
+        {
+          src: 'http://4.bp.blogspot.com/-1Mmc87d3QQs/T_1bekHTs1I/AAAAAAAAAM0/jTuvUwOgPEQ/s1600/CARTA-OPEN2.jpg'
+        }
 
       ],
       items2: [
