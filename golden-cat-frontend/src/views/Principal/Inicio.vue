@@ -31,12 +31,8 @@
           </v-radio-group>
          </v-flex>
       </v-layout>
-
-    
       </v-container>
-
     <v-layout wrap justify-space-around row>
-  
       <template v-for="n in 12">
         <v-flex xs12 sm3 :key="n" mb-1 pa-2>
           <v-card>
