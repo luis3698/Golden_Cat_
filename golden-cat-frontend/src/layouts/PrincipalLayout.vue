@@ -1,4 +1,3 @@
-
 <template>
   <v-app id="inspire"  dark>
     <v-toolbar  dark  app color="indigo darken-4">
