@@ -158,8 +158,7 @@
             <v-btn color="blue darken-1" flat @click="save">Save</v-btn>
           </v-card-actions>
         </v-card>
-      </v-card>     
-        </v-card>
+         
       </v-dialog>
     </v-toolbar>
     <v-data-table
