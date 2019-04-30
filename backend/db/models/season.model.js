@@ -11,7 +11,7 @@ module.exports = function setupMetricModel (config) {
       defaultValue: Sequelize.UUIDV4
     },
     type: {
-      type: Sequelize.CHAR(36),
+      type: Sequelize.ENUM('alta','baja'),
       allowNull: false
     },
     percentage: {
