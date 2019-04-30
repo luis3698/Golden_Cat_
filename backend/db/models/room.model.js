@@ -10,20 +10,15 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-    name: {
+    state: {
+      type: Sequelize.ENUM('activa','inactiva'),
+      allowNull: false
+    },
+    number_adult: {
       type: Sequelize.TEXT,
       allowNull: false
     },
-    
-    state_activeinactiva: {
-      type: Sequelize.TEXT,
-      allowNull: false
-    },
-    namber_adult: {
-      type: Sequelize.TEXT,
-      allowNull: false
-    },
-    namber_children: {
+    number_children: {
       type: Sequelize.TEXT,
       allowNull: false
     },
