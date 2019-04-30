@@ -11,7 +11,7 @@ module.exports = function setupMetricModel (config) {
       defaultValue: Sequelize.UUIDV4
     },
     typeUser: {
-      type: Sequelize.TEXT,
+      type: Sequelize.ENUM('administrador', 'cliente'),
       allowNull: false
     },
     name: {

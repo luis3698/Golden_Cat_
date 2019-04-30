@@ -3,12 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^6.2.2",
-    "mysql2": "^1.6.5",
     "mariadb": "^2.0.3",
-    "sequelize": "^5.1.0"
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.1"
   }
 }

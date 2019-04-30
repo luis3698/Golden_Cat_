@@ -1,4 +1,10 @@
 "use strict"
+// config
+const { db:config } = require('@golden-cat/config')
+//controladores
+const setupUser = require('./lib/users')
+const setupRoom = require('./lib/rooms')
+//modelos
 const setupDatabase = require("./lib/db")
 const setupUserModel = require("./models/user.model")
 const setupCountryModel = require("./models/country.model")
@@ -14,9 +20,8 @@ const setupDepartmentsModel = require("./models/departments.model")
 const setupSeason_DateModel = require("./models/season_date.model")
 const setupReservationModel = require("./models/reservation.model")
 const setupDetail_ReservationModel = require("./models/detail_reservation.model")
-// const setupAgent = require('./lib/agent')
 
-module.exports = async function(config) {
+module.exports = async function() {
   const sequelize = setupDatabase(config)
   const UserModel = setupUserModel(config)
   const CountryModel = setupCountryModel(config)
@@ -52,48 +57,43 @@ module.exports = async function(config) {
   Detail_ReservationModel.hasMany(ReservationModel)
   ReservationModel.belongsTo(Detail_ReservationModel)
 
-
- RoomModel.hasMany(Detail_ReservationModel)
- Detail_ReservationModel.belongsTo(RoomModel)
-
-
- DepartmentsModel.hasMany(CityModel)
- CityModel.belongsTo(DepartmentsModel)
-
- 
-
- CountryModel.hasMany(DepartmentsModel)
- DepartmentsModel.belongsTo(CountryModel)
-
- RoomModel.hasMany(ServicesModel)
- ServicesModel.belongsTo(RoomModel)
+  RoomModel.hasMany(Detail_ReservationModel)
+  Detail_ReservationModel.belongsTo(RoomModel)
 
 
- RoomModel.hasMany(Type_RoomModel)
- Type_RoomModel.belongsTo(RoomModel)
+  DepartmentsModel.hasMany(CityModel)
+  CityModel.belongsTo(DepartmentsModel)
+
+  CountryModel.hasMany(DepartmentsModel)
+  DepartmentsModel.belongsTo(CountryModel)
+
+  RoomModel.hasMany(ServicesModel)
+  ServicesModel.belongsTo(RoomModel)
 
 
- SeasonModel.hasMany(Season_DateModel)
- Season_DateModel.belongsTo(SeasonModel)
+  RoomModel.hasMany(Type_RoomModel)
+  Type_RoomModel.belongsTo(RoomModel)
 
 
- SeasonModel.hasMany(RateModel)
- RateModel.belongsTo(SeasonModel)
+  SeasonModel.hasMany(Season_DateModel)
+  Season_DateModel.belongsTo(SeasonModel)
 
 
- RoomModel.hasMany(RateModel)
- RateModel.belongsTo(RoomModel)
+  SeasonModel.hasMany(RateModel)
+  RateModel.belongsTo(SeasonModel)
+
+
+  RoomModel.hasMany(RateModel)
+  RateModel.belongsTo(RoomModel)
   await sequelize.authenticate()
 
-  if (config.setup) {
-    await sequelize.sync({ force: true })
-  }
-
-  const Agent = {}
-  const Metric = {}
-
+  const User = setupUser(UserModel)
+  const Room = setupRoom(RoomModel)
   return {
-    Agent,
-    Metric
+    async setup() {
+      await sequelize.sync({ force: true })
+    },
+    User,
+    Room
   }
 }

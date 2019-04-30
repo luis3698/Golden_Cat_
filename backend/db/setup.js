@@ -17,12 +17,8 @@ async function setup () {
     }
   ])
   if (!answer.setup) return console.log('No pasa nada!')
-  const config = {
-    ...db,
-    logging: s => log.debug(s),
-    setup: true
-  }
-  await dbs(config).catch(terminate(1, 'dbError'))
+  const { setup } = await dbs()
+  await setup().catch(terminate(1, 'dbError'))
   console.log('successs!')
   process.exit(0)
 }
