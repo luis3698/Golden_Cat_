@@ -218,7 +218,7 @@ export default {
 
     items: [
       { icon: 'mode_edit', text: 'Reservas', link: '/administrador/reservas' },
-      { icon: 'supervisor_account', text: 'Usuarios', link: '/administrador/usuarios' },
+      { icon: 'supervisor_account', text: 'Usuarios/Editar', link: '/administrador/usuarios' },
       { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
       { icon: 'today', text: 'Configurar temporada', link: '/administrador/temporadas' }
     ]
