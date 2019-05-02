@@ -21,8 +21,21 @@ module.exports = function setupMetricModel (config) {
     lastName: {
       type: Sequelize.TEXT,
       allowNull: false
+
     },
     email: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    phone: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    identification: {
+      type: Sequelize.TEXT,
+      allowNull: false
+    },
+    password: {
       type: Sequelize.TEXT,
       allowNull: false
     }

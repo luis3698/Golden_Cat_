@@ -137,25 +137,31 @@
                   <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field>
+                  <v-text-field v-model="editedItem.cc" label="Indentificacion"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field>
+                  <v-text-field v-model="editedItem.email" label="E-mail"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field>
+                  <v-text-field type="date" v-model="editedItem.fe" label="Fecha Entrada"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.protein" label="Protein (g)"></v-text-field>
+                  <v-text-field type="date" v-model="editedItem.fs" label="Fecha Salida"></v-text-field>
                 </v-flex>
+              <v-flex xs12 sm6 md4>
+                  <v-text-field v-model="editedItem.adulto" label="No. Adultos"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                  <v-text-field v-model="editedItem.niño" label="No. Niños"></v-text-field>
+              </v-flex>
               </v-layout>
             </v-container>
           </v-card-text>
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="close">Cancel</v-btn>
-            <v-btn color="blue darken-1" flat @click="save">Save</v-btn>
+            <v-btn color="blue darken-1" flat @click="close">Cancelar</v-btn>
+            <v-btn color="blue darken-1" flat @click="save">Guardar</v-btn>
           </v-card-actions>
         </v-card>
 
@@ -168,10 +174,12 @@
     >
       <template v-slot:items="props">
         <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.calories }}</td>
-        <td class="text-xs-right">{{ props.item.fat }}</td>
-        <td class="text-xs-right">{{ props.item.carbs }}</td>
-        <td class="text-xs-right">{{ props.item.protein }}</td>
+        <td class="text-xs-right">{{ props.item.cc }}</td>
+        <td class="text-xs-right">{{ props.item.email }}</td>
+        <td class="text-xs-right">{{ props.item.fe }}</td>
+        <td class="text-xs-right">{{ props.item.fs }}</td>
+        <td class="text-xs-right">{{ props.item.adulto }}</td>
+        <td class="text-xs-right">{{ props.item.niño }}</td>
         <td class="justify-center layout px-0">
           <v-icon
             small
@@ -265,38 +273,44 @@ export default {
     dialog: false,
     headers: [
       {
-        text: 'Dessert (100g serving)',
+        text: 'Nombre Completo',
         align: 'left',
         sortable: false,
         value: 'name'
       },
-      { text: 'Calories', value: 'calories' },
-      { text: 'Fat (g)', value: 'fat' },
-      { text: 'Carbs (g)', value: 'carbs' },
-      { text: 'Protein (g)', value: 'protein' },
+      { text: 'CC', value: 'cc' },
+      { text: 'E-mail', value: 'email' },
+      { text: 'Fecha Entrada', value: 'fe', type: 'date' },
+      { text: 'Fecha Salida', value: 'fs' },
+      { text: 'No. Adultos', value: 'adulto' },
+      { text: 'No. Niños', value: 'niño' },
       { text: 'Actions', value: 'name', sortable: false }
     ],
     desserts: [],
     editedIndex: -1,
     editedItem: {
       name: '',
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0
+      cc: 0,
+      email: 0,
+      fe: 0,
+      fs: 0,
+      adulto: 0,
+      niño: 0
     },
     defaultItem: {
       name: '',
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0
+      cc: 0,
+      email: 0,
+      fe: 0,
+      fs: 0,
+      adulto: 0,
+      niño: 0
     }
   }),
 
   computed: {
     formTitle () {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+      return this.editedIndex === -1 ? 'New Item' : 'Editar Usuario'
     }
   },
 
@@ -314,74 +328,49 @@ export default {
     initialize () {
       this.desserts = [
         {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0
+          name: 'Carlos Rodriguez',
+          cc: 8239621473,
+          email: 'CarlosR@gmail.com',
+          fe: '2008-11-24',
+          fs: '2009-01-30',
+          adulto: 10,
+          niño: 5
         },
         {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3
+          name: 'Bruno Dias',
+          cc: 1036524951,
+          email: 'Bruno@gmail.com',
+          fe: '2012-12-12',
+          fs: '2012-12-30',
+          adulto: 1,
+          niño: 1
         },
         {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0
+          name: 'clar Kent',
+          cc: 1009647258,
+          email: 'clarS@hotmail.com',
+          fe: '2005-06-21',
+          fs: '2005-08-23',
+          adulto: 1,
+          niño: 0
         },
         {
-          name: 'Cupcake',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3
+          name: 'Benjamin Parker',
+          cc: 1005641837,
+          email: 'ParkerP@gmail.com',
+          fe: '2003-03-06',
+          fs: '2003-06-15',
+          adulto: 2,
+          niño: 1
         },
         {
-          name: 'Gingerbread',
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9
-        },
-        {
-          name: 'Jelly bean',
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0
-        },
-        {
-          name: 'Lollipop',
-          calories: 392,
-          fat: 0.2,
-          carbs: 98,
-          protein: 0
-        },
-        {
-          name: 'Honeycomb',
-          calories: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5
-        },
-        {
-          name: 'Donut',
-          calories: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7
+          name: 'Roberto Giraldo',
+          cc: 1004583718,
+          email: 'RoberGl@gmail.com',
+          fe: '2008-07-12',
+          fs: '2008-08-10',
+          adulto: 5,
+          niño: 3
         }
       ]
     },
