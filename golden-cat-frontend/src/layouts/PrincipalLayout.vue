@@ -1,10 +1,10 @@
 <template>
   <v-app id="inspire"  dark>
-    <v-toolbar  dark  app color="indigo darken-4">
+    <v-toolbar   dark  app color="indigo darken-4">
 
         <v-layout row wrap>
             <v-flex xs2>
-          <v-img height="60px" :src="logo" ></v-img>
+          <v-img height="55px" :src="logo" ></v-img>
         </v-flex>
         </v-layout>
         <v-spacer></v-spacer>
@@ -19,6 +19,9 @@
           <v-icon small>email</v-icon>
         </v-btn>
         <v-btn small flat left to="Que_es_golden_cat">¿que es golden cat?
+          <v-icon small>help</v-icon>
+        </v-btn>
+          <v-btn small flat left to="/login">iniciar sesion
           <v-icon small>help</v-icon>
         </v-btn>
         <div color="indigo darken-4" class="text-xs-center">
@@ -79,7 +82,7 @@
   >
     <v-card class="flex" flat tile>
       <v-card-title class="indigo darken-4">
-        <strong class="subheading" text-alingent-center>Get connected with us on social networks!</strong>
+        <strong class="subheading " text-alingent-center >Get connected with us on social networks!</strong>
 
         <v-spacer></v-spacer>
 

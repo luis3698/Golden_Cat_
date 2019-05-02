@@ -35,18 +35,20 @@
     <v-layout wrap justify-space-around row>
       <template v-for="n in 12">
         <v-flex xs12 sm3 :key="n" mb-1 pa-2>
-          <v-card>
-            <v-img :src="habitacion2" height="200px"></v-img>
-            <v-card-title primary-title>
-              <div >
-               <p class="text-md-center headline  font-weight-bold">Habitacion doble</p>
-
-                <span >$ 320.500</span>
-              </div>
-            </v-card-title>
-            <v-card-actions>
-              <v-btn flat to="/Datos_Compra">Reservar</v-btn>
-
+             <v-hover>
+      <v-card class="mx-auto" slot-scope="{ hover }" color="grey darken-3" max-width="600" >
+        <v-img :aspect-ratio="16/9" :src="habitacion2">
+          <v-expand-transition>
+            <div  v-if="hover"  class="d-flex transition-fast-in-fast-out blue darken-2 v-card--reveal display-3 white--text"  style="height: 100%;" >
+              35.000$
+            </div>
+          </v-expand-transition>
+        </v-img>
+        <v-card-text  class="pt-4"  style="position: relative;">
+          <v-btn  absolute color="blue" class="white--text" fab  right top to="/Datos_Compra" >
+            <v-icon>local_grocery_store</v-icon>
+          </v-btn>
+             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn icon @click="show1 = !show1">
                 <v-icon>{{ show1 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
@@ -64,7 +66,10 @@
                 *2 Baños
               </v-card-text>
             </v-slide-y-transition>
-          </v-card>
+
+        </v-card-text>
+      </v-card>
+    </v-hover>
         </v-flex>
       </template>
     </v-layout>
@@ -87,5 +92,14 @@ export default {
 <style scoped>
 nav.buscar>.v-toolbar__content{
   background-color: aqua !important;
+
+}
+.v-card--reveal {
+align-items: center;
+bottom: 0;
+justify-content: center;
+opacity: .5;
+position: absolute;
+width: 100%;
 }
 </style>
