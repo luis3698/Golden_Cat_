@@ -158,7 +158,7 @@
             <v-btn color="blue darken-1" flat @click="save">Save</v-btn>
           </v-card-actions>
         </v-card>
-      
+
       </v-dialog>
     </v-toolbar>
     <v-data-table
@@ -309,7 +309,7 @@ export default {
   created () {
     this.initialize()
   },
-  
+
   methods: {
     initialize () {
       this.desserts = [
