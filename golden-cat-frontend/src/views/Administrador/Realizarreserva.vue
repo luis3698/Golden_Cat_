@@ -185,7 +185,7 @@
             <v-btn color="blue darken-1" flat @click="save">Guardar</v-btn>
           </v-card-actions>
         </v-card>
-      
+
       </v-dialog>
     </v-toolbar>
     <v-data-table
@@ -307,10 +307,15 @@ export default {
       },
       { text: 'CC', value: 'cc' },
       { text: 'E-mail', value: 'email' },
+<<<<<<< HEAD
       { text: 'Fecha Entrada', value: 'fe', type:"date" },
       { text: 'Fecha Salida', value: 'fs', type: "date"},
       { text: 'Tipo habitacion', value: 'habitacion'},
       { text: 'No. habitacion', value: 'nhabitacion'},
+=======
+      { text: 'Fecha Entrada', value: 'fe', type: 'date' },
+      { text: 'Fecha Salida', value: 'fs' },
+>>>>>>> 19d00381eee3662c393043370c367fa93def170a
       { text: 'No. Adultos', value: 'adulto' },
       { text: 'No. Niños', value: 'niño' },
       { text: 'Actions', value: 'name', sortable: false }
@@ -356,7 +361,7 @@ export default {
   created () {
     this.initialize()
   },
-  
+
   methods: {
     initialize () {
       this.desserts = [
