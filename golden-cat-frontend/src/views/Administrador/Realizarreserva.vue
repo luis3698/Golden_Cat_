@@ -174,7 +174,7 @@
               <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.niño" label="No. Niños"></v-text-field>
               </v-flex>
-              
+
               </v-layout>
             </v-container>
           </v-card-text>
@@ -307,10 +307,10 @@ export default {
       },
       { text: 'CC', value: 'cc' },
       { text: 'E-mail', value: 'email' },
-      { text: 'Fecha Entrada', value: 'fe', type:"date" },
-      { text: 'Fecha Salida', value: 'fs', type: "date"},
-      { text: 'Tipo habitacion', value: 'habitacion'},
-      { text: 'No. habitacion', value: 'nhabitacion'},
+      { text: 'Fecha Entrada', value: 'fe', type: 'date' },
+      { text: 'Fecha Salida', value: 'fs', type: 'date' },
+      { text: 'Tipo habitacion', value: 'habitacion' },
+      { text: 'No. habitacion', value: 'nhabitacion' },
       { text: 'No. Adultos', value: 'adulto' },
       { text: 'No. Niños', value: 'niño' },
       { text: 'Actions', value: 'name', sortable: false }
