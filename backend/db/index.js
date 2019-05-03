@@ -4,6 +4,8 @@ const { db:config } = require('@golden-cat/config')
 //controladores
 const setupUser = require('./lib/users')
 const setupRoom = require('./lib/rooms')
+const setupType_room = require('./lib/type_room')
+
 const setupRate = require('./lib/rate')
 const setupSeason = require('./lib/season')
 //modelos
@@ -91,6 +93,9 @@ module.exports = async function() {
 
   const User = setupUser(UserModel)
   const Room = setupRoom(RoomModel)
+  const Type_Room = setupType_room(Type_RoomModel)
+
+
   const Rate = setupRate(RateModel)
   const Season = setupSeason(SeasonModel)
   return {
@@ -99,6 +104,7 @@ module.exports = async function() {
     },
     User,
     Room,
+    Type_Room,
     Rate,
     Season
   }
