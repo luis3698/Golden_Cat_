@@ -171,10 +171,6 @@
               <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.niño" label="No. Niños"></v-text-field>
               </v-flex>
-<<<<<<< HEAD
-
-=======
->>>>>>> 13afb186a3a72eb06b7f24665ad21533bb2eaeab
               </v-layout>
             </v-container>
           </v-card-text>
