@@ -220,7 +220,8 @@ export default {
       { icon: 'mode_edit', text: 'Reservas', link: '/administrador/reservas' },
       { icon: 'supervisor_account', text: 'Usuarios/Editar', link: '/administrador/usuarios' },
       { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
-      { icon: 'today', text: 'Configurar temporada', link: '/administrador/temporadas' }
+      { icon: 'today', text: 'Configurar temporada', link: '/administrador/temporadas' },
+      { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' }
     ]
   })
 }
