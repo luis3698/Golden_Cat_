@@ -4,11 +4,7 @@ const http = require('http')
 const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
-<<<<<<< HEAD
-const { errorHandler, home, user, room, type_room} = require('@golden-cat/api')
-=======
-const { errorHandler, home, user, room, rate, season} = require('@golden-cat/api')
->>>>>>> 80b8081093804d6f97b32b035f6ba1f883999b07
+const { errorHandler, home, user, room, rate, season, type_room} = require('@golden-cat/api')
 const { getLogger, logHandler, terminate } = require('@golden-cat/utils')
 
 const app = express()
@@ -23,12 +19,9 @@ app.use(express.json())
 app.use(logHandler)
 app.use('/user', user)
 app.use('/room', room)
-<<<<<<< HEAD
 app.use('/type_room', type_room)
-=======
 app.use('/rate',rate)
 app.use('/season',season)
->>>>>>> 80b8081093804d6f97b32b035f6ba1f883999b07
 app.get('/', home)
 app.use(errorHandler)
 

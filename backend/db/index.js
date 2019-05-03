@@ -4,13 +4,10 @@ const { db:config } = require('@golden-cat/config')
 //controladores
 const setupUser = require('./lib/users')
 const setupRoom = require('./lib/rooms')
-<<<<<<< HEAD
 const setupType_room = require('./lib/type_room')
 
-=======
 const setupRate = require('./lib/rate')
 const setupSeason = require('./lib/season')
->>>>>>> 80b8081093804d6f97b32b035f6ba1f883999b07
 //modelos
 const setupDatabase = require("./lib/db")
 const setupUserModel = require("./models/user.model")
@@ -96,24 +93,19 @@ module.exports = async function() {
 
   const User = setupUser(UserModel)
   const Room = setupRoom(RoomModel)
-<<<<<<< HEAD
   const Type_Room = setupType_room(Type_RoomModel)
 
-=======
+
   const Rate = setupRate(RateModel)
   const Season = setupSeason(SeasonModel)
->>>>>>> 80b8081093804d6f97b32b035f6ba1f883999b07
   return {
     async setup() {
       await sequelize.sync({ force: true })
     },
     User,
     Room,
-<<<<<<< HEAD
-    Type_Room
-=======
+    Type_Room,
     Rate,
     Season
->>>>>>> 80b8081093804d6f97b32b035f6ba1f883999b07
   }
 }
