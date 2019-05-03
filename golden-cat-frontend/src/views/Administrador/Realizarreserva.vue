@@ -7,7 +7,6 @@
         >
         <h1>Formulario de reservas</h1>
         </v-toolbar>
-
           <v-flex md12>
             <v-card ref="form">
               <v-card-text>
@@ -19,7 +18,6 @@
                   counter="25"
                   :error-messages="errorMessages"
                   label="Nombre completo"
-
                   required
                 ></v-text-field>
                 <v-text-field
@@ -143,7 +141,6 @@
           <v-card-title>
             <span class="headline">{{ formTitle }}</span>
           </v-card-title>
-
           <v-card-text>
             <v-container grid-list-md>
               <v-layout wrap>
@@ -174,18 +171,19 @@
               <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.niño" label="No. Niños"></v-text-field>
               </v-flex>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 13afb186a3a72eb06b7f24665ad21533bb2eaeab
               </v-layout>
             </v-container>
           </v-card-text>
-
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="blue darken-1" flat @click="close">Cancelar</v-btn>
             <v-btn color="blue darken-1" flat @click="save">Guardar</v-btn>
           </v-card-actions>
         </v-card>
-
       </v-dialog>
     </v-toolbar>
     <v-data-table
@@ -226,7 +224,6 @@
   </div>
    </v-flex>
 </template>
-
 <script>
 export default {
   data: () => ({
@@ -243,7 +240,6 @@ export default {
     niños: null,
     formHasErrors: false
   }),
-
   computed: {
     form () {
       return {
@@ -260,13 +256,11 @@ export default {
       }
     }
   },
-
   watch: {
     name () {
       this.errorMessages = ''
     }
   },
-
   methods: {
     addressCheck () {
       this.errorMessages = this.address && !this.name
@@ -340,23 +334,19 @@ export default {
       niño: 0
     }
   }),
-
   computed: {
     formTitle () {
       return this.editedIndex === -1 ? 'New Item' : 'Editar Usuario'
     }
   },
-
   watch: {
     dialog (val) {
       val || this.close()
     }
   },
-
   created () {
     this.initialize()
   },
-
   methods: {
     initialize () {
       this.desserts = [
@@ -417,18 +407,15 @@ export default {
         }
       ]
     },
-
     editItem (item) {
       this.editedIndex = this.desserts.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
-
     deleteItem (item) {
       const index = this.desserts.indexOf(item)
       confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
     },
-
     close () {
       this.dialog = false
       setTimeout(() => {
@@ -436,7 +423,6 @@ export default {
         this.editedIndex = -1
       }, 300)
     },
-
     save () {
       if (this.editedIndex > -1) {
         Object.assign(this.desserts[this.editedIndex], this.editedItem)

@@ -3,31 +3,31 @@
     <v-container>
        <p class="text-md-center display-2  font-weight-bold">Encuenta tu Habitacion</p>
     </v-container>
-    <v-container class="indigo" pa-2>
-      <v-layout color="light-green accent-4"  class=" justify-space-between row wrap align-center">
+    <v-container class="contenedor  text-xs-center" pa-2>
+      <v-layout color="blue"  class=" justify-space-between row wrap align-center">
         <v-flex xs12 sm6 md2 pb-0>
-          <v-text-field  label="Fecha de Entrada" outline hide-details></v-text-field>
+          <v-text-field id="date" color="blue" type="date" outline hide-details label="fecha inicial"></v-text-field>
         </v-flex>
         <v-flex xs12 sm6 md2>
-            <v-text-field  label="Fecha de Salida" outline hide-details ></v-text-field>
+            <v-text-field id="date" color="blue" type="date" outline hide-details label="fecha final"></v-text-field>
         </v-flex>
         <v-flex xs12 sm6 md2>
-          <v-text-field  label="Numero de Adultos" outline hide-details></v-text-field>
+          <v-text-field color="blue"  label="Numero de adultos" outline hide-details></v-text-field>
         </v-flex>
         <v-flex xs12 sm6 md2>
-          <v-text-field   label="Numero de niños" outline hide-details></v-text-field>
+          <v-text-field  color="blue" label="Numero de niños" outline hide-details></v-text-field>
         </v-flex>
         <v-flex xs12 sm6 md2>
-          <v-btn round color="white" ><v-icon color="black">search</v-icon></v-btn>
+          <v-btn round color="blue" ><v-icon color="black">search</v-icon></v-btn>
          </v-flex>
       </v-layout>
       <v-layout color="light-green accent-4"  class="align-center justify-start row align-center">
           <v-flex xs12 sm6 md6>
           <v-radio-group v-model="acomodacion" row>
-            <v-radio color="light-green accent-4" label="individual" value="radio-1"></v-radio>
-            <v-radio color="light-green accent-4" label="doble" value="radio-2"></v-radio>
-            <v-radio color="light-green accent-4" label="suite" value="radio-3"></v-radio>
-            <v-radio color="light-green accent-4" label="matrimonial" value="radio-4"></v-radio>
+            <v-radio color="blue" label="individual" value="radio-1"></v-radio>
+            <v-radio color="blue" label="doble" value="radio-2"></v-radio>
+            <v-radio color="blue" label="suite" value="radio-3"></v-radio>
+            <v-radio color="blue" label="matrimonial" value="radio-4"></v-radio>
           </v-radio-group>
          </v-flex>
       </v-layout>
@@ -48,7 +48,40 @@
           <v-btn  absolute color="blue" class="white--text" fab  right top to="/Datos_Compra" >
             <v-icon>local_grocery_store</v-icon>
           </v-btn>
-             <v-card-actions>
+            <v-layout row>
+              <v-flex xs6 order-lg2>
+                 <v-card-text  class="margen text-sm-left">32/05/2019</v-card-text>
+              </v-flex>
+              <v-flex xs6>
+                 <v-card-text  class="margen " >fecha inicio:</v-card-text>
+              </v-flex>
+            </v-layout>
+              <v-layout row>
+              <v-flex xs6 order-lg2>
+                <v-card-text  class="margen text-sm-left" >35/05/2019</v-card-text>
+              </v-flex>
+              <v-flex xs6>
+                 <v-card-text  class="margen" >fecha final:</v-card-text>
+              </v-flex>
+            </v-layout>
+              <v-layout row>
+              <v-flex xs6 order-lg2>
+                <v-card-text class="margen text-sm-left">2</v-card-text>
+              </v-flex>
+              <v-flex xs6>
+                <v-card-text class="margen" >adultos:</v-card-text>
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex xs6 order-lg2>
+                <v-card-text class="margen text-sm-left" >2</v-card-text>
+              </v-flex>
+              <v-flex xs6>
+                 <v-card-text class="margen" >niños:</v-card-text>
+              </v-flex>
+            </v-layout>
+
+             <v-card-actions  class="margen" >
               <v-spacer></v-spacer>
               <v-btn icon @click="show1 = !show1">
                 <v-icon>{{ show1 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
@@ -57,7 +90,7 @@
             <v-slide-y-transition>
               <v-card-text v-show="show1">
                 *Aire acondicionado <br>
-                *Baño con ducha, secador de pelo y servicio de *amenidades diarias<br>
+                *Baño con ducha, secador de pelo<br>
                 *Caja de seguridad electrónica<br>
                 * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
                 *Minibar con agua, refrescos, cervezas y más ($)<br>
@@ -101,5 +134,14 @@ justify-content: center;
 opacity: .5;
 position: absolute;
 width: 100%;
+}
+.margen {
+    padding: 3px;
+}
+.contenedor {
+  border: solid 2px white;
+  background-color: transparent;
+  padding: 20px;
+
 }
 </style>
