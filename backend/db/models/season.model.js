@@ -15,7 +15,7 @@ module.exports = function setupMetricModel (config) {
       allowNull: false
     },
     percentage: {
-      type: Sequelize.CHAR(36),
+      type: Sequelize.FLOAT,
       allowNull: false
     },
     variation: {
