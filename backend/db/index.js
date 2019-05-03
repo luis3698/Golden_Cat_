@@ -4,6 +4,8 @@ const { db:config } = require('@golden-cat/config')
 //controladores
 const setupUser = require('./lib/users')
 const setupRoom = require('./lib/rooms')
+const setupType_room = require('./lib/type_room')
+
 //modelos
 const setupDatabase = require("./lib/db")
 const setupUserModel = require("./models/user.model")
@@ -89,11 +91,14 @@ module.exports = async function() {
 
   const User = setupUser(UserModel)
   const Room = setupRoom(RoomModel)
+  const Type_Room = setupType_room(Type_RoomModel)
+
   return {
     async setup() {
       await sequelize.sync({ force: true })
     },
     User,
-    Room
+    Room,
+    Type_Room
   }
 }
