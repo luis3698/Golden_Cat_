@@ -8,6 +8,8 @@ const setupType_room = require('./lib/type_room')
 const setupRate = require('./lib/rate')
 const setupSeason = require('./lib/season')
 const setupReservation = require('./lib/reservation')
+const setupSeason_date = require('./lib/season_date')
+
 //modelos
 const setupDatabase = require("./lib/db")
 const setupUserModel = require("./models/user.model")
@@ -97,6 +99,8 @@ module.exports = async function() {
   const Rate = setupRate(RateModel)
   const Season = setupSeason(SeasonModel)
   const Reservation = setupReservation(ReservationModel)
+    const Season_Date = setupSeason_date(Season_DateModel)
+
   return {
     async setup() {
       await sequelize.sync({ force: true })
@@ -106,6 +110,8 @@ module.exports = async function() {
     Type_Room,
     Rate,
     Season,
-    Reservation
+    Reservation,
+    Season_Date
+
   }
 }
