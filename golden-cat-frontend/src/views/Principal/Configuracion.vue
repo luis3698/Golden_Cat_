@@ -34,7 +34,7 @@
              <v-card-text>PAIS :</v-card-text>
         </v-flex>
         <v-flex xs3 order-lg2>
-            <v-text-field small label="" solo ></v-text-field>
+            <v-select :items="items" solo></v-select>
         </v-flex>
       </v-layout>
        <v-layout  row>
@@ -62,7 +62,7 @@
              <v-card-text>TELEFONO :</v-card-text>
         </v-flex>
         <v-flex xs3 order-lg2>
-            <v-text-field small label="" solo ></v-text-field>
+            <v-text-field small label="" phone solo></v-text-field>
         </v-flex>
       </v-layout>
         <v-divider> </v-divider>
@@ -71,7 +71,7 @@
        </v-card-text>
         <v-layout  row>
 
-        <v-flex xs12 order-lg2  class="transparent text-xs-center">
+        <v-flex xs12 order-lg2  class="colort ransparent text-xs-center">
         <v-dialog v-model="dialogEmail" persistent max-width="600px">
           <template v-slot:activator="{ on }">
             <v-btn color="blue darken-4" dark v-on="on">Editar E-mail</v-btn>
@@ -80,7 +80,7 @@
             <v-card-title>
               <span class="headline">EDiTAR E-MAIL</span>
             </v-card-title>
-            <v-card-text>
+            <v-card-text >
               <v-container grid-list-md>
                 <v-layout wrap>
                 <v-flex xs12>
@@ -98,8 +98,9 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-4" flat @click="dialogEmail = false">Close</v-btn>
-              <v-btn color="blue darken-4" flat @click="dialogEmail = false">Save</v-btn>
+
+              <v-btn color="blue darken-4"  dark @click="dialogEmail = false">Close</v-btn>
+              <v-btn color="blue darken-4"  dark @click="dialogEmail = false">Save</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -132,8 +133,8 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-4" flat @click="dialogPassword = false">Close</v-btn>
-            <v-btn color="blue darken-4" flat @click="dialogPassword = false">Save</v-btn>
+            <v-btn color="blue darken-4" dark @click="dialogPassword = false">Close</v-btn>
+            <v-btn color="blue darken-4" dark @click="dialogPassword = false">Save</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -178,3 +179,6 @@ export default {
 }
 
 </script>
+<style >
+
+</style>

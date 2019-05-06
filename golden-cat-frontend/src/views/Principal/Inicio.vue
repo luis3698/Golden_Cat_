@@ -1,7 +1,8 @@
 <template>
   <div class=" darken-2 text-xs-center" id="app">
-    <v-container>
-       <p class="text-md-center display-2  font-weight-bold">Encuenta tu Habitacion</p>
+    <v-div class="hotelportada">
+    <v-container >
+       <p class="color text-md-center display-2  " black >Encuenta tu Habitacion</p>
     </v-container>
     <v-container class="contenedor  text-xs-center" pa-2>
       <v-layout color="blue"  class=" justify-space-between row wrap align-center">
@@ -32,6 +33,7 @@
          </v-flex>
       </v-layout>
       </v-container>
+      </v-div>
     <v-layout wrap justify-space-around row>
       <template v-for="n in 12">
         <v-flex xs12 sm3 :key="n" mb-1 pa-2>
@@ -68,8 +70,8 @@
               <v-flex xs6 order-lg2>
                 <v-card-text class="margen text-sm-left">2</v-card-text>
               </v-flex>
-              <v-flex xs6>
-                <v-card-text class="margen" >adultos:</v-card-text>
+              <v-flex  xs6>
+                <v-card-text class="margen" v-model="email">adultos:</v-card-text>
               </v-flex>
             </v-layout>
             <v-layout row>
@@ -83,7 +85,7 @@
 
              <v-card-actions  class="margen" >
               <v-spacer></v-spacer>
-              <v-btn icon @click="show1 = !show1">
+              <v-btn  icon @click="show1 = !show1">
                 <v-icon>{{ show1 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
               </v-btn>
             </v-card-actions>
@@ -110,6 +112,7 @@
 </template>
 <script>
 import HABITACION2 from '@/assets/habitacion2.png'
+
 export default {
   name: 'inicio',
   created () {
@@ -118,6 +121,7 @@ export default {
   data: () => ({
     acomodacion: '',
     habitacion2: HABITACION2,
+
     show1: false
   })
 }
@@ -139,9 +143,12 @@ width: 100%;
     padding: 3px;
 }
 .contenedor {
-  border: solid 2px white;
-  background-color: transparent;
+  background: rgba(25, 125, 240, 0.527);;
   padding: 20px;
+  border-radius: 20px 20px 20px 20px;
 
+}
+.colorfondo{
+  background-color: black;
 }
 </style>
