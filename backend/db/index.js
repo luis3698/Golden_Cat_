@@ -5,9 +5,11 @@ const { db:config } = require('@golden-cat/config')
 const setupUser = require('./lib/users')
 const setupRoom = require('./lib/rooms')
 const setupType_room = require('./lib/type_room')
-
 const setupRate = require('./lib/rate')
 const setupSeason = require('./lib/season')
+const setupReservation = require('./lib/reservation')
+const setupSeason_date = require('./lib/season_date')
+
 //modelos
 const setupDatabase = require("./lib/db")
 const setupUserModel = require("./models/user.model")
@@ -94,10 +96,11 @@ module.exports = async function() {
   const User = setupUser(UserModel)
   const Room = setupRoom(RoomModel)
   const Type_Room = setupType_room(Type_RoomModel)
-
-
   const Rate = setupRate(RateModel)
   const Season = setupSeason(SeasonModel)
+  const Reservation = setupReservation(ReservationModel)
+    const Season_Date = setupSeason_date(Season_DateModel)
+
   return {
     async setup() {
       await sequelize.sync({ force: true })
@@ -106,6 +109,9 @@ module.exports = async function() {
     Room,
     Type_Room,
     Rate,
-    Season
+    Season,
+    Reservation,
+    Season_Date
+
   }
 }

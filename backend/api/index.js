@@ -3,10 +3,12 @@
 const { getLogger } = require('@golden-cat/utils')
 const user = require('./user')
 const room = require('./room')
-
 const type_room = require('./type_room')
 const rate = require('./rate')
 const season = require('./season')
+const reservation = require('./reservation')
+const season_date = require('./season_date')
+
 
 const log = getLogger(__dirname, __filename)
 // prueba
@@ -21,6 +23,9 @@ module.exports = {
    type_room,
    rate,
    season,
+   reservation,
+   season_date,
+
 
   errorHandler (err, req, res, next) {
     if (err) {

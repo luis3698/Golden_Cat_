@@ -4,7 +4,7 @@ const http = require('http')
 const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
-const { errorHandler, home, user, room, rate, season, type_room} = require('@golden-cat/api')
+const { errorHandler, home, user, room, rate, season, type_room, reservation, season_date} = require('@golden-cat/api')
 const { getLogger, logHandler, terminate } = require('@golden-cat/utils')
 
 const app = express()
@@ -22,6 +22,9 @@ app.use('/room', room)
 app.use('/type_room', type_room)
 app.use('/rate',rate)
 app.use('/season',season)
+app.use('/reservation',reservation)
+app.use('/season_date', season_date)
+
 app.get('/', home)
 app.use(errorHandler)
 
