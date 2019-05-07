@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "flatpickr": "^4.5.7",
     "roboto-fontface": "*",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
