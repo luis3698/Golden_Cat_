@@ -110,22 +110,22 @@ export default new Router({
     {
       path: '/PreguntasFrecuentes',
       name: 'PreguntasFrecuentes',
-      componet: PreguntasFrecuentes
+      component: PreguntasFrecuentes
     },
     {
       path: '/TerminosCondiciones',
       name: 'TerminosCondiciones',
-      componet: TerminosCondiciones
+      component: TerminosCondiciones
     },
     {
       path: '/Eventos',
       name: 'Eventos',
-      componet: Eventos
+      component: Eventos
     },
     {
       path: '/ConsultaPeticiones',
       name: 'ConsultaPeticiones',
-      componet: ConsultaPeticiones
+      component: ConsultaPeticiones
     }
   ]
 })

@@ -82,7 +82,7 @@
       </v-card-title>
       <v-card-actions class="indigo darken- justify-center">
         &copy;2018 — <strong>golden cat</strong>
-        <v-btn to="/PreguntasFrecuentes" color="success">Success</v-btn>
+        
       </v-card-actions>
     </v-card>
   </v-footer>
