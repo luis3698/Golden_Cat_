@@ -8,6 +8,8 @@ const rate = require('./rate')
 const season = require('./season')
 const reservation = require('./reservation')
 const season_date = require('./season_date')
+const invoice = require('./invoice')
+
 
 
 const log = getLogger(__dirname, __filename)
@@ -25,6 +27,7 @@ module.exports = {
    season,
    reservation,
    season_date,
+   invoice,
 
 
   errorHandler (err, req, res, next) {
