@@ -104,9 +104,9 @@
           </v-card>
         </v-flex>
          <v-flex xs4>
-          <v-card dark tile flat color="red darken-4">
-            <v-card-text>#2</v-card-text>
-          </v-card>
+           <v-responsive :aspect-ratio="21/9">
+              <iframe width="100%" height="400" src="https://www.youtube.com/embed/DpOCWIvpoE8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           </v-responsive>
         </v-flex>
       </v-layout>
       <v-layout row>
