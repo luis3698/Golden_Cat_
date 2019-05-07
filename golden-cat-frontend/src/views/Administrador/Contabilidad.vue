@@ -2,7 +2,7 @@
     <div class="grande">
       <v-subheader class="subheader black--text display-1 font-weight-bold" xs8>..Reportes..</v-subheader>
 
-      <v-container fluid>
+      <v-container class="todo" fluid>
         <p class="titulo white--text display-1" >Generar Reportes</p>
         <v-layout row>
           <v-flex xs4 >
@@ -30,7 +30,7 @@
         </v-layout>
       </v-container>
       <v-container fluid>
-        <p class="tivtulo1 white--text" >Generar Reporte(s) en:</p>
+        <p class="titulo1 white--text" >Generar Reporte(s) en:</p>
         <v-layout row>
           <v-flex xs4 >
               <v-radio-group class="Layout" v-model="radios" :mandatory="false">
@@ -45,10 +45,10 @@
           <v-flex xs4 >
             <v-radio-group class="Layout" v-model="radios" :mandatory="false">
               <v-btn
-                color="red darken-4"
+                color="blue darken-4"
                 class="botton"
                 @click="loader = 'loading3'"
-               >Generar<v-icon right dark>cloud_upload</v-icon>
+               >Generar<v-icon right>cloud_upload</v-icon>
                 </v-btn>
             </v-radio-group>
           </v-flex>
@@ -78,19 +78,26 @@ export default {
     padding-left 30px
   }
   .titulo{
-    background-color darkred
+    background-color blue
     margin 0 0 -16px 0
     font-size 20px
     padding-left 15px
   }
   .titulo1{
-    background-color darkred
+    background-color blue
     margin 0 0 -16px 0
     font-size 20px
     padding-left 15px
   }
   .botton{
+    color white
     height 40px
     margin -8px
+  }
+  .todo{
+    width 1000px
+  }
+  .v-btn__content {
+    color white
   }
 </style>

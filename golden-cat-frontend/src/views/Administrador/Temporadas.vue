@@ -1,55 +1,35 @@
 <template>
   <v-layout row wrap>
     <v-flex xs12 sm6>
-      <v-date-picker
-        v-model="dates"
-        multiple
-      ></v-date-picker>
+     <!-- <flat-pickr v-model="date" placeholder="Select date" :config="configFlat"></flat-pickr> -->
+     <!-- <input type="text" @click="fecha" id="myinput" placeholder="fecha"> -->
+     <v-text-field label="seleccionar fechas" ref="myinput" v-model="range"></v-text-field>
     </v-flex>
     <v-flex xs12 sm6>
-      <v-menu
-        ref="menu"
-        v-model="menu"
-        :close-on-content-click="false"
-        :nudge-right="40"
-        :return-value.sync="dates"
-        lazy
-        transition="scale-transition"
-        offset-y
-        full-width
-        min-width="290px"
-      >
-        <template v-slot:activator="{ on }">
-          <v-combobox
-            color="white"
-            v-model="dates"
-            multiple
-            chips
-            small-chips
-            label="Multiple picker in menu"
-            prepend-icon="event"
-            readonly
-            v-on="on"
-          ></v-combobox>
-        </template>
-        <v-date-picker v-model="dates" multiple no-title scrollable>
-          <v-spacer></v-spacer>
-          <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-          <v-btn flat color="primary" @click="$refs.menu.save(dates)">OK</v-btn>
-        </v-date-picker>
-      </v-menu>
+      {{date}}
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import { Spanish } from "flatpickr/dist/l10n/es.js"
+import "flatpickr/dist/flatpickr.css"
+import 'flatpickr/dist/themes/material_blue.css'
+
 export default {
+  name: 'temporadas',
   created () {
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
   },
+  mounted() {
+    const myInput = this.$refs.myinput.$el.querySelector('input')
+    const flat = flatpickr(myInput, this.configFlat)   
+  },
   data: () => ({
-    dates: ['2018-09-15', '2018-09-20'],
-    menu: false
+    date: '',
+    menu: false,
+    configFlat :{ mode: 'range', dateFormat: "Y-m-d H:i", locale: Spanish },
+    range: ''
   })
 }
 
