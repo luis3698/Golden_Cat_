@@ -145,7 +145,7 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
+                  <v-text-field v-model="editedItem.name" label="Nombre Completo"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.cc" label="Indentificacion"></v-text-field>
@@ -332,7 +332,7 @@ export default {
   }),
   computed: {
     formTitle () {
-      return this.editedIndex === -1 ? 'New Item' : 'Editar Usuario'
+      return this.editedIndex === -1 ? 'New Item' : 'Editar Reserva'
     }
   },
   watch: {
