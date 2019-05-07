@@ -20,6 +20,7 @@ import PreguntasFrecuentes from './views/Principal/PreguntasFrecuentes.vue'
 import TerminosCondiciones from './views/Principal/TerminosCondiciones.vue'
 import Eventos from './views/Principal/Eventos.vue'
 import ConsultaPeticiones from './views/Principal/ConsultasPeticiones.vue'
+import CambiosCancelaciones from './views/Principal/CambiosCancelaciones.vue'
 
 Vue.use(Router)
 
@@ -126,6 +127,11 @@ export default new Router({
       path: '/ConsultaPeticiones',
       name: 'ConsultaPeticiones',
       component: ConsultaPeticiones
+    },
+    {
+      path: '/CambiosCancelaciones',
+      name: 'CambiosCancelaciones',
+      component: CambiosCancelaciones
     }
   ]
 })
