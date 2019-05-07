@@ -16,6 +16,10 @@ import Temporadas from './views/Administrador/Temporadas.vue'
 import ReservasCliente from './views/Principal/Reservas_Cliente.vue'
 import Contabilidad from './views/Administrador/Contabilidad.vue'
 import DatosCompra from './views/Principal/Datos_compra.vue'
+import PreguntasFrecuentes from './views/Principal/PreguntasFrecuentes.vue'
+import TerminosCondiciones from './views/Principal/TerminosCondiciones.vue'
+import Eventos from './views/Principal/Eventos.vue'
+import ConsultaPeticiones from './views/Principal/ConsultasPeticiones.vue'
 
 Vue.use(Router)
 
@@ -102,6 +106,26 @@ export default new Router({
       path: '/Datos_Compra',
       name: 'Datos_Compra',
       component: DatosCompra
+    },
+    {
+      path: '/PreguntasFrecuentes',
+      name: 'PreguntasFrecuentes',
+      componet: PreguntasFrecuentes
+    },
+    {
+      path: '/TerminosCondiciones',
+      name: 'TerminosCondiciones',
+      componet: TerminosCondiciones
+    },
+    {
+      path: '/Eventos',
+      name: 'Eventos',
+      componet: Eventos
+    },
+    {
+      path: '/ConsultaPeticiones',
+      name: 'ConsultaPeticiones',
+      componet: ConsultaPeticiones
     }
   ]
 })
