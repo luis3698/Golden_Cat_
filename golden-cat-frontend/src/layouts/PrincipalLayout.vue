@@ -71,31 +71,6 @@
         </v-layout>
       </v-container>
     </v-content>
-<<<<<<< HEAD
-   <v-footer   height="auto">
-    <v-card class="flex" flat tile>
-      <v-card-title class="indigo darken-4">
-        <strong class="subheading " text-alingent-center >Get connected with us on social networks!</strong>
-        <v-spacer></v-spacer>
-        <v-btn  v-for="icon in icons"  :key="icon" class="mx-3"  icon  >
-          <v-icon size="24px">{{ icon }}</v-icon>
-        </v-btn>
-      </v-card-title>
-      <v-card-actions class="indigo darken- justify-center">
-        &copy;2018 — <strong>golden cat</strong>
-
-      </v-card-actions>
-    </v-card>
-  </v-footer>
-=======
-
-
-
-
-
-
-
-
       <v-footer color="indigo darken-3"
       height="auto">
             <v-container >
@@ -214,7 +189,6 @@
 
 
   
->>>>>>> 5c15319de09f0893ca1fbe6c99898de84634cb79
   </v-app>
 </template>
 <script>
