@@ -71,6 +71,7 @@
         </v-layout>
       </v-container>
     </v-content>
+<<<<<<< HEAD
    <v-footer   height="auto">
     <v-card class="flex" flat tile>
       <v-card-title class="indigo darken-4">
@@ -86,30 +87,168 @@
       </v-card-actions>
     </v-card>
   </v-footer>
+=======
+
+
+
+
+
+
+
+
+      <v-footer color="indigo darken-3"
+      height="auto">
+            <v-container >
+      <v-layout row>
+        <v-flex xs3>
+          <v-card dark tile flat color="transparent">
+            <p class="text-md-center subheading" >PAGO SEGURO CON <br> NUESTRAS TARJETAS DE CREDITO</p>
+          </v-card>
+        </v-flex>
+        <v-flex xs1>
+          <v-card dark tile flat  color="transparent">
+           
+          </v-card>
+        </v-flex>
+         <v-flex xs2>
+          <v-card dark tile flat color="transparent">
+             <v-img  :src="imgtarjeta" ></v-img>
+             <v-divider></v-divider>
+             <p class="text-md-center caption" > TARJETAS DE CREDITO</p>
+          </v-card>
+        </v-flex>
+        <v-flex xs1>
+          <v-card dark tile flat  color="transparent">
+           
+          </v-card>
+        </v-flex>
+         <v-flex xs2>
+          <v-card dark tile flat color="transparent">
+             <v-img height="53px"   :src="efectybaloto" ></v-img>
+             <v-divider ></v-divider>
+             <p class="text-md-center caption" > TEARGETA DEBITO</p>
+             
+          </v-card>
+        </v-flex>
+      </v-layout>
+       <v-divider ></v-divider>
+      <v-layout row>
+        <v-flex xs2 >
+          <v-card dark  flat color="transparent">
+            <v-card-text >INFORMACION</v-card-text>
+            
+             <v-btn color="transparent" to="/contactanos" depressed small>Contactanos</v-btn>
+             <v-divider ></v-divider>
+              <v-btn color="transparent" to="/servicios" depressed small>servicios extra</v-btn>
+              <v-divider ></v-divider>
+               <v-btn color="transparent" to="/Que_es_golden_cat" depressed small>que es golden cat</v-btn>
+               <v-divider ></v-divider>
+                <v-btn color="transparent" to="/CambiosCancelaciones" depressed small>documento</v-btn>
+                <v-divider ></v-divider>
+          </v-card>
+        </v-flex>
+        <v-flex xs2  >
+          <v-card class="bordel" dark tile flat color="transparent">
+            <v-card-text></v-card-text>
+             <v-btn color="transparent" to="/TerminosCondiciones" depressed small>terminos y condiciones</v-btn>
+             <v-divider ></v-divider>
+              <v-btn color="transparent" to="/PreguntasFrecuentes" depressed small>preguntas frecuentes</v-btn>
+              <v-divider ></v-divider>
+               <v-btn color="transparent" to="/ConsultaPeticiones" depressed small>consulta politicas</v-btn>
+               <v-divider ></v-divider>
+                <v-btn color="transparent" to="/Eventos" depressed small>eventos</v-btn>
+                <v-divider ></v-divider>
+          </v-card>
+        </v-flex>
+  
+        <v-flex xs4 >
+          <v-card dark tile flat color="transparent">
+            
+          </v-card>
+        </v-flex>
+      </v-layout>
+       <v-divider ></v-divider>
+      <v-layout row wrap>
+        <v-flex xs2  >
+          <v-card dark tile flat color="transparent">
+            <v-card-text></v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs3  >
+          <v-card dark tile flat color="transparent">
+             <v-img height="53px"   :src="escudomincomercio" ></v-img>
+          </v-card>
+        </v-flex>
+        <v-flex xs3   >
+          <v-card dark tile flat color="transparent">
+            <v-img height="53px"   :src="camaracolombiana" ></v-img>
+          </v-card>
+        </v-flex>
+        <v-flex xs4  >
+          <v-card dark tile flat color="transparent">
+            <v-card-text class="text-md-center">
+              <v-btn v-for="icon in icons" :key="icon" class="mx-3" dark icon >
+                <v-icon size="24px">{{ icon }}</v-icon>
+          </v-btn>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+       <v-divider ></v-divider>
+      <v-layout row wrap>
+        <v-flex xs12  >
+          <v-card dark tile flat color="transparent">
+            <v-card-text class="text-md-center">Copyright 2019 golden cat | Todos los derechos reservados.</v-card-text>
+          </v-card>
+        </v-flex>
+       
+        
+      </v-layout>
+    </v-container>
+    </v-footer>
+
+
+
+
+
+
+
+  
+>>>>>>> 5c15319de09f0893ca1fbe6c99898de84634cb79
   </v-app>
 </template>
 <script>
+  import CAMARADECOMERCIO from '@/assets/camaracolombiana.png'
+  import  INDUSTRIAYCOMERCIO from '@/assets/escudomincomercio.png'
+import EFECTYBALOTO from '@/assets/efectybaloto.png'
+import IMGTARJETA from '@/assets/tarjetas.png'
 import Logo from '@/assets/golden_cat.png'
 export default {
   name: 'principal-layout',
   data: () => ({
     drawer: null,
-    icons: [
+        icons: [
       'fab fa-facebook',
       'fab fa-twitter',
       'fab fa-google-plus',
       'fab fa-linkedin',
       'fab fa-instagram'
     ],
-    logo: Logo
+    camaracolombiana: CAMARADECOMERCIO,
+    escudomincomercio: INDUSTRIAYCOMERCIO,
+    imgtarjeta: IMGTARJETA,
+    logo: Logo,
+    efectybaloto: EFECTYBALOTO,
+
   }),
-  props: {
-    source: String
-  }
+ 
 }
 </script>
 <style scoped>
 .clase{
   margin-top: 46px !important
+}
+.bordel{
+  padding: 21px
 }
 </style>
