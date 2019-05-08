@@ -9,6 +9,7 @@ const season = require('./season')
 const reservation = require('./reservation')
 const season_date = require('./season_date')
 const invoice = require('./invoice')
+const invoice_detail = require('./invoice_detail')
 
 
 
@@ -28,6 +29,7 @@ module.exports = {
    reservation,
    season_date,
    invoice,
+   invoice_detail,
 
 
   errorHandler (err, req, res, next) {
