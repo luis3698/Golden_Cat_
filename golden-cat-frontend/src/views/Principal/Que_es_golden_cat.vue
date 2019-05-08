@@ -76,17 +76,17 @@
             <v-layout row>
         <v-flex xs4 order-lg2>
           <v-card dark tile flat color="error">
-            <v-card-text>#1</v-card-text>
+            <video width="350" height="200" src="@/assets/videos/Nuestros valores (Calidez).mp4" controls></video>
           </v-card>
         </v-flex>
         <v-flex xs4>
           <v-card dark tile flat color="red darken-4">
-            <v-card-text>#2</v-card-text>
+            <video width="350" height="200" src="@/assets/videos/Nuestros valores (Cercanía).mp4" controls></video>
           </v-card>
         </v-flex>
         <v-flex xs4>
           <v-card dark tile flat color="red darken-2">
-            <v-card-text>#2</v-card-text>
+             <video width="350" height="200" src="@/assets/videos/Nuestros valores (Frescura).mp4" controls></video>
           </v-card>
         </v-flex>
       </v-layout>
@@ -95,17 +95,17 @@
             <v-layout row>
         <v-flex xs4 order-lg2>
           <v-card dark tile flat color="error">
-            <v-card-text>#1</v-card-text>
+             <video width="350" height="200" src="@/assets/videos/Nuestros valores (Generosidad).mp4" controls></video>
           </v-card>
         </v-flex>
         <v-flex xs4>
           <v-card dark tile flat color="red darken-2">
-            <v-card-text>#2</v-card-text>
+             <video width="350" height="200" src="@/assets/videos/Nuestros valores (Intimidad).mp4" controls></video>
           </v-card>
         </v-flex>
          <v-flex xs4>
            <v-responsive :aspect-ratio="21/9">
-              <iframe width="100%" height="400" src="https://www.youtube.com/embed/DpOCWIvpoE8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video width="350" height="200" src="@/assets/videos/Nuestros valores (Libertad).mp4" controls></video>
            </v-responsive>
         </v-flex>
       </v-layout>
