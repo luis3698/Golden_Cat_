@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .Layout{
     background-color: white
     padding-top 20px
@@ -100,4 +100,7 @@ export default {
   .v-btn__content {
     color white
   }
+  .theme--light.v-label {
+    color: black;
+}
 </style>

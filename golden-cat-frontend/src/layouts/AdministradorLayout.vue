@@ -114,7 +114,7 @@
 
               <v-list>
                 <v-list-tile>
-                  <v-btn small flat to="/administrador/configuracion">configuracion<v-icon small>settings</v-icon></v-btn>
+                  <v-btn class="boton" small flat to="/administrador/configuracion">configuracion<v-icon small>settings</v-icon></v-btn>
                 </v-list-tile>
               </v-list>
 
@@ -228,7 +228,7 @@ export default {
 
 </script>
 
-<style scoped >
+<style scoped>
     img{
       height: 70px;
       width: 40px;
