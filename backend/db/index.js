@@ -12,6 +12,8 @@ const setupSeason_date = require('./lib/season_date')
 const setupInvoice = require('./lib/invoice')
 const setupInvoice_detail = require('./lib/invoice_detail')
 const setupServices = require('./lib/services')
+const setupDetail_reservation = require('./lib/detail_reservation.model')
+
 
 //modelos
 const setupDatabase = require("./lib/db")
@@ -106,6 +108,8 @@ module.exports = async function() {
   const Invoice = setupInvoice(InvoiceModel)
   const InvoiceDetail = setupInvoice_detail(Invoice_DetailModel)
   const Services = setupServices(ServicesModel)
+  const Detail_Reservation = setupDetail_reservation(Detail_ReservationModel)
+
 
   return {
     async setup() {
@@ -120,7 +124,8 @@ module.exports = async function() {
     Season_Date,
     Invoice,
     InvoiceDetail,
-    Services
+    Services,
+    Detail_Reservation
 
   }
 }
