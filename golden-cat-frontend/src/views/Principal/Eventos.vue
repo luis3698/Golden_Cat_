@@ -1,22 +1,22 @@
 <template>
-<v-container class="contenedor" fluid>
-<v-img class="imgportada" :src="mesero" ></v-img>
-</v-container>
-</template>
-<script>
-import MESERO from '@/assets/mesero.jpg'
-export default ({
-  data () {
-    return {
-      mesero: MESERO
-    }
-  }
-})
+<v-container fluid>
+      <v-layout row>
+        <v-flex xs6 >
+          <v-card dark tile flat color="error">
+            <v-card-text>#1</v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs6>
+          <v-card dark tile flat color="red darken-4">
+            <v-card-text>#2</v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-layout row>
+        <v-flex xs4 order-md2 >
+          <v-card dark tile
+          
 </script>
-<style scoped>
-.imgportada{
-    height:300px;
-    width:100%;
-}
-</style>
+<style>
 
+</style>
