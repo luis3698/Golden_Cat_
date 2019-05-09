@@ -15,7 +15,7 @@
       <v-layout row>
         <v-flex xs4 order-md2 >
           <v-card dark tile
-          
+
 </script>
 <style>
 
