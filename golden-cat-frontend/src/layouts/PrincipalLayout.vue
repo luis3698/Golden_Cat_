@@ -71,7 +71,6 @@
         </v-layout>
       </v-container>
     </v-content>
-
       <v-footer color="indigo darken-3"
       height="auto">
             <v-container >

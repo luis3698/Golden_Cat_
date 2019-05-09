@@ -5,14 +5,12 @@ import Servicios from './views/Principal/Servicios.vue'
 import Configuracion from './views/Principal/Configuracion.vue'
 import RestaurarContrasena from './views/Principal/restaurar_contraseña.vue'
 import Inicio from './views/Principal/Inicio.vue'
-import Reservas from './views/Administrador/Reservas.vue'
 import QueEsGoldenCat from './views/Principal/Que_es_golden_cat.vue'
 import contactanos from './views/Principal/contactanos.vue'
 import AdministrarUsuarios from './views/Administrador/AdministrarUsuarios.vue'
 import Realizarreserva from './views/Administrador/Realizarreserva.vue'
 import Login from './views/Principal/Login.vue'
 import Configuracionadmi from './views/Administrador/Configuracionadmi.vue'
-import Temporadas from './views/Administrador/Temporadas.vue'
 import ReservasCliente from './views/Principal/Reservas_Cliente.vue'
 import Contabilidad from './views/Administrador/Contabilidad.vue'
 import DatosCompra from './views/Principal/Datos_compra.vue'
@@ -54,11 +52,6 @@ export default new Router({
       component: QueEsGoldenCat
     },
     {
-      path: '/administrador/reservas',
-      name: 'reservas',
-      component: Reservas
-    },
-    {
       path: '/contactanos',
       name: 'contactanos',
       component: contactanos
@@ -87,11 +80,6 @@ export default new Router({
       path: '/administrador/configuracion',
       name: 'configuracionadmi',
       component: Configuracionadmi
-    },
-    {
-      path: '/administrador/temporadas',
-      name: 'temporadas',
-      component: Temporadas
     },
     {
       path: '/Reservas_Cliente',
