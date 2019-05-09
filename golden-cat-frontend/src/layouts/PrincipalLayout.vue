@@ -72,13 +72,6 @@
       </v-container>
     </v-content>
 
-
-
-
-
-
-
-
       <v-footer color="indigo darken-3"
       height="auto">
             <v-container >
@@ -90,7 +83,7 @@
         </v-flex>
         <v-flex xs1>
           <v-card dark tile flat  color="transparent">
-           
+
           </v-card>
         </v-flex>
          <v-flex xs2>
@@ -102,15 +95,15 @@
         </v-flex>
         <v-flex xs1>
           <v-card dark tile flat  color="transparent">
-           
+
           </v-card>
         </v-flex>
          <v-flex xs2>
           <v-card dark tile flat color="transparent">
              <v-img height="53px"   :src="efectybaloto" ></v-img>
              <v-divider ></v-divider>
-             <p class="text-md-center caption" > TEARGETA DEBITO</p>
-             
+             <p class="text-md-center caption" > TEARJETA DEBITO</p>
+
           </v-card>
         </v-flex>
       </v-layout>
@@ -119,7 +112,7 @@
         <v-flex xs2 >
           <v-card dark  flat color="transparent">
             <v-card-text >INFORMACION</v-card-text>
-            
+
              <v-btn color="transparent" to="/contactanos" depressed small>Contactanos</v-btn>
              <v-divider ></v-divider>
               <v-btn color="transparent" to="/servicios" depressed small>servicios extra</v-btn>
@@ -143,10 +136,10 @@
                 <v-divider ></v-divider>
           </v-card>
         </v-flex>
-  
+
         <v-flex xs4 >
           <v-card dark tile flat color="transparent">
-            
+
           </v-card>
         </v-flex>
       </v-layout>
@@ -184,24 +177,16 @@
             <v-card-text class="text-md-center">Copyright 2019 golden cat | Todos los derechos reservados.</v-card-text>
           </v-card>
         </v-flex>
-       
-        
+
       </v-layout>
     </v-container>
     </v-footer>
 
-
-
-
-
-
-
-  
   </v-app>
 </template>
 <script>
-  import CAMARADECOMERCIO from '@/assets/camaracolombiana.png'
-  import  INDUSTRIAYCOMERCIO from '@/assets/escudomincomercio.png'
+import CAMARADECOMERCIO from '@/assets/camaracolombiana.png'
+import INDUSTRIAYCOMERCIO from '@/assets/escudomincomercio.png'
 import EFECTYBALOTO from '@/assets/efectybaloto.png'
 import IMGTARJETA from '@/assets/tarjetas.png'
 import Logo from '@/assets/golden_cat.png'
@@ -209,7 +194,7 @@ export default {
   name: 'principal-layout',
   data: () => ({
     drawer: null,
-        icons: [
+    icons: [
       'fab fa-facebook',
       'fab fa-twitter',
       'fab fa-google-plus',
@@ -220,10 +205,10 @@ export default {
     escudomincomercio: INDUSTRIAYCOMERCIO,
     imgtarjeta: IMGTARJETA,
     logo: Logo,
-    efectybaloto: EFECTYBALOTO,
+    efectybaloto: EFECTYBALOTO
 
-  }),
- 
+  })
+
 }
 </script>
 <style scoped>

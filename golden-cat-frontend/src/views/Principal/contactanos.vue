@@ -6,18 +6,18 @@
       </div>
     </div>
           <v-card flatcolor="transparent" >
-            <v-card-text  class=" darken-2 text-xs-center">
-              <div class="indigo darken-4 darken-2 text-xs-center">
-                  <span class="white--text">CORREOS ELECTRONICOS</span>
+            <v-card-text  class=" text-xs-center">
+              <div class="  text-xs-center">
+                  <span class="letra4">CORREOS ELECTRONICOS</span>
               </div>
               <span class="white--text">HOTELGOLDENCAT@GMAIL.COM     <v-icon small>email</v-icon>
               </span> <br>
               <span class="white--text">HOTELGOLDENCAT@HOTMAIL.COM     <v-icon small>email</v-icon>
               </span>
             </v-card-text>
-            <v-card-text class=" darken-2 text-xs-center">
-              <div class="indigo darken-4 darken-2 text-xs-center">
-                  <span class="white--text">LINEAS TELEFONICAS</span>
+            <v-card-text class="text-xs-center">
+              <div class=" text-xs-center">
+                  <span class="letra4">LINEAS TELEFONICAS</span>
               </div>
               <v-card-text>
               <span class="white--text">32346545
@@ -27,8 +27,8 @@
                 <v-icon small>call</v-icon>
               </span>
               </v-card-text>
-              <div class="indigo darken-4 darken-2 text-xs-center">
-                  <span class="white--text ">TRABAJA CON NOSOTROS</span>
+              <div class="  text-xs-center">
+                  <span class="letra4">TRABAJA CON NOSOTROS</span>
               </div>
               <v-layout row>
                 <v-flex xs4 order-md2 order-xs1>
@@ -194,7 +194,9 @@ export default ({
 })
 </script>
 
-<style>
+<style scope>
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 .mapouter {
   text-align:right;
   height:400px;
@@ -205,5 +207,9 @@ export default ({
   background:none!important;
   height:100%;
   width:100%;
+}
+.letra4{
+    font-family: 'Amatic SC', cursive;
+  font-size: 50px;
 }
 </style>

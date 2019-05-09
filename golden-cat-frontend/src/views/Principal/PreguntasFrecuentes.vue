@@ -1,5 +1,16 @@
 <template>
-    <v-expansion-panel>
+<v-container fluid>
+      <v-layout row>
+        <v-flex xs12 >
+          <v-card dark tile flat color="error">
+              <v-img class="preguntasfrecuentes" :src="preguntasfrecuentes" ></v-img>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-layout row>
+        <v-flex xs12  >
+          <v-card dark tile flat color="red lighten-1">
+             <v-expansion-panel>
       <v-expansion-panel-content>
         <template v-slot:header>
           <div>1. ¿Puedo realizar modificaciones a una reserva confirmado y pago?</div>
@@ -81,12 +92,29 @@
         </v-card>
       </v-expansion-panel-content>
     </v-expansion-panel>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+
 </template>
 <script>
+import PREGUNTASFRECUENTES from '@/assets/preguntasfrecuentes.png'
 export default {
-  name: 'preguntas frecuentes'
+  data () {
+    return {
+      name: 'preguntas frecuentes',
+      preguntasfrecuentes: PREGUNTASFRECUENTES
+
+    }
+  }
 }
+
 </script>
 <style>
+.preguntasfrecuentes{
+     width :100%;
+ height :200px;
+}
 
 </style>

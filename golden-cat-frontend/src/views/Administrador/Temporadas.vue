@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import { Spanish } from "flatpickr/dist/l10n/es.js"
-import "flatpickr/dist/flatpickr.css"
+import { Spanish } from 'flatpickr/dist/l10n/es.js'
+import 'flatpickr/dist/flatpickr.css'
 import 'flatpickr/dist/themes/material_blue.css'
 
 export default {
@@ -21,14 +21,14 @@ export default {
   created () {
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
   },
-  mounted() {
+  mounted () {
     const myInput = this.$refs.myinput.$el.querySelector('input')
-    const flat = flatpickr(myInput, this.configFlat)   
+    const flat = flatpickr(myInput, this.configFlat)
   },
   data: () => ({
     date: '',
     menu: false,
-    configFlat :{ mode: 'range', dateFormat: "Y-m-d H:i", locale: Spanish },
+    configFlat: { mode: 'range', dateFormat: 'Y-m-d H:i', locale: Spanish },
     range: ''
   })
 }
