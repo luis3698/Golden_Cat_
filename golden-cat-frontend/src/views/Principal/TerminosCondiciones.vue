@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 <v-container fluid>
       <v-layout row>
         <v-flex xs12 >
@@ -80,22 +79,17 @@
       </v-layout>
 
     </v-container>
-=======
->>>>>>> 5b60a873154842d881d9aca0ec3421ab2bf1d00c
 
 </template>
 <script>
 import TERMINOSYCONDICIONES from '@/assets/terminosycondiciones.jpg'
 export default {
-<<<<<<< HEAD
   data () {
     return {
       terminosycondiciones: TERMINOSYCONDICIONES
     }
   }
-=======
 
->>>>>>> 5b60a873154842d881d9aca0ec3421ab2bf1d00c
 }
 
 </script>
