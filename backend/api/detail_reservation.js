@@ -20,8 +20,8 @@ router.post('/', async function (req, res, next) {
 router.delete('/:uuid', async function(req,res,next) {
   try {
     const { uuid } = req.params
-    const { Detail_reservation } = await db()
-    const result = await Detail_reservation.deleteDetail_reservationUuid(uuid)
+    const { Detail_Reservation } = await db()
+    const result = await Detail_Reservation.deleteDetail_reservationUuid(uuid)
     res.send(result)
   } catch (err) {
     next(err)
@@ -32,8 +32,8 @@ router.put('/:uuid', async function(req, res, next) {
   try {
     const { uuid } = req.params
     const { detail_reservationUpdate } = req.body
-    const { Detail_reservation } = await db()
-    const result = await Detail_reservation.updateDetail_reservation(uuid, detail_reservationUpdate)
+    const { Detail_Reservation } = await db()
+    const result = await Detail_Reservation.updateDetail_reservation(uuid, detail_reservationUpdate)
     res.send(result)
   } catch (err) {
     next(err)
@@ -41,8 +41,8 @@ router.put('/:uuid', async function(req, res, next) {
 })
 router.get('/', async function(req, res, next) {
   try {
-    const { Detail_reservation } = await db()
-    const result = await Detail_reservation.findAllDetail_reservation()
+    const { Detail_Reservation } = await db()
+    const result = await Detail_Reservation.findAllDetail_reservation()
     res.send(result)
   } catch (err) {
     next(err)
