@@ -19,6 +19,7 @@ import TerminosCondiciones from './views/Principal/TerminosCondiciones.vue'
 import Eventos from './views/Principal/Eventos.vue'
 import ConsultaPeticiones from './views/Principal/ConsultasPeticiones.vue'
 import CambiosCancelaciones from './views/Principal/CambiosCancelaciones.vue'
+import AdministradorEmpleados from './views/Administrador/AdministrarEmpleados.vue'
 
 Vue.use(Router)
 
@@ -120,6 +121,11 @@ export default new Router({
       path: '/CambiosCancelaciones',
       name: 'CambiosCancelaciones',
       component: CambiosCancelaciones
+    },
+    {
+      path: '/administrador/empleados',
+      name: 'AdministradorEmpleados',
+      component: AdministradorEmpleados
     }
   ]
 })
