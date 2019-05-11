@@ -1,7 +1,5 @@
 <template>
     <div class="grande">
-      <v-subheader class="subheader black--text display-1 font-weight-bold" xs8>..Reportes..</v-subheader>
-
       <v-container class="todo" fluid>
         <p class="titulo white--text display-1" >Generar Reportes</p>
         <v-layout row>
@@ -103,4 +101,6 @@ export default {
   .theme--light.v-label {
     color: black;
 }
+.Layout[data-v-d10918c0] {
+    background-color: lightgrey;}
 </style>

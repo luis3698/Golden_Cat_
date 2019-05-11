@@ -62,13 +62,7 @@
                   type="text"
                   required
                 ></v-text-field>
-                <v-text-field
-                  ref="contraseña"
-                  v-model="contraseña"
-                  :rules="[() => !!contraseña || 'Este campo es requerido']"
-                  label="Contraseña"
-                  required
-                ></v-text-field>
+                
                 <v-autocomplete
                   ref="pais"
                   v-model="pais"
@@ -145,9 +139,7 @@
                 <v-flex xs12 sm6 md4>
                   <v-text-field type="number" v-model="editedItem.telefono" label="Teléfono"></v-text-field>
                 </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.contraseña" label="Contraseña"></v-text-field>
-                </v-flex>
+                
               <v-flex xs12 sm6 md4>
                   <v-autocomplete type="text" :items="paises" v-model="editedItem.pais" label="Pais"></v-autocomplete>
               </v-flex>
@@ -175,7 +167,7 @@
         <td class="text-xs-right">{{ props.item.cc }}</td>
         <td class="text-xs-right">{{ props.item.email }}</td>
         <td class="text-xs-right">{{ props.item.telefono }}</td>
-        <td class="text-xs-right">{{ props.item.contraseña }}</td>
+        
         <td class="text-xs-right">{{ props.item.pais }}</td>
         <td class="justify-center layout px-0">
           <v-icon
@@ -225,7 +217,7 @@ export default {
       { text: 'CC', value: 'cc' },
       { text: 'E-mail', value: 'email' },
       { text: 'Teléfono', value: 'telefono', type: 'text' },
-      { text: 'Contraseña', value: 'contraseña' },
+      
       { text: 'Pais', value: 'pais' },
       { text: 'Actions', value: 'name', sortable: false }
     ],
@@ -237,7 +229,6 @@ export default {
       cc: 0,
       email: 0,
       telefono: 0,
-      contraseña: 0,
       pais: 0
     },
     defaultItem: {
@@ -246,7 +237,6 @@ export default {
       cc: 0,
       email: 0,
       telefono: 0,
-      contraseña: 0,
       pais: 0
     }
   }),
