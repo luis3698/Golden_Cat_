@@ -22,7 +22,7 @@
           <v-icon small>help</v-icon>
         </v-btn>
           <v-btn small flat left to="/login">iniciar sesion
-          <v-icon small>help</v-icon>
+          <v-icon small>account_circle</v-icon>
         </v-btn>
         <div color="indigo darken-4" class="text-xs-center">
     <v-menu posicion-x >
@@ -118,7 +118,7 @@
               <v-divider ></v-divider>
                <v-btn color="transparent" to="/Que_es_golden_cat" depressed small>que es golden cat</v-btn>
                <v-divider ></v-divider>
-                <v-btn color="transparent" to="/CambiosCancelaciones" depressed small>documento</v-btn>
+                <v-btn color="transparent" to="/Eventos" depressed small>eventos</v-btn>
                 <v-divider ></v-divider>
           </v-card>
         </v-flex>
@@ -131,8 +131,7 @@
               <v-divider ></v-divider>
                <v-btn color="transparent" to="/ConsultaPeticiones" depressed small>consulta politicas</v-btn>
                <v-divider ></v-divider>
-                <v-btn color="transparent" to="/Eventos" depressed small>eventos</v-btn>
-                <v-divider ></v-divider>
+
           </v-card>
         </v-flex>
 

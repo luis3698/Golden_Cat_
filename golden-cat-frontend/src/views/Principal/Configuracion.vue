@@ -1,111 +1,107 @@
 <template>
-
-    <v-container fluid>
-      <v-layout row>
+  <v-container fluid>
+    <v-layout row>
+      <v-flex xs3 order-lg2>
+        <v-card-text  class="transparent text-xs-center">
+           <div > FOTO DE PERFIL</div>
+        </v-card-text>
+        <material-card class="v-card-profile">
+          <v-avatar class="text-xs-center mx-auto d-block" slot="offset"  size="130">
+            <img  :src="imgUrl" >
+          </v-avatar>
+          <v-card-text class="text-xs-center">
+            <v-form name="formulario" method="post" enctype="form-data">
+              <v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file'></v-text-field>
+              <input type="file" style="display: none" ref="image" accept="image/*" @change="onFilePicked">
+            </v-form>
+          </v-card-text>
+        </material-card>
+      </v-flex>
+    </v-layout>
+    <v-divider> </v-divider>
+    <v-card-text class="transparent text-xs-center">
+      <div > DATOS PERSONALES</div>
+    </v-card-text>
+      <v-layout  row>
+        <v-flex xs2 order-lg2 class="transparent text-xs-center">
+          <v-card-text>NOMBRE :</v-card-text>
+        </v-flex>
         <v-flex xs3 order-lg2>
-            <v-card-text  class="transparent text-xs-center">
-             <div > FOTO DE PERFIL</div>
-             </v-card-text>
-             <material-card class="v-card-profile">
-                 <v-avatar class="text-xs-center mx-auto d-block" slot="offset"  size="130">
-                     <img  :src="imgUrl" >
-                 </v-avatar>
-                <v-card-text class="text-xs-center">
-                    <v-form name="formulario" method="post" enctype="form-data">
-                      <v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file'></v-text-field>
-                        <input type="file" style="display: none" ref="image" accept="image/*" @change="onFilePicked">
-                    </v-form>
-                </v-card-text>
-            </material-card>
+          <v-text-field small label="" solo ></v-text-field>
+        </v-flex>
+        <v-flex   xs2 order-lg2 class="transparent text-xs-center">
+         <v-card-text>PAIS :</v-card-text>
+        </v-flex>
+        <v-flex xs3 order-lg2>
+          <v-select :items="items" solo></v-select>
+        </v-flex>
+      </v-layout>
+      <v-layout  row>
+        <v-flex xs2 order-lg2 class="transparent text-xs-center">
+          <v-card-text>APELLIDO :</v-card-text>
+        </v-flex>
+        <v-flex xs3 order-lg2>
+          <v-text-field small label="" solo ></v-text-field>
+        </v-flex>
+        <v-flex xs2 order-lg2 class="transparent text-xs-center">
+          <v-card-text>CIUDAD :</v-card-text>
+        </v-flex>
+        <v-flex xs3 order-lg2>
+          <v-text-field small label="" solo ></v-text-field>
+        </v-flex>
+      </v-layout>
+      <v-layout row>
+        <v-flex xs2 order-lg2 class="transparent text-xs-center">
+          <v-card-text>CC :</v-card-text>
+        </v-flex>
+        <v-flex xs3 order-lg2>
+          <v-text-field small label="" solo ></v-text-field>
+        </v-flex>
+        <v-flex   xs2 order-lg2 class="transparent text-xs-center">
+          <v-card-text>TELEFONO :</v-card-text>
+        </v-flex>
+        <v-flex xs3 order-lg2>
+          <v-text-field small label="" phone solo></v-text-field>
         </v-flex>
       </v-layout>
       <v-divider> </v-divider>
-       <v-card-text class="transparent text-xs-center">
-       <div > DATOS PERSONALES</div>
-       </v-card-text>
-      <v-layout  row>
-        <v-flex   xs2 order-lg2 class="transparent text-xs-center">
-             <v-card-text>NOMBRE :</v-card-text>
-        </v-flex>
-        <v-flex xs3 order-lg2>
-            <v-text-field small label="" solo ></v-text-field>
-        </v-flex>
-          <v-flex   xs2 order-lg2 class="transparent text-xs-center">
-             <v-card-text>PAIS :</v-card-text>
-        </v-flex>
-        <v-flex xs3 order-lg2>
-            <v-select :items="items" solo></v-select>
-        </v-flex>
-      </v-layout>
-       <v-layout  row>
-        <v-flex   xs2 order-lg2 class="transparent text-xs-center">
-             <v-card-text>APELLIDO :</v-card-text>
-        </v-flex>
-        <v-flex xs3 order-lg2>
-            <v-text-field small label="" solo ></v-text-field>
-        </v-flex>
-          <v-flex   xs2 order-lg2 class="transparent text-xs-center">
-             <v-card-text>CIUDAD :</v-card-text>
-        </v-flex>
-        <v-flex xs3 order-lg2>
-            <v-text-field small label="" solo ></v-text-field>
-        </v-flex>
-      </v-layout>
-       <v-layout  row>
-        <v-flex   xs2 order-lg2 class="transparent text-xs-center">
-             <v-card-text>CC :</v-card-text>
-        </v-flex>
-        <v-flex xs3 order-lg2>
-            <v-text-field small label="" solo ></v-text-field>
-        </v-flex>
-          <v-flex   xs2 order-lg2 class="transparent text-xs-center">
-             <v-card-text>TELEFONO :</v-card-text>
-        </v-flex>
-        <v-flex xs3 order-lg2>
-            <v-text-field small label="" phone solo></v-text-field>
-        </v-flex>
-      </v-layout>
-        <v-divider> </v-divider>
-       <v-card-text class="transparent text-xs-center">
-       <div > DATOS CUENTA</div>
-       </v-card-text>
-        <v-layout  row>
-
+      <v-card-text class="transparent text-xs-center">
+        <div > DATOS CUENTA</div>
+      </v-card-text>
+      <v-layout row>
         <v-flex xs12 order-lg2  class="colort ransparent text-xs-center">
-        <v-dialog v-model="dialogEmail" persistent max-width="600px">
-          <template v-slot:activator="{ on }">
-            <v-btn color="blue darken-4" dark v-on="on">Editar E-mail</v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="headline">EDiTAR E-MAIL</span>
-            </v-card-title>
-            <v-card-text >
-              <v-container grid-list-md>
-                <v-layout wrap>
-                <v-flex xs12>
-                    <v-text-field label="Email actual*" required></v-text-field>
-                  </v-flex>
-                  <v-flex xs12>
-                    <v-text-field label="Email nuevo*" required></v-text-field>
-                  </v-flex>
-                  <v-flex xs12>
-                    <v-text-field label="confirma Email nuevo*" required></v-text-field>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-              <small>verifique que tidos los datos esten correctamente escritos</small>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-
-              <v-btn color="blue darken-4"  dark @click="dialogEmail = false">Close</v-btn>
-              <v-btn color="blue darken-4"  dark @click="dialogEmail = false">Save</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+          <v-dialog v-model="dialogEmail" persistent max-width="600px">
+            <template v-slot:activator="{ on }">
+              <v-btn color="blue darken-4" dark v-on="on">Editar E-mail</v-btn>
+            </template>
+            <v-card>
+              <v-card-title>
+                <span class="headline">EDiTAR E-MAIL</span>
+              </v-card-title>
+              <v-card-text >
+                <v-container grid-list-md>
+                  <v-layout wrap>
+                    <v-flex xs12>
+                      <v-text-field label="Email actual*" required></v-text-field>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field label="Email nuevo*" required></v-text-field>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field label="confirma Email nuevo*" required></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+                <small>verifique que tidos los datos esten correctamente escritos</small>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-4"  dark @click="dialogEmail = false">Close</v-btn>
+                <v-btn color="blue darken-4"  dark @click="dialogEmail = false">Save</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </v-flex>
-
         <v-flex xs12 order-lg2  class="transparent text-xs-center">
           <v-dialog v-model="dialogPassword" persistent max-width="600px">
         <template v-slot:activator="{ on }">
