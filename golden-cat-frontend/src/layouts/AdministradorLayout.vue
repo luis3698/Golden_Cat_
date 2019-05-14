@@ -116,13 +116,13 @@
                 <v-list-tile>
                   <v-btn class="boton" small flat to="/administrador/configuracion">configuracion<v-icon small>settings</v-icon></v-btn>
                 </v-list-tile>
+                <v-list-tile>
+                  <v-btn class="boton" small flat to="/login">cerrar sesión<v-icon small>power_settings_new</v-icon></v-btn>
+                </v-list-tile>
               </v-list>
-
             </v-card>
           </v-menu>
-          <v-btn icon to="/login">
-            <v-icon>power_settings_new</v-icon>
-          </v-btn>
+          
         </v-toolbar>
       <v-content>
         <v-container fill-height>
@@ -219,7 +219,8 @@ export default {
     items: [
       { icon: 'supervisor_account', text: 'Usuarios/Editar', link: '/administrador/usuarios' },
       { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
-      { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' }
+      { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' },
+      { icon: 'perm_identity', text: 'Administrar Empleados', link: '/administrador/AdministrarEmpleados' }
     ]
   })
 }

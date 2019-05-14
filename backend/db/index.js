@@ -12,7 +12,7 @@ const setupSeason_date = require('./lib/season_date')
 const setupInvoice = require('./lib/invoice')
 const setupInvoice_detail = require('./lib/invoice_detail')
 const setupServices = require('./lib/services')
-const setupDetail_reservation = require('./lib/detail_reservation.model')
+const setupDetail_reservation = require('./lib/detail_reservation')
 
 
 //modelos
