@@ -104,41 +104,39 @@
         </v-flex>
         <v-flex xs12 order-lg2  class="transparent text-xs-center">
           <v-dialog v-model="dialogPassword" persistent max-width="600px">
-        <template v-slot:activator="{ on }">
-          <v-btn color="blue darken-4" dark v-on="on">Editar Contraseña</v-btn>
-        </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">CONTRASEÑA USUARIO</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12>
-                  <v-text-field label="Escribe Password actual*" type="password" required></v-text-field>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Escribe Password nuevo*" type="password" required></v-text-field>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Confirma Password nuevo*" type="password" required></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-            <small>*indicates required field</small>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-4" dark @click="dialogPassword = false">Close</v-btn>
-            <v-btn color="blue darken-4" dark @click="dialogPassword = false">Save</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+            <template v-slot:activator="{ on }">
+              <v-btn color="blue darken-4" dark v-on="on">Editar Contraseña</v-btn>
+            </template>
+            <v-card>
+              <v-card-title>
+                <span class="headline">CONTRASEÑA USUARIO</span>
+              </v-card-title>
+              <v-card-text>
+                <v-container grid-list-md>
+                  <v-layout wrap>
+                    <v-flex xs12>
+                      <v-text-field label="Escribe Password actual*" type="password" required></v-text-field>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field label="Escribe Password nuevo*" type="password" required></v-text-field>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field label="Confirma Password nuevo*" type="password" required></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+                <small>*indicates required field</small>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="blue darken-4" dark @click="dialogPassword = false">Close</v-btn>
+                <v-btn color="blue darken-4" dark @click="dialogPassword = false">Save</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </v-flex>
       </v-layout>
-
-    </v-container>
-
+  </v-container>
 </template>
 <script>
 export default {
