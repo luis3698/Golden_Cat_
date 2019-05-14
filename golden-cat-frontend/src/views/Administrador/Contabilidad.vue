@@ -101,6 +101,7 @@ export default {
   .theme--light.v-label {
     color: black;
 }
-.Layout[data-v-d10918c0] {
-    background-color: lightgrey;}
+  .Layout[data-v-d10918c0] {
+    background-color: #756C6C;
+  }
 </style>

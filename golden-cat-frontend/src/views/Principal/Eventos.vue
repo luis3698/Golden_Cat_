@@ -29,7 +29,7 @@
             <v-dialog class="text-xs-center" v-model="dialogGRUPOSFAMILIARES" width="500" >
               <template v-slot:activator="{ on }">
                 <div class="text-xs-center">
-                  <v-btn  color="indigo darken-4" dark v-on="on" >Mas detalles</v-btn> 
+                  <v-btn  color="indigo darken-4" dark v-on="on" >Mas detalles</v-btn>
                 </div>
               </template>
               <v-card>
@@ -64,14 +64,14 @@
               <v-dialog class="text-xs-center" v-model="dialogBODAS" width="500" >
                 <template v-slot:activator="{ on }">
                 <div class="text-xs-center">
-                  <v-btn  color="indigo darken-4" dark v-on="on" >Mas detalles</v-btn> 
+                  <v-btn  color="indigo darken-4" dark v-on="on" >Mas detalles</v-btn>
                 </div>
                 </template>
                 <v-card>
                   <v-card-title class="headline " primary-title >
                     BODAS
                   </v-card-title>
-                  <v-card-text>Disfruta el TODO INCLUIDO en Golden Cat 
+                  <v-card-text>Disfruta el TODO INCLUIDO en Golden Cat
                     y haz que tu matrimonio sea inolvidable para ti y tus invitados.
                     <br> contactanos a : <b>GoldenCat@gmail.com </b>
                   </v-card-text>
@@ -99,7 +99,7 @@
               <v-dialog class="text-xs-center" v-model="dialogCONVENCIONES" width="500" >
                 <template v-slot:activator="{ on }">
                   <div class="text-xs-center">
-                    <v-btn color="indigo darken-4" dark v-on="on" >Mas detalles</v-btn> 
+                    <v-btn color="indigo darken-4" dark v-on="on" >Mas detalles</v-btn>
                   </div>
                 </template>
                 <v-card>
@@ -124,7 +124,7 @@
               </v-dialog>
             </v-card>
           </v-container>
-        </v-flex>       
+        </v-flex>
       </v-layout>
     </v-container>
     </template>
