@@ -370,7 +370,58 @@
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>
-      <h1 v-show="reservaConfirm">su  ya fue echa</h1>
+
+      <v-container class="tamañoct" v-show="reservaConfirm">
+        <v-layout  >
+        <v-flex xs12>
+          <v-card tile flat color="transparent">
+            <v-card-text class="display-2 text-xs-center">datos reserva</v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-layout row>
+        <v-flex xs3 >
+          <v-card  tile flat color="transparent">
+              <v-card-text >TIPO DE HABITACION :</v-card-text>
+              <v-card-text >FECHA INICIO DE RESERVA :</v-card-text>
+              <v-card-text >FECHA FINAL DE RESERVA :</v-card-text>
+              <v-card-text >NUMERO DE ADULTOS :</v-card-text>
+              <v-card-text >NUMERO DE NIÑOS :</v-card-text>
+              <v-btn color="indigo darken-4" to="/" dark >salir</v-btn>
+          </v-card>
+        </v-flex>
+          <v-flex xs3 >
+          <v-card  tile flat color="transparent">
+              <v-card-text >DOBLE</v-card-text>
+              <v-card-text >12/5/2019</v-card-text>
+              <v-card-text >15/5/2019</v-card-text>
+              <v-card-text >2</v-card-text>
+              <v-card-text >2</v-card-text> 
+          </v-card>
+        </v-flex>
+          <v-flex xs3 >
+          <v-card  tile flat color="transparent">
+              <v-card-text >NOMBRE :</v-card-text>
+              <v-card-text >APELLIDO :</v-card-text>
+              <v-card-text >TELEFONO :</v-card-text>
+              <v-card-text >CC :</v-card-text>
+              <v-card-text >CIUDAD :</v-card-text>
+              <v-card-text class="display-2" >PRECIO :</v-card-text>
+          </v-card>
+        </v-flex>
+          <v-flex xs3 >
+          <v-card  tile flat color="transparent">
+              <v-card-text >CARLOS</v-card-text>
+              <v-card-text >VERA</v-card-text>
+              <v-card-text >3205458545</v-card-text>
+              <v-card-text >1100975458</v-card-text>
+              <v-card-text >CUCUTA</v-card-text>
+              <v-card-text class="display-2" >$10000</v-card-text>
+                    
+          </v-card>
+        </v-flex>
+      </v-layout>
+      </v-container>
 
     </section>
 </template>
@@ -408,5 +459,8 @@ export default {
 
 </script>
   <style scoped>
+  .tamañoct{
+        width: 1400px;
+  }
 
   </style>

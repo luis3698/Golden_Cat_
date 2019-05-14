@@ -68,7 +68,7 @@
           <v-card-title class="headline " primary-title >
             BODAS
           </v-card-title>
-          <v-card-text>Disfruta el TODO INCLUIDO en Golden Cat 
+          <v-card-text>Disfruta el TODO INCLUIDO en Golden Cat
             y haz que tu matrimonio sea inolvidable para ti y tus invitados.
           <br> contactanos a : <b>GoldenCat@gmail.com </b>
           </v-card-text>
@@ -139,8 +139,8 @@ export default {
       conferencia: CONFERENCIA,
       familia: FAMILIA,
       dialogGRUPOSFAMILIARES: false,
-       dialogBODAS: false,
-       dialogCONVENCIONES: false
+      dialogBODAS: false,
+      dialogCONVENCIONES: false
     }
   }
 
