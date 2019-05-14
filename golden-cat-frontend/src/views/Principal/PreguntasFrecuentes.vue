@@ -58,45 +58,44 @@
               <v-card>
                 <v-card-text>puede pagarla con tandeja de credito, efecty, paypal,baloto </v-card-text>
               </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>7. ¿si cancelo una reserva ya paga que pasa con mi dinero?</div>
-        </template>
-        <v-card>
-          <v-card-text>en caso de cancelar reseva y tener metodo de pago de forma virtual su dinero sera reembolsado a la misma cuenta entre las proximas 24 a 48 horas de la cancelacion.</v-card-text>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>7. ¿si cancelo una reserva ya paga que pasa con mi dinero?</div>
+              </template>
+              <v-card>
+                <v-card-text>en caso de cancelar reseva y tener metodo de pago de forma virtual su dinero sera reembolsado a la misma cuenta entre las proximas 24 a 48 horas de la cancelacion.</v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>8. ¿como me comunico con el hotel?</div>
+              </template>
+              <v-card>
+                <v-card-text>en la pagina www.golencat/cantactanos puede encontrar numeros telefonicos y correo electronicos para ponerse en concato con nosotros.</v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>9. ¿que puedo hacer si la debulucion de mi dinero no se genera?</div>
+              </template>
+              <v-card>
+                <v-card-text> en caso de no generarse el reembolso en las horas estrablecidas ponerce en contacto con nuestros numero de atencion al cliente 32346545 - 72435565</v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>19. ¿Si la cancelación obedece a un caso de fuerza mayor que debo hacer?</div>
+              </template>
+              <v-card>
+                <v-card-text>Debe diligenciar su solicitud a través de la opción PQR adjuntando los soportes que certifican el motivo que le obliga a cancelar la reserva.</v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
         </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>8. ¿como me comunico con el hotel?</div>
-        </template>
-        <v-card>
-          <v-card-text>en la pagina www.golencat/cantactanos puede encontrar numeros telefonicos y correo electronicos para ponerse en concato con nosotros.</v-card-text>
-        </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>9. ¿que puedo hacer si la debulucion de mi dinero no se genera?</div>
-        </template>
-        <v-card>
-          <v-card-text> en caso de no generarse el reembolso en las horas estrablecidas ponerce en contacto con nuestros numero de atencion al cliente 32346545 - 72435565</v-card-text>
-        </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>19. ¿Si la cancelación obedece a un caso de fuerza mayor que debo hacer?</div>
-        </template>
-        <v-card>
-          <v-card-text>Debe diligenciar su solicitud a través de la opción PQR adjuntando los soportes que certifican el motivo que le obliga a cancelar la reserva.</v-card-text>
-        </v-card>
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
-
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 <script>
 import PREGUNTASFRECUENTES from '@/assets/preguntasfrecuentes.png'
