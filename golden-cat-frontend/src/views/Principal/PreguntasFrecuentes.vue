@@ -1,63 +1,63 @@
 <template>
-<v-container fluid>
-      <v-layout row>
-        <v-flex xs12 >
-          <v-card dark tile flat color="error">
-              <v-img class="preguntasfrecuentes" :src="preguntasfrecuentes" ></v-img>
-          </v-card>
-        </v-flex>
-      </v-layout>
-      <v-layout row>
-        <v-flex xs12  >
-          <v-card dark tile flat color="red lighten-1">
-             <v-expansion-panel>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>1. ¿Puedo realizar modificaciones a una reserva confirmado y pago?</div>
-        </template>
-        <v-card>
-          <v-card-text>Sí se puede realizar modificaciones.</v-card-text>
+  <v-container fluid>
+    <v-layout row>
+      <v-flex xs12 >
+        <v-card dark tile flat color="error">
+          <v-img class="preguntasfrecuentes" :src="preguntasfrecuentes" ></v-img>
         </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>2. ¿Cómo lo puedo hacer?</div>
-        </template>
-        <v-card>
-          <v-card-text>A través de www.goldencat.con en la opción reservas,detalles, selecciona cambios </v-card-text>
-        </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>3. ¿Qué información necesito para radicar mi reserva?</div>
-        </template>
-        <v-card>
-          <v-card-text>se le pediran datos personales como nombre,apellido,telefono,cc,correo,pais para hacer valida la reserva</v-card-text>
-        </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>4. ¿Qué cambios puedo realizar en la reserva?</div>
-        </template>
-        <v-card>
-          <v-card-text> Se pueden realizar cambios de nombre, cambios de fechas de viaje,NOTA:recuerde hacer cambios 48 horas antes de su llegada al hotel</v-card-text>
-        </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>5. ¿puedo cancelar una reserva?</div>
-        </template>
-        <v-card>
-          <v-card-text>si puede, en www.gondencat.con opcion cuenta reservas opcion reserva opcion detalles, cancelar reserva</v-card-text>
-        </v-card>
-      </v-expansion-panel-content>
-      <v-expansion-panel-content>
-        <template v-slot:header>
-          <div>6. ¿Cómo puedo pagar las reservas?</div>
-        </template>
-        <v-card>
-          <v-card-text>puede pagarla con tandeja de credito, efecty, paypal,baloto </v-card-text>
-        </v-card>
+      </v-flex>
+    </v-layout>
+    <v-layout row>
+      <v-flex xs12  >
+        <v-card dark tile flat color="red lighten-1">
+          <v-expansion-panel>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>1. ¿Puedo realizar modificaciones a una reserva confirmado y pago?</div>
+              </template>
+              <v-card>
+                <v-card-text>Sí se puede realizar modificaciones.</v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>2. ¿Cómo lo puedo hacer?</div>
+              </template>
+              <v-card>
+                <v-card-text>A través de www.goldencat.con en la opción reservas,detalles, selecciona cambios </v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>3. ¿Qué información necesito para radicar mi reserva?</div>
+              </template>
+              <v-card>
+                <v-card-text>se le pediran datos personales como nombre,apellido,telefono,cc,correo,pais para hacer valida la reserva</v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>4. ¿Qué cambios puedo realizar en la reserva?</div>
+              </template>
+              <v-card>
+                <v-card-text> Se pueden realizar cambios de nombre, cambios de fechas de viaje,NOTA:recuerde hacer cambios 48 horas antes de su llegada al hotel</v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>5. ¿puedo cancelar una reserva?</div>
+              </template>
+              <v-card>
+                <v-card-text>si puede, en www.gondencat.con opcion cuenta reservas opcion reserva opcion detalles, cancelar reserva</v-card-text>
+              </v-card>
+            </v-expansion-panel-content>
+            <v-expansion-panel-content>
+              <template v-slot:header>
+                <div>6. ¿Cómo puedo pagar las reservas?</div>
+              </template>
+              <v-card>
+                <v-card-text>puede pagarla con tandeja de credito, efecty, paypal,baloto </v-card-text>
+              </v-card>
       </v-expansion-panel-content>
       <v-expansion-panel-content>
         <template v-slot:header>
