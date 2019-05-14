@@ -41,6 +41,13 @@
                   required
                 ></v-text-field>
                 <v-text-field
+                  ref="telefono"
+                  v-model="telefono"
+                  :rules="[() => !!telefono || 'Este campo es requerido']"
+                  label="Telefono"
+                  required
+                ></v-text-field>
+                <v-text-field
                   ref="fechaentrada"
                   v-model="fechaentrada"
                   :rules="[() => !!fechaentrada || 'Este campo es requerido']"
@@ -70,6 +77,13 @@
                   v-model="nhabitacion"
                   :rules="[() => !!nhabitacion || 'Este campo es requerido']"
                   label="No. Habitacion"
+                  required
+                ></v-text-field>
+                <v-text-field
+                  ref="precio"
+                  v-model="precio"
+                  :rules="[() => !!precio || 'Este campo es requerido']"
+                  label="Precio de la Habitacion"
                   required
                 ></v-text-field>
                 <v-text-field
@@ -154,6 +168,9 @@
                   <v-text-field v-model="editedItem.email" label="E-mail"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
+                  <v-text-field v-model="editedItem.telefono" label="telefono"></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm6 md4>
                   <v-text-field type="date" v-model="editedItem.fe" label="Fecha Entrada"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
@@ -165,6 +182,9 @@
               <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.nhabitacion" label="No. Habitacion"></v-text-field>
               </v-flex>
+              <v-flex xs12 sm6 md4>
+                  <v-text-field v-model="editedItem.precio" label="Precio"></v-text-field>
+                </v-flex>
               <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.adulto" label="No. Adultos"></v-text-field>
               </v-flex>
@@ -191,10 +211,12 @@
         <td>{{ props.item.name }}</td>
         <td class="text-xs-right">{{ props.item.cc }}</td>
         <td class="text-xs-right">{{ props.item.email }}</td>
+        <td class="text-xs-right">{{ props.item.telefono }}</td>
         <td class="text-xs-right">{{ props.item.fe }}</td>
         <td class="text-xs-right">{{ props.item.fs }}</td>
         <td class="text-xs-right">{{ props.item.habitacion }}</td>
         <td class="text-xs-right">{{ props.item.nhabitacion }}</td>
+        <td class="text-xs-right">{{ props.item.precio }}</td>
         <td class="text-xs-right">{{ props.item.adulto }}</td>
         <td class="text-xs-right">{{ props.item.niño }}</td>
         <td class="justify-center layout px-0">
@@ -227,10 +249,12 @@ export default {
     nombre: null,
     identificacion: null,
     correoelectronico: null,
+    telefono: null,
     fechaentrada: null,
     fechasalida: null,
     habitacion: null,
     nhabitacion: null,
+    precio: null,
     personas: null,
     adultos: null,
     niños: null,
@@ -242,10 +266,12 @@ export default {
         nombre: this.nombre,
         identificacion: this.identificacion,
         correoelectronico: this.correoelectronico,
+        telefono: this.telefono,
         fechaentrada: this.fechaentrada,
         fechasalida: this.fechasalida,
         habitacion: this.habitacion,
         nhabitacion: this.nhabitacion,
+        precio: this.precio,
         personas: this.personas,
         adultos: this.adultos,
         niños: this.niños
@@ -297,10 +323,12 @@ export default {
       },
       { text: 'CC', value: 'cc' },
       { text: 'E-mail', value: 'email' },
+      { text: 'Telefono', value: 'telefono' },
       { text: 'Fecha Entrada', value: 'fe', type: 'date' },
       { text: 'Fecha Salida', value: 'fs', type: 'date' },
       { text: 'Tipo habitacion', value: 'habitacion' },
       { text: 'No. habitacion', value: 'nhabitacion' },
+      { text: 'Precio', value: 'precio' },
       { text: 'No. Adultos', value: 'adulto' },
       { text: 'No. Niños', value: 'niño' },
       { text: 'Actions', value: 'name', sortable: false }
@@ -311,10 +339,12 @@ export default {
       name: '',
       cc: 0,
       email: 0,
+      telefono: 0,
       fe: 0,
       fs: 0,
       habitacion: 0,
       nhabitacion: 0,
+      precio: 0,
       adulto: 0,
       niño: 0
     },
@@ -322,10 +352,12 @@ export default {
       name: '',
       cc: 0,
       email: 0,
+      telefono: 0,
       fe: 0,
       fs: 0,
       habitacion: 0,
       nhabitacion: 0,
+      precio: 0,
       adulto: 0,
       niño: 0
     }
@@ -350,10 +382,12 @@ export default {
           name: 'Carlos Rodriguez',
           cc: 8239621473,
           email: 'CarlosR@gmail.com',
+          telefono: '3065241786',
           fe: '2008-11-24',
           fs: '2009-01-30',
           habitacion: 'presindencial',
           nhabitacion: 201,
+          precio: '200.000',
           adulto: 10,
           niño: 5
         },
@@ -361,10 +395,12 @@ export default {
           name: 'Bruno Dias',
           cc: 1036524951,
           email: 'Bruno@gmail.com',
+          telefono: '3065241786',
           fe: '2012-12-12',
           fs: '2012-12-30',
           habitacion: 'presindencial',
           nhabitacion: 201,
+          precio: '200.000',
           adulto: 1,
           niño: 1
         },
@@ -372,10 +408,12 @@ export default {
           name: 'clar Kent',
           cc: 1009647258,
           email: 'clarS@hotmail.com',
+          telefono: '3065241786',
           fe: '2005-06-21',
           fs: '2005-08-23',
           habitacion: 'presindencial',
           nhabitacion: 201,
+          precio: '200.000',
           adulto: 1,
           niño: 0
         },
@@ -383,10 +421,12 @@ export default {
           name: 'Benjamin Parker',
           cc: 1005641837,
           email: 'ParkerP@gmail.com',
+          telefono: '3065241786',
           fe: '2003-03-06',
           fs: '2003-06-15',
           habitacion: 'presindencial',
           nhabitacion: 201,
+          precio: '200.000',
           adulto: 2,
           niño: 1
         },
@@ -394,10 +434,12 @@ export default {
           name: 'Roberto Giraldo',
           cc: 1004583718,
           email: 'RoberGl@gmail.com',
+          telefono: '3065241786',
           fe: '2008-07-12',
           fs: '2008-08-10',
           habitacion: 'presindencial',
           nhabitacion: 201,
+          precio: '200.000',
           adulto: 5,
           niño: 3
         }

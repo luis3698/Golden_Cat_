@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 <v-flex xs12 sm12 md12>
         <v-toolbar
         color="indigo"
@@ -178,8 +177,6 @@
     </v-data-table>
   </div>
    </v-flex>
-=======
->>>>>>> ca0242f8d44f1a13961209cac3c8cf22e7d25024
 </template>
 
 <script>
