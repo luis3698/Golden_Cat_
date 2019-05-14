@@ -1,5 +1,5 @@
 <template>
-
+    <div>
     <v-container fluid>
       <v-layout row>
         <v-flex xs3 order-lg2>
@@ -171,7 +171,7 @@
       </v-layout>
 
     </v-container>
-
+    </div>
 </template>
 <script>
 import { Spanish } from 'flatpickr/dist/l10n/es.js'
@@ -224,3 +224,10 @@ export default {
 }
 
 </script>
+<style scoped>
+div{
+  border-color: white;
+  background-color: #756c6c
+}
+</style>
+
