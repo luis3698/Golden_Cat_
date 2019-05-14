@@ -219,7 +219,8 @@ export default {
     items: [
       { icon: 'supervisor_account', text: 'Usuarios/Editar', link: '/administrador/usuarios' },
       { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
-      { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' }
+      { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' },
+      { icon: 'perm_identity', text: 'Administrar Empleados', link: '/administrador/AdministrarEmpleados' }
     ]
   })
 }
