@@ -1,7 +1,7 @@
 <template>
 <v-flex xs12 sm12 md12>
         <v-toolbar
-        color="indigo"
+        color="blue darken-1"
         dark
         tabs
         >

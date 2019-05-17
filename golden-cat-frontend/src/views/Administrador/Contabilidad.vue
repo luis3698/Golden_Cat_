@@ -43,7 +43,7 @@
           <v-flex xs4 >
             <v-radio-group class="Layout" v-model="radios" :mandatory="false">
               <v-btn
-                color="blue darken-4"
+                color="blue darken-1"
                 class="botton"
                 @click="loader = 'loading3'"
                >Generar<v-icon right>cloud_upload</v-icon>
@@ -69,39 +69,36 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style  scoped>
   .Layout{
-    background-color: white
-    padding-top 20px
-    padding-left 30px
+    background-color: white;
+    padding-top: 20px;
+    padding-left: 30px;
   }
   .titulo{
-    background-color blue
-    margin 0 0 -16px 0
-    font-size 20px
-    padding-left 15px
+    background-color: rgb(0, 153, 255);
+    margin: 0 0 -16px 0;
+    font-size: 20px;
+    padding-left: 15px;
   }
   .titulo1{
-    background-color blue
-    margin 0 0 -16px 0
-    font-size 20px
-    padding-left 15px
+    background-color: rgb(0, 153, 255);
+    margin: 0 0 -16px 0;
+    font-size: 20px;
+    padding-left: 15px;
   }
   .botton{
-    color white
-    height 40px
-    margin -8px
+    color: white;
+    height: 40px;
+    margin: -8px;
   }
   .todo{
-    width 1000px
+    width: 1000px
   }
   .v-btn__content {
-    color white
+    color: white
   }
   .theme--light.v-label {
     color: black;
 }
-  .Layout[data-v-d10918c0] {
-    background-color: #756C6C;
-  }
 </style>

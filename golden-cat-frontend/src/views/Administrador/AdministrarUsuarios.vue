@@ -1,7 +1,7 @@
 <template>
 <v-flex xs12 sm12 md12>
         <v-toolbar
-        color="indigo"
+        color="blue darken-1"
         dark
         tabs
         >
@@ -22,17 +22,7 @@
 
                   required
                 ></v-text-field>
-                <v-text-field
-                  ref="usuario"
-                  v-model="usuario"
-                  :rules="[() => !!usuario || 'Este campo es requerido',
-                  () => !!usuario && usuario.length <= 25 || 'Haz superado el maximo de caracteres']"
-                  counter="25"
-                  :error-messages="errorMessages"
-                  label="Usuario"
-
-                  required
-                ></v-text-field>
+               
                 <v-text-field
                   ref="identificacion"
                   v-model="identificacion"
@@ -128,9 +118,6 @@
                   <v-text-field type="text" v-model="editedItem.name" label="Nombre completo"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.user" label="Usuario"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
                   <v-text-field type="number" v-model="editedItem.cc" label="Indentificacion"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
@@ -163,7 +150,6 @@
     >
       <template v-slot:items="props">
         <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.user }}</td>
         <td class="text-xs-right">{{ props.item.cc }}</td>
         <td class="text-xs-right">{{ props.item.email }}</td>
         <td class="text-xs-right">{{ props.item.telefono }}</td>
@@ -213,7 +199,6 @@ export default {
         sortable: false,
         value: 'name'
       },
-      { text: 'User', value: 'user' },
       { text: 'CC', value: 'cc' },
       { text: 'E-mail', value: 'email' },
       { text: 'Teléfono', value: 'telefono', type: 'text' },
@@ -225,7 +210,6 @@ export default {
     editedIndex: -1,
     editedItem: {
       name: '',
-      user: '',
       cc: 0,
       email: 0,
       telefono: 0,
@@ -233,7 +217,6 @@ export default {
     },
     defaultItem: {
       name: '',
-      user: '',
       cc: 0,
       email: 0,
       telefono: 0,
@@ -259,7 +242,6 @@ export default {
       this.desserts = [
         {
           name: 'Carlos Rodriguez',
-          user: 'CRdiguez',
           cc: 8239621473,
           email: 'CarlosR@gmail.com',
           telefono: '3214556724',
@@ -268,7 +250,6 @@ export default {
         },
         {
           name: 'Bruno Dias',
-          user: 'gdfgd',
           cc: 1036524951,
           email: 'Bruno@gmail.com',
           telefono: '3214556724',
@@ -277,7 +258,6 @@ export default {
         },
         {
           name: 'clar Kent',
-          user: 'CRdigudghdg',
           cc: 1009647258,
           email: 'clarS@hotmail.com',
           telefono: '3214556724',
@@ -286,7 +266,6 @@ export default {
         },
         {
           name: 'Benjamin Parker',
-          user: 'CRdjyjgkyfk',
           cc: 1005641837,
           email: 'ParkerP@gmail.com',
           telefono: '3214556724',
@@ -295,7 +274,6 @@ export default {
         },
         {
           name: 'Roberto Giraldo',
-          user: 'CRdjkjk',
           cc: 1004583718,
           email: 'RoberGl@gmail.com',
           telefono: '3214556724',
@@ -341,7 +319,5 @@ export default {
     padding-left: 40px;
     color: white;
   }
-  .contenedor{
-    background-color: blue
-  }
+ 
 </style>
