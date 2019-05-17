@@ -5,21 +5,21 @@ function setupInvoice_detail(invoice_detailModel) {
       const result = await invoice_detailModel.create(invoice_detailNew)
       return result.toJSON()
     }
-    async function deleteInvoice_detailUuid (uuid) {
+    async function deleteInvoiceDetailUuid (uuid) {
         const cond = { where: { uuid } }
         const result = await invoice_detailModel.destroy(cond)
         return result ? true : false
       }
-      async function updateInvoice_detail(uuid, invoice_detail) {
+      async function updateInvoiceDetail(uuid, invoice_detail) {
       const cond = { where: { uuid } }
       const result = await invoice_detailModel.update(invoice_detail, cond)
       return result ? invoice_detailModel.findOne(cond) : new Error('no se actualizo ninguna tarifa')
       }
-      function findAllInvoice_detail() {
+      function findAllInvoiceDetail() {
         return invoice_detailModel.findAll()
       }
       
-    async function findUuidInvoice_detail(uuid) {
+    async function findUuidInvoiceDetail(uuid) {
     const cond = { where: { uuid } }
     const result = await invoice_detailModel.findOne(cond)
     return result
@@ -27,10 +27,10 @@ function setupInvoice_detail(invoice_detailModel) {
     
       return {
         createInvoiceDetail,
-        deleteInvoice_detailUuid,
-        updateInvoice_detail,
-        findAllInvoice_detail,
-        findUuidInvoice_detail
+        deleteInvoiceDetailUuid,
+        updateInvoiceDetail,
+        findAllInvoiceDetail,
+        findUuidInvoiceDetail
       }
     
     }

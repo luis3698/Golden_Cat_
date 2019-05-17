@@ -7,7 +7,7 @@
         app
         v-model="drawer"
         width="250"
-        class="blue darken-4"
+        class="blue darken-1"
       >
         <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
         <v-list dense style="color: white;">
@@ -70,7 +70,7 @@
         </v-list>
       </v-navigation-drawer>
         <v-toolbar
-        color="blue darken-4"
+        color="blue darken-1"
         dark
         app
         :clipped-left="$vuetify.breakpoint.mdAndUp"
@@ -83,7 +83,7 @@
           </v-toolbar-title>
           <v-spacer></v-spacer>
           <v-menu
-          color="blue darken-4"
+          color="blue darken-1"
           v-model="menu"
           :close-on-content-click="false"
           :nudge-width="80"
@@ -91,7 +91,7 @@
           >
             <template v-slot:activator="{ on }">
               <v-btn
-                color="indigo"
+                color="blue darken-1"
                 dark
                 v-on="on"
               >
@@ -220,7 +220,7 @@ export default {
       { icon: 'supervisor_account', text: 'Usuarios/Editar', link: '/administrador/usuarios' },
       { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
       { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' },
-      { icon: 'perm_identity', text: 'Administrar Empleados', link: '/administrador/AdministrarEmpleados' }
+      { icon: 'perm_identity', text: 'Administrar Empleados', link: '/administrador/empleados' }
     ]
   })
 }

@@ -17,7 +17,6 @@ import DatosCompra from './views/Principal/Datos_compra.vue'
 import PreguntasFrecuentes from './views/Principal/PreguntasFrecuentes.vue'
 import TerminosCondiciones from './views/Principal/TerminosCondiciones.vue'
 import Eventos from './views/Principal/Eventos.vue'
-import ConsultaPeticiones from './views/Principal/ConsultasPeticiones.vue'
 import AdministradorEmpleados from './views/Administrador/AdministrarEmpleados.vue'
 
 Vue.use(Router)
@@ -110,11 +109,6 @@ export default new Router({
       path: '/Eventos',
       name: 'Eventos',
       component: Eventos
-    },
-    {
-      path: '/ConsultaPeticiones',
-      name: 'ConsultaPeticiones',
-      component: ConsultaPeticiones
     },
     {
       path: '/administrador/empleados',

@@ -21,8 +21,8 @@ router.post('/', async function (req,res,next) {
 router.delete('/:uuid', async function(req,res,next) {
   try {
     const { uuid } = req.params
-    const { Invoice_detail } = await db()
-    const result = await Invoice_detail.deleteInvoice_detailUuid(uuid)
+    const { InvoiceDetail } = await db()
+    const result = await InvoiceDetail.deleteInvoiceDetailUuid(uuid)
     res.send(result)
   } catch (err) {
     next(err)
@@ -32,9 +32,9 @@ router.delete('/:uuid', async function(req,res,next) {
 router.put('/:uuid', async function(req, res, next) {
   try {
     const { uuid } = req.params
-    const { invoice_detailUpdate } = req.body
-    const { Invoice_detail } = await db()
-    const result = await Invoice_detail.updateInvoice_detail(uuid, invoice_detailUpdate)
+    const { InvoiceDetailUpdate } = req.body
+    const { InvoiceDetail } = await db()
+    const result = await InvoiceDetail.updateInvoiceDetail(uuid, InvoiceDetailUpdate)
     res.send(result)
   } catch (err) {
     next(err)
@@ -43,8 +43,8 @@ router.put('/:uuid', async function(req, res, next) {
 router.get('/', async function(req, res, next) {
   try {
     const { uuid } = req.params
-    const { Invoice_detail} = await db()
-    const result = await Invoice_detail.findAllInvoice_detail(uuid)
+    const { InvoiceDetail} = await db()
+    const result = await InvoiceDetail.findAllInvoiceDetail(uuid)
     res.send(result)
   } catch (err) {
     next(err)
@@ -54,8 +54,8 @@ router.get('/', async function(req, res, next) {
 router.get('/:uuid', async function(req, res, next){
   try {
     const { uuid } = req.params
-    const { Invoice_detail} = await db()
-    const result = await Invoice_detail.findUuidInvoice_detail(uuid)
+    const { InvoiceDetail} = await db()
+    const result = await InvoiceDetail.findUuidInvoiceDetail(uuid)
     res.send(result)
   } catch (err) {
     next(err)
