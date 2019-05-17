@@ -109,17 +109,21 @@
   </div>
 </template>
 <script>
+import api from '@/plugins/api'
 import HABITACION2 from '@/assets/habitacion2.png'
 
 export default {
   name: 'inicio',
-  created () {
+  async created () {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
+    const data = await api.get('/user', {
+      
+    })
+
   },
   data: () => ({
     acomodacion: '',
     habitacion2: HABITACION2,
-
     show1: false
   })
 }
