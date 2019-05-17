@@ -62,70 +62,6 @@
                 <div class="text-xs-center">
                   <v-btn  color="indigo darken-4" dark v-on="on" >Mas detalles</v-btn>
                 </div>
-<<<<<<< HEAD
-                </template>
-                <v-card>
-                  <v-card-title class="headline " primary-title >
-                    BODAS
-                  </v-card-title>
-                  <v-card-text>Disfruta el TODO INCLUIDO en Golden Cat
-                    y haz que tu matrimonio sea inolvidable para ti y tus invitados.
-                    <br> contactanos a : <b>GoldenCat@gmail.com </b>
-                  </v-card-text>
-                  <v-divider></v-divider>
-                  <v-container>
-                    <v-spacer></v-spacer>
-                    <v-btn color="indigo darken-1 " flat @click="dialogBODAS = false" >
-                      cerrar
-                    </v-btn>
-                  </v-container>
-                </v-card>
-              </v-dialog>
-            </v-card>
-          </v-container>
-        </v-flex>
-        <v-flex xs4  >
-          <v-container>
-            <v-card>
-              <v-img :src="conferencia"></v-img>
-              <v-card-title primary-title>
-                <div>
-                  <h3 class="letraEVENTOS" >CONVENCIONES</h3>
-                </div>
-              </v-card-title >
-              <v-dialog class="text-xs-center" v-model="dialogCONVENCIONES" width="500" >
-                <template v-slot:activator="{ on }">
-                  <div class="text-xs-center">
-                    <v-btn color="indigo darken-4" dark v-on="on" >Mas detalles</v-btn>
-                  </div>
-                </template>
-                <v-card>
-                  <v-card-title class="headline " primary-title >
-                    CONVENCIONES
-                  </v-card-title>
-                  <v-card-text>SERVICIO A LA MEDIDA <br>
-                    * Diseño de gastronomía conceptual<br>
-                    * Equipamiento tecnológico de última generación<br>
-                    * Montaje conceptual para fiestas, cocteles y eventos corporativos<br>
-                    * Diseño de experiencias sensoriales<br>
-                    <br> contactanos a : <b>GoldenCat@gmail.com </b>
-                  </v-card-text>
-                  <v-divider></v-divider>
-                  <v-container>
-                    <v-spacer></v-spacer>
-                    <v-btn color="indigo darken-1 " flat @click="dialogCONVENCIONES = false" >
-                      cerrar
-                    </v-btn>
-                  </v-container>
-                </v-card>
-              </v-dialog>
-            </v-card>
-          </v-container>
-        </v-flex>
-      </v-layout>
-    </v-container>
-    </template>
-=======
               </template>
               <v-card>
                 <v-card-title class="headline " primary-title >BODAS</v-card-title>
@@ -180,7 +116,6 @@
     </v-layout>
   </v-container>
 </template>
->>>>>>> 64eb6301fa5e84e4e0a121aec03b584c1db9c6a3
 <script>
 import COPAS from '@/assets/copas.jpg'
 import PAREJA from '@/assets/pareja.jpg'
