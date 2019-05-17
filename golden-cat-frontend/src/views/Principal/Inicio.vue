@@ -82,6 +82,14 @@
                  <v-card-text class="margen" >niños:</v-card-text>
               </v-flex>
             </v-layout>
+            <v-layout row>
+              <v-flex xs6 order-lg2>
+                <v-card-text class="margen text-sm-left" >5</v-card-text>
+              </v-flex>
+              <v-flex xs6>
+                 <v-card-text class="margen" >N° habitacion :</v-card-text>
+              </v-flex>
+            </v-layout>
 
              <v-card-actions  class="margen" >
               <v-spacer></v-spacer>

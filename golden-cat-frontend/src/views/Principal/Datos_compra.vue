@@ -51,12 +51,20 @@
                     <v-card-text class=" font-weight-light text-sm-left .headline" >2</v-card-text>
                   </v-flex>
                 </v-layout>
-                <v-layout row>
-                  <v-flex  >
-                    <v-card-text class=" font-weight-light text-sm-left .headline" >Numeros de niños :</v-card-text>
+                 <v-layout row>
+                  <v-flex xs8 >
+                    <v-card-text class=" font-weight-light text-sm-left .headline" >Numero de adultos :</v-card-text>
                   </v-flex>
                   <v-flex xs4>
                     <v-card-text class=" font-weight-light text-sm-left .headline" >2</v-card-text>
+                  </v-flex>
+                </v-layout>
+                <v-layout row>
+                  <v-flex  >
+                    <v-card-text class=" font-weight-light text-sm-left .headline" >N° :</v-card-text>
+                  </v-flex>
+                  <v-flex xs4>
+                    <v-card-text class=" font-weight-light text-sm-left .headline" >5</v-card-text>
                   </v-flex>
                 </v-layout>
               </v-card>
@@ -396,7 +404,7 @@
               <v-card-text >12/5/2019</v-card-text>
               <v-card-text >15/5/2019</v-card-text>
               <v-card-text >2</v-card-text>
-              <v-card-text >2</v-card-text> 
+              <v-card-text >2</v-card-text>
           </v-card>
         </v-flex>
           <v-flex xs3 >
@@ -417,7 +425,7 @@
               <v-card-text >1100975458</v-card-text>
               <v-card-text >CUCUTA</v-card-text>
               <v-card-text class="display-2" >$10000</v-card-text>
-                    
+
           </v-card>
         </v-flex>
       </v-layout>
