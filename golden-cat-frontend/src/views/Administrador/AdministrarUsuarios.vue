@@ -182,7 +182,8 @@
 <script>
 export default {
   created () {
-    this.$store.commit('SET_LAYOUT', 'administrador-layout')
+    this.$store.commit('SET_LAYOUT', 'administrador-layout'),
+    this.initialize()
   },
   data: () => ({
 
@@ -233,9 +234,6 @@ export default {
     dialog (val) {
       val || this.close()
     }
-  },
-  created () {
-    this.initialize()
   },
   methods: {
     initialize () {

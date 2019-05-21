@@ -52,18 +52,11 @@
                 </v-btn>
                 <v-layout row>
                   <v-flex xs6 order-lg2>
-                    <v-card-text  class="margen text-sm-left">32/05/2019</v-card-text>
+                    <v-card-text  class="margen text-sm-left">tipo de habitacion</v-card-text>
                   </v-flex>
                   <v-flex xs6>
-                    <v-card-text  class="margen " >fecha inicio:</v-card-text>
-                  </v-flex>
-                </v-layout>
-                <v-layout row>
-                  <v-flex xs6 order-lg2>
-                    <v-card-text  class="margen text-sm-left" >35/05/2019</v-card-text>
-                  </v-flex>
-                  <v-flex xs6>
-                    <v-card-text  class="margen" >fecha final:</v-card-text>
+                    <v-card-text  class="margen " >sencilla
+                    </v-card-text>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
@@ -82,24 +75,7 @@
                     <v-card-text class="margen" >niños:</v-card-text>
                   </v-flex>
                 </v-layout>
-                <v-card-actions  class="margen" >
-                  <v-spacer></v-spacer>
-                  <v-btn  icon @click="show1 = !show1">
-                    <v-icon>{{ show1 ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
-                  </v-btn>
-                </v-card-actions>
-                <v-slide-y-transition>
-                  <v-card-text v-show="show1">
-                    *Aire acondicionado <br>
-                    *Baño con ducha, secador de pelo<br>
-                    *Caja de seguridad electrónica<br>
-                    * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
-                    *Minibar con agua, refrescos, cervezas y más ($)<br>
-                    *Teléfono directo en dormitorio y baño<br>
-                    *1 cama extra o una cuna (a solicitud)<br>
-                    *2 Baños
-                  </v-card-text>
-                </v-slide-y-transition>
+               
               </v-card-text>
             </v-card>
           </v-hover>

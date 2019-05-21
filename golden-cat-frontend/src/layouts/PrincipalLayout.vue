@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire"  dark>
-    <v-toolbar    app color="indigo darken-4">
+    <v-toolbar app color="indigo darken-4">
 
         <v-layout row wrap>
             <v-flex xs2>
@@ -129,8 +129,7 @@
              <v-divider ></v-divider>
               <v-btn color="transparent" to="/PreguntasFrecuentes" depressed small>preguntas frecuentes</v-btn>
               <v-divider ></v-divider>
-               <v-btn color="transparent" to="/ConsultaPeticiones" depressed small>consulta politicas</v-btn>
-               <v-divider ></v-divider>
+               
 
           </v-card>
         </v-flex>
@@ -215,5 +214,8 @@ export default {
 }
 .bordel{
   padding: 21px
+}
+.v-toolbar{
+  z-index: 5;
 }
 </style>
