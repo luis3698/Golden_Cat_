@@ -10,10 +10,13 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-
-    date: {
+    date_arrival: {
       type: Sequelize.DATE,
       allowNull: false
-    }
+    },
+    date_exit: {
+      type: Sequelize.DATE,
+      allowNull: false
+    },
   })
 }

@@ -31,7 +31,7 @@ module.exports = function setupMetricModel (config) {
       allowNull: false
     },
     state: {
-      type: Sequelize.ENUM('Disponible','Ocupada'),
+      type: Sequelize.ENUM('Activa','En curso','Cancelada','Finalizada'),
       allowNull: false
     }
   })

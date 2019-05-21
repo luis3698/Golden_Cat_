@@ -11,7 +11,7 @@ module.exports = function setupMetricModel (config) {
       defaultValue: Sequelize.UUIDV4
     },
     state: {
-      type: Sequelize.ENUM('Disponible','Ocupada'),
+      type: Sequelize.ENUM('Disponible','Mantenimiento'),
       allowNull: false
     },
     number_adult: {

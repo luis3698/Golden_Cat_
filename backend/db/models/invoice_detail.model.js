@@ -10,10 +10,6 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-    reservation_detail: {
-      type: Sequelize.TEXT,
-      allowNull: false
-    },
     value: {
       type: Sequelize.INTEGER,
       allowNull: false

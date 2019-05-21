@@ -19,7 +19,7 @@ module.exports = function setupMetricModel (config) {
       allowNull: false
     },
     variation: {
-      type: Sequelize.CHAR(36),
+      type: Sequelize.ENUM('Incrementa','Decrementa'),
       allowNull: false
     }
   })
