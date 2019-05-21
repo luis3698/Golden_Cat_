@@ -81,7 +81,7 @@ module.exports = async function () {
   DepartmentsModel.belongsTo(CountryModel)
 
 
-  Type_RoomModel.hasMany(Type_RoomModel)
+  Type_RoomModel.hasMany(RoomModel)
   RoomModel.belongsTo(Type_RoomModel)
 
 
