@@ -1,6 +1,8 @@
 "use strict"
 // config
-const { db:config } = require('@golden-cat/config')
+const {
+  db: config
+} = require('@golden-cat/config')
 //controladores
 const setupUser = require('./lib/users')
 const setupRoom = require('./lib/rooms')
@@ -32,7 +34,7 @@ const setupSeason_DateModel = require("./models/season_date.model")
 const setupReservationModel = require("./models/reservation.model")
 const setupDetail_ReservationModel = require("./models/detail_reservation.model")
 
-module.exports = async function() {
+module.exports = async function () {
   const sequelize = setupDatabase(config)
   const UserModel = setupUserModel(config)
   const CountryModel = setupCountryModel(config)
@@ -48,8 +50,8 @@ module.exports = async function() {
   const Type_RoomModel = setupType_RoomModel(config)
   const Season_DateModel = setupSeason_DateModel(config)
   const SeasonModel = setupSeasonModel(config)
-  
-  
+
+
   CountryModel.hasMany(UserModel)
   UserModel.belongsTo(CountryModel)
 
@@ -78,12 +80,9 @@ module.exports = async function() {
   CountryModel.hasMany(DepartmentsModel)
   DepartmentsModel.belongsTo(CountryModel)
 
-  RoomModel.hasMany(ServicesModel)
-  ServicesModel.belongsTo(RoomModel)
 
-
-  RoomModel.hasMany(Type_RoomModel)
-  Type_RoomModel.belongsTo(RoomModel)
+  Type_RoomModel.hasMany(Type_RoomModel)
+  RoomModel.belongsTo(Type_RoomModel)
 
 
   SeasonModel.hasMany(Season_DateModel)
@@ -113,7 +112,9 @@ module.exports = async function() {
 
   return {
     async setup() {
-      await sequelize.sync({ force: true })
+      await sequelize.sync({
+        force: true
+      })
     },
     User,
     Room,

@@ -63,13 +63,13 @@ export default {
       try {
         const { data: user } = await api.post('/user', {
           userNew: {
-            name: 'sebastian',
+            name: 'juan',
             lastName: 'arias',
-            identification: '1100960489',
+            identification: '000000',
             email: this.email,
             password: this.password,
-            phone: '3123513930',
-            typeUser: 'cliente'
+            phone: '31235139',
+            typeUser: 'administrador'
           }
         })
         Swal.fire(
