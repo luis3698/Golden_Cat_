@@ -12,6 +12,11 @@ module.exports = function setupMetricModel (config) {
     },
     state: {
       type: Sequelize.ENUM('Disponible','Mantenimiento'),
+      allowNull: false,
+      defaultValue: 'Disponible'
+    },
+    code: {
+      type: Sequelize.TEXT,
       allowNull: false
     },
     number_adult: {
@@ -29,7 +34,9 @@ module.exports = function setupMetricModel (config) {
     value_children: {
       type: Sequelize.INTEGER,
       allowNull: false
-
+    },
+    images: {
+      type: Sequelize.JSON
     }
   })
 }
