@@ -18,7 +18,7 @@ import PreguntasFrecuentes from './views/Principal/PreguntasFrecuentes.vue'
 import TerminosCondiciones from './views/Principal/TerminosCondiciones.vue'
 import Eventos from './views/Principal/Eventos.vue'
 import AdministradorEmpleados from './views/Administrador/AdministrarEmpleados.vue'
-import AdministradorImagenes from './views/Administrador/AdministradorImagenes.vue'
+import AdministradorHabitaciones from './views/Administrador/AdministradorHabitaciones.vue'
 
 Vue.use(Router)
 
@@ -117,9 +117,9 @@ export default new Router({
       component: AdministradorEmpleados
     },
     {
-      path: '/administrador/imagenes',
-      name: 'AdministradorImagenes',
-      component: AdministradorImagenes
+      path: '/administrador/habitaciones',
+      name: 'AdministradorHabitaciones',
+      component: AdministradorHabitaciones
     }
   ]
 })
