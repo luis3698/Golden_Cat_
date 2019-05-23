@@ -1,49 +1,65 @@
 <template>
-     <div>
+     <div class="todooo">
       <br><br>
-   <v-subheader class="subheader black--text display-1 font-weight-bold "> Tips</v-subheader>
+   <v-subheader class="subheader black--text display-1 font-weight-bold ">Habitaciones</v-subheader>
     <v-form>
       <v-container>
         <v-layout row wrap>
-          <v-flex xs12 sm6>
+          <v-flex xs12 sm4>
             <v-text-field
-              v-model="editedItem.titulo"
+              v-model="editedItem.Nohb"
               box
-              label="Título"
+              label="No. Habitacion"
               clearable
             ></v-text-field>
           </v-flex>
 
-          <v-flex xs12 sm6>
+          <v-flex xs12 sm4>
             <v-text-field
-              v-model="editedItem.tema"
+              v-model="editedItem.estado"
               box
-              label="Segundo tema"
+              label="Estado"
               clearable
             ></v-text-field>
           </v-flex>
-
-          <v-flex xs12 sm6>
-            <v-textarea
-              v-model="editedItem.descripcion"
+          <v-flex xs12 sm4>
+            <v-text-field
+              v-model="editedItem.Nadultos"
               box
-              label="Descripción del título"
+              label="No. Adultos"
               clearable
-            ></v-textarea>
+            ></v-text-field>
           </v-flex>
-
-           <v-flex xs12 sm6>
-          <v-textarea
-              v-model="editedItem.contenido"
+          <v-flex xs12 sm4>
+            <v-text-field
+              v-model="editedItem.Nniños"
               box
-              label="Descripción segundo tema"
+              label="No. Niños"
               clearable
-            ></v-textarea>
+            ></v-text-field>
+          </v-flex>
+            <v-flex xs12 sm4>
+            <v-text-field
+              v-model="editedItem.Padultos"
+              box
+              label="Precio Adultos"
+              clearable
+            ></v-text-field>
+          </v-flex>
+          <v-flex xs12 sm4>
+            <v-text-field
+              v-model="editedItem.Pniños"
+              box
+              label="Precio niños"
+              clearable
+            ></v-text-field>
           </v-flex>
            <v-flex xs12 sm6>
             <material-card class="v-card-profile">
               <v-avatar class="text--center mx-auto d-block" >
-                <img class="imagenq" :src="imgUrl" >
+                <template v-for="(img, i) in imgs">
+                  <img class="imagenq" :src="imgUrl" :key="i" v-show="img" >
+                </template>
               </v-avatar>
               <v-card-text class="margen text-xs-center">
                   <v-form name="formulario" method="post" enctype="form-data">
@@ -54,7 +70,7 @@
             </material-card>
         </v-flex>
         <v-flex xs12 sm6>
-          <v-btn color="blue darken-1" class="botones white--text headline" @click="save" >Agregar Tip</v-btn>
+          <v-btn color="blue darken-1" class="botones white--text headline" @click="save" >Agregar Habitacion</v-btn>
           <v-btn color="red darken-1" class="botones white--text headline" >Cancelar</v-btn>
         </v-flex>
         </v-layout>
@@ -73,16 +89,22 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.titulo" label="Plan"></v-text-field>
+                  <v-text-field v-model="editedItem.Nohb" label="No. habitacion"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.tema" label="Precio"></v-text-field>
+                  <v-text-field v-model="editedItem.estado" label="Estado"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.descripcion" label="Descripción"></v-text-field>
+                  <v-text-field v-model="editedItem.Nadultos" label="No. Adultos"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.contenido" label="Cedula"></v-text-field>
+                  <v-text-field v-model="editedItem.Nniños" label="No. niños"></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm6 md4>
+                  <v-text-field v-model="editedItem.Padultos" label="Precio adultos"></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm6 md4>
+                  <v-text-field v-model="editedItem.Pniños" label="Precio niños"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -90,8 +112,8 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="close">Cancel</v-btn>
-            <v-btn color="blue darken-1" flat @click="save">Save</v-btn>
+            <v-btn color="blue darken-1" flat @click="close">Cancelar</v-btn>
+            <v-btn color="blue darken-1" flat @click="save">Guardar</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -102,10 +124,12 @@
       class="elevation-1"
     >
       <template v-slot:items="props">
-        <td class="text-xs-center">{{ props.item.titulo }}</td>
-        <td class="text-xs-left">{{ props.item.tema }}</td>
-        <td class="text-xs-left">{{ props.item.descripcion }}</td>
-        <td class="text-xs-left">{{ props.item.contenido }}</td>
+        <td class="text-xs-center">{{ props.item.Nohb }}</td>
+        <td class="text-xs-left">{{ props.item.estado }}</td>
+        <td class="text-xs-left">{{ props.item.Nadultos }}</td>
+        <td class="text-xs-left">{{ props.item.Nniños }}</td>
+        <td class="text-xs-left">{{ props.item.Padultos }}</td>
+        <td class="text-xs-left">{{ props.item.Pniños }}</td>
         <td class="text-xs-left">{{ props.item.imgUrl }}</td>
         <td class="justify-center layout px-0">
           <v-icon
@@ -142,31 +166,37 @@ export default {
     images: [],
     headers: [
       {
-        text: 'Titulo',
+        text: 'No. habitacion',
         align: 'center',
         sortable: false,
-        value: 'name'
+        value: 'Nohb'
       },
-      { text: 'Segundo tema', value: 'tema' },
-      { text: 'Descripción', value: 'descripcion' },
-      { text: 'Contenido', value: 'contenido' },
+      { text: 'Estado', value: 'estado' },
+      { text: 'No. adultos', value: 'Nadultos' },
+      { text: 'No. niños', value: 'Nniños' },
+      { text: 'Precio adultos', value: 'Padultos' },
+      { text: 'Precio niños', value: 'Pniños' },
       { text: 'Imagen', value: 'imgUrl' }
     ],
     desserts: [],
     editedIndex: -1,
     editedItem: {
-      tema: '',
-      descripcion: '',
-      contenido: '',
-      titulo: '',
+      Nohb: '',
+      estado: '',
+      Nadultos: '',
+      Nniños: '',
+      Padultos: '',
+      Pniños:'',
       imgUrl: '',
     },
     defaultItem: {
-      tema: '',
-      descripcion: '',
-      contenido: '',
-      titulo: '',
-      imgUrl: ''
+      Nohb: '',
+      estado: '',
+      Nadultos: '',
+      Nniños: '',
+      Padultos: '',
+      Pniños:'',
+      imgUrl: '',
  
     }
 
@@ -283,5 +313,8 @@ export default {
 }
 .theme--light.v-text-field--box > .v-input__control > .v-input__slot {
     background: white;
+}
+.todooo{
+  background-color:gray
 }
 </style>
