@@ -114,9 +114,7 @@
       <v-card-actions class="botones">
         <v-btn class="font-weight-black title font-italic" flat @click="resetForm">Cancelar</v-btn>
         <v-spacer></v-spacer>
-        <v-dialog v-model="dialogEmail" persistent max-width="600px">
-          <template v-slot:activator="{ on }">
-         <v-btn
+        <v-btn
           v-on="on"
           flat
           color="blue darken-4"
@@ -124,18 +122,6 @@
           class="font-weight-black title font-italic"
           :disabled="$v.$invalid"
         >Registrarse</v-btn>
-        </template>
-          <v-card class="contenido">
-            <v-card-title>
-              <span class="headline">¿Desea completar el registro?</span>
-            </v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-4" flat @click="dialogEmail = false" class="title" to="/planes-cliente">Omitir</v-btn>
-              <v-btn color="blue darken-4" flat @click="dialogEmail = false" class="title" to="/editar-perfil-cliente"> Si</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
       </v-card-actions>
             </v-card>
           </v-flex>
@@ -201,6 +187,7 @@
 import Logo from '@/assets/logo2.png'
 import { validationMixin } from 'vuelidate'
 import { required, sameAs, minLength, email, requiredIf } from 'vuelidate/lib/validators'
+import Swal from 'sweetalert2'
 
 import api from '@/plugins/api'
 export default {
@@ -293,20 +280,27 @@ export default {
       this.$refs.form.reset()
     },
     async submit () {
-      console.log('fdss')
-      const res = await api.post('/user',
-        {
-          userNew: {
-            email: this.email,
-            password: this.password,
-            name: this.Name,
-            lastName: this.LastName,
-            phone: this.Phone,
-            identification: this.Identification
-          }
-        })
-      this.snackbar = true
-      this.resetForm()
+      try {
+        const res = await api.post('/user',
+          {
+            userNew: {
+              email: this.email,
+              password: this.password,
+              name: this.Name,
+              lastName: this.LastName,
+              phone: this.Phone,
+              identification: this.Identification
+            }
+          })
+          Swal.fire(
+            'Good job!',
+            'You clicked the button!',
+            'success'
+          )
+        this.resetForm()
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }
