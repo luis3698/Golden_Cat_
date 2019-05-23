@@ -1,250 +1,170 @@
 <template>
    <v-flex xs12 sm12 md12>
-        <v-toolbar
-        color="blue darken-1"
-        dark
-        tabs
-        >
-        <h1>Formulario de reservas</h1>
-        </v-toolbar>
-          <v-flex md12>
-            <v-card ref="form">
-              <v-card-text>
-                <v-text-field
-                  ref="nombre"
-                  v-model="nombre"
-                  :rules="[() => !!nombre || 'Este campo es requerido',
-                  () => !!nombre && nombre.length <= 25 || 'Haz superado el maximo de caracteres']"
-                  counter="25"
-                  :error-messages="errorMessages"
-                  label="Nombre completo"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  ref="identificacion"
-                  v-model="identificacion"
-                  :rules="[
-                    () => !!identificacion || 'Este campo es requerido',
-                    () => !!identificacion && identificacion.length <= 25 || 'Haz superado el maximo de caracteres']"
-                  label="Identificación"
-                  type="number"
-                  counter="25"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  ref="correoelectronico"
-                  v-model="correoelectronico"
-                  :rules="[() => !!correoelectronico || 'Este campo es requerido',
-                  () => !!correoelectronico && correoelectronico.length <= 25 || 'Haz superado el maximo de caracteres']"
-                  label="Correo electronico"
-                  counter="25"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  ref="telefono"
-                  v-model="telefono"
-                  :rules="[() => !!telefono || 'Este campo es requerido']"
-                  label="Telefono"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  ref="fechaentrada"
-                  v-model="fechaentrada"
-                  :rules="[() => !!fechaentrada || 'Este campo es requerido']"
-                  label="Fecha entrada"
-                  type="number"
-                  required
-                  placeholder="dd/mm/aa"
-                ></v-text-field>
-                <v-text-field
-                  ref="fechasalida"
-                  v-model="fechasalida"
-                  :rules="[() => !!fechasalida || 'Este campo es requerido']"
-                  label="Fecha salida"
-                  type="number"
-                  required
-                placeholder="dd/mm/aa"
-                ></v-text-field>
-                <v-text-field
-                  ref="habitacion"
-                  v-model="habitacion"
-                  :rules="[() => !!habitacion || 'Este campo es requerido']"
-                  label="Tipo de Habitacion"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  ref="nhabitacion"
-                  v-model="nhabitacion"
-                  :rules="[() => !!nhabitacion || 'Este campo es requerido']"
-                  label="No. Habitacion"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  ref="precio"
-                  v-model="precio"
-                  :rules="[() => !!precio || 'Este campo es requerido']"
-                  label="Precio de la Habitacion"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  ref="adultos"
-                  v-model="adultos"
-                  :rules="[() => !!adultos || 'Este campo es requerido',
-                  ]"
-                  :items="adultoss"
-                  label="No. adultos"
-                  type="number"
-                  placeholder="Select..."
-                  required
-                ></v-text-field>
-                <v-text-field
-                  ref="niños"
-                  v-model="niños"
-                  :rules="[() => !!niños || 'Este campo es requerido']"
-                  :items="niñoss"
-                  label="No. niños"
-                  type="number"
-                  placeholder="Select..."
-                  required
-                ></v-text-field>
-              </v-card-text>
-                <v-divider class="mt-5"></v-divider>
-              <v-card-actions>
-                <v-btn flat>Cancelar</v-btn>
-                  <v-spacer></v-spacer>
-                  <v-slide-x-reverse-transition>
-                    <v-tooltip
-                      v-if="formHasErrors"
-                      left
-                    >
-                      <template v-slot:activator="{ on }">
-                        <v-btn
-                          icon
-                          class="my-0"
-                          @click="resetForm"
-                          v-on="on"
-                        >
-                          <v-icon>refresh</v-icon>
-                        </v-btn>
-                      </template>
-                      <span>Refresh form</span>
-                    </v-tooltip>
-                  </v-slide-x-reverse-transition>
-                <v-btn color="primary" flat @click="submit">Aceptar</v-btn>
-              </v-card-actions>
-            </v-card>
+        <div class="todos">
+          <v-container class="contenedor  text-xs-center" pa-2>
+        <v-layout color="blue"  class=" justify-space-between row wrap align-center">
+          <v-flex xs12 sm6 md2 pb-0>
+            <v-text-field id="date" color="white" type="date" outline hide-details label="fecha inicial"></v-text-field>
           </v-flex>
-          <v-spacer>
-            .
-          </v-spacer>
-          <div>
-    <v-toolbar flat color="white">
-      <v-toolbar-title>Lista de Reservas</v-toolbar-title>
-      <v-divider
-        class="mx-2"
-        inset
-        vertical
-      ></v-divider>
-      <v-spacer></v-spacer>
-      <v-dialog v-model="dialog" max-width="500px">
-        <template v-slot:activator="{ on }">
-          <v-text-field  label="Buscar" outline hide-details></v-text-field>
-          <v-btn round color="white" ><v-icon color="black">search</v-icon></v-btn>
-        </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.name" label="Nombre Completo"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.cc" label="Indentificacion"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.email" label="E-mail"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.telefono" label="telefono"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field type="date" v-model="editedItem.fe" label="Fecha Entrada"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field type="date" v-model="editedItem.fs" label="Fecha Salida"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.habitacion" label="Tipo de Habitacion"></v-text-field>
+          <v-flex xs12 sm6 md2>
+            <v-text-field color="blue"  label="Numero de adultos" outline hide-details></v-text-field>
+          </v-flex>
+          <v-flex xs12 sm6 md2>
+            <v-text-field  color="blue" label="Numero de niños" outline hide-details></v-text-field>
+          </v-flex>
+          <v-flex xs12 sm6 md2>
+            <v-btn round color="white" ><v-icon color="black">search</v-icon></v-btn>
+          </v-flex>
+          <v-flex xs12 sm6 d-flex>
+        <v-select
+          :items="items"
+          label="Outline style"
+          outline
+        ></v-select>
+      </v-flex>
+          
+          
+        </v-layout>
+        
+      </v-container>
+        </div>
+
+<v-spacer>.</v-spacer>
+
+
+
+            <v-flex xs12>
+    <div class="rojo">
+      <v-tabs v-model="active" color="blue darken-1" dark slider-color="greed" >
+        <v-tab ripple> reservas activas</v-tab>
+        <v-tab-item>
+          <v-card flat>
+            <v-card-text color="green">
+              <template v-for="n in 8">
+              <v-flex xs12 :key="n" mb-3>
+                <v-card color="red" class="blue darken-1">
+                  <v-layout row>
+                    <v-flex xs4>
+                      <v-card-title primary-title>
+                        <div>
+                          <div class="headline mb-4">tipo de habitacion: doble</div>
+                          <div  class="mb-4">fecha de la reserva  : 25/05/2017 </div>
+                          <div  class=" mb-4">numero de adultos : 2</div>
+                          <div  class=" mb-4">tipo de habitacion: estandar</div>
+                        </div>
+                      </v-card-title>
+                    </v-flex>
+                    <v-flex xs4>
+                      <v-card-title primary-title>
+                        <div>
+
+                          <div class="headline mb-4">precio de la habitacion </div>
+                          <div  class="title mb-4 ">650000$ </div>
+                          <div>numero de niños: 0</div>
+
+                        </div>
+
+                      </v-card-title>
+                    </v-flex>
+                    <v-flex xs4>
+                      <v-img :src="habitacion2" contain></v-img>
+                    </v-flex>
+                  </v-layout>
+                  <v-divider light></v-divider>
+                  <v-expansion-panel>
+                        <v-expansion-panel-content >
+                          <template v-slot:header>
+                            <div>detalles</div>
+                          </template>
+                          <v-card>
+                            <v-card-text>
+                              *Aire acondicionado <br>
+                              *Baño con ducha, secador de pelo y servicio de *amenidades diarias<br>
+                              *Caja de seguridad electrónica<br>
+                              * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
+                              *Minibar con agua, refrescos, cervezas y más ($)<br>
+                              *Teléfono directo en dormitorio y baño<br>
+                              *1 cama extra o una cuna (a solicitud)<br>
+                              *2 Baños
+
+                            </v-card-text>
+                            <v-btn small color="blue darken-1"  >borrar reserva<v-icon small>business</v-icon>
+                            </v-btn>
+                          </v-card>
+                        </v-expansion-panel-content>
+                      </v-expansion-panel>
+                </v-card>
               </v-flex>
-              <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.nhabitacion" label="No. Habitacion"></v-text-field>
+              </template >
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab ripple> reservas canceladas</v-tab>
+        <v-tab-item>
+          <v-card flat>
+            <v-card-text> <template v-for="n in 8">
+              <v-flex xs12 :key="n" mb-3>
+                <v-card color="orange darken-4" class="white--text">
+                  <v-layout row >
+                    <v-flex xs4>
+                      <v-card-title primary-title>
+                        <div>
+                          <div class="headline mb-4">tipo de habitacion: doble</div>
+                          <div  class="mb-4">fecha de la reserva  : 25/05/2017 </div>
+                          <div  class=" mb-4">numero de adultos : 2</div>
+                          <div  class=" mb-4">tipo de habitacion: estandar</div>
+                        </div>
+                      </v-card-title>
+                    </v-flex>
+                    <v-flex xs4>
+                      <v-card-title primary-title>
+                        <div>
+                          <div class="headline mb-4">precio de la habitacion </div>
+                          <div  class="title mb-4 ">650000$ </div>
+                          <div>numero de niños: 0</div>
+                        </div>
+                      </v-card-title>
+                    </v-flex>
+                    <v-flex xs4>
+                      <v-img :src="habitacion2" contain></v-img>
+                    </v-flex>
+                  </v-layout>
+                  <v-divider light></v-divider>
+                  <v-expansion-panel>
+                        <v-expansion-panel-content >
+                          <template v-slot:header>
+                            <div>detalles</div>
+                          </template>
+                          <v-card>
+                            <v-card-text>
+                              *Aire acondicionado <br>
+                              *Baño con ducha, secador de pelo y servicio de *amenidades diarias<br>
+                              *Caja de seguridad electrónica<br>
+                              * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
+                              *Minibar con agua, refrescos, cervezas y más ($)<br>
+                              *Teléfono directo en dormitorio y baño<br>
+                              *1 cama extra o una cuna (a solicitud)<br>
+                              *2 Baños
+                            </v-card-text>
+                          </v-card>
+                        </v-expansion-panel-content>
+                      </v-expansion-panel>
+                </v-card>
               </v-flex>
-              <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.precio" label="Precio"></v-text-field>
-                </v-flex>
-              <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.adulto" label="No. Adultos"></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.niño" label="No. Niños"></v-text-field>
-              </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="close">Cancelar</v-btn>
-            <v-btn color="blue darken-1" flat @click="save">Guardar</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-toolbar>
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      class="elevation-1"
-    >
-      <template v-slot:items="props">
-        <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.cc }}</td>
-        <td class="text-xs-right">{{ props.item.email }}</td>
-        <td class="text-xs-right">{{ props.item.telefono }}</td>
-        <td class="text-xs-right">{{ props.item.fe }}</td>
-        <td class="text-xs-right">{{ props.item.fs }}</td>
-        <td class="text-xs-right">{{ props.item.habitacion }}</td>
-        <td class="text-xs-right">{{ props.item.nhabitacion }}</td>
-        <td class="text-xs-right">{{ props.item.precio }}</td>
-        <td class="text-xs-right">{{ props.item.adulto }}</td>
-        <td class="text-xs-right">{{ props.item.niño }}</td>
-        <td class="justify-center layout px-0">
-          <v-icon
-            small
-            class="mr-2"
-            @click="editItem(props.item)"
-          >
-            edit
-          </v-icon>
-          <v-icon
-            small
-            @click="deleteItem(props.item)"
-          >
-            delete
-          </v-icon>
-        </td>
-      </template>
-      <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize">Reset</v-btn>
-      </template>
-    </v-data-table>
-  </div>
+              </template >
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+      </v-tabs>
+    </div>
+  </v-flex>
    </v-flex>
 </template>
 <script>
 export default {
   data: () => ({
+    items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
     errorMessages: '',
     nombre: null,
     identificacion: null,
@@ -471,3 +391,18 @@ export default {
   }
 }
 </script>
+
+<style scope>
+.todos{
+  background-color: #1e88e5;
+  border-radius: 20px 20px 20px 20px;
+}
+.rojo{
+  background-color: red !important;
+}
+.theme--light.v-sheet {
+    background-color: dimgray;
+}
+
+</style>
+
