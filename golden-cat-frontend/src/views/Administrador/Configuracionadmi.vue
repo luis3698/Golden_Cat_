@@ -18,16 +18,17 @@
                 </v-card-text>
             </material-card>
         </v-flex>
-        <v-layout row wrap>
-          <v-flex xs12 sm6>
-            <v-text-field background-color="white" color="white" dark="false" solo class="fecha" label="seleccionar fechas" ref="myinput" v-model="range"></v-text-field>
+        <v-container class="todo">
+        <v-layout row wrap class="todo">          
+          <v-flex xs12 sm6 class="todo">
+            <v-text-field background-color="white" color="white" dark="false" solo class="fecha,todo" label="seleccionar fechas" ref="myinput" v-model="range"></v-text-field>
           </v-flex>
-          <v-spacer></v-spacer>
-          <v-flex>
-            <p>{{ radios || 'null' }}</p>
-            <v-radio-group light="true" color="white" v-model="radios" :mandatory="false">
-              <v-radio class="t1" label="Temporada alta" value="Temporada alta"></v-radio>
-              <v-radio class="t1" label="Temporada baja" value="Temporada baja"></v-radio>
+          <v-spacer class="todo"></v-spacer>
+          <v-flex class="todo">
+            <p class="todo">{{ radios || 'null' }}</p>
+            <v-radio-group class="todo" light="true" color="white" v-model="radios" :mandatory="false">
+              <v-radio class="t1, todo" label="Temporada alta" value="Temporada alta"></v-radio>
+              <v-radio class="t1, todo" label="Temporada baja" value="Temporada baja"></v-radio>
             </v-radio-group>
           </v-flex>
           <v-btn
@@ -39,10 +40,11 @@
             >Guardar
             <v-icon right dark>cloud_upload</v-icon>
           </v-btn>
-          <v-flex xs12 sm12>
+          <v-flex xs12 sm12 class="todo">
             {{date}}
-          </v-flex>
+          </v-flex>         
         </v-layout>
+        </v-container>
       </v-layout>
       <v-divider> </v-divider>
       <v-card-text class="transparent text-xs-center">
@@ -220,6 +222,13 @@ export default {
 div{
   border-color: white;
   background-color: #756c6c
+}
+.todo
+{
+  background-color: #754747;
+}
+.v-text-field.v-text-field--enclosed .v-text-field__details {
+    margin-bottom: -22px !important;
 }
 </style>
 
