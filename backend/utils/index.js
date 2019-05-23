@@ -6,10 +6,12 @@ const {
   getLogger,
   logHandler
 } = require('./logger')
+const password = require('./password')
 
 module.exports = {
   cache,
   terminate,
   getLogger,
-  logHandler
+  logHandler,
+  password
 }
