@@ -1,6 +1,9 @@
 'use strict'
+
+const { password } = require('@golden-cat/utils')
 function setupUser (userModel) {
   async function createUser(userNew) {
+    userNew.password = password.generateHash(userNew.password)
     const result = await userModel.create(userNew)
     return result.toJSON()
   }
@@ -24,14 +27,34 @@ function setupUser (userModel) {
     const result = await userModel.findOne(cond)
     return result
   }
+  async function login(credential){
+    const cond = {where: {email: credential.email}}
+    const user = await userModel.findOne(cond)
+    if (!user) {
+      return {
+        login: false,
+        message: 'no se encuentra registrado el email ingresado'
+      }
+    }
+    if (!(password.compareHash(credential.password, user.password))){
+      return {
+        login: false,
+        message: 'contraseña incorrecta'
+      }
+    }
+    return{
+      login: true,
+      message: `Bienvenido ${user.name}`,
+      user
+    }
+  }
   return {
     createUser,
     deleteUser,
     updateUser,
     findAllUser,
-    findUuidUser
+    findUuidUser,
+    login
   }
-
-
 }
 module.exports = setupUser
