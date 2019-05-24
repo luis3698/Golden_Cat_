@@ -1,35 +1,126 @@
 <template>
-   <v-flex xs12 sm12 md12>
-        <div class="todos">
-          <v-container class="contenedor  text-xs-center" pa-2>
-        <v-layout color="blue"  class=" justify-space-between row wrap align-center">
-          <v-flex xs12 sm6 md2 pb-0>
-            <v-text-field id="date" color="white" type="date" outline hide-details label="fecha inicial"></v-text-field>
-          </v-flex>
+   <v-flex  md12>
+        <v-toolbar>
+          
           <v-flex xs12 sm6 md2>
-            <v-text-field color="blue"  label="Numero de adultos" outline hide-details></v-text-field>
-          </v-flex>
-          <v-flex xs12 sm6 md2>
-            <v-text-field  color="blue" label="Numero de niños" outline hide-details></v-text-field>
-          </v-flex>
-          <v-flex xs12 sm6 md2>
-            <v-btn round color="white" ><v-icon color="black">search</v-icon></v-btn>
-          </v-flex>
-          <v-flex xs12 sm6 d-flex>
+      <v-menu
+        ref="menu"
+        v-model="menu"
+        :close-on-content-click="false"
+        :nudge-right="40"
+        :return-value.sync="date"
+        lazy
+        transition="scale-transition"
+        offset-y
+        full-width
+        min-width="290px"
+      >
+        <template v-slot:activator="{ on }">
+          <v-text-field
+            v-model="date"
+            label="Picker in menu"
+            prepend-icon="event"
+            readonly
+            v-on="on"
+          ></v-text-field>
+        </template>
+        <v-date-picker v-model="date" no-title scrollable>
+          <v-spacer></v-spacer>
+          <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
+          <v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+        </v-date-picker>
+      </v-menu>
+    </v-flex>
+<v-flex xs1></v-flex>
+    <v-flex  md3>
+          <v-text-field
+            type="number"
+            regular
+            label="No. adultos"
+          ></v-text-field>
+        </v-flex>
+        <v-flex xs1></v-flex>
+        <v-flex  md3>
+          <v-text-field
+            type="number"
+            regular
+            label="No. niños"
+          ></v-text-field>
+        </v-flex>
+        <v-flex xs1></v-flex>
+        <v-flex  md3>
+          <v-text-field
+            regular
+            type="number"
+            label="No. habitacion"
+          ></v-text-field>
+        </v-flex>
+        <v-flex xs1></v-flex>
+        <v-flex md3>
         <v-select
           :items="items"
-          label="Outline style"
-          outline
+          label="Tipo habitación"
         ></v-select>
       </v-flex>
-          
-          
-        </v-layout>
+        </v-toolbar>
         
-      </v-container>
-        </div>
+        <v-dialog light="true" v-model="dialog" persistent max-width="600px">
+      <template v-slot:activator="{ on }">
+        <v-btn color="primary" dark v-on="on">Open Dialog</v-btn>
+      </template>
+      <v-card class="card">
+        <v-card-title>
+          <span class="headline">User Profile</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container grid-list-md>
+            <v-layout wrap>
+              <v-flex xs12 sm6 md4>
+                <v-text-field label="Legal first name*" required></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6 md4>
+                <v-text-field
+                  label="Legal last name*"
+                  hint="example of persistent helper text"
+                  persistent-hint
+                  required
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field label="Email*" required></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field label="Password*" type="password" required></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6>
+                <v-select
+                  :items="['0-17', '18-29', '30-54', '54+']"
+                  label="Age*"
+                  required
+                ></v-select>
+              </v-flex>
+              <v-flex xs12 sm6>
+                <v-autocomplete
+                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
+                  label="Interests"
+                  multiple
+                ></v-autocomplete>
+              </v-flex>
+            </v-layout>
+          </v-container>
+          <small>*indicates required field</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" flat @click="dialog = false">Close</v-btn>
+          <v-btn color="blue darken-1" flat @click="dialog = false">Save</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>        
 
-<v-spacer>.</v-spacer>
 
 
 
@@ -164,7 +255,9 @@
 <script>
 export default {
   data: () => ({
-    items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+   date: new Date().toISOString().substr(0, 10),
+    menu: false,
+    dialog1: false,
     errorMessages: '',
     nombre: null,
     identificacion: null,
@@ -234,7 +327,9 @@ export default {
     this.initialize()
   },
   data: () => ({
+    items: ['Sencilla', 'Doble', 'Swite', 'Presidencial'],
     dialog: false,
+    
     headers: [
       {
         text: 'Nombre Completo',
@@ -403,6 +498,8 @@ export default {
 .theme--light.v-sheet {
     background-color: dimgray;
 }
-
+.card{
+  background-color: white !important
+}
 </style>
 
