@@ -121,7 +121,7 @@
           type="submit"
           class="font-weight-black title font-italic"
           :disabled="$v.$invalid"
-        >Registrarse</v-btn>
+       >Registrarse </v-btn>
       </v-card-actions>
             </v-card>
           </v-flex>
@@ -134,23 +134,24 @@
       max-width="800"
       persistent>
        <v-card>
-        <v-card-title class="headline grey lighten-3">Políticas de privacidad</v-card-title>
+        <v-card-title class="headline grey lighten-3">TÉRMINOS Y POLITICAS DE PRIVACIDAD</v-card-title>
         <v-card-text>
-          <span class="text-xs black--text subheading justify">La protección y el buen manejo de la información personal de sus afiliados son muy importantes para el Gimnasio Chon's Gym, por cuanto las mismas le permiten atender de mejor manera las necesidades que ellos tienen, así como cumplir con las obligaciones a su cargo. Es por ello que el Gimnasio Chon's Gym ha diseñado políticas y procedimientos que en conjunto con la presente autorización permiten hacer uso de sus datos personales conforme a la ley. Así, lo invitamos a leer cuidadosamente el siguiente texto, mediante el cual autoriza el tratamiento de su información personal.</span>
+          <span class="text-xs black--text subheading justify">Políticas de cancelación de reservas:Para cualquier solicitud de anulación o cancelación de una reserva efectuada por el “beneficiario”, se entenderá que la reserva está anulada una vez que el departamento de reservas envíe la confirmación oficial de anulación vía correo electrónico con el código correspondiente para tal efecto. Cancelaciones sin código y email de respaldo no serán válidas. </span>
         <p></p>
-        <span class="text-xs black--text subheading justify">1. En relación con mis Datos Personales: Mediante este documento, en mi calidad de titular de la información o representante legal del mismo, autorizo al Gimnasio Chon's Gym a dar tratamiento a mis datos personales para: </span>
+        <span class="text-xs black--text subheading justify">Confirmación: Para confirmar una reserva, una tarjeta de crédito válida es necesaria. Si no puede entregar o no dispone una de una TC, es posible realizar un depósito o transferencia por el total de la reserva.  </span>
         <p></p>
-        <span class="text-xs black--text subheading justify">a) El desarrollo de su objeto social y de la relación contractual que nos vincula, lo que supone el ejercicio de sus derechos y deberes dentro de los que están, sin limitarse a ellos, la atención de mis solicitudes, la generación de estados de cuenta, la realización de actividades de cobranza, entre otros. </span>
+        <span class="text-xs black--text subheading justify">Políticas de anulación Individuales: Temporada (Enero a Diciembre): Anulación de reserva sin multa hasta 31 días antes de la fecha de Check In, por anular fuera de plazo se cobrará el 100% del total de la reserva.  </span>
         <p></p>
-        <span class="text-xs black--text subheading justify">b) La administración de los productos o servicios comercializados a través del Gimnasio Chon's Gym de los que soy titular </span>
+        <span class="text-xs black--text subheading justify">Anulaciones por condiciones climáticas o desastres naturales: En caso de cancelaciones de reserva por condiciones climáticas o desastres naturales, se les dará solo la opción de cambiar la fecha sin cobro adicional dentro de los tres meses siguientes a la fecha de entrada. </span>
         <p></p>
-        <span class="text-xs black--text subheading justify">c) La estructuración de ofertas comerciales y la remisión de información comercial sobre productos y/o servicios a través de los canales o medios que el Gimnasio Chon's Gym establezca para tal fin.  </span>
+        <span class="text-xs black--text subheading justify">Uso de la información personal recopilada acerca de usted: Utilizamos su información personal para proveer los servicios que le solicite al Hotel como para facilitar: reservas. Además, puede usarse para: mejorar los servicios del Hotel Boutique  y brindarle el nivel de hospitalidad esperado y asegurarnos de que el sitio sea de su interés. También usamos los datos para enviarle boletines informativos sobre el estado de sus reservas.  </span>
         <p></p>
-        <span class="text-xs black--text subheading justify">d) La adopción de medidas tendientes a la prevención de actividades ilícitas. </span>
+        <span class="text-xs black--text subheading justify">Protección de la información personal: El Hotel Golden Cat tomará los recaudos necesarios para: (i) proteger la información personal recopilada por medio de un acceso no autorizado, revelación, alteración o destrucción; y  mantener la información personal confiable y actualizada de acuerdo a la ley vigente. Para las transacciones en línea, usamos tecnología de seguridad para proteger la información personal que nos transmita a través de nuestro sitio. Desafortunadamente, sin embargo, ningún sistema de seguridad o de transmisión de datos a través de Internet puede garantizar que sea totalmente seguro. </span>
         <p></p>
-        <span class="text-xs black--text subheading justify">La presente autorización se hace extensiva a quien represente los derechos del Gimnasio Chon's Gym, a quien éste contrate para el ejercicio de los mismos o a quien éste ceda sus derechos, sus obligaciones o su posición contractual a cualquier título, en relación con los productos o servicios de los que soy titular. Así mismo, a las Entidades que forman parte de la Organización y a los terceros con quien el Gimnasio Chon's Gym o esas Entidades establezcan alianzas comerciales, a partir de las cuales se ofrezcan productos o servicios que puedan ser de su interés. </span>
+        <span class="text-xs black--text subheading justify">Retención de información personal: Retenemos su información personal durante el período necesario para llevar a cabo los objetivos delineados en esta Política, a menos que se requiera una retención más prolongada o sea permitida por ley.
+                                                            Si nos ha dado su información de contacto (dirección de correo, número de fax, dirección de correo electrónico o número telefónico), quizás nosotros queramos informarle nuestros servicios y el estado de sus reservaciones.  </span>
         <p></p>
-        <span class="text-xs black--text subheading justify">Esta autorización permanecerá vigente, hasta tanto sea revocada y podrá ser revocada en los eventos previstos en la ley, y siempre y cuando no exista ningún tipo de relación con el Gimnasio Chon's Gym o no se encuentre vigente algún producto o servicio derivado de esta autorización.</span>
+        <span class="text-xs black--text subheading justify">Preguntas: Si tiene alguna pregunta sobre esta Política o sobre cómo el hotel Golden Cat   procesa su información personal, por favor contáctenos por correo electrónico a info@goldencat.com o llámenos al 724 2372 </span>
         <p></p>
         </v-card-text>
         <v-divider></v-divider>
