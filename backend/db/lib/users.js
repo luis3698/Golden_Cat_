@@ -29,12 +29,23 @@ function setupUser (userModel) {
   }
   async function login(credential){
     const cond = {where: {email: credential.email}}
-    const user = userModel.findOne(cond)
+    const user = await userModel.findOne(cond)
     if (!user) {
       return {
         login: false,
         message: 'no se encuentra registrado el email ingresado'
       }
+    }
+    if (!(password.compareHash(credential.password, user.password))){
+      return {
+        login: false,
+        message: 'contraseña incorrecta'
+      }
+    }
+    return{
+      login: true,
+      message: `Bienvenido ${user.name}`,
+      user
     }
   }
   return {
@@ -45,6 +56,5 @@ function setupUser (userModel) {
     findUuidUser,
     login
   }
-
 }
 module.exports = setupUser
