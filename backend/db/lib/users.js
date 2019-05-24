@@ -36,8 +36,6 @@ function setupUser (userModel) {
         message: 'no se encuentra registrado el email ingresado'
       }
     }
-    
-
   }
   return {
     createUser,
@@ -47,7 +45,6 @@ function setupUser (userModel) {
     findUuidUser,
     login
   }
-
 
 }
 module.exports = setupUser
