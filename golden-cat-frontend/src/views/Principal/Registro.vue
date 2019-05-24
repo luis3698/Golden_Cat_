@@ -78,7 +78,7 @@
               @input="$v.password.$touch()"
               @blur="$v.password.$touch()"
              :type="show1 ? 'text' : 'password'"
-             :append-icon="show1 ? 'visibility' : 'visibility_off'"
+             :append-icon="show1 ? 'visibility' :'visibility_off'"
              @click:append="show1 = !show1"
               required
             ></v-text-field>
