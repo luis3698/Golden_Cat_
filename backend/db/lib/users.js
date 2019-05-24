@@ -24,12 +24,25 @@ function setupUser (userModel) {
     const result = await userModel.findOne(cond)
     return result
   }
+  async function login(credential){
+    const cond = {where: {email: credential.email}}
+    const user = userModel.findOne(cond)
+    if (!user) {
+      return {
+        login: false,
+        message: 'no se encuentra registrado el email ingresado'
+      }
+    }
+    
+
+  }
   return {
     createUser,
     deleteUser,
     updateUser,
     findAllUser,
-    findUuidUser
+    findUuidUser,
+    login
   }
 
 
