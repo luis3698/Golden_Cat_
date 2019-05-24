@@ -127,7 +127,7 @@
   </v-flex>
 </template>
 
-<script>
+<script scope>
 import HABITACION2 from '@/assets/habitacion2.png'
 export default {
   name: 'inicio',

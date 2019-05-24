@@ -1,6 +1,9 @@
 'use strict'
+
+const { password } = require('@golden-cat/utils')
 function setupUser (userModel) {
   async function createUser(userNew) {
+    userNew.password = password.generateHash(userNew.password)
     const result = await userModel.create(userNew)
     return result.toJSON()
   }
