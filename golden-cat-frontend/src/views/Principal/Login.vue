@@ -22,12 +22,12 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="indigo darken-4" @click="login">Iniciar sesion</v-btn>
-                <v-btn color="indigo darken-4" to="/registro">crear cuenta</v-btn>
+                <v-btn color="indigo darken-4" @click="login">Iniciar Sesion</v-btn>
+                <v-btn color="indigo darken-4" to="/registro">Crear Cuenta</v-btn>
                 <v-spacer></v-spacer>
               </v-card-actions>
               <v-card-text class="text-xs-center">
-                <v-btn flat to="/restaurar_contraseña">olvide mi contraseña</v-btn>
+                <v-btn flat to="/restaurar_contraseña">Olvide mi contraseña</v-btn>
               </v-card-text>
             </v-card>
           </v-flex>

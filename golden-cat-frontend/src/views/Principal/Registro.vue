@@ -242,7 +242,7 @@ export default {
     checkboxErrors () {
       const errors = []
       if (!this.$v.terminos.$dirty) return errors
-      !this.$v.terminos.checked && errors.push('debes aceptar terminos y condiciones')
+      !this.$v.terminos.checked && errors.push('Debes aceptar terminos y politicas de privacidad')
       return errors
     },
     passErrors () {
@@ -293,12 +293,13 @@ export default {
               identification: this.Identification
             }
           })
-          Swal.fire(
+          const aler = await Swal.fire(
             'Good job!',
             'You clicked the button!',
             'success'
           )
-        this.resetForm()
+          this.$router.push('/')
+          this.resetForm()
       } catch (error) {
         console.error(error)
       }
