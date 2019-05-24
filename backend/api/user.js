@@ -17,6 +17,16 @@ router.post('/', async function(req, res, next){
     next(err)
   }
 })
+router.post('/login', async function(req, res, next){
+  try {
+    const credential = req.body
+    const { User } = await db()
+    const result = await User.login(credential)
+    res.send(result)
+  } catch (err) {
+    next(err)
+  }
+})
 router.delete('/:uuid', async function(req, res, next) {
   try {
     const { uuid } = req.params
