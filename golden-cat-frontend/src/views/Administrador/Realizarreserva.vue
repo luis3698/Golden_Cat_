@@ -79,36 +79,62 @@
                 <v-text-field label="Nombres" required></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field label="Apellidos" hint="example of helper text only on focus"></v-text-field>
+                <v-text-field label="Apellidos"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
                 <v-text-field
                   label="Identificación"
-                  hint="example of persistent helper text"
+                  hint="Solo mayor de edad"
                   persistent-hint
                   required
                 ></v-text-field>
               </v-flex>
-              <v-flex xs12>
-                <v-text-field label="Email*" required></v-text-field>
+              <v-flex xs6>
+                <v-text-field
+                 label="Email*" 
+                 required>
+                 </v-text-field>
               </v-flex>
-              <v-flex xs12>
-                <v-text-field label="Password*" type="password" required></v-text-field>
+              <v-flex xs6>
+                <v-text-field
+                  label="Teléfono"
+                  hint="Solo número nacional"
+                  persistent-hint
+                  required
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12 sm6>
+                <v-autocomplete
+                  label="Departamento"
+                  v-model="departamento"
+                  :items="departamentos"
+                  hint="Solo en caso de provenir del mismo pais"
+                  persistent-hint
+                  multiple
+                ></v-autocomplete>
+              </v-flex>
+              <v-flex xs12 sm6>
+                <v-autocomplete
+                  ref="country"
+                  v-model="country"
+                  :items="countries"
+                  label="Pais"
+                  hint="Solo en caso de provenir del exterior"
+                  persistent-hint
+                  multiple
+                ></v-autocomplete>
               </v-flex>
               <v-flex xs12 sm6>
                 <v-select
-                  :items="['0-17', '18-29', '30-54', '54+']"
-                  label="Age*"
+                  :items="['Tarjeta credito', 'Tarjeta debito', 'Efectivo']"
+                  label="Metodo pago"
                   required
                 ></v-select>
               </v-flex>
               <v-flex xs12 sm6>
-                <v-autocomplete
-                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                  label="Interests"
-                  multiple
-                ></v-autocomplete>
+                <v-text-field label="Password*" type="password" required></v-text-field>
               </v-flex>
+              
             </v-layout>
           </v-container>
           <small>*indica campo requerido</small>
@@ -257,69 +283,15 @@ export default {
   data: () => ({
    date: new Date().toISOString().substr(0, 10),
     menu: false,
+    
     dialog1: false,
-    errorMessages: '',
-    nombre: null,
-    identificacion: null,
-    correoelectronico: null,
-    telefono: null,
-    fechaentrada: null,
-    fechasalida: null,
-    habitacion: null,
-    nhabitacion: null,
-    precio: null,
-    personas: null,
-    adultos: null,
-    niños: null,
-    formHasErrors: false
   }),
   computed: {
-    form () {
-      return {
-        nombre: this.nombre,
-        identificacion: this.identificacion,
-        correoelectronico: this.correoelectronico,
-        telefono: this.telefono,
-        fechaentrada: this.fechaentrada,
-        fechasalida: this.fechasalida,
-        habitacion: this.habitacion,
-        nhabitacion: this.nhabitacion,
-        precio: this.precio,
-        personas: this.personas,
-        adultos: this.adultos,
-        niños: this.niños
+    form(){
+      return{
+        country: this.country,
+        departamento: this.departamento
       }
-    }
-  },
-  watch: {
-    name () {
-      this.errorMessages = ''
-    }
-  },
-  methods: {
-    addressCheck () {
-      this.errorMessages = this.address && !this.name
-        ? 'Hey! I\'m required'
-        : ''
-
-      return true
-    },
-    resetForm () {
-      this.errorMessages = []
-      this.formHasErrors = false
-
-      Object.keys(this.form).forEach(f => {
-        this.$refs[f].reset()
-      })
-    },
-    submit () {
-      this.formHasErrors = false
-
-      Object.keys(this.form).forEach(f => {
-        if (!this.form[f]) this.formHasErrors = true
-
-        this.$refs[f].validate(true)
-      })
     }
   },
   created () {
@@ -327,174 +299,20 @@ export default {
     this.initialize()
   },
   data: () => ({
+    countries: ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Anguilla', 'Antigua Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia Herzegovina', 'Botswana', 'Brazil', 'British Virgin Islands', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Cape Verde', 'Cayman Islands', 'Chad', 'Chile', 'China', 'Colombia', 'Congo', 'Cook Islands', 'Costa Rica', 'Cote D Ivoire', 'Croatia', 'Cruise Ship', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Estonia', 'Ethiopia', 'Falkland Islands', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'French Polynesia', 'French West Indies', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kuwait', 'Kyrgyz Republic', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Mauritania', 'Mauritius', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Namibia', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russia', 'Rwanda', 'Saint Pierre Miquelon', 'Samoa', 'San Marino', 'Satellite', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'St Kitts Nevis', 'St Lucia', 'St Vincent', 'St. Lucia', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', "Timor L'Este", 'Togo', 'Tonga', 'Trinidad  Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks Caicos', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe'],
     items: ['Sencilla', 'Doble', 'Swite', 'Presidencial'],
     dialog: false,
+    departamentos: ['AMAZONAS','ANTIOQUIA','ARAUCA','ATLÁNTICO','BOLÍVAR','BOYACÁ','CALDAS','CAQUETÁ','CASANARE','CAUCA','CESAR','CHOCÓ','CÓRDOBA','CUNDINAMARCA','DISTRITO CAPITAL','GUAINÍA','GUAVIARE','HUILA','LA GUAJIRA','MAGDALENA','META','NARIÑO','NORTE DE SANTANDER','PUTUMAYO','QUINDÍO','RISARALDA','SAN ANDRÉS Y PROVIDENCIA','SANTANDER','SUCRE','TOLIMA','VALLE','VAUPÉS','VICHADA']
     
-    headers: [
-      {
-        text: 'Nombre Completo',
-        align: 'left',
-        sortable: false,
-        value: 'name'
-      },
-      { text: 'CC', value: 'cc' },
-      { text: 'E-mail', value: 'email' },
-      { text: 'Telefono', value: 'telefono' },
-      { text: 'Fecha Entrada', value: 'fe', type: 'date' },
-      { text: 'Fecha Salida', value: 'fs', type: 'date' },
-      { text: 'Tipo habitacion', value: 'habitacion' },
-      { text: 'No. habitacion', value: 'nhabitacion' },
-      { text: 'Precio', value: 'precio' },
-      { text: 'No. Adultos', value: 'adulto' },
-      { text: 'No. Niños', value: 'niño' },
-      { text: 'Actions', value: 'name', sortable: false }
-    ],
-    desserts: [],
-    editedIndex: -1,
-    editedItem: {
-      name: '',
-      cc: 0,
-      email: 0,
-      telefono: 0,
-      fe: 0,
-      fs: 0,
-      habitacion: 0,
-      nhabitacion: 0,
-      precio: 0,
-      adulto: 0,
-      niño: 0
-    },
-    defaultItem: {
-      name: '',
-      cc: 0,
-      email: 0,
-      telefono: 0,
-      fe: 0,
-      fs: 0,
-      habitacion: 0,
-      nhabitacion: 0,
-      precio: 0,
-      adulto: 0,
-      niño: 0
-    }
   }),
-  computed: {
-    formTitle () {
-      return this.editedIndex === -1 ? 'New Item' : 'Editar Reserva'
-    }
-  },
   watch: {
     dialog (val) {
       val || this.close()
     }
-  },
-  
-  methods: {
-    initialize () {
-      this.desserts = [
-        {
-          name: 'Carlos Rodriguez',
-          cc: 8239621473,
-          email: 'CarlosR@gmail.com',
-          telefono: '3065241786',
-          fe: '2008-11-24',
-          fs: '2009-01-30',
-          habitacion: 'presindencial',
-          nhabitacion: 201,
-          precio: '200.000',
-          adulto: 10,
-          niño: 5
-        },
-        {
-          name: 'Bruno Dias',
-          cc: 1036524951,
-          email: 'Bruno@gmail.com',
-          telefono: '3065241786',
-          fe: '2012-12-12',
-          fs: '2012-12-30',
-          habitacion: 'presindencial',
-          nhabitacion: 201,
-          precio: '200.000',
-          adulto: 1,
-          niño: 1
-        },
-        {
-          name: 'clar Kent',
-          cc: 1009647258,
-          email: 'clarS@hotmail.com',
-          telefono: '3065241786',
-          fe: '2005-06-21',
-          fs: '2005-08-23',
-          habitacion: 'presindencial',
-          nhabitacion: 201,
-          precio: '200.000',
-          adulto: 1,
-          niño: 0
-        },
-        {
-          name: 'Benjamin Parker',
-          cc: 1005641837,
-          email: 'ParkerP@gmail.com',
-          telefono: '3065241786',
-          fe: '2003-03-06',
-          fs: '2003-06-15',
-          habitacion: 'presindencial',
-          nhabitacion: 201,
-          precio: '200.000',
-          adulto: 2,
-          niño: 1
-        },
-        {
-          name: 'Roberto Giraldo',
-          cc: 1004583718,
-          email: 'RoberGl@gmail.com',
-          telefono: '3065241786',
-          fe: '2008-07-12',
-          fs: '2008-08-10',
-          habitacion: 'presindencial',
-          nhabitacion: 201,
-          precio: '200.000',
-          adulto: 5,
-          niño: 3
-        }
-      ]
-    },
-    editItem (item) {
-      this.editedIndex = this.desserts.indexOf(item)
-      this.editedItem = Object.assign({}, item)
-      this.dialog = true
-    },
-    deleteItem (item) {
-      const index = this.desserts.indexOf(item)
-      confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
-    },
-    close () {
-      this.dialog = false
-      setTimeout(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
-      }, 300)
-    },
-    save () {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem)
-      } else {
-        this.desserts.push(this.editedItem)
-      }
-      this.close()
-    }
   }
 }
 </script>
-
 <style scope>
-.todos{
-  background-color: #1e88e5;
-  border-radius: 20px 20px 20px 20px;
-}
-.rojo{
-  background-color: red !important;
-}
 .theme--light.v-sheet {
     background-color: dimgray;
 }
