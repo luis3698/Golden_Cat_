@@ -66,24 +66,24 @@
         
         <v-dialog light="true" v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on }">
-        <v-btn color="primary" dark v-on="on">Open Dialog</v-btn>
+        <v-btn color="primary" dark v-on="on">Realizar reserva</v-btn>
       </template>
       <v-card class="card">
         <v-card-title>
-          <span class="headline">User Profile</span>
+          <span class="headline">Datos cliente</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12 sm6 md4>
-                <v-text-field label="Legal first name*" required></v-text-field>
+                <v-text-field label="Nombres" required></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
-                <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
+                <v-text-field label="Apellidos" hint="example of helper text only on focus"></v-text-field>
               </v-flex>
               <v-flex xs12 sm6 md4>
                 <v-text-field
-                  label="Legal last name*"
+                  label="Identificación"
                   hint="example of persistent helper text"
                   persistent-hint
                   required
@@ -111,7 +111,7 @@
               </v-flex>
             </v-layout>
           </v-container>
-          <small>*indicates required field</small>
+          <small>*indica campo requerido</small>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>

@@ -129,4 +129,7 @@ width: 100%;
 .colorfondo{
   background-color: black;
 }
+.color{
+  background-color: transparent
+}
 </style>
