@@ -96,7 +96,7 @@
                  </v-text-field>
               </v-flex>
               <v-flex xs6>
-                <v-text-field
+                <v-text-field v-model="tel"
                   label="Teléfono"
                   hint="Solo número nacional"
                   persistent-hint
@@ -104,12 +104,25 @@
                 ></v-text-field>
               </v-flex>
               <v-flex xs12 sm6>
-                <v-select
+                <v-select v-model="tipo"
                   :items="items"
                   label="Tipo habitacion"
                   required
                 ></v-select>
               </v-flex>
+
+
+              <v-flex xs12 sm6>
+        <v-text-field background-color="white" color="white" dark="false" solo class="fecha,todo" label="seleccionar fechas" ref="myinput"  v-model="range"></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm12 class="todo">
+        {{date}}
+      </v-flex> 
+
+
+
+
+
               <v-flex xs12 sm6>
                 <v-autocomplete
                   label="Departamento"
@@ -165,27 +178,32 @@
         <v-tab-item>
           <v-card flat>
             <v-card-text color="green" >
-              <template v-for="n in 8">
+              <template v-for="n in 1">
               <v-flex xs12 :key="n" mb-3>
                 <v-card color="blue darken-1"  class="white--text" >
                   <v-layout row>
-                    <v-flex xs4>
+                    <v-flex xs5>
                       <v-card-title primary-title>
                         <div>
-                          <div class="headline mb-4">tipo de habitacion: doble</div>
-                          <div  class="mb-4">fecha de la reserva  : 25/05/2017 </div>
-                          <div  class=" mb-4">numero de adultos : 2</div>
-                          <div  class=" mb-4">tipo de habitacion: estandar</div>
+                          <h2 class=" mb-4">Nombres: {{ tipo }}</h2>
+                          
+                          <h2 class=" mb-4">identificacion: {{ tipo }}</h2>
+                          <h2 class=" mb-4">Telefono: {{ tipo }}</h2>
+                          
+                          <h2  class="mb-4">fecha de la reserva  : 25/05/2017 </h2>
+                          <h2  class=" mb-4">numero de adultos : 2</h2>
                         </div>
                       </v-card-title>
                     </v-flex>
                     <v-flex xs4>
                       <v-card-title primary-title>
                         <div>
-
-                          <div class="headline mb-4">precio de la habitacion </div>
-                          <div  class="title mb-4 ">650000$ </div>
-                          <div>numero de niños: 0</div>
+                          <h2 class=" mb-4">Apellidos: {{ tipo }}</h2>
+                          <h2 class=" mb-4">Email: {{ tipo }}</h2>
+                          <h2 class=" mb-4">tipo de habitacion: {{ tipo }}</h2>
+                          <h2 class=" mb-4">precio de la habitacion </h2>
+                          <h2  class="mb-4 ">650000$ </h2>
+                          <h2>numero de niños: 0</h2>
 
                         </div>
 
@@ -196,28 +214,6 @@
                     </v-flex>
                   </v-layout>
                   <v-divider light></v-divider>
-                  <v-expansion-panel>
-                        <v-expansion-panel-content >
-                          <template v-slot:header>
-                            <div>detalles</div>
-                          </template>
-                          <v-card>
-                            <v-card-text>
-                              *Aire acondicionado <br>
-                              *Baño con ducha, secador de pelo y servicio de *amenidades diarias<br>
-                              *Caja de seguridad electrónica<br>
-                              * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
-                              *Minibar con agua, refrescos, cervezas y más ($)<br>
-                              *Teléfono directo en dormitorio y baño<br>
-                              *1 cama extra o una cuna (a solicitud)<br>
-                              *2 Baños
-
-                            </v-card-text>
-                            <v-btn small color="blue darken-1"  >borrar reserva<v-icon small>business</v-icon>
-                            </v-btn>
-                          </v-card>
-                        </v-expansion-panel-content>
-                      </v-expansion-panel>
                 </v-card>
               </v-flex>
               </template >
@@ -229,7 +225,7 @@
         <v-tab-item>
           <v-card flat>
             <v-card-text color="green">
-              <template v-for="n in 8">
+              <template v-for="n in 1">
               <v-flex xs12 :key="n" mb-3>
                 <v-card color="green darken-1" class="white--text">
                   <v-layout row>
@@ -371,6 +367,7 @@ export default {
     this.initialize()
   },
   data: () => ({
+    carta: [],
     countries: ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Anguilla', 'Antigua Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia Herzegovina', 'Botswana', 'Brazil', 'British Virgin Islands', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Cape Verde', 'Cayman Islands', 'Chad', 'Chile', 'China', 'Colombia', 'Congo', 'Cook Islands', 'Costa Rica', 'Cote D Ivoire', 'Croatia', 'Cruise Ship', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Estonia', 'Ethiopia', 'Falkland Islands', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'French Polynesia', 'French West Indies', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kuwait', 'Kyrgyz Republic', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Mauritania', 'Mauritius', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Namibia', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russia', 'Rwanda', 'Saint Pierre Miquelon', 'Samoa', 'San Marino', 'Satellite', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'St Kitts Nevis', 'St Lucia', 'St Vincent', 'St. Lucia', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', "Timor L'Este", 'Togo', 'Tonga', 'Trinidad  Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks Caicos', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe'],
     items: ['Sencilla', 'Doble', 'Swite', 'Presidencial'],
     dialog: false,

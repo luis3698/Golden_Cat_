@@ -57,14 +57,14 @@
            <v-flex xs12 sm6>
             <material-card class="v-card-profile">
               <v-avatar class="text--center mx-auto d-block" >
-                <template v-for="(img, i) in imgs">
-                  <img class="imagenq" :src="imgUrl" :key="i" v-show="img" >
-                </template>
+               
+                  <img class="imagenq" :src="imgUrl">
+                
               </v-avatar>
               <v-card-text class="margen text-xs-center">
                   <v-form name="formulario" method="post" enctype="form-data">
                     <v-btn class="botonn" @click='pickFile' v-model='imageName' prepend-icon='attach_file'>Selecciona imagen del Tip</v-btn>
-                      <input type="file" style="display: none" ref="image" accept="image/*" @change="onFilePicked" multiple>
+                      <input type="file" style="display: none" ref="image" accept="image/*" @change="onFilePicked" >
                   </v-form>
               </v-card-text>
             </material-card>
