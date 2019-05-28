@@ -155,8 +155,12 @@
 <script>
 import storage from '@/plugins/firebase'
 import uuid from 'uuid/v4'
+import Swal from 'sweetalert2'
+import api from '@/plugins/api'
+
 export default {
     created () {
+    this.getroom()
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
   },
   data: () => ({
@@ -201,6 +205,7 @@ export default {
     }
 
   }),
+
   computed: {
     formTitle () {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
@@ -213,6 +218,44 @@ export default {
     }
   },
   methods: {
+    async getroom () {
+      const res = await api.get('/room')
+
+    },
+    
+    resetForm () {
+      this.$refs.form.reset()
+    },
+    async save () {
+      try {
+        const res = await api.post('/room',
+          {
+            roomNew: {
+              code: this.editedItem.Nohb,
+              number_adult: this.editedItem.Nadultos,
+              number_children: this.editedItem.Nniños,
+              value_adult: this.editedItem.Padultos,
+              value_children: this.editedItem.Pniños,
+              state: this.editedItem.estado
+            }
+          })
+          const aler = await Swal.fire(
+            'Registro exitoso!',
+            'Habitacion Registrada!',
+            'success'
+          )
+         
+          this.resetForm()
+          if (this.editedIndex > -1) {
+        Object.assign(this.desserts[this.editedIndex], this.editedItem)
+      } else {
+        this.desserts.push(this.editedItem)
+      }
+      this.close()
+      } catch (error) {
+        console.error(error)
+      }
+    },
      pickFile () {
       this.$refs.image.click()
     },
@@ -284,14 +327,14 @@ export default {
       }, 300)
     },
 
-    save () {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem)
-      } else {
-        this.desserts.push(this.editedItem)
-      }
-      this.close()
-    }
+    // save () {
+    //   if (this.editedIndex > -1) {
+    //     Object.assign(this.desserts[this.editedIndex], this.editedItem)
+    //   } else {
+    //     this.desserts.push(this.editedItem)
+    //   }
+    //   this.close()
+    // }
   }
 }
 </script>
