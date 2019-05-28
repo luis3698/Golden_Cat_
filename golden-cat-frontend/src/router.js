@@ -18,7 +18,6 @@ import PreguntasFrecuentes from './views/Principal/PreguntasFrecuentes.vue'
 import TerminosCondiciones from './views/Principal/TerminosCondiciones.vue'
 import Eventos from './views/Principal/Eventos.vue'
 import AdministradorEmpleados from './views/Administrador/AdministrarEmpleados.vue'
-import AdministradorHabitaciones from './views/Administrador/AdministradorHabitaciones.vue'
 
 Vue.use(Router)
 
@@ -115,11 +114,6 @@ export default new Router({
       path: '/administrador/empleados',
       name: 'AdministradorEmpleados',
       component: AdministradorEmpleados
-    },
-    {
-      path: '/administrador/habitaciones',
-      name: 'AdministradorHabitaciones',
-      component: AdministradorHabitaciones
     }
   ]
 })
