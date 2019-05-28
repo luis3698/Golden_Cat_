@@ -244,14 +244,14 @@ export default {
             'Habitacion Registrada!',
             'success'
           )
-         
-          this.resetForm()
+        
           if (this.editedIndex > -1) {
         Object.assign(this.desserts[this.editedIndex], this.editedItem)
       } else {
         this.desserts.push(this.editedItem)
       }
       this.close()
+      this.resetForm()
       } catch (error) {
         console.error(error)
       }
