@@ -129,7 +129,6 @@
              <v-divider ></v-divider>
               <v-btn color="transparent" to="/PreguntasFrecuentes" depressed small>preguntas frecuentes</v-btn>
               <v-divider ></v-divider>
-               
 
           </v-card>
         </v-flex>

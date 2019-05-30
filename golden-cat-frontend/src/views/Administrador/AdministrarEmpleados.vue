@@ -182,7 +182,7 @@
 <script>
 export default {
   created () {
-    this.$store.commit('SET_LAYOUT', 'administrador-layout'),
+    this.$store.commit('SET_LAYOUT', 'administrador-layout')
     this.initialize()
   },
   data: () => ({
@@ -211,14 +211,14 @@ export default {
       identificacion: '',
       cc: 0,
       email: 0,
-      telefono: 0,
+      telefono: 0
     },
     defaultItem: {
       name: '',
       identificacion: '',
       cc: 0,
       email: 0,
-      telefono: 0,
+      telefono: 0
     }
   }),
   computed: {
@@ -242,7 +242,7 @@ export default {
           cc: 8239621473,
           email: 'CarlosR@gmail.com',
           telefono: '3214556724',
-          contraseña: 'k4j6g5k756',
+          contraseña: 'k4j6g5k756'
         },
         {
           name: 'Bruno Dias',
@@ -250,7 +250,7 @@ export default {
           cc: 1036524951,
           email: 'Bruno@gmail.com',
           telefono: '3214556724',
-          contraseña: 'k4j6g5k756',
+          contraseña: 'k4j6g5k756'
         },
         {
           name: 'clar Kent',
@@ -258,7 +258,7 @@ export default {
           cc: 1009647258,
           email: 'clarS@hotmail.com',
           telefono: '3214556724',
-          contraseña: 'k4j6g5k756',
+          contraseña: 'k4j6g5k756'
         },
         {
           name: 'Benjamin Parker',
@@ -266,7 +266,7 @@ export default {
           cc: 1005641837,
           email: 'ParkerP@gmail.com',
           telefono: '3214556724',
-          contraseña: 'k4j6g5k756',
+          contraseña: 'k4j6g5k756'
         },
         {
           name: 'Roberto Giraldo',
@@ -274,7 +274,7 @@ export default {
           cc: 1004583718,
           email: 'RoberGl@gmail.com',
           telefono: '3214556724',
-          contraseña: 'k4j6g5k756',
+          contraseña: 'k4j6g5k756'
         }
       ]
     },

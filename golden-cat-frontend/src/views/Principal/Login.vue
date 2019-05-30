@@ -52,23 +52,22 @@ export default {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
   },
   methods: {
-    async login() {
+    async login () {
       try {
-        const {data: user} = await api.post('/user/login', {
+        const { data: user } = await api.post('/user/login', {
           email: this.email,
           password: this.password
         })
-        if(!user.login) {
+        if (!user.login) {
           Swal.fire('Error!', user.message, 'error')
           return
         }
         this.$router.push('/')
-
       } catch (error) {
         console.error(error)
       }
     }
-  },
+  }
 }
 
 </script>

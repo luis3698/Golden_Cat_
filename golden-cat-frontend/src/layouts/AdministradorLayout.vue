@@ -198,32 +198,32 @@
   </div>
 </template>
 
-<script scoped>
+<script>
 
 export default {
-  name: 'administrador-layout',
-  methods: {
-    clicMenu (value) {
-      console.log(value.link)
-      this.$router.push(value.link)
-    }
-  },
-  data: () => ({
-    fav: true,
-    menu: false,
-    message: false,
-    hints: true,
-    dialog: false,
-    drawer: null,
+  // name: 'administrador-layout',
+  // methods: {
+  //   clicMenu (value) {
+  //     console.log(value.link)
+  //     this.$router.push(value.link)
+  //   }
+  // },
+  // data: () => ({
+  //   fav: true,
+  //   menu: false,
+  //   message: false,
+  //   hints: true,
+  //   dialog: false,
+  //   drawer: null,
 
-    items: [
-      { icon: 'supervisor_account', text: 'Usuarios/Editar', link: '/administrador/usuarios' },
-      { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
-      { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' },
-      { icon: 'perm_identity', text: 'Administrar Empleados', link: '/administrador/empleados' },
-      { icon: 'burst_mode', text: 'Habitaciones', link: '/administrador/habitaciones' }
-    ]
-  })
+  //   items: [
+  //     { icon: 'supervisor_account', text: 'Usuarios/Editar', link: '/administrador/usuarios' },
+  //     { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
+  //     { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' },
+  //     { icon: 'perm_identity', text: 'Administrar Empleados', link: '/administrador/empleados' },
+  //     { icon: 'burst_mode', text: 'Habitaciones', link: '/administrador/habitaciones' }
+  //   ]
+  // })
 }
 
 </script>

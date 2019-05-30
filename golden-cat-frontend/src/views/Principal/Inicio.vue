@@ -75,7 +75,7 @@
                     <v-card-text class="margen" >niños:</v-card-text>
                   </v-flex>
                 </v-layout>
-               
+
               </v-card-text>
             </v-card>
           </v-hover>
@@ -93,9 +93,8 @@ export default {
   async created () {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
     const data = await api.get('/user', {
-      
-    })
 
+    })
   },
   data: () => ({
     acomodacion: '',
