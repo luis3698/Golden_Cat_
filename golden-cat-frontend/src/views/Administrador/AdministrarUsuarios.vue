@@ -75,42 +75,31 @@
     </v-dialog>
 
     <v-flex xs12>
-    <div>
-      <v-tabs v-model="active" color="blue darken-1" dark slider-color="greed" >
-        <v-tab ripple>ADMINISTRADORES</v-tab>
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text>
-              <template v-for="n in 2">
-              <v-flex xs12 :key="n" mb-3>
-                <v-card color="bl" class="blue darken-1">
-                  <v-layout row >
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="title mb-4">Nombres:</div>
-                          <div  class="title mb-4">Coreo Electronico:</div>
-                          <div  class="title mb-4">Indentificacion:</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="title mb-4">Apellidos:</div>
-                          <div  class="title mb-4 ">Telefono:</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-
-                    <v-layout row justify-center>
-                      <v-dialog v-model="dialog" persistent max-width="600px">
-                        <template v-slot:activator="{ on }">
-                          <v-btn color="primary" dark v-on="on">Editar</v-btn>
-                        </template>
-                        <v-card>
-                          <v-card-title>
-                            <span class="headline">User Profile</span>
+      <div>
+        <v-tabs v-model="active" color="blue darken-1" dark slider-color="greed" >
+          <v-tab ripple>ADMINISTRADORES</v-tab>
+          <v-tab-item>
+            <v-card flat>
+              <v-card-text>
+                <template v-for="n in 2">
+                  <v-flex xs12 :key="n" mb-3>
+                    <v-card color="bl" class="blue darken-1">
+                      <v-layout row >
+                        <v-flex xs4>
+                          <v-card-title primary-title>
+                            <div>
+                              <div class="title mb-4">Nombres:</div>
+                              <div  class="title mb-4">Coreo Electronico:</div>
+                              <div  class="title mb-4">Indentificacion:</div>
+                            </div>
+                          </v-card-title>
+                        </v-flex>
+                        <v-flex xs4>
+                          <v-card-title primary-title>
+                            <div>
+                              <div class="title mb-4">Apellidos:</div>
+                              <div  class="title mb-4 ">Telefono:</div>
+                            </div>
                           </v-card-title>
                           <v-card-text>
                             <v-container grid-list-md>
