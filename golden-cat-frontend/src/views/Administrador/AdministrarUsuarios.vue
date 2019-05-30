@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
   <v-card class="este" flat>
     <v-snackbar v-model="snackbar" absolute top right color="success">
@@ -361,3 +362,5 @@ export default {
 background-color: white !important
 }
 </style>
+=======
+>>>>>>> fcae7f6c03a28e164ffae98f62b977940d1a9e83
