@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
   <v-card class="este" flat>
     <v-snackbar v-model="snackbar" absolute top right color="success">
@@ -206,161 +205,159 @@
     </template>
 </template>
 <script>
-import { validationMixin } from 'vuelidate'
-import { required, sameAs, minLength, email, requiredIf } from 'vuelidate/lib/validators'
-export default {
-  data: () => ({
-    dialog: false
-  }),
-  created () {
-    this.$store.commit('SET_LAYOUT', 'administrador-layout')
-  },
-  data () {    
-    const defaultForm = Object.freeze({
-      first: '',
-      last: '',
-      bio: '',
-      favoriteAnimal: '',
-      age: null,
-      terms: false,            
-    })
-    return {
-      form: Object.assign({}, defaultForm),
-      conditions: false,
-      password: '',
-      repeatPassword: '',
-      email: '',
-      show1: false,
-      show2: false,
-      form: Object.assign({}, defaultForm),
-      rules: {
-        age: [val => val < 10 || `I don't believe you!`],
-        animal: [val => (val || '').length > 0 || 'This field is required'],
-        name: [val => (val || '').length > 0 || 'This field is required']
-      },
-      animals: ['Cliente', 'Administrador'],
-      conditions: false,
-      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.`,
-      snackbar: false,
-      terms: false,  
-      defaultForm
-    }
-  },
-  mixins: [validationMixin],
-  validations: {
-    password: {
-      required,
-      minLength: minLength(8)
-    },
-    repeatPassword: {
-      sameAsPassword: sameAs('password')
-    },
-    email: {
-      required,
-      email
-    },
-    terminos: {
-      checked (val) {
-        return val
-      }
-    }
-  },
-  computed: {
-    checkboxErrors () {
-      const errors = []
-      if (!this.$v.terminos.$dirty) return errors
-      !this.$v.terminos.checked && errors.push('debes aceptar terminos y condiciones')
-      return errors,
-      formIsValid (); {
-        return (
-          this.form.first &&
-          this.form.last &&
-          this.form.favoriteAnimal &&
-          this.form.terms
-        )
-      }
-    },
-    passErrors () {
-      const errors = []
-      if (!this.$v.password.$dirty) return errors
-      if (!this.$v.password.minLength) {
-        errors.push('Contraseña debe tener mínimo 8 caracteres')
-        return errors
-      }
-      if (!this.$v.password.required) {
-        errors.push('Contraseña requerida')
-        return errors
-      }
-      return errors
-    },
-    matchPass () {
-      const errors = []
-      if (!this.$v.repeatPassword.$dirty) return errors
-      !this.$v.repeatPassword.sameAsPassword && errors.push('Contraseñas no coinciden')
-      return errors
-    },
-    emailError () {
-      const errors = []
-      if (!this.$v.email.$dirty) return errors
-      !this.$v.email.email && errors.push('E-mail invalido')
-      !this.$v.email.required && errors.push('E-mail es requerido')
-      return errors
-    },
-    formIsValid () {
-      return (
-        this.form.first &&
-        this.form.last &&
-        this.form.phone &&
-        this.form.id &&
-        this.form.favoriteAnimal &&
-        this.form.terms
-      )
-    }
-  },
-  methods: {
-    next () {
-      const active = parseInt(this.active)
-      this.active = (active < 2 ? active + 1 : 0)
-    },
-    resetForm () {
-      this.form = Object.assign({}, this.defaultForm)
-      this.$refs.form.reset()
-    },
-    submit () {
-      this.snackbar = true
-      this.resetForm()
-    },
-    async submit () {
-      try {
-        const res = await api.post('/user',
-          {
-            userNew: {
-              email: this.email,
-              password: this.password,
-              name: this.Name,
-              lastName: this.LastName,
-              phone: this.Phone,
-              identification: this.Identification
-            }
-          })
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
-        this.resetForm()
-      } 
-        catch (error) {
-        console.error(error)
-      }
-    }  
-  }
-}
+// import { validationMixin } from 'vuelidate'
+// import { required, sameAs, minLength, email, requiredIf } from 'vuelidate/lib/validators'
+// export default {
+//   data: () => ({
+//     dialog: false
+//   }),
+//   created () {
+//     this.$store.commit('SET_LAYOUT', 'administrador-layout')
+//   },
+//   data () {    
+//     const defaultForm = Object.freeze({
+//       first: '',
+//       last: '',
+//       bio: '',
+//       favoriteAnimal: '',
+//       age: null,
+//       terms: false,            
+//     })
+//     return {
+//       form: Object.assign({}, defaultForm),
+//       conditions: false,
+//       password: '',
+//       repeatPassword: '',
+//       email: '',
+//       show1: false,
+//       show2: false,
+//       form: Object.assign({}, defaultForm),
+//       rules: {
+//         age: [val => val < 10 || `I don't believe you!`],
+//         animal: [val => (val || '').length > 0 || 'This field is required'],
+//         name: [val => (val || '').length > 0 || 'This field is required']
+//       },
+//       animals: ['Cliente', 'Administrador'],
+//       conditions: false,
+//       content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.`,
+//       snackbar: false,
+//       terms: false,  
+//       defaultForm
+//     }
+//   },
+//   mixins: [validationMixin],
+//   validations: {
+//     password: {
+//       required,
+//       minLength: minLength(8)
+//     },
+//     repeatPassword: {
+//       sameAsPassword: sameAs('password')
+//     },
+//     email: {
+//       required,
+//       email
+//     },
+//     terminos: {
+//       checked (val) {
+//         return val
+//       }
+//     }
+//   },
+//   computed: {
+//     checkboxErrors () {
+//       const errors = []
+//       if (!this.$v.terminos.$dirty) return errors
+//       !this.$v.terminos.checked && errors.push('debes aceptar terminos y condiciones')
+//       return errors,
+//       formIsValid (); {
+//         return (
+//           this.form.first &&
+//           this.form.last &&
+//           this.form.favoriteAnimal &&
+//           this.form.terms
+//         )
+//       }
+//     },
+//     passErrors () {
+//       const errors = []
+//       if (!this.$v.password.$dirty) return errors
+//       if (!this.$v.password.minLength) {
+//         errors.push('Contraseña debe tener mínimo 8 caracteres')
+//         return errors
+//       }
+//       if (!this.$v.password.required) {
+//         errors.push('Contraseña requerida')
+//         return errors
+//       }
+//       return errors
+//     },
+//     matchPass () {
+//       const errors = []
+//       if (!this.$v.repeatPassword.$dirty) return errors
+//       !this.$v.repeatPassword.sameAsPassword && errors.push('Contraseñas no coinciden')
+//       return errors
+//     },
+//     emailError () {
+//       const errors = []
+//       if (!this.$v.email.$dirty) return errors
+//       !this.$v.email.email && errors.push('E-mail invalido')
+//       !this.$v.email.required && errors.push('E-mail es requerido')
+//       return errors
+//     },
+//     formIsValid () {
+//       return (
+//         this.form.first &&
+//         this.form.last &&
+//         this.form.phone &&
+//         this.form.id &&
+//         this.form.favoriteAnimal &&
+//         this.form.terms
+//       )
+//     }
+//   },
+//   methods: {
+//     next () {
+//       const active = parseInt(this.active)
+//       this.active = (active < 2 ? active + 1 : 0)
+//     },
+//     resetForm () {
+//       this.form = Object.assign({}, this.defaultForm)
+//       this.$refs.form.reset()
+//     },
+//     submit () {
+//       this.snackbar = true
+//       this.resetForm()
+//     },
+//     async submit () {
+//       try {
+//         const res = await api.post('/user',
+//           {
+//             userNew: {
+//               email: this.email,
+//               password: this.password,
+//               name: this.Name,
+//               lastName: this.LastName,
+//               phone: this.Phone,
+//               identification: this.Identification
+//             }
+//           })
+//         Swal.fire(
+//           'Good job!',
+//           'You clicked the button!',
+//           'success'
+//         )
+//         this.resetForm()
+//       } 
+//         catch (error) {
+//         console.error(error)
+//       }
+//     }  
+//   }
+// }
 </script>
 <style>
 .este{
 background-color: white !important
 }
 </style>
-=======
->>>>>>> fcae7f6c03a28e164ffae98f62b977940d1a9e83
