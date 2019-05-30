@@ -189,7 +189,6 @@ import Logo from '@/assets/logo2.png'
 import { validationMixin } from 'vuelidate'
 import { required, sameAs, minLength, email, requiredIf } from 'vuelidate/lib/validators'
 import Swal from 'sweetalert2'
-
 import api from '@/plugins/api'
 export default {
   data () {
@@ -275,6 +274,7 @@ export default {
   methods: {
     async getUsers () {
       const res = await api.get('/user')
+
     },
     
     resetForm () {
