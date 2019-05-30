@@ -92,12 +92,7 @@
               </v-flex>
               <v-flex xs6>
                 <v-text-field
-<<<<<<< HEAD
                  label="Email*"
-=======
-                v-model="email"
-                 label="Email*" 
->>>>>>> b73e6ebae4d020f900b4afd79b12207e585143d3
                  required>
                  </v-text-field>
               </v-flex>
@@ -116,7 +111,6 @@
                   required
                 ></v-select>
               </v-flex>
-<<<<<<< HEAD
 
               <v-flex xs12 sm6>
         <v-text-field background-color="white" color="white" dark="false" solo class="fecha,todo" label="seleccionar fechas" ref="myinput"  v-model="range"></v-text-field>
@@ -125,20 +119,9 @@
         {{date}}
       </v-flex>
 
-=======
-              <v-flex xs12 sm6>
-                <v-text-field background-color="white" color="white" dark="false" regular class="fecha,todo" label="seleccionar fechas" ref="myinput"  v-model="range"></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm12 class="todo">
-                {{date}}
-              </v-flex>
-              <v-flex xs12 sm6>
-                <v-text-field type="number" v-model="niños" label="No. niños"></v-text-field>
-              </v-flex>
->>>>>>> b73e6ebae4d020f900b4afd79b12207e585143d3
               <v-flex xs12 sm6>
                 <v-text-field type="number" v-model="adultos" label="No. adultos"></v-text-field>
-              </v-flex> 
+              </v-flex>
               <v-flex xs12 sm4>
                 <v-select
                   label="Departamento"
@@ -203,7 +186,6 @@
                     <v-flex xs5>
                       <v-card-title>
                         <div>
-<<<<<<< HEAD
                           <h2 class=" mb-4">Nombres: {{ tipo }}</h2>
 
                           <h2 class=" mb-4">identificacion: {{ tipo }}</h2>
@@ -211,14 +193,6 @@
 
                           <h2  class="mb-4">fecha de la reserva  : 25/05/2017 </h2>
                           <h2  class=" mb-4">numero de adultos : 2</h2>
-=======
-                          <h4 class=" mb-3">Nombres: {{ nombre }}</h4>
-                          <h4 class=" mb-3">identificacion: {{ id }}</h4>
-                          <h4 class=" mb-3">Telefono: {{ tel }}</h4>
-                          <h4 class=" mb-3">fecha de la reserva: {{ range }}</h4>
-                          <h4 class=" mb-3">Pais: {{ country }}</h4>
-                          <h4 class=" mb-3">numero de adultos: {{ adultos }} </h4>
->>>>>>> b73e6ebae4d020f900b4afd79b12207e585143d3
                         </div>
                       </v-card-title>
                     </v-flex>
@@ -384,7 +358,7 @@ export default {
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
     this.initialize()
   },
-    mounted () {
+  mounted () {
     const myInput = this.$refs.myinput.$el.querySelector('input')
     const flat = flatpickr(myInput, this.configFlat)
   },
