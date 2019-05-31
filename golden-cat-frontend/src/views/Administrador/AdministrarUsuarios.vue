@@ -97,7 +97,7 @@
             >
               <template v-slot:label>
                 <div @click.stop="">
-                  Aceptas los 
+                  Aceptas los
                   <a href="javascript:;" @click.stop="terms = true">terminos</a>
                   y
                   <a href="javascript:;" @click.stop="conditions = true">condiciones</a>?
