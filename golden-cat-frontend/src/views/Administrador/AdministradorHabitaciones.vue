@@ -68,6 +68,16 @@
                   </v-form>
               </v-card-text>
             </material-card>
+            <v-btn
+              :loading="loading3"
+              :disabled="loading3"
+              color="blue-grey"
+              class="white--text"
+              @click="loader = 'loading3'"
+            >
+              Upload
+              <v-icon right dark>cloud_upload</v-icon>
+            </v-btn>
         </v-flex>
         <v-flex xs12 sm6>
           <v-btn color="blue darken-1" class="botones white--text headline" @click="save" >Agregar Habitacion</v-btn>
@@ -164,6 +174,11 @@ export default {
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
   },
   data: () => ({
+    loader: null,
+    loading: false,
+    loading2: false,
+    loading3: false,
+    loading4: false,
     items: [
       'Disponible',
       'Mantenimiento'
@@ -219,7 +234,15 @@ export default {
   watch: {
     dialog (val) {
       val || this.close()
-    }
+    },
+    loader () {
+        const l = this.loader
+        this[l] = !this[l]
+
+        setTimeout(() => (this[l] = false), 3000)
+
+        this.loader = null
+      }
   },
   methods: {
     async getroom () {
@@ -360,4 +383,40 @@ export default {
 .todooo{
   background-color:gray
 }
+.custom-loader {
+    animation: loader 1s infinite;
+    display: flex;
+  }
+  @-moz-keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 </style>
