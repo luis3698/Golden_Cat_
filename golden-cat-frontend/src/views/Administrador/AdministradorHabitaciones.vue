@@ -57,9 +57,9 @@
            <v-flex xs12 sm6>
             <material-card class="v-card-profile">
               <v-avatar class="text--center mx-auto d-block" >
-               
+
                   <img class="imagenq" :src="imgUrl">
-                
+
               </v-avatar>
               <v-card-text class="margen text-xs-center">
                   <v-form name="formulario" method="post" enctype="form-data">
@@ -152,7 +152,7 @@
     </div>
 </template>
 
-// <script>
+<script>
 // import storage from '@/plugins/firebase'
 // import uuid from 'uuid/v4'
 // import Swal from 'sweetalert2'
@@ -205,7 +205,7 @@
 //       Padultos: '',
 //       Pniños:'',
 //       imgUrl: '',
- 
+
 //     }
 
 //   }),
@@ -226,7 +226,7 @@
 //       const res = await api.get('/room')
 
 //     },
-    
+
 //     resetForm () {
 //       this.$refs.form.reset()
 //     },
@@ -248,7 +248,7 @@
 //             'Habitacion Registrada!',
 //             'success'
 //           )
-        
+
 //           if (this.editedIndex > -1) {
 //         Object.assign(this.desserts[this.editedIndex], this.editedItem)
 //       } else {
@@ -277,7 +277,7 @@
 //             this.imgUrl = fr.result
 //             const name = uuid()
 //             var imageRef = storage.ref().child(`images/${name}.jpg`)
-//             const imageUpload = await imageRef.putString(fr.result, 'data_url')            
+//             const imageUpload = await imageRef.putString(fr.result, 'data_url')
 //             const imageUrl = await imageRef.getDownloadURL()
 //             this.images.push({ imageRef: imageUpload.metadata.fullPath, url: imageUrl})
 //           })
@@ -309,7 +309,7 @@
 //           imgUrl: '',
 //         }
 //       ]
-      
+
 //     },
 
 //     editItem (item) {
@@ -364,4 +364,3 @@
   background-color:gray
 }
 </style>
-

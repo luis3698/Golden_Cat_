@@ -1,6 +1,6 @@
 <template>
   <v-flex>
-    <v-layout row wrap class="color" >   
+    <v-layout row wrap class="color" >
       <v-flex xs12 sm6>
         <v-text-field background-color="white" color="white" dark="false" solo class="fecha,todo" label="seleccionar fechas" ref="myinput" v-model="range"></v-text-field>
       </v-flex>
@@ -24,7 +24,7 @@
       </v-btn>
       <v-flex xs12 sm12 class="todo">
         {{date}}
-      </v-flex>          
+      </v-flex>
     </v-layout>
     <v-flex md12></v-flex>
     <div class="  text-xs-center" style="padding-bottom: 15px; padding-top: 15px">
@@ -227,11 +227,11 @@
 <style scope>
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
-.color 
+.color
 {
   background-color:darkgrey;
 }
-.color2 
+.color2
 {
   background-color: darkgrey;
 }
@@ -239,5 +239,3 @@ span{
   font-weight:bold;
 }
 </style>
-
-

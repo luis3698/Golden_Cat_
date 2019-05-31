@@ -1,5 +1,4 @@
 
-
 <template>
 <v-layout row>
         <v-flex xs6>
@@ -14,7 +13,7 @@
         <v-layout align-center justify-center >
           <v-flex xs12 sm md10>
             <div>
-  
+
      <v-card flat>
     <v-snackbar
       v-model="snackbar"
@@ -26,7 +25,7 @@
       <span>Registro exitoso!</span>
     </v-snackbar>
     <v-form ref="form" @submit.prevent="submit">
-     
+
         <v-layout wrap>
            <v-flex d-flex xs12 sm12 md3>
            </v-flex>
@@ -37,7 +36,7 @@
           <v-flex d-flex xs12 sm12 md6>
             <v-card class="elevation-12">
                <v-toolbar color="indigo darken-4" height="150">
-                   
+
                 <v-toolbar-title class="font-weight-medium white--text display-1">Registro</v-toolbar-title>
                 </v-toolbar>
                   <v-card-text class="contenedor">
@@ -126,7 +125,7 @@
             </v-card>
           </v-flex>
         </v-layout>
-    
+
     </v-form>
     <v-dialog
       v-model="dialog"
@@ -174,7 +173,7 @@
       </v-card>
     </v-dialog>
     </v-card>
-    <br><br> 
+    <br><br>
 </div>
           </v-flex>
         </v-layout>
@@ -182,7 +181,7 @@
         </v-flex>
 
 </v-layout>
-  
+
 </template>
 <script>
 import Logo from '@/assets/logo2.png'
@@ -194,10 +193,10 @@ export default {
   data () {
     return {
       Name: '',
-      LastName:'',
+      LastName: '',
       email: '',
-      Phone:'',
-      Identification:'',
+      Phone: '',
+      Identification: '',
       password: '',
       repeatPassword: '',
       isLoading: false,
@@ -213,7 +212,6 @@ export default {
       terminos: false,
       logo: Logo
     }
-    
   },
   mixins: [validationMixin],
   validations: {
@@ -274,9 +272,8 @@ export default {
   methods: {
     async getUsers () {
       const res = await api.get('/user')
-
     },
-    
+
     resetForm () {
       this.$refs.form.reset()
     },
@@ -293,13 +290,13 @@ export default {
               identification: this.Identification
             }
           })
-          const aler = await Swal.fire(
-            'Good job!',
-            'You clicked the button!',
-            'success'
-          )
-          this.$router.push('/')
-          this.resetForm()
+        const aler = await Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
+        this.$router.push('/')
+        this.resetForm()
       } catch (error) {
         console.error(error)
       }

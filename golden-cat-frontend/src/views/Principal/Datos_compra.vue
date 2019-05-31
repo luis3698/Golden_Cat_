@@ -377,7 +377,7 @@
             <v-card-text >12/5/2019</v-card-text>
             <v-card-text >15/5/2019</v-card-text>
             <v-card-text >2</v-card-text>
-            <v-card-text >2</v-card-text> 
+            <v-card-text >2</v-card-text>
           </v-card>
         </v-flex>
         <v-flex xs3 >
@@ -397,7 +397,7 @@
             <v-card-text >3205458545</v-card-text>
             <v-card-text >1100975458</v-card-text>
             <v-card-text >CUCUTA</v-card-text>
-            <v-card-text class="display-2" >$10000</v-card-text>            
+            <v-card-text class="display-2" >$10000</v-card-text>
           </v-card>
         </v-flex>
       </v-layout>
