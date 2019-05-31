@@ -65,7 +65,7 @@
         </v-toolbar>
 
         <v-dialog light="true" v-model="dialog" persistent max-width="600px">
-      <template v-slot:activator="{ on }">
+          <template v-slot:activator="{ on }">
         <v-btn color="primary" dark v-on="on">Realizar reserva</v-btn>
       </template>
       <v-card class="card">
@@ -116,7 +116,7 @@
                 <v-text-field background-color="white" color="white" dark="false" regular class="fecha,todo" label="seleccionar fechas" ref="myinput"  v-model="range"></v-text-field>
               </v-flex>
               <v-flex xs12 sm12 class="todo">
-                {{date}}
+                {{date1}}
               </v-flex>
               <v-flex xs12 sm6>
                 <v-text-field type="number" v-model="niños" label="No. niños"></v-text-field>
@@ -174,166 +174,72 @@
       </v-card>
     </v-dialog>
 
-            <v-flex xs12>
-    <div class="rojo">
-      <v-tabs v-model="active"  color="blue darken-1" dark slider-color="greed" >
-        <v-tab ripple> reservas activas</v-tab>
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text color="green" >
-              <template v-for="n in 1">
-              <v-flex xs12 :key="n" mb-3>
-                <v-card color="blue darken-1"  class="white--text" >
-                  <v-layout row>
-                    <v-flex xs5>
-                      <v-card-title>
-                        <div>
-                          <h4 class=" mb-3">Nombres: {{ nombre }}</h4>
-                          <h4 class=" mb-3">identificacion: {{ id }}</h4>
-                          <h4 class=" mb-3">Telefono: {{ tel }}</h4>
-                          <h4 class=" mb-3">fecha de la reserva: {{ range }}</h4>
-                          <h4 class=" mb-3">Pais: {{ country }}</h4>
-                          <h4 class=" mb-3">numero de adultos: {{ adultos }} </h4>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-card-title>
-                        <div>
-                          <h4 class=" mb-3">Apellidos: {{ apellido }}</h4>
-                          <h4 class=" mb-3">Email: {{ email }}</h4>
-                          <h4 class=" mb-3">tipo de habitacion: {{ tipo }}</h4>
-                          <h4 class=" mb-3">Departamento: {{ departamento }}</h4>
-                          <h4 class=" mb-3">precio de la habitacion: {{ precio }}</h4>
-                          <h4>numero de niños: {{ niños }}</h4>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                  </v-layout>
-                </v-card>
-              </v-flex>
-              </template >
+    <v-flex xs12>
+      <div class="rojo">
+        <v-tabs color="blue darken-1">
+          <v-tab ripple>Reservas activas</v-tab>
+          <v-tab-item>
+            <v-card flat>
+              <v-card-text color="green">
+                <div>
+                  <v-toolbar flat color="white">
+                    <v-toolbar-title>My CRUD</v-toolbar-title>
+                    <v-divider
+                      class="mx-2"
+                      inset
+                      vertical
+                    ></v-divider>
+                    <v-spacer></v-spacer>
+
+                  </v-toolbar>
+                  <v-data-table
+                    :headers="headers"
+                    :items="desserts"
+                    class="elevation-1"
+                  >
+                    <template v-slot:items="props">
+                      <td>{{ props.item.name }}</td>
+                      <td class="text-xs-right">{{ props.item.tel }}</td>
+                      <td class="text-xs-right">{{ props.item.fat }}</td>
+                      <td class="text-xs-right">{{ props.item.carbs }}</td>
+                      <td class="text-xs-right">{{ props.item.protein }}</td>
+                      <td class="justify-center layout px-0">
+                        <v-icon
+                          small
+                          class="mr-2"
+                          @click="editItem(props.item)"
+                        >
+                          edit
+                        </v-icon>
+                        <v-icon
+                          small
+                          @click="deleteItem(props.item)"
+                        >
+                          delete
+                        </v-icon>
+                      </td>
+                    </template>
+                    <template v-slot:no-data>
+                      <v-btn color="primary" @click="initialize">Reset</v-btn>
+                    </template>
+                  </v-data-table>
+                </div>
             </v-card-text>
           </v-card>
         </v-tab-item>
-
-        <v-tab ripple> reservas en curso</v-tab>
+        <v-tab ripple>Reservas en curso</v-tab>
         <v-tab-item>
           <v-card flat>
-            <v-card-text color="green">
-              <template v-for="n in 1">
-              <v-flex xs12 :key="n" mb-3>
-                <v-card color="green darken-1" class="white--text">
-                  <v-layout row>
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="headline mb-4">tipo de habitacion: doble</div>
-                          <div  class="mb-4">fecha de la reserva  : 25/05/2017 </div>
-                          <div  class=" mb-4">numero de adultos : 2</div>
-                          <div  class=" mb-4">tipo de habitacion: estandar</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
+            <v-card-text color="blue darken-1">
 
-                          <div class="headline mb-4">precio de la habitacion </div>
-                          <div  class="title mb-4 ">650000$ </div>
-                          <div>numero de niños: 0</div>
-
-                        </div>
-
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-img :src="habitacion2" contain></v-img>
-                    </v-flex>
-                  </v-layout>
-                  <v-divider light></v-divider>
-                  <v-expansion-panel>
-                        <v-expansion-panel-content >
-                          <template v-slot:header>
-                            <div>detalles</div>
-                          </template>
-                          <v-card>
-                            <v-card-text>
-                              *Aire acondicionado <br>
-                              *Baño con ducha, secador de pelo y servicio de *amenidades diarias<br>
-                              *Caja de seguridad electrónica<br>
-                              * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
-                              *Minibar con agua, refrescos, cervezas y más ($)<br>
-                              *Teléfono directo en dormitorio y baño<br>
-                              *1 cama extra o una cuna (a solicitud)<br>
-                              *2 Baños
-
-                            </v-card-text>
-                            <v-btn small color="blue darken-1"  >borrar reserva<v-icon small>business</v-icon>
-                            </v-btn>
-                          </v-card>
-                        </v-expansion-panel-content>
-                      </v-expansion-panel>
-                </v-card>
-              </v-flex>
-              </template >
             </v-card-text>
           </v-card>
         </v-tab-item>
-
-        <v-tab ripple> reservas canceladas</v-tab>
+        <v-tab ripple>Reservas Canceladas</v-tab>
         <v-tab-item>
           <v-card flat>
-            <v-card-text> <template v-for="n in 8">
-              <v-flex xs12 :key="n" mb-3>
-                <v-card color="red darken-1" class="white--text">
-                  <v-layout row >
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="headline mb-4">tipo de habitacion: doble</div>
-                          <div  class="mb-4">fecha de la reserva  : 25/05/2017 </div>
-                          <div  class=" mb-4">numero de adultos : 2</div>
-                          <div  class=" mb-4">tipo de habitacion: estandar</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="headline mb-4">precio de la habitacion </div>
-                          <div  class="title mb-4 ">650000$ </div>
-                          <div>numero de niños: 0</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-img :src="habitacion2" contain></v-img>
-                    </v-flex>
-                  </v-layout>
-                  <v-divider light></v-divider>
-                  <v-expansion-panel>
-                        <v-expansion-panel-content >
-                          <template v-slot:header>
-                            <div>detalles</div>
-                          </template>
-                          <v-card>
-                            <v-card-text>
-                              *Aire acondicionado <br>
-                              *Baño con ducha, secador de pelo y servicio de *amenidades diarias<br>
-                              *Caja de seguridad electrónica<br>
-                              * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
-                              *Minibar con agua, refrescos, cervezas y más ($)<br>
-                              *Teléfono directo en dormitorio y baño<br>
-                              *1 cama extra o una cuna (a solicitud)<br>
-                              *2 Baños
-                            </v-card-text>
-                          </v-card>
-                        </v-expansion-panel-content>
-                      </v-expansion-panel>
-                </v-card>
-              </v-flex>
-              </template >
+            <v-card-text color="blue darken-1">
+
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -348,6 +254,9 @@ import 'flatpickr/dist/flatpickr.css'
 import 'flatpickr/dist/themes/material_blue.css'
 export default {
   computed: {
+    formTitle () {
+      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+    },
     form () {
       return {
         country: this.country,
@@ -364,7 +273,38 @@ export default {
     const flat = flatpickr(myInput, this.configFlat)
   },
   data: () => ({
+    dialog: false,
+    headers: [
+      {
+        text: 'Dessert (100g serving)',
+        align: 'left',
+        sortable: false,
+        value: 'name'
+      },
+      { text: 'Calories', value: 'tel' },
+      { text: 'Fat (g)', value: 'fat' },
+      { text: 'Carbs (g)', value: 'carbs' },
+      { text: 'Protein (g)', value: 'protein' },
+      { text: 'Actions', value: 'name', sortable: false }
+    ],
+    desserts: [],
+    editedIndex: -1,
+    editedItem: {
+      name: '',
+      tel: 0,
+      fat: 0,
+      carbs: 0,
+      protein: 0
+    },
+    defaultItem: {
+      name: '',
+      calories: 0,
+      fat: 0,
+      carbs: 0,
+      protein: 0
+    },
     date: new Date().toISOString().substr(0, 10),
+    date1: null,
     menu: false,
     dialog1: false,
     carta: [],
@@ -380,6 +320,30 @@ export default {
     dialog (val) {
       val || this.close()
     }
+  },
+  editItem (item) {
+    this.editedIndex = this.desserts.indexOf(item)
+    this.editedItem = Object.assign({}, item)
+    this.dialog = true
+  },
+  deleteItem (item) {
+    const index = this.desserts.indexOf(item)
+    confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+  },
+  close () {
+    this.dialog = false
+    setTimeout(() => {
+      this.editedItem = Object.assign({}, this.defaultItem)
+      this.editedIndex = -1
+    }, 300)
+  },
+  save () {
+    if (this.editedIndex > -1) {
+      Object.assign(this.desserts[this.editedIndex], this.editedItem)
+    } else {
+      this.desserts.push(this.editedItem)
+    }
+    this.close()
   }
 }
 </script>
