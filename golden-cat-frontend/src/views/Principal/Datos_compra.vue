@@ -352,7 +352,9 @@
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
-    <v-container class="tamañoct" v-show="reservaConfirm">
+
+
+    <v-container v-show="reservaConfirm">
       <v-layout>
         <v-flex xs12>
           <v-card tile flat color="transparent">
