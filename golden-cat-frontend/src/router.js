@@ -19,6 +19,7 @@ import TerminosCondiciones from './views/Principal/TerminosCondiciones.vue'
 import Eventos from './views/Principal/Eventos.vue'
 import AdministradorEmpleados from './views/Administrador/AdministrarEmpleados.vue'
 import AdministradorHabitaciones from './views/Administrador/AdministradorHabitaciones.vue'
+import CargarImagenes from './views/Administrador/CagarImagenes.vue'
 
 Vue.use(Router)
 
@@ -120,6 +121,11 @@ export default new Router({
       path: '/administrador/habitaciones',
       name: 'AdministradorHabitaciones',
       component: AdministradorHabitaciones
+    },
+    {
+      path: '/administrador/imagenes',
+      name: 'CargarImagenes',
+      component: CargarImagenes
     }
   ]
 })
