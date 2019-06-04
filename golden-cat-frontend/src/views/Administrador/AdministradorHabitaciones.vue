@@ -236,13 +236,13 @@ export default {
       val || this.close()
     },
     loader () {
-        const l = this.loader
-        this[l] = !this[l]
+      const l = this.loader
+      this[l] = !this[l]
 
-        setTimeout(() => (this[l] = false), 3000)
+      setTimeout(() => (this[l] = false), 3000)
 
-        this.loader = null
-      }
+      this.loader = null
+    }
   },
   methods: {
     async getroom () {
