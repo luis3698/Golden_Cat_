@@ -46,7 +46,17 @@
 
 
 
-
+      <v-layout row >
+        <v-flex xs12 >
+          <v-card dark tile flat color="transparent" >
+           
+              <h3 class="letra2 text-md-center indigo--text  "  >La mejor opcion para ti y <br>tu familia</h3>
+             <v-container>
+              <v-img class="gifpublicidad " :src="gifpublicidad"></v-img>
+           </v-container>
+          </v-card>
+        </v-flex>
+      </v-layout>
        <v-layout row wrap>
         <v-flex xs12 sm6 md3  >
           <v-card dark tile flat color="red">
@@ -87,16 +97,7 @@
 
 
 
-      <v-layout row >
-        <v-flex xs12 >
-          <v-card dark tile flat color="transparent" >
-            <v-card-text>
-              <h3 class="letra2 text-md-center indigo--text  "  >La mejor opcion para ti y <br>tu familia</h3>
-               <h3 class=" text-md-center" >Hotel GOLDEN CAT tu mejor opcion</h3>
-            </v-card-text>
-          </v-card>
-        </v-flex>
-      </v-layout>
+      
       <v-layout row>
         <v-flex xs12 >
           <v-card dark tile flat color="transparent">
@@ -115,7 +116,7 @@
                     <img :src="familia" alt = "Efecto CSS" >
                     <div class = "MainText" >
                         <div class = "SecText" >
-                          <h2>  <span id="GreenText" class="letra22">GRUPOS FAMILIARES </span> </h2>
+                          <h2>  <span id="GreenText">GRUPOS FAMILIARES </span> </h2>
                         
                         </div>
                     </div>
@@ -131,7 +132,7 @@
                   <div class = "MainImage" > <img :src = "pareja" alt = "Efecto CSS" >
                     <div class = "MainText" >
                         <div class = "SecText" >
-                          <h2>  <span id="GreenText" class="letra22"> BODAS </span> </h2>
+                          <h2>  <span id="GreenText" > BODAS </span> </h2>
                            
                         </div>
                     </div>
@@ -147,7 +148,7 @@
                   <div class = "MainImage" > <img :src = "conferencia" alt = "Efecto CSS" >
                     <div class = "MainText" >
                         <div class = "SecText" >
-                          <h2>  <span id="GreenText" class="letra22"> CONVENCIONES </span> </h2>
+                          <h2>  <span id="GreenText" > CONVENCIONES </span> </h2>
                         
                         </div>
                     </div>
@@ -221,6 +222,7 @@ import CONFERENCIA from '@/assets/conferencia.jpg'
 import FAMILIA from '@/assets/familia.jpg'
 import api from '@/plugins/api'
 import HABITACION2 from '@/assets/habitacion2.png'
+import GIFPUBLICIDAD from '@/assets/gifpublicidad.gif'
 export default {
   name: 'inicio',
   async created () {
@@ -240,6 +242,7 @@ export default {
     portadahotel: PORTADAHOTEL,
     conferencia: CONFERENCIA,
     familia: FAMILIA,
+    gifpublicidad: GIFPUBLICIDAD,
     show1: false
     
   }),
@@ -254,7 +257,7 @@ export default {
 </script>
  <style scoped>
  @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
 
 .MainImage11 {
  width: 300px;
@@ -341,7 +344,7 @@ width: 100%;
 }
 
 .SecText h2 #GreenText {
-  color: rgb(0, 17, 253);
+  color: rgb(162, 164, 182);
   padding-bottom: 3px;
   border-bottom: 2px solid #fff;
 }
@@ -350,7 +353,7 @@ width: 100%;
  position: absolute;
  top: 180px;
  width: 250px;
- border-left: 4px solid rgb(0, 17, 253) ;
+ border-left: 4px solid rgb(221, 221, 221) ;
  padding: 0 10px;
 }
 
@@ -397,16 +400,19 @@ width: 100%;
 
  .letra2{
    font-family: 'Dancing Script', cursive;
-    font-size: 60px;
+    font-size: 50px;
  }
- .letra22{
- font-family: 'Permanent Marker', cursive;
  
- }
 .imagen1{
   width: 100%;
  height: 250px;
  
+}
+.gifpublicidad{
+width: 900px;
+height:  100%;
+margin:10px auto;
+display:block;
 }
 
 </style>
