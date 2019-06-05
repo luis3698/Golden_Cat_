@@ -2,22 +2,17 @@
   <section>
     <v-container class="barrabuscar">
          <v-div class="hotelportada">
-      <v-container >
         <p class="color text-md-center display-2  " black >Encuenta tu Habitacion</p>
-      </v-container>
       <v-container class="contenedor  text-xs-center" pa-2>
-        <v-layout color="blue"  class=" justify-space-between row wrap align-center">
-          <v-flex xs12 sm6 md2 pb-0>
-            <v-text-field id="date" color="blue" type="date" outline hide-details label="fecha inicial"></v-text-field>
+        <v-layout   class=" justify-space-between row wrap  align-center">
+          <v-flex xs12 sm6 md4 pb-0>
+         <VueHotelDatepicker class=" indigo--text"  placeholder="fecha inicio / fecha final" />
           </v-flex>
           <v-flex xs12 sm6 md2>
-            <v-text-field id="date" color="blue" type="date" outline hide-details label="fecha final"></v-text-field>
+            <v-select :items="itemsnumeroadultos" color="blue" label="Numero de adultos"></v-select>
           </v-flex>
           <v-flex xs12 sm6 md2>
-            <v-text-field color="blue"  label="Numero de adultos" outline hide-details></v-text-field>
-          </v-flex>
-          <v-flex xs12 sm6 md2>
-            <v-text-field  color="blue" label="Numero de niños" outline hide-details></v-text-field>
+              <v-select :items="itemsnumeroniños" color="blue" label="Numero de niños"></v-select>
           </v-flex>
           <v-flex xs12 sm6 md2>
             <v-btn round color="blue" @click="e1 = 0, dialogConfirmar = false , reservaConfirm = true"  ><v-icon color="black">search</v-icon></v-btn>
@@ -36,21 +31,71 @@
       </v-container>
     </v-div>
     </v-container >
+
     <v-stepper   v-show="!reservaConfirm">
-     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <v-layout row wrap>
+        <v-flex xs12 sm6 md3  >
+          <v-card dark tile flat color="red">
+            <v-card-text  class="MainImage11">
+            
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 sm6 md3 >
+          <v-card dark tile flat color="black">
+            <v-card-text class="MainImage11">
+             
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 sm6 md3 >
+          <v-card dark tile flat color="blue">
+            <v-card-text class="MainImage11">
+           
+            </v-card-text>
+          </v-card>
+        </v-flex>
+         <v-flex xs12 sm6 md3 >
+          <v-card dark tile flat color="pink">
+            <v-card-text class="MainImage11">
+           
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+
+
+
+
       
-  
+
+
+
+
+
       <v-layout row >
         <v-flex xs12 >
           <v-card dark tile flat color="transparent" >
             <v-card-text>
-              <h3 class="letra2 text-md-center" >La mejor opcion para ti y <br>tu familia</h3>
-             
+              <h3 class="letra2 text-md-center indigo--text  "  >La mejor opcion para ti y <br>tu familia</h3>
                <h3 class=" text-md-center" >Hotel GOLDEN CAT tu mejor opcion</h3>
             </v-card-text>
           </v-card>
         </v-flex>
-      
       </v-layout>
       <v-layout row>
         <v-flex xs12 >
@@ -60,7 +105,6 @@
             </v-card-text>
           </v-card>
         </v-flex>
-       
       </v-layout>
       <v-layout row wrap>
         <v-flex xs12 sm6 md4  >
@@ -112,7 +156,6 @@
             </v-card-text>
           </v-card>
         </v-flex>
-       
       </v-layout>
  
   
@@ -171,6 +214,7 @@
   </section>
 </template>
 <script>
+import VueHotelDatepicker from '@northwalker/vue-hotel-datepicker'
 import PORTADAHOTEL from '@/assets/portadahotel.jpg'
 import PAREJA from '@/assets/pareja.jpg'
 import CONFERENCIA from '@/assets/conferencia.jpg'
@@ -182,9 +226,13 @@ export default {
   async created () {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
     const data = await api.get('/user', {
+
     })
+    
   },
   data: () => ({
+    itemsnumeroadultos: ['1', '2', '3', '4', '5'],
+    itemsnumeroniños: ['1', '2', '3', '4', '5'],
     reservaConfirm: false,
     acomodacion: '',
     habitacion2: HABITACION2,
@@ -194,12 +242,26 @@ export default {
     familia: FAMILIA,
     show1: false
     
-  })
+  }),
+    components: {
+    VueHotelDatepicker
+  }
+  //
+  // ... skip
+  //
 }
+
 </script>
  <style scoped>
  @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
+.MainImage11 {
+ width: 300px;
+ height: 200px;
+ overflow: hidden;
+
+}
 nav.buscar>.v-toolbar__content{
   background-color: aqua !important;
 }
@@ -215,7 +277,7 @@ width: 100%;
     padding: 3px;
 }
 .contenedor {
-  background: rgba(25, 125, 240, 0.527);;
+  background: rgb(34, 27, 70);;
   padding: 20px;
   border-radius: 20px 20px 20px 20px;
 
@@ -240,7 +302,7 @@ width: 100%;
  width: 300px;
  height: 600px;
  overflow: hidden;
- cursor: pointer;
+
 }
 
 .MainImage img {
@@ -329,8 +391,8 @@ width: 100%;
  opacity: 1;
 }
 .MainImage1 {
- width: 300px;
- height: 600px;
+ width: 250px;
+ height: 700px;
  }
 
  .letra2{
@@ -339,9 +401,12 @@ width: 100%;
  }
  .letra22{
  font-family: 'Permanent Marker', cursive;
+ 
  }
 .imagen1{
   width: 100%;
  height: 250px;
+ 
 }
+
 </style>
