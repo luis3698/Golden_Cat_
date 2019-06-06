@@ -39,6 +39,9 @@ module.exports = function setupMetricModel (config) {
     password: {
       type: Sequelize.TEXT,
       allowNull: false
+    },
+    images: {
+      type: Sequelize.JSON
     }
   })
 }
