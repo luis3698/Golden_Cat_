@@ -24,9 +24,9 @@
           </v-flex>
           <v-flex xs12 sm4>
             <v-text-field
-              v-model="editedItem.Nadultos"
+              v-model="editedItem.maximo"
               box
-              label="No. Adultos"
+              label="No. maximo"
               clearable
             ></v-text-field>
           </v-flex>
@@ -105,7 +105,7 @@
                   <v-text-field v-model="editedItem.estado" label="Estado"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.Nadultos" label="No. Adultos"></v-text-field>
+                  <v-text-field v-model="editedItem.maximo" label="No. maiximo"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.Nniños" label="No. niños"></v-text-field>
@@ -136,7 +136,7 @@
       <template v-slot:items="props">
         <td class="text-xs-center">{{ props.item.Nohb }}</td>
         <td class="text-xs-left">{{ props.item.estado }}</td>
-        <td class="text-xs-left">{{ props.item.Nadultos }}</td>
+        <td class="text-xs-left">{{ props.item.maximo }}</td>
         <td class="text-xs-left">{{ props.item.Nniños }}</td>
         <td class="text-xs-left">{{ props.item.Padultos }}</td>
         <td class="text-xs-left">{{ props.item.Pniños }}</td>
@@ -195,7 +195,7 @@ export default {
         value: 'Nohb'
       },
       { text: 'Estado', value: 'estado' },
-      { text: 'No. adultos', value: 'Nadultos' },
+      { text: 'No. maximo', value: 'maximo' },
       { text: 'No. niños', value: 'Nniños' },
       { text: 'Precio adultos', value: 'Padultos' },
       { text: 'Precio niños', value: 'Pniños' },
@@ -206,7 +206,7 @@ export default {
     editedItem: {
       Nohb: '',
       estado: '',
-      Nadultos: '',
+      maximo: '',
       Nniños: '',
       Padultos: '',
       Pniños: '',
@@ -215,7 +215,7 @@ export default {
     defaultItem: {
       Nohb: '',
       estado: '',
-      Nadultos: '',
+      maximo: '',
       Nniños: '',
       Padultos: '',
       Pniños: '',
