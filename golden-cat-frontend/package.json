@@ -10,7 +10,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
     "@northwalker/vue-hotel-datepicker": "^2.0.3",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "firebase": "^6.0.2",
     "flatpickr": "^4.5.7",
     "roboto-fontface": "*",

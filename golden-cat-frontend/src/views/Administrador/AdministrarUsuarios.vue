@@ -9,8 +9,7 @@
         <v-layout wrap>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="form.nombre"
-              :rules="rules.name"
+              v-model="editedItem.nombres"
               color="purple darken-2"
               label="Nombres"
               required
@@ -18,8 +17,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="form.apellidos"
-              :rules="rules.name"
+              v-model="editedItem.apellidos"
               color="blue darken-2"
               label="Apellidos"
               required
@@ -27,8 +25,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="form.correo"
-              :rules="rules.name"
+              v-model="editedItem.correo"
               color="blue darken-2"
               label="Correo Electronico"
               required
@@ -36,8 +33,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="form.telefono"
-              :rules="rules.name"
+              v-model="editedItem.telefono"
               color="blue darken-2"
               label="Telefono"
               required
@@ -46,8 +42,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="form.id"
-              :rules="rules.name"
+              v-model="editedItem.id"
               color="blue darken-2"
               label="Indentificacion"
               required
@@ -58,7 +53,6 @@
             <v-select
               v-model="form.usuario"
               :items= "usuario"
-              :rules="rules.name"
               color="blue darken-2"
               label="Tipo Usuario"
               required
@@ -69,7 +63,6 @@
               v-model="form.contraseña"
               :append-icon="show1 ? 'visibility' : 'visibility_off'"
               :type="show1 ? 'text' : 'password'"
-              :rules="rules.name"
               color="blue darken-2"
               label="Contraseña"
               required
@@ -82,7 +75,6 @@
               v-model="form.Ccontraseña"
               :append-icon="show2 ? 'visibility' : 'visibility_off'"
               :type="show2 ? 'text' : 'password'"
-              :rules="rules.name"
               color="blue darken-2"
               label="Confirmar Contraseña"
               required
@@ -99,8 +91,7 @@
           :disabled="!formIsValid"
           flat
           color="primary"
-          type="submit"
-          @click="guardarDatos"
+          @click="save"        
         >Registrar</v-btn>
       </v-card-actions>
     </v-form>
@@ -268,17 +259,17 @@ export default {
       editedIndex: -1,
       defaultItem: {
         nombres: '',
-        apellidos: 0,
-        correo: 0,
-        telefono: 0,
-        id: 0
+        apellidos: '',
+        correo: '',
+        telefono: '',
+        id: ''
       },
       editedItem: {
         nombres: '',
-        apellidos: 0,
-        correo: 0,
-        telefono: 0,
-        id: 0
+        apellidos: '',
+        correo: '',
+        telefono: '',
+        id: ''
       },
       headers: [
         { text: 'Nombre', value: 'nombres' },
@@ -308,27 +299,23 @@ export default {
       show2: false,
       active: null,
       form: Object.assign({}, defaultForm),
-      rules: {
-        name: [val => (val || '').length > 0 || 'This field is required']
-      },
       conditions: false,
       usuario: ['Cliente', 'Administrador'],
       snackbar: false,
       terms: false
     }
   },
-
   computed: {
     formIsValid () {
       return (
-        this.form.nombre &&
-        this.form.apellidos &&
-        this.form.correo &&
-        this.form.telefono &&
-        this.form.id &&
+        // this.editedItem.nombres &&
+        // this.editedItem.apellidos &&
+        // this.editedItem.correo &&
+        // this.editedItem.telefono &&
+        // this.editedIndex.id &&
         this.form.usuario &&
         this.form.contraseña &&
-        this.form.Ccontraseña
+        this.form.Ccontraseña 
       )
     },
     formTitle () {
@@ -344,17 +331,6 @@ export default {
     resetForm () {
       this.form = Object.assign({}, this.defaultForm)
       this.$refs.form.reset()
-    },
-    guardarDatos () {
-      alert(this.form.nombre + ', hola')
-      NuevoUsuario:
-      {
-        
-      }
-    },
-    submit () {
-      this.snackbar = true
-      this.resetForm()
     },
     initialize () {
       this.desserts = [
@@ -397,7 +373,9 @@ export default {
         Object.assign(this.desserts[this.editedIndex], this.editedItem)
       } else {
         this.desserts.push(this.editedItem)
+        this.snackbar = true
       }
+      //this.resetForm()
       this.close()
     }
   }
