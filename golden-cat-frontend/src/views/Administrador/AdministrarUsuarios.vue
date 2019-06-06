@@ -91,7 +91,7 @@
           :disabled="!formIsValid"
           flat
           color="primary"
-          @click="save"        
+          @click="save"
         >Registrar</v-btn>
       </v-card-actions>
     </v-form>
@@ -315,7 +315,7 @@ export default {
         // this.editedIndex.id &&
         this.form.usuario &&
         this.form.contraseña &&
-        this.form.Ccontraseña 
+        this.form.Ccontraseña
       )
     },
     formTitle () {
@@ -375,7 +375,6 @@ export default {
         this.desserts.push(this.editedItem)
         this.snackbar = true
       }
-      //this.resetForm()
       this.close()
     }
   }
