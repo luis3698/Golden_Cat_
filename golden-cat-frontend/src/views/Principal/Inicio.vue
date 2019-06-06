@@ -38,7 +38,7 @@
         <v-flex xs12 >
           <v-card dark tile flat color="transparent" >
 
-              <h3 class="letra2 text-md-center indigo--text  "  >La mejor opcion para ti y <br>tu familia</h3>
+              <h3 class="letra2 text-md-center indigo--text  "  >La mejor opcion para ti y tu familia</h3>
              <v-container>
               <v-img class="gifpublicidad " :src="gifpublicidad"></v-img>
            </v-container>
@@ -46,32 +46,50 @@
         </v-flex>
       </v-layout>
 
+
+
        <v-layout row wrap>
         <v-flex xs12 sm6 md3  >
-          <v-card dark tile flat color="red">
-            <v-card-text  class="MainImage11">
+          <v-container>
+         <div class="containercss">
+           <v-img class="imagecss" :src="HabitacionIndividual"></v-img>
+            <div class="overlaycss">
+            <div class="textcss ">Habitacion Individual</div>
+            </div>
+          </div>
+          </v-container>
+        </v-flex>
 
-            </v-card-text>
-          </v-card>
+
+        <v-flex xs12 sm6 md3 >
+            <v-container>
+         <div class="containercss">
+           <v-img class="imagecss" :src="HabitacionDoble"></v-img>
+            <div class="overlaycss">
+            <div class="textcss ">Habitacion Doble</div>
+            </div>
+          </div>
+          </v-container>
         </v-flex>
         <v-flex xs12 sm6 md3 >
-          <v-card dark tile flat color="black">
-            <v-card-text class="MainImage11">
-
-            </v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md3 >
-          <v-card dark tile flat color="blue">
-
-          </v-card>
+            <v-container>
+         <div class="containercss">
+           <v-img class="imagecss" :src="HabitacionMatrimoniales"></v-img>
+            <div class="overlaycss">
+            <div class="textcss ">Habitacion Matimonial</div>
+            </div>
+          </div>
+          </v-container>
         </v-flex>
          <v-flex xs12 sm6 md3 >
-          <v-card dark tile flat color="pink">
-            <v-card-text class="MainImage11">
-
-            </v-card-text>
-          </v-card>
+             <v-container>
+         <div class="containercss">
+           <v-img class="imagecss" :src="HabitacionSuite"></v-img>
+            <div class="overlaycss">
+            <div class="textcss ">Habitacion Suite</div>
+            </div>
+          </div>
+          </v-container>
         </v-flex>
       </v-layout>
 
@@ -189,6 +207,10 @@
   </section>
 </template>
 <script>
+import HABITACIONMATRINOMIAL from '@/assets/HabitacionMatrimoniales.jpg'
+import HABITACIONSUITE from '@/assets/HabitacionSuite.jpg'
+import HABITACIONDOBLE from '@/assets/HabitacionDoble.jpg'
+import HABITACIONINDIVIDUAL from '@/assets/HabitacionIndividual.jpg'
 import VueHotelDatepicker from '@northwalker/vue-hotel-datepicker'
 import PORTADAHOTEL from '@/assets/portadahotel.jpg'
 import PAREJA from '@/assets/pareja.jpg'
@@ -216,7 +238,11 @@ export default {
     conferencia: CONFERENCIA,
     familia: FAMILIA,
     gifpublicidad: GIFPUBLICIDAD,
-    show1: false
+    show1: false,
+    HabitacionIndividual: HABITACIONINDIVIDUAL,
+    HabitacionMatrimoniales: HABITACIONMATRINOMIAL,
+    HabitacionSuite: HABITACIONSUITE,
+    HabitacionDoble: HABITACIONDOBLE,
 
   }),
   components: {
@@ -229,6 +255,7 @@ export default {
 
 </script>
  <style scoped>
+ @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
  @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 
 .MainImage11 {
@@ -386,6 +413,56 @@ width: 900px;
 height:  100%;
 margin:10px auto;
 display:block;
+}
+
+
+
+
+
+
+
+
+
+
+.containercss {
+  position: relative;
+  width: 100%;
+}
+
+.imagecss {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlaycss {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(226, 227, 235, 0.308);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.containercss:hover .overlaycss {
+  height: 100%;
+}
+
+.textcss {
+
+  white-space: nowrap; 
+  color: rgb(3, 42, 124);
+  font-size: 25px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-family: 'Lobster', cursive;
 }
 
 </style>

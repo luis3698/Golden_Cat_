@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" >
+  <v-app id="inspire" dark>
     <v-toolbar app color="indigo darken-4">
 
         <v-layout row wrap>
