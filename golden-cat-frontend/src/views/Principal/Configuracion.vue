@@ -27,7 +27,7 @@
         <v-card-text>NOMBRE :</v-card-text>
       </v-flex>
       <v-flex xs3 order-lg2>
-        <v-text-field small label="" solo v-model="user.name" ></v-text-field>
+        <v-text-field color="blue darken-4" small label="" solo v-model="user.name" ></v-text-field>
       </v-flex>
       <v-flex   xs2 order-lg2 class="transparent text-xs-center">
        <v-card-text>PAIS :</v-card-text>
@@ -41,13 +41,13 @@
         <v-card-text>APELLIDO :</v-card-text>
       </v-flex>
       <v-flex xs3 order-lg2>
-        <v-text-field small label="" solo v-model="user.lastName"></v-text-field>
+        <v-text-field color="blue darken-4" small label="" solo v-model="user.lastName"></v-text-field>
       </v-flex>
       <v-flex xs2 order-lg2 class="transparent text-xs-center">
         <v-card-text>CIUDAD :</v-card-text>
       </v-flex>
       <v-flex xs3 order-lg2>
-        <v-text-field small label="" solo v-model="user.city"></v-text-field>
+        <v-text-field color="blue darken-4" small label="" solo v-model="user.city"></v-text-field>
       </v-flex>
     </v-layout>
     <v-layout row>
@@ -55,15 +55,18 @@
         <v-card-text>CC :</v-card-text>
       </v-flex>
       <v-flex xs3 order-lg2>
-        <v-text-field small label="" solo v-model="user.cc" ></v-text-field>
+        <v-text-field color="blue darken-4" small label="" solo v-model="user.cc" ></v-text-field>
       </v-flex>
       <v-flex   xs2 order-lg2 class="transparent text-xs-center">
         <v-card-text>TELEFONO :</v-card-text>
       </v-flex>
       <v-flex xs3 order-lg2>
-        <v-text-field small label="" phone solo  v-model="user.phone"></v-text-field>
+        <v-text-field color="blue darken-4" small label="" phone solo  v-model="user.phone"></v-text-field>
       </v-flex>
     </v-layout>
+
+    
+
     <v-divider> </v-divider>
     <v-card-text class="transparent text-xs-center">
       <div > DATOS CUENTA</div>
@@ -74,7 +77,10 @@
         <v-dialog v-model="dialogPassword" persistent max-width="600px">
           <template v-slot:activator="{ on }">
             <v-btn color="blue darken-4" dark v-on="on">Editar Contraseña</v-btn>
+            <v-btn  color="success">Guardar cambios </v-btn>
           </template>
+          
+           
           <v-card>
             <v-card-title>
               <span class="headline">CONTRASEÑA USUARIO</span>
@@ -83,13 +89,13 @@
               <v-container grid-list-md>
                 <v-layout wrap>
                   <v-flex xs12>
-                    <v-text-field label="Escribe Password actual*" type="password" required></v-text-field>
+                    <v-text-field color="blue darken-4" label="Escribe Password actual*" type="password" required></v-text-field>
                   </v-flex>
                   <v-flex xs12>
-                    <v-text-field label="Escribe Password nuevo*" type="password" required></v-text-field>
+                    <v-text-field color="blue darken-4" label="Escribe Password nuevo*" type="password" required></v-text-field>
                   </v-flex>
                   <v-flex xs12>
-                    <v-text-field label="Confirma Password nuevo*" type="password" required></v-text-field>
+                    <v-text-field color="blue darken-4" label="Confirma Password nuevo*" type="password" required></v-text-field>
                   </v-flex>
                 </v-layout>
               </v-container>
@@ -101,9 +107,11 @@
               <v-btn color="blue darken-4" dark @click="dialogPassword = false">Save</v-btn>
             </v-card-actions>
           </v-card>
+          
         </v-dialog>
       </v-flex>
     </v-layout>
+    
   </v-container>
 </template>
 <script>
