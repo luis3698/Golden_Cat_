@@ -54,14 +54,15 @@ export default {
   methods: {
     async login () {
       try {
-        const { data: user } = await api.post('/user/login', {
+        const { data } = await api.post('/user/login', {
           email: this.email,
           password: this.password
         })
-        if (!user.login) {
+        if (!data.login) {
           Swal.fire('Error!', user.message, 'error')
           return
         }
+        this.$store.commit('SET_USER', data.user)
         this.$router.push('/')
       } catch (error) {
         console.error(error)
