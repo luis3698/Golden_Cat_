@@ -16,8 +16,8 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" name="email" label="email" type="text" v-model="email"></v-text-field>
-                  <v-text-field :append-icon="show3 ? 'visibility' : 'visibility_off'" prepend-icon="lock" name="password" label="Password" id="password" :type="show3 ? 'text' : 'password'" v-model="password" @click:append="show3 = !show3"></v-text-field>
+                  <v-text-field color="blue darken-4" prepend-icon="person" name="email" label="email" type="text" v-model="email"></v-text-field>
+                  <v-text-field color="blue darken-4" :append-icon="show3 ?  'visibility' : 'visibility_off'" prepend-icon="lock" name="password" label="Password" id="password" :type="show3 ? 'text' : 'password'" v-model="password" @click:append="show3 = !show3"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
