@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire"  dark>
+  <v-app id="inspire" >
     <v-toolbar app color="indigo darken-4">
 
         <v-layout row wrap>
@@ -9,25 +9,25 @@
         </v-layout>
         <v-spacer></v-spacer>
 
-        <v-btn small flat left to="/" >inicio
+        <v-btn small flat  dark left to="/" >inicio
           <v-icon small>business</v-icon>
         </v-btn>
-        <v-btn small flat left to= "/servicios">Servicios extra
+        <v-btn small flat  dark left to= "/servicios">Servicios extra
           <v-icon small>bookmarks</v-icon>
         </v-btn>
-        <v-btn small flat left to="/contactanos">Contactanos
+        <v-btn small flat  dark left to="/contactanos">Contactanos
           <v-icon small>email</v-icon>
         </v-btn>
-        <v-btn small flat left to="Que_es_golden_cat">¿que es golden cat?
+        <v-btn small flat  dark left to="Que_es_golden_cat">¿que es golden cat?
           <v-icon small>help</v-icon>
         </v-btn>
-          <v-btn small flat left to="/login">iniciar sesion
+          <v-btn small flat  dark left to="/login">iniciar sesion
           <v-icon small>account_circle</v-icon>
         </v-btn>
-        <div color="indigo darken-4" class="text-xs-center">
+        <div color="indigo darken-4"  class="text-xs-center">
     <v-menu posicion-x >
       <template v-slot:activator="{ on }">
-        <v-btn v-on="on" small flat left> cuenta
+        <v-btn v-on="on" small  dark flat left> cuenta
           <v-icon small>account_circle</v-icon>
         </v-btn>
        </template >

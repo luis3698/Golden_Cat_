@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-container class="barrabuscar">
+    <v-container class="barrabuscar white--text">
          <v-div class="hotelportada">
         <p class="color text-md-center display-2  " black >Encuenta tu Habitacion</p>
       <v-container class="contenedor  text-xs-center" pa-2>
@@ -9,13 +9,13 @@
          <VueHotelDatepicker class=" indigo--text"  placeholder="fecha inicio / fecha final" />
           </v-flex>
           <v-flex xs12 sm6 md2>
-            <v-select :items="itemsnumeroadultos" color="blue" label="Numero de adultos"></v-select>
+            <v-select :items="itemsnumeroadultos"  color="blue" label="Numero de adultos"></v-select>
           </v-flex>
           <v-flex xs12 sm6 md2>
               <v-select :items="itemsnumeroniños" color="blue" label="Numero de niños"></v-select>
           </v-flex>
           <v-flex xs12 sm6 md2>
-            <v-btn round color="blue" @click="e1 = 0, dialogConfirmar = false , reservaConfirm = true"  ><v-icon color="black">search</v-icon></v-btn>
+            <v-btn round color="blue" @click="e1 = 0, dialogConfirmar = false , reservaConfirm = true" ><v-icon color="black">search</v-icon></v-btn>
           </v-flex>
         </v-layout>
         <v-layout color="light-green accent-4"  class="align-center justify-start row align-center">
@@ -34,22 +34,10 @@
 
     <v-stepper   v-show="!reservaConfirm">
 
-
-
-
-
-
-
-
-
-
-
-
-
       <v-layout row >
         <v-flex xs12 >
           <v-card dark tile flat color="transparent" >
-           
+
               <h3 class="letra2 text-md-center indigo--text  "  >La mejor opcion para ti y <br>tu familia</h3>
              <v-container>
               <v-img class="gifpublicidad " :src="gifpublicidad"></v-img>
@@ -57,47 +45,36 @@
           </v-card>
         </v-flex>
       </v-layout>
+
        <v-layout row wrap>
         <v-flex xs12 sm6 md3  >
           <v-card dark tile flat color="red">
             <v-card-text  class="MainImage11">
-            
+
             </v-card-text>
           </v-card>
         </v-flex>
         <v-flex xs12 sm6 md3 >
           <v-card dark tile flat color="black">
             <v-card-text class="MainImage11">
-             
+
             </v-card-text>
           </v-card>
         </v-flex>
         <v-flex xs12 sm6 md3 >
           <v-card dark tile flat color="blue">
-            <v-card-text class="MainImage11">
-           
-            </v-card-text>
+
           </v-card>
         </v-flex>
          <v-flex xs12 sm6 md3 >
           <v-card dark tile flat color="pink">
             <v-card-text class="MainImage11">
-           
+
             </v-card-text>
           </v-card>
         </v-flex>
       </v-layout>
 
-
-
-
-      
-
-
-
-
-
-      
       <v-layout row>
         <v-flex xs12 >
           <v-card dark tile flat color="transparent">
@@ -117,7 +94,7 @@
                     <div class = "MainText" >
                         <div class = "SecText" >
                           <h2>  <span id="GreenText">GRUPOS FAMILIARES </span> </h2>
-                        
+
                         </div>
                     </div>
                   </div>
@@ -133,7 +110,7 @@
                     <div class = "MainText" >
                         <div class = "SecText" >
                           <h2>  <span id="GreenText" > BODAS </span> </h2>
-                           
+
                         </div>
                     </div>
                   </div>
@@ -149,7 +126,7 @@
                     <div class = "MainText" >
                         <div class = "SecText" >
                           <h2>  <span id="GreenText" > CONVENCIONES </span> </h2>
-                        
+
                         </div>
                     </div>
                   </div>
@@ -158,10 +135,7 @@
           </v-card>
         </v-flex>
       </v-layout>
- 
-  
-        
-      
+
     </v-stepper>
     <v-container  v-show="reservaConfirm">
      <v-layout wrap justify-space-around row>
@@ -230,7 +204,6 @@ export default {
     const data = await api.get('/user', {
 
     })
-    
   },
   data: () => ({
     itemsnumeroadultos: ['1', '2', '3', '4', '5'],
@@ -244,9 +217,9 @@ export default {
     familia: FAMILIA,
     gifpublicidad: GIFPUBLICIDAD,
     show1: false
-    
+
   }),
-    components: {
+  components: {
     VueHotelDatepicker
   }
   //
@@ -257,7 +230,6 @@ export default {
 </script>
  <style scoped>
  @import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
-
 
 .MainImage11 {
  width: 300px;
@@ -280,7 +252,8 @@ width: 100%;
     padding: 3px;
 }
 .contenedor {
-  background: rgb(34, 27, 70);;
+
+  background: rgb(33, 45, 148);;
   padding: 20px;
   border-radius: 20px 20px 20px 20px;
 
@@ -289,7 +262,8 @@ width: 100%;
   background-color: black;
 }
 .color{
-  background-color: transparent
+  background-color: transparent;
+  color: rgb(0, 0, 0);
 }
 .barrabuscar{
   width: 1300px;
@@ -359,7 +333,6 @@ width: 100%;
 
 /*Toque final*/
 
-
 .MainText::after {
  content: '';
  position: absolute;
@@ -368,7 +341,7 @@ width: 100%;
  width: 100%;
  height: 100%;
  transition: .7s;
- 
+
 }
 
 .MainText::before {
@@ -402,11 +375,11 @@ width: 100%;
    font-family: 'Dancing Script', cursive;
     font-size: 50px;
  }
- 
+
 .imagen1{
   width: 100%;
  height: 250px;
- 
+
 }
 .gifpublicidad{
 width: 900px;

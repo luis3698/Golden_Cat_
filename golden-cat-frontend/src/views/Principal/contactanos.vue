@@ -10,9 +10,9 @@
         <div class="  text-xs-center">
           <span class="letra4">CORREOS ELECTRONICOS</span>
         </div>
-        <span class="white--text">HOTELGOLDENCAT@GMAIL.COM     <v-icon small>email</v-icon>
+        <span >HOTELGOLDENCAT@GMAIL.COM     <v-icon small>email</v-icon>
         </span> <br>
-        <span class="white--text">HOTELGOLDENCAT@HOTMAIL.COM     <v-icon small>email</v-icon>
+        <span >HOTELGOLDENCAT@HOTMAIL.COM     <v-icon small>email</v-icon>
         </span>
       </v-card-text>
       <v-card-text class="text-xs-center">
@@ -20,10 +20,10 @@
           <span class="letra4">LINEAS TELEFONICAS</span>
         </div>
         <v-card-text>
-          <span class="white--text">32346545
+          <span >32346545
             <v-icon small>call</v-icon>
           </span> <br>
-          <span class="white--text ">72435565
+          <span  >72435565
             <v-icon small>call</v-icon>
           </span>
         </v-card-text>

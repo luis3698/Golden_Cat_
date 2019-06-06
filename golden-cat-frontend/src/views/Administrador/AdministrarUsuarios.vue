@@ -345,7 +345,7 @@ export default {
       this.form = Object.assign({}, this.defaultForm)
       this.$refs.form.reset()
     },
-    guardarDatos(){
+    guardarDatos () {
       this.nombre = jeje
     },
     submit () {

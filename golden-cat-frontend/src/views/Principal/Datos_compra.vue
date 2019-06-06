@@ -353,7 +353,6 @@
       </v-stepper-items>
     </v-stepper>
 
-
     <v-container v-show="reservaConfirm">
       <v-layout>
         <v-flex xs12>
