@@ -19,19 +19,19 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.TEXT,
       allowNull: false
     },
-    number_adult: {
-      type: Sequelize.TEXT,
-      allowNull: false
-    },
-    number_children: {
-      type: Sequelize.TEXT,
-      allowNull: false
-    },
-    value_adult: {
+    number_max: {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    value_children: {
+    number_max_precio_base: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    value_base: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    value_persona: {
       type: Sequelize.INTEGER,
       allowNull: false
     },

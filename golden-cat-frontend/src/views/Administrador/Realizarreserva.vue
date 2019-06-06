@@ -96,10 +96,7 @@
                   {{date1}}
                 </v-flex>
                 <v-flex xs12 sm6>
-                  <v-text-field v-model="editedItem.niños" label="No. niños"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-text-field v-model="editedItem.adultos" label="No. adultos"></v-text-field>
+                  <v-text-field v-model="editedItem.personas" label="No. personas"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm4>
                   <v-select label="Departamento" v-model="editedItem.departamento" :items="departamentos" hint="Solo en caso de provenir del mismo pais" persistent-hint></v-select>
@@ -135,8 +132,7 @@
         <td class="text-xs-right">{{ props.item.telefono }}</td>
         <td class="text-xs-right">{{ props.item.habitacion }}</td>
         <td class="text-md3-right">{{ props.item.range }}</td>
-        <td class="text-xs-right">{{ props.item.niños }}</td>
-        <td class="text-xs-right">{{ props.item.adultos }}</td>
+        <td class="text-xs-right">{{ props.item.personas }}</td>
         <td class="text-xs-right">{{ props.item.departamento }}</td>
         <td class="text-xs-right">{{ props.item.country }}</td>
         <td class="text-xs-right">{{ props.item.precio }}</td>
@@ -182,8 +178,7 @@
                       <td class="text-xs-right">{{ props.item.telefono1 }}</td>
                       <td class="text-xs-right">{{ props.item.habitacion1 }}</td>
                       <td class="text-md3-right">{{ props.item.range1 }}</td>
-                      <td class="text-xs-right">{{ props.item.niños1 }}</td>
-                      <td class="text-xs-right">{{ props.item.adultos1 }}</td>
+                      <td class="text-xs-right">{{ props.item.personas1 }}</td>
                       <td class="text-xs-right">{{ props.item.departamento1 }}</td>
                       <td class="text-xs-right">{{ props.item.country1 }}</td>
                       <td class="text-xs-right">{{ props.item.precio1 }}</td>
@@ -211,8 +206,7 @@
                       <td class="text-xs-right">{{ props.item.telefono2 }}</td>
                       <td class="text-xs-right">{{ props.item.habitacion2 }}</td>
                       <td class="text-md3-right">{{ props.item.range2 }}</td>
-                      <td class="text-xs-right">{{ props.item.niños2 }}</td>
-                      <td class="text-xs-right">{{ props.item.adultos2 }}</td>
+                      <td class="text-xs-right">{{ props.item.personas2 }}</td>
                       <td class="text-xs-right">{{ props.item.departamento2 }}</td>
                       <td class="text-xs-right">{{ props.item.country2 }}</td>
                       <td class="text-xs-right">{{ props.item.precio2 }}</td>
@@ -266,8 +260,7 @@ export default {
       { text: 'Telefono', value: 'telefono1' },
       { text: 'Tipo habitacion', value: 'habitacion1' },
       { text: 'Fecha', value: 'range1' },
-      { text: 'Niños', value: 'niños1' },
-      { text: 'Adultos', value: 'adultos1' },
+      { text: 'No. personas', value: 'personas1' },
       { text: 'Departamento', value: 'departamento1' },
       { text: 'Pais', value: 'country1' },
       { text: 'Precio', value: 'precio1' }
@@ -285,8 +278,7 @@ export default {
       { text: 'Telefono', value: 'telefono2' },
       { text: 'Tipo habitacion', value: 'habitacion2' },
       { text: 'Fecha', value: 'range2' },
-      { text: 'Niños', value: 'niños2' },
-      { text: 'Adultos', value: 'adultos2' },
+      { text: 'No. personas', value: 'personas2' },
       { text: 'Departamento', value: 'departamento2' },
       { text: 'Pais', value: 'country2' },
       { text: 'Precio', value: 'precio2' }
@@ -304,8 +296,7 @@ export default {
       { text: 'Telefono', value: 'telefono' },
       { text: 'Tipo habitacion', value: 'habitacion' },
       { text: 'Fecha', value: 'range' },
-      { text: 'Niños', value: 'niños' },
-      { text: 'Adultos', value: 'adultos' },
+      { text: 'No. personas', value: 'personas' },
       { text: 'Departamento', value: 'departamento' },
       { text: 'Pais', value: 'country' },
       { text: 'Precio', value: 'precio' },
@@ -323,8 +314,7 @@ export default {
       telefono: '',
       habitacion: '',
       range: '',
-      niños: '',
-      adultos: '',
+      personas: '',
       departamento: '',
       country: '',
       precio: ''
@@ -337,8 +327,7 @@ export default {
       telefono: '',
       habitacion: '',
       range: '',
-      niños: '',
-      adultos: '',
+      personas: '',
       departamento: '',
       country: '',
       precio: ''
