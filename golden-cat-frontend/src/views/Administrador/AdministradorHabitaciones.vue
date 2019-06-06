@@ -26,7 +26,7 @@
             <v-text-field
               v-model="editedItem.maximo"
               box
-              label="No. maximo"
+              label="No. maximo0 "
               clearable
             ></v-text-field>
           </v-flex>

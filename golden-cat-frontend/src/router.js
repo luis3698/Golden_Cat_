@@ -17,7 +17,6 @@ import DatosCompra from './views/Principal/Datos_compra.vue'
 import PreguntasFrecuentes from './views/Principal/PreguntasFrecuentes.vue'
 import TerminosCondiciones from './views/Principal/TerminosCondiciones.vue'
 import Eventos from './views/Principal/Eventos.vue'
-import AdministradorEmpleados from './views/Administrador/AdministrarEmpleados.vue'
 import AdministradorHabitaciones from './views/Administrador/AdministradorHabitaciones.vue'
 import CargarImagenes from './views/Administrador/CargarImagenes.vue'
 
@@ -111,11 +110,6 @@ export default new Router({
       path: '/Eventos',
       name: 'Eventos',
       component: Eventos
-    },
-    {
-      path: '/administrador/empleados',
-      name: 'AdministradorEmpleados',
-      component: AdministradorEmpleados
     },
     {
       path: '/administrador/habitaciones',

@@ -347,9 +347,8 @@ export default {
     },
     guardarDatos () {
       alert(this.form.nombre + ', hola')
-      NuevoUsuario:
-      {
-        
+      NuevoUsuario: {
+
       }
     },
     submit () {
