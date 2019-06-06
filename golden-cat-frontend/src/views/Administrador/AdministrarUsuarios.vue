@@ -345,8 +345,12 @@ export default {
       this.form = Object.assign({}, this.defaultForm)
       this.$refs.form.reset()
     },
-    guardarDatos(){
-      this.nombre = jeje
+    guardarDatos () {
+      alert(this.form.nombre + ', hola')
+      NuevoUsuario:
+      {
+        
+      }
     },
     submit () {
       this.snackbar = true

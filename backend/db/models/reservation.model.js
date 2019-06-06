@@ -14,14 +14,11 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       allowNull: false
     },
-    number_adult: {
+    number_personas: {
       type: Sequelize.FLOAT(20),
       allowNull: false
     },
-    number_children: {
-      type: Sequelize.FLOAT(20) ,
-      allowNull: false
-    },
+    
     date_arrival: {
       type: Sequelize.DATE,
       allowNull: false
@@ -33,6 +30,6 @@ module.exports = function setupMetricModel (config) {
     state: {
       type: Sequelize.ENUM('Activa','En curso','Cancelada','Finalizada'),
       allowNull: false
-    }
+    },
   })
 }

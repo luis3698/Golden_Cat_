@@ -221,7 +221,8 @@ export default {
       { icon: 'spellcheck', text: 'Realizar reserva', link: '/administrador/realizarreserva' },
       { icon: 'trending_up', text: 'Contabilidad', link: '/administrador/contabilidad' },
       { icon: 'perm_identity', text: 'Administrar Empleados', link: '/administrador/empleados' },
-      { icon: 'burst_mode', text: 'Habitaciones', link: '/administrador/habitaciones' }
+      { icon: 'burst_mode', text: 'Habitaciones', link: '/administrador/habitaciones' },
+      { icon: 'burst_mode', text: 'Cargar Imagenes', link: '/administrador/CargarImagenes' }
     ]
   })
 }

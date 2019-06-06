@@ -10,16 +10,11 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.CHAR(36),
       defaultValue: Sequelize.UUIDV4
     },
-    
-    number_adult: {
+    number_personas: {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    number_children: {
-      type: Sequelize.INTEGER,
-      allowNull: false
-    },
-    value: {
+    value_persona: {
       type: Sequelize.INTEGER,
       allowNull: false
     }
