@@ -14,5 +14,6 @@ module.exports = function setupMetricModel (config) {
       type: Sequelize.ENUM('individual','doble','suite','matrimonial'),
       allowNull: false
     }
+    
   })
 }
