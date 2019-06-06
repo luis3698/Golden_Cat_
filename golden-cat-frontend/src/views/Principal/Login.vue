@@ -17,7 +17,11 @@
               <v-card-text>
                 <v-form>
                   <v-text-field prepend-icon="person" name="email" label="email" type="text" v-model="email"></v-text-field>
-                  <v-text-field prepend-icon="lock" name="password" label="Password" id="password" type="password" v-model="password"></v-text-field>
+                  <v-text-field 
+                  
+                  
+                  
+                  prepend-icon="lock" name="password" label="Password" id="password" type="password" v-model="password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
