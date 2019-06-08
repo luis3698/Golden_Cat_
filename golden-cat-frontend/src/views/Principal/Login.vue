@@ -46,7 +46,7 @@ export default {
       logo: Logo,
       email: '',
       password: '',
-      show3: false,
+      show3: false
     }
   },
   created () {

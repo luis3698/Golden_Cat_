@@ -65,8 +65,6 @@
       </v-flex>
     </v-layout>
 
-    
-
     <v-divider> </v-divider>
     <v-card-text class="transparent text-xs-center">
       <div > DATOS CUENTA</div>
@@ -79,8 +77,7 @@
             <v-btn color="blue darken-4" dark v-on="on">Editar Contraseña</v-btn>
             <v-btn  color="success">Guardar cambios </v-btn>
           </template>
-          
-           
+
           <v-card>
             <v-card-title>
               <span class="headline">CONTRASEÑA USUARIO</span>
@@ -107,11 +104,11 @@
               <v-btn color="blue darken-4" dark @click="dialogPassword = false">Save</v-btn>
             </v-card-actions>
           </v-card>
-          
+
         </v-dialog>
       </v-flex>
     </v-layout>
-    
+
   </v-container>
 </template>
 <script>
@@ -122,7 +119,7 @@ import Swal from 'sweetalert2'
 import api from '@/plugins/api'
 
 export default {
-computed: {
+  computed: {
     ...mapState(['user'])
   },
   created () {
@@ -157,7 +154,7 @@ computed: {
     pickFile () {
       this.$refs.image.click()
     },
-    
+
     onFilePicked (e) {
       const files = e.target.files
       if (files[0] !== undefined) {
