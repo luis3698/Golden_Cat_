@@ -55,7 +55,7 @@
         <v-card-text>CC :</v-card-text>
       </v-flex>
       <v-flex xs3 order-lg2>
-        <v-text-field color="blue darken-4" small label="" solo v-model="user.cc" ></v-text-field>
+        <v-text-field color="blue darken-4" small label="" solo v-model="user.identification" ></v-text-field>
       </v-flex>
       <v-flex   xs2 order-lg2 class="transparent text-xs-center">
         <v-card-text>TELEFONO :</v-card-text>
