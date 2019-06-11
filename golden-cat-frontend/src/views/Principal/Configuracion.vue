@@ -26,9 +26,7 @@
       <v-flex xs2 order-lg2 class="transparent text-xs-center">
         <v-card-text>NOMBRE :</v-card-text>
       </v-flex>
-      <v-flex xs3 order-lg2>
-        <v-text-field color="blue darken-4" small label="" solo v-model="user.name" ></v-text-field>
-      </v-flex>
+     2
       <v-flex   xs2 order-lg2 class="transparent text-xs-center">
        <v-card-text>PAIS :</v-card-text>
       </v-flex>

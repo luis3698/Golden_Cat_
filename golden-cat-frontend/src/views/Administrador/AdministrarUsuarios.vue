@@ -9,7 +9,7 @@
         <v-layout wrap>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="editedItem.nombres"
+              v-model="form.nombre"
               color="purple darken-2"
               label="Nombres"
               required
@@ -17,7 +17,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="editedItem.apellidos"
+              v-model="form.apellidos"
               color="blue darken-2"
               label="Apellidos"
               required
@@ -25,7 +25,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="editedItem.correo"
+              v-model="form.correo"
               color="blue darken-2"
               label="Correo Electronico"
               required
@@ -33,7 +33,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="editedItem.telefono"
+              v-model="form.telefono"
               color="blue darken-2"
               label="Telefono"
               required
@@ -42,7 +42,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
-              v-model="editedItem.id"
+              v-model="form.id"
               color="blue darken-2"
               label="Indentificacion"
               required
@@ -51,7 +51,7 @@
           </v-flex>
           <v-flex xs12 sm6>
             <v-select
-              v-model="form.usuario"
+              v-model="form.typeUser"
               :items= "usuario"
               color="blue darken-2"
               label="Tipo Usuario"
@@ -88,7 +88,6 @@
         <v-btn flat @click="resetForm">Cancelar</v-btn>
         <v-spacer></v-spacer>
         <v-btn
-          :disabled="!formIsValid"
           flat
           color="primary"
           @click="save"
@@ -235,7 +234,9 @@
     </v-flex>
   </v-card>
 </template>
+
 <script>
+import api from '@/plugins/api'
 export default {
   created () {
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
@@ -250,6 +251,7 @@ export default {
       id: '',
       usuario: '',
       contraseña: '',
+      typeUser: '',
       Ccontraseña: '',
       terms: false
     })
@@ -280,27 +282,14 @@ export default {
         { text: 'Actions', value: 'name', sortable: false }
       ],
       desserts: [
-        {
-          nombres: 'Frozen Yogurt',
-          apellidos: 159,
-          correo: 6.0,
-          telefono: 24,
-          id: 4.0
-        },
-        {
-          nombres: 'Ice cream sandwich',
-          apellidos: 237,
-          correo: 9.0,
-          telefono: 37,
-          id: 4.3
-        }
+        
       ],
       show1: false,
       show2: false,
       active: null,
       form: Object.assign({}, defaultForm),
       conditions: false,
-      usuario: ['Cliente', 'Administrador'],
+      usuario: ['cliente', 'administrador'],
       snackbar: false,
       terms: false
     }
@@ -368,14 +357,20 @@ export default {
         this.editedIndex = -1
       }, 300)
     },
-    save () {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem)
-      } else {
-        this.desserts.push(this.editedItem)
-        this.snackbar = true
-      }
-      this.close()
+    async save () {
+      console.log(this.form)
+      const {data : user } = await api.post('/user', {
+        userNew: {
+          name : this.form.nombre,
+          lastName: this.form.apellidos,
+          email: this.form.correo,
+          phone: this.form.telefono,
+          identification: this.form.id,
+          password: this.form.contraseña,
+          typeUser: this.form.typeUser
+        }
+      })
+
     }
   }
 }
