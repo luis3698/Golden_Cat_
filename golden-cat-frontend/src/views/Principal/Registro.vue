@@ -42,18 +42,15 @@
                   <v-card-text class="contenedor">
                 <v-form class="black--text">
           <v-text-field
-           v-model="Name"
-           color="blue darken-4"
+           v-model="Name" color="blue darken-4"
            label="Nombre"
         ></v-text-field>
         <v-text-field
-           v-model="LastName"
-           color="blue darken-4"
+           v-model="LastName" color="blue darken-4"
            label="Apellido"
         ></v-text-field>
          <v-text-field
-           v-model="email"
-           color="blue darken-4"
+           v-model="email" color="blue darken-4"
            label="Correo electrónico"
            :error-messages="emailError"
             @input="$v.email.$touch()"
@@ -290,12 +287,17 @@ export default {
               identification: this.Identification
             }
           })
+          const { data } = await api.post('/user/login', {
+          email: this.email,
+          password: this.password
+        })
+        this.$store.commit('SET_USER', data.user)
+        this.$router.push('/')
         const aler = await Swal.fire(
-          'Good job!',
-          'You clicked the button!',
+          'Registro Exitoso!',
+          'Bienvenido!',
           'success'
         )
-        this.$router.push('/')
         this.resetForm()
       } catch (error) {
         console.error(error)
