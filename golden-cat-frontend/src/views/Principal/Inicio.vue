@@ -46,8 +46,6 @@
         </v-flex>
       </v-layout>
 
-
-
        <v-layout row wrap>
         <v-flex xs12 sm6 md3  >
           <v-container>
@@ -59,7 +57,6 @@
           </div>
           </v-container>
         </v-flex>
-
 
         <v-flex xs12 sm6 md3 >
             <v-container>
@@ -242,7 +239,7 @@ export default {
     HabitacionIndividual: HABITACIONINDIVIDUAL,
     HabitacionMatrimoniales: HABITACIONMATRINOMIAL,
     HabitacionSuite: HABITACIONSUITE,
-    HabitacionDoble: HABITACIONDOBLE,
+    HabitacionDoble: HABITACIONDOBLE
 
   }),
   components: {
@@ -415,15 +412,6 @@ margin:10px auto;
 display:block;
 }
 
-
-
-
-
-
-
-
-
-
 .containercss {
   position: relative;
   width: 100%;
@@ -453,7 +441,7 @@ display:block;
 
 .textcss {
 
-  white-space: nowrap; 
+  white-space: nowrap;
   color: rgb(3, 42, 124);
   font-size: 25px;
   position: absolute;

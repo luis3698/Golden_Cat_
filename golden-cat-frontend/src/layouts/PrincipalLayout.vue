@@ -38,7 +38,7 @@
               <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
             </v-list-tile-avatar>
             <v-list-tile-content >
-              <v-list-tile-title>John Leider</v-list-tile-title>
+            <v-list-tile-title>{{ user.name + " " + user.lastName }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -181,12 +181,17 @@
   </v-app>
 </template>
 <script>
+import { mapState } from 'vuex'
 import CAMARADECOMERCIO from '@/assets/camaracolombiana.png'
 import INDUSTRIAYCOMERCIO from '@/assets/escudomincomercio.png'
 import EFECTYBALOTO from '@/assets/efectybaloto.png'
 import IMGTARJETA from '@/assets/tarjetas.png'
 import Logo from '@/assets/golden_cat.png'
+
 export default {
+  computed: {
+    ...mapState(['user'])
+  },
   name: 'principal-layout',
   data: () => ({
     drawer: null,

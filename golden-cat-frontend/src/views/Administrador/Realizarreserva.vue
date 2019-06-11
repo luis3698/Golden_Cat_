@@ -71,21 +71,6 @@
           <v-card-text md12>
             <v-container grid-list-md>
               <v-layout wrap>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.name" label="Nombre"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.apellidos" label="Apellidos"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.id" label="Id"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.email" label="Email"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.telefono" label="Telefono"></v-text-field>
-                </v-flex>
                 <v-flex xs12 sm6>
                   <v-select v-model="editedItem.habitacion" :items="items" label="Tipo habitacion"></v-select>
                 </v-flex>
@@ -97,12 +82,6 @@
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-text-field v-model="editedItem.personas" label="No. personas"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm4>
-                  <v-select label="Departamento" v-model="editedItem.departamento" :items="departamentos" hint="Solo en caso de provenir del mismo pais" persistent-hint></v-select>
-                </v-flex>
-                <v-flex xs12 sm4>
-                  <v-select ref="country" v-model="editedItem.country" :items="countries" label="Pais" hint="Solo en caso de provenir del exterior" persistent-hint></v-select>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
                   <v-text-field v-model="editedItem.precio" label="Precio"></v-text-field>
@@ -125,16 +104,9 @@
       class="elevation-1"
     >
       <template v-slot:items="props">
-        <td>{{ props.item.name }}</td>
-        <td class="text-xs-right">{{ props.item.apellidos }}</td>
-        <td class="text-xs-right">{{ props.item.id }}</td>
-        <td class="text-xs-right">{{ props.item.email }}</td>
-        <td class="text-xs-right">{{ props.item.telefono }}</td>
         <td class="text-xs-right">{{ props.item.habitacion }}</td>
         <td class="text-md3-right">{{ props.item.range }}</td>
         <td class="text-xs-right">{{ props.item.personas }}</td>
-        <td class="text-xs-right">{{ props.item.departamento }}</td>
-        <td class="text-xs-right">{{ props.item.country }}</td>
         <td class="text-xs-right">{{ props.item.precio }}</td>
         <td class="justify-center layout px-0">
           <v-icon
@@ -284,21 +256,9 @@ export default {
       { text: 'Precio', value: 'precio2' }
     ],
     headers: [
-      {
-        text: 'Nombres',
-        align: 'left',
-        sortable: false,
-        value: 'name'
-      },
-      { text: 'Apellidos', value: 'apellidos' },
-      { text: 'Identificacion', value: 'id' },
-      { text: 'Email', value: 'email' },
-      { text: 'Telefono', value: 'telefono' },
       { text: 'Tipo habitacion', value: 'habitacion' },
       { text: 'Fecha', value: 'range' },
       { text: 'No. personas', value: 'personas' },
-      { text: 'Departamento', value: 'departamento' },
-      { text: 'Pais', value: 'country' },
       { text: 'Precio', value: 'precio' },
       { text: 'Acciones', value: 'name', sortable: false }
     ],
