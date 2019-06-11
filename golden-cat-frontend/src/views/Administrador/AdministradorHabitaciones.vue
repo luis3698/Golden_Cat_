@@ -26,31 +26,31 @@
             <v-text-field
               v-model="editedItem.maximo"
               box
-              label="No. maximo0 "
+              label="No. maximo "
               clearable
             ></v-text-field>
           </v-flex>
           <v-flex xs12 sm4>
             <v-text-field
-              v-model="editedItem.Nniños"
+              v-model="editedItem.NMPrecioBase"
               box
-              label="No. Niños"
+              label="No. Maximo de Precio Base"
               clearable
             ></v-text-field>
           </v-flex>
             <v-flex xs12 sm4>
             <v-text-field
-              v-model="editedItem.Padultos"
+              v-model="editedItem.VBase"
               box
-              label="Precio Adultos"
+              label="Valor Base"
               clearable
             ></v-text-field>
           </v-flex>
           <v-flex xs12 sm4>
             <v-text-field
-              v-model="editedItem.Pniños"
+              v-model="editedItem.VCabeza"
               box
-              label="Precio niños"
+              label="Valor por Cabeza"
               clearable
             ></v-text-field>
           </v-flex>
@@ -108,13 +108,13 @@
                   <v-text-field v-model="editedItem.maximo" label="No. maiximo"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.Nniños" label="No. niños"></v-text-field>
+                  <v-text-field v-model="editedItem.NMPrecioBase" label="No. Maximo de Precio Base"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.Padultos" label="Precio adultos"></v-text-field>
+                  <v-text-field v-model="editedItem.VBase" label="Valor Base"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.Pniños" label="Precio niños"></v-text-field>
+                  <v-text-field v-model="editedItem.VCabeza" label="Valor por cabeza"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -137,9 +137,9 @@
         <td class="text-xs-center">{{ props.item.Nohb }}</td>
         <td class="text-xs-left">{{ props.item.estado }}</td>
         <td class="text-xs-left">{{ props.item.maximo }}</td>
-        <td class="text-xs-left">{{ props.item.Nniños }}</td>
-        <td class="text-xs-left">{{ props.item.Padultos }}</td>
-        <td class="text-xs-left">{{ props.item.Pniños }}</td>
+        <td class="text-xs-left">{{ props.item.NMPrecioBase }}</td>
+        <td class="text-xs-left">{{ props.item.VBase}}</td>
+        <td class="text-xs-left">{{ props.item.VCabeza }}</td>
         <td class="text-xs-left">{{ props.item.imgUrl }}</td>
         <td class="justify-center layout px-0">
           <v-icon
@@ -196,9 +196,9 @@ export default {
       },
       { text: 'Estado', value: 'estado' },
       { text: 'No. maximo', value: 'maximo' },
-      { text: 'No. niños', value: 'Nniños' },
-      { text: 'Precio adultos', value: 'Padultos' },
-      { text: 'Precio niños', value: 'Pniños' },
+      { text: 'No. Maximo de Precio Base', value: 'NMPrecioBase' },
+      { text: 'Valor Base', value: 'VBase' },
+      { text: 'Valor por Cabeza', value: 'VCabeza' },
       { text: 'Imagen', value: 'imgUrl' }
     ],
     desserts: [],
@@ -207,18 +207,18 @@ export default {
       Nohb: '',
       estado: '',
       maximo: '',
-      Nniños: '',
-      Padultos: '',
-      Pniños: '',
+      NMPrecioBase: '',
+      VBase: '',
+      VCabeza: '',
       imgUrl: ''
     },
     defaultItem: {
       Nohb: '',
       estado: '',
       maximo: '',
-      Nniños: '',
-      Padultos: '',
-      Pniños: '',
+      NMPrecioBase: '',
+      VBase: '',
+      VCabeza: '',
       imgUrl: ''
 
     }
