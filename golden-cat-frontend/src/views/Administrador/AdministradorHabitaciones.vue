@@ -258,10 +258,10 @@ export default {
           {
             roomNew: {
               code: this.editedItem.Nohb,
-              number_adult: this.editedItem.Nadultos,
-              number_children: this.editedItem.Nniños,
-              value_adult: this.editedItem.Padultos,
-              value_children: this.editedItem.Pniños,
+               number_max: this.editedItem.maximo,
+              number_max_precio_base: this.editedItem.NMPrecioBase,
+              value_base: this.editedItem.VBase,
+              value_persona: this.editedItem.VCabeza,
               state: this.editedItem.estado
             }
           })
