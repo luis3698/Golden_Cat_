@@ -8,20 +8,10 @@
       <v-container class="este" grid-list-xl fluid color="white">
         <v-layout wrap>
           <v-flex xs12 sm6>
-            <v-text-field
-              v-model="form.nombre"
-              color="purple darken-2"
-              label="Nombres"
-              required
-            ></v-text-field>
+            <v-text-field v-model="form.nombre" color="purple darken-2" label="Nombres" required></v-text-field>
           </v-flex>
           <v-flex xs12 sm6>
-            <v-text-field
-              v-model="form.apellidos"
-              color="blue darken-2"
-              label="Apellidos"
-              required
-            ></v-text-field>
+            <v-text-field v-model="form.apellidos" color="blue darken-2" label="Apellidos" required></v-text-field>
           </v-flex>
           <v-flex xs12 sm6>
             <v-text-field
@@ -52,7 +42,7 @@
           <v-flex xs12 sm6>
             <v-select
               v-model="form.typeUser"
-              :items= "usuario"
+              :items="usuario"
               color="blue darken-2"
               label="Tipo Usuario"
               required
@@ -87,11 +77,7 @@
       <v-card-actions>
         <v-btn flat @click="resetForm">Cancelar</v-btn>
         <v-spacer></v-spacer>
-        <v-btn
-          flat
-          color="primary"
-          @click="save"
-        >Registrar</v-btn>
+        <v-btn flat color="primary" @click="save">Registrar</v-btn>
       </v-card-actions>
     </v-form>
     <v-flex xs12>
@@ -131,31 +117,16 @@
                 </v-card>
               </v-dialog>
             </v-toolbar>
-            <v-data-table
-              :headers="headers"
-              :items="desserts"
-              class="elevation-1"
-            >
+            <v-data-table :headers="headers" :items="usersAdmin" class="elevation-1">
               <template v-slot:items="props">
-                <td>{{ props.item.nombres }}</td>
-                <td class="justify-center">{{ props.item.apellidos }}</td>
-                <td class="justify-center">{{ props.item.correo }}</td>
-                <td class="justify-center">{{ props.item.telefono }}</td>
-                <td class="justify-center">{{ props.item.id }}</td>
+                <td>{{ props.item.name }}</td>
+                <td class="justify-center">{{ props.item.lastName }}</td>
+                <td class="justify-center">{{ props.item.email }}</td>
+                <td class="justify-center">{{ props.item.phone }}</td>
+                <td class="justify-center">{{ props.item.identification }}</td>
                 <td class="justify-center layout px-0">
-                  <v-icon
-                    small
-                    class="mr-2"
-                    @click="editItem(props.item)"
-                  >
-                    edit
-                  </v-icon>
-                  <v-icon
-                    small
-                    @click="deleteItem(props.item)"
-                  >
-                    delete
-                  </v-icon>
+                  <v-icon small class="mr-2" @click="editItem(props.item)">edit</v-icon>
+                  <v-icon small @click="deleteItem(props.item)">delete</v-icon>
                 </td>
               </template>
               <template v-slot:no-data>
@@ -197,31 +168,16 @@
                 </v-card>
               </v-dialog>
             </v-toolbar>
-            <v-data-table
-              :headers="headers"
-              :items="desserts"
-              class="elevation-1"
-            >
+            <v-data-table :headers="headers" :items="usersCliente" class="elevation-1">
               <template v-slot:items="props">
-                <td>{{ props.item.nombres }}</td>
-                <td class="justify-center">{{ props.item.apellidos }}</td>
-                <td class="justify-center">{{ props.item.correo }}</td>
-                <td class="justify-center">{{ props.item.telefono }}</td>
-                <td class="justify-center">{{ props.item.id }}</td>
+                <td>{{ props.item.name }}</td>
+                <td class="justify-center">{{ props.item.lastName }}</td>
+                <td class="justify-center">{{ props.item.email }}</td>
+                <td class="justify-center">{{ props.item.phone }}</td>
+                <td class="justify-center">{{ props.item.identification }}</td>
                 <td class="justify-center layout px-0">
-                  <v-icon
-                    small
-                    class="mr-2"
-                    @click="editItem(props.item)"
-                  >
-                    edit
-                  </v-icon>
-                  <v-icon
-                    small
-                    @click="deleteItem(props.item)"
-                  >
-                    delete
-                  </v-icon>
+                  <v-icon small class="mr-2" @click="editItem(props.item)">edit</v-icon>
+                  <v-icon small @click="deleteItem(props.item)">delete</v-icon>
                 </td>
               </template>
               <template v-slot:no-data>
@@ -236,147 +192,171 @@
 </template>
 
 <script>
-import api from '@/plugins/api'
+import { mapState } from "vuex";
+import api from "@/plugins/api";
+import Swal from "sweetalert2";
 export default {
-  created () {
-    this.$store.commit('SET_LAYOUT', 'administrador-layout')
-    this.initialize()
+  created() {
+    this.$store.commit("SET_LAYOUT", "administrador-layout");
+    this.initialize();
+    this.getUsers();
   },
-  data () {
+  data() {
     const defaultForm = Object.freeze({
-      nombre: '',
-      apellidos: '',
-      correo: '',
-      telefono: '',
-      id: '',
-      usuario: '',
-      contraseña: '',
-      typeUser: '',
-      Ccontraseña: '',
+      nombre: "",
+      apellidos: "",
+      correo: "",
+      telefono: "",
+      id: "",
+      contraseña: "",
+      typeUser: "",
+      Ccontraseña: "",
       terms: false
-    })
+    });
 
     return {
       dialog: false,
       editedIndex: -1,
       defaultItem: {
-        nombres: '',
-        apellidos: '',
-        correo: '',
-        telefono: '',
-        id: ''
+        nombres: "",
+        apellidos: "",
+        correo: "",
+        telefono: "",
+        id: ""
       },
       editedItem: {
-        nombres: '',
-        apellidos: '',
-        correo: '',
-        telefono: '',
-        id: ''
+        nombres: "",
+        apellidos: "",
+        correo: "",
+        telefono: "",
+        id: ""
       },
       headers: [
-        { text: 'Nombre', value: 'nombres' },
-        { text: 'Apellido', value: 'apellidos' },
-        { text: 'Correo', value: 'correo' },
-        { text: 'Telefono', value: 'telefono' },
-        { text: 'Indentificacion', value: 'id' },
-        { text: 'Actions', value: 'name', sortable: false }
+        { text: "Nombre", value: "nombres" },
+        { text: "Apellido", value: "apellidos" },
+        { text: "Correo", value: "correo" },
+        { text: "Telefono", value: "telefono" },
+        { text: "Indentificacion", value: "id" },
+        { text: "Actions", value: "name", sortable: false }
       ],
-      desserts: [
-        
-      ],
+      desserts: [],
       show1: false,
       show2: false,
       active: null,
       form: Object.assign({}, defaultForm),
       conditions: false,
-      usuario: ['cliente', 'administrador'],
+      usuario: ["cliente", "administrador"],
       snackbar: false,
-      terms: false
-    }
+      terms: false,
+      usersAdmin: [],
+      usersCliente: []
+    };
   },
   computed: {
-    formIsValid () {
+    ...mapState(["users"]),
+    formIsValid() {
       return (
         // this.editedItem.nombres &&
         // this.editedItem.apellidos &&
         // this.editedItem.correo &&
         // this.editedItem.telefono &&
         // this.editedIndex.id &&
-        this.form.usuario &&
-        this.form.contraseña &&
-        this.form.Ccontraseña
-      )
+        this.form.usuario && this.form.contraseña && this.form.Ccontraseña
+      );
     },
-    formTitle () {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+    formTitle() {
+      return this.editedIndex === -1 ? "New Item" : "Edit Item";
     }
   },
   watch: {
-    dialog (val) {
-      val || this.close()
+    dialog(val) {
+      val || this.close();
+    },
+    users: function (val) {
+      this.filtroUsers()
     }
   },
   methods: {
-    resetForm () {
-      this.form = Object.assign({}, this.defaultForm)
-      this.$refs.form.reset()
+    filtroUsers() {
+      this.usersAdmin = []
+      this.usersCliente = []
+      
+      this.users.map(user => {
+        if (user.typeUser === "administrador") this.usersAdmin.push(user)
+        if (user.typeUser === "cliente") this.usersCliente.push(user)
+      });
     },
-    initialize () {
+    async getUsers() {
+      const { data: users } = await api.get("/user");
+      this.$store.commit("SET_USERS", users)
+    },
+    resetForm() {
+      this.form = Object.assign({}, this.defaultForm);
+      this.$refs.form.reset();
+    },
+    initialize() {
       this.desserts = [
         {
-          nombres: 'Frozen Yogurt',
+          nombres: "Frozen Yogurt",
           apellidos: 159,
           correo: 6.0,
           telefono: 24,
           id: 4.0
         },
         {
-          nombres: 'Ice cream sandwich',
+          nombres: "Ice cream sandwich",
           apellidos: 237,
           correo: 9.0,
           telefono: 37,
           id: 4.3
         }
-      ]
+      ];
     },
-    editItem (item) {
-      this.editedIndex = this.desserts.indexOf(item)
-      this.editedItem = Object.assign({}, item)
-      this.dialog = true
-    },
-
-    deleteItem (item) {
-      const index = this.desserts.indexOf(item)
-      confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+    editItem(item) {
+      this.editedIndex = this.desserts.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
     },
 
-    close () {
-      this.dialog = false
+    deleteItem(item) {
+      const index = this.desserts.indexOf(item);
+      confirm("Are you sure you want to delete this item?") &&
+        this.desserts.splice(index, 1);
+    },
+
+    close() {
+      this.dialog = false;
       setTimeout(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
-      }, 300)
+        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedIndex = -1;
+      }, 300);
     },
-    async save () {
-      console.log(this.form)
-      const {data : user } = await api.post('/user', {
-        userNew: {
-          name : this.form.nombre,
-          lastName: this.form.apellidos,
-          email: this.form.correo,
-          phone: this.form.telefono,
-          identification: this.form.id,
-          password: this.form.contraseña,
-          typeUser: this.form.typeUser
-        }
-      })
-
+    async save() {
+      try {
+        const { data: user } = await api.post("/user", {
+          userNew: {
+            name: this.form.nombre,
+            lastName: this.form.apellidos,
+            email: this.form.correo,
+            phone: this.form.telefono,
+            identification: this.form.id,
+            password: this.form.contraseña,
+            typeUser: this.form.typeUser
+          }
+        });
+        let clonUsers = [...this.users];
+        clonUsers.push(user);
+        this.$store.commit("SET_USERS", clonUsers);
+        Swal.fire("OK!", "Usuario registrado con exito", "success");
+      } catch (error) {
+        console.error(error);
+      }
     }
   }
-}
+};
 </script>
 <style scope>
-.este{
-  background-color: white !important
+.este {
+  background-color: white !important;
 }
 </style>
