@@ -1,275 +1,40 @@
 <template>
-  <v-expansion-panel>
-            <v-expansion-panel-content>
-              <template v-slot:header>
-                <div>1. Habitaciones Ventana Inicio</div>
-              </template>
-              <v-card>
-                <v-card dark tile flat color="red ">
-            <v-card-text  class="  text-xs-center">
-              <h5 class="headline mb-0">Habitaciones Ventana Inicio</h5>
-              <v-divider ></v-divider>
-              <p>presentacion de habitaciones en el inicio de la pagina.<br>el orden de las imagenes es<br> (Habitacion Individual, Habitacion Doble, Habitacion Matimonial, Habitacion Suite)</p>
-                <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
-                <vue-upload-multiple-image
-                 @upload-success="uploadImageSuccess"
-                 @before-remove="beforeRemove"
-                 @edit-image="editImage"
-                 @data-change="dataChange"
-                 :data-images="images"
-                 ></vue-upload-multiple-image>
-              </div>
-               <v-btn color="success">Subir Cambios</v-btn>
-            </v-card-text>
-          </v-card>
-              </v-card>
-            </v-expansion-panel-content>
-            <v-expansion-panel-content>
-              <template v-slot:header>
-                <div>2. Servicio Extra 1</div>
-              </template>
-              <v-card>
-                 <v-card dark tile flat color="black">
-              <v-card-text  class="  text-xs-center">
-              <h5 class="headline mb-0">Servicio Extra 1</h5>
-              <v-divider ></v-divider>
-              <p>imagenes y textros del servico 1<br>maximo 5 imagenes</p>
-              <v-layout>
-                <v-flex xs4>
-                  <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
-                  <vue-upload-multiple-image
-                   @upload-success="uploadImageSuccess"
-                   @before-remove="beforeRemove"
-                   @edit-image="editImage"
-                   @data-change="dataChange"
-                   :data-images="images"
-                   ></vue-upload-multiple-image>
-                  </div>
-                </v-flex >
-              <v-flex xs8>
-                <v-text-field  label="titulo del servisio" single-line outline></v-text-field>
-                <v-text-field  label="subtitulo del servisio" single-line outline></v-text-field>
-                <v-textarea outline label="parrafo informativo" value=" "></v-textarea>
-              </v-flex >
-              </v-layout>
+  <div>
+    <v-tabs v-model="active" color="cyan" dark slider-color="yellow" >
+      <v-tab v-for="n in 3" :key="n" ripple> Item {{ n }} | |
+            
+      </v-tab>
+      <v-tab-item v-for="n in 3"  :key="n">
+        <v-card flat>
+          <v-card-text>{{ text }}</v-card-text>
+         
+        </v-card>
+      </v-tab-item>
+    </v-tabs>
 
-               <v-btn color="success">Subir Cambios</v-btn>
-            </v-card-text>
-          </v-card>
-              </v-card>
-            </v-expansion-panel-content>
-            <v-expansion-panel-content>
-              <template v-slot:header>
-                <div>3. Servicio Extra 2</div>
-              </template>
-              <v-card>
-                 <v-card dark tile flat color="black">
-              <v-card-text  class="  text-xs-center">
-              <h5 class="headline mb-0">Servicio Extra 2</h5>
-              <v-divider ></v-divider>
-              <p>imagenes y textros del servico 2<br>maximo 5 imagenes</p>
-              <v-layout>
-                <v-flex xs4>
-                  <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
-                  <vue-upload-multiple-image
-                   @upload-success="uploadImageSuccess"
-                   @before-remove="beforeRemove"
-                   @edit-image="editImage"
-                   @data-change="dataChange"
-                   :data-images="images"
-                   ></vue-upload-multiple-image>
-                  </div>
-                </v-flex >
-              <v-flex xs8>
-                <v-text-field  label="titulo del servisio" single-line outline></v-text-field>
-                <v-text-field  label="subtitulo del servisio" single-line outline></v-text-field>
-                <v-textarea outline label="parrafo informativo" value=" "></v-textarea>
-              </v-flex >
-              </v-layout>
-
-               <v-btn color="success">Subir Cambios</v-btn>
-            </v-card-text>
-          </v-card>
-              </v-card>
-            </v-expansion-panel-content>
-            <v-expansion-panel-content>
-              <template v-slot:header>
-                <div>4. Servicio Extra 3</div>
-              </template>
-              <v-card>
-                 <v-card dark tile flat color="black">
-              <v-card-text  class="  text-xs-center">
-              <h5 class="headline mb-0">Servicio Extra 3</h5>
-              <v-divider ></v-divider>
-              <p>imagenes y textros del servico 3<br>maximo 5 imagenes</p>
-              <v-layout>
-                <v-flex xs4>
-                  <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
-                  <vue-upload-multiple-image
-                   @upload-success="uploadImageSuccess"
-                   @before-remove="beforeRemove"
-                   @edit-image="editImage"
-                   @data-change="dataChange"
-                   :data-images="images"
-                   ></vue-upload-multiple-image>
-                  </div>
-                </v-flex >
-              <v-flex xs8>
-                <v-text-field  label="titulo del servisio" single-line outline></v-text-field>
-                <v-text-field  label="subtitulo del servisio" single-line outline></v-text-field>
-                <v-textarea outline label="parrafo informativo" value=" "></v-textarea>
-              </v-flex >
-              </v-layout>
-
-               <v-btn color="success">Subir Cambios</v-btn>
-            </v-card-text>
-          </v-card>
-              </v-card>
-            </v-expansion-panel-content>
-            <v-expansion-panel-content>
-              <template v-slot:header>
-                <div>5. Servicio Extra 4</div>
-              </template>
-              <v-card>
-                 <v-card dark tile flat color="black">
-              <v-card-text  class="  text-xs-center">
-              <h5 class="headline mb-0">Servicio Extra 4</h5>
-              <v-divider ></v-divider>
-              <p>imagenes y textros del servico 4<br>maximo 5 imagenes</p>
-              <v-layout>
-                <v-flex xs4>
-                  <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
-                  <vue-upload-multiple-image
-                   @upload-success="uploadImageSuccess"
-                   @before-remove="beforeRemove"
-                   @edit-image="editImage"
-                   @data-change="dataChange"
-                   :data-images="images"
-                   ></vue-upload-multiple-image>
-                  </div>
-                </v-flex >
-              <v-flex xs8>
-                <v-text-field  label="titulo del servisio" single-line outline></v-text-field>
-                <v-text-field  label="subtitulo del servisio" single-line outline></v-text-field>
-                <v-textarea outline label="parrafo informativo" value=" "></v-textarea>
-              </v-flex >
-              </v-layout>
-
-               <v-btn color="success">Subir Cambios</v-btn>
-            </v-card-text>
-          </v-card>
-              </v-card>
-            </v-expansion-panel-content>
-            <v-expansion-panel-content>
-              <template v-slot:header>
-                <div>6. Servicio Extra 5</div>
-              </template>
-              <v-card>
-                 <v-card dark tile flat color="black">
-              <v-card-text  class="  text-xs-center">
-              <h5 class="headline mb-0">Servicio Extra 5</h5>
-              <v-divider ></v-divider>
-              <p>imagenes y textros del servico 5<br>maximo 5 imagenes</p>
-              <v-layout>
-                <v-flex xs4>
-                  <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
-                  <vue-upload-multiple-image
-                   @upload-success="uploadImageSuccess"
-                   @before-remove="beforeRemove"
-                   @edit-image="editImage"
-                   @data-change="dataChange"
-                   :data-images="images"
-                   ></vue-upload-multiple-image>
-                  </div>
-                </v-flex >
-              <v-flex xs8>
-                <v-text-field  label="titulo del servisio" single-line outline></v-text-field>
-                <v-text-field  label="subtitulo del servisio" single-line outline></v-text-field>
-                <v-textarea outline label="parrafo informativo" value=" "></v-textarea>
-              </v-flex >
-              </v-layout>
-
-               <v-btn color="success">Subir Cambios</v-btn>
-            </v-card-text>
-          </v-card>
-              </v-card>
-            </v-expansion-panel-content>
-            <v-expansion-panel-content>
-              <template v-slot:header>
-                <div>7. Servicio Extra 6</div>
-              </template>
-              <v-card>
-                 <v-card dark tile flat color="black">
-              <v-card-text  class="  text-xs-center">
-              <h5 class="headline mb-0">Servicio Extra 6</h5>
-              <v-divider ></v-divider>
-              <p>imagenes y textros del servico 6<br>maximo 5 imagenes</p>
-              <v-layout>
-                <v-flex xs4>
-                  <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
-                  <vue-upload-multiple-image
-                   @upload-success="uploadImageSuccess"
-                   @before-remove="beforeRemove"
-                   @edit-image="editImage"
-                   @data-change="dataChange"
-                   :data-images="images"
-                   ></vue-upload-multiple-image>
-                  </div>
-                </v-flex >
-              <v-flex xs8>
-                <v-text-field  label="titulo del servisio" single-line outline></v-text-field>
-                <v-text-field  label="subtitulo del servisio" single-line outline></v-text-field>
-                <v-textarea outline label="parrafo informativo" value=" "></v-textarea>
-              </v-flex >
-              </v-layout>
-
-               <v-btn color="success">Subir Cambios</v-btn>
-            </v-card-text>
-          </v-card>
-              </v-card>
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-
+    <div class="text-xs-center mt-3">
+      <v-btn @click="next">next tab</v-btn>
+    </div>
+  </div>
 </template>
-
 <script>
-import VueUploadMultipleImage from 'vue-upload-multiple-image'
-import axios from 'axios'
-export default {
-  name: 'app',
-  data () {
-    return {
-      images: []
-    }
-  },
-  components: {
-    VueUploadMultipleImage
-  },
-  methods: {
-    uploadImageSuccess (formData, index, fileList) {
-      console.log('data', formData, index, fileList)
-      // Upload image api
-      // axios.post('http://your-url-upload', { data: formData }).then(response => {
-      //   console.log(response)
-      // })
-    },
-    beforeRemove (index, done, fileList) {
-      console.log('index', index, fileList)
-      var r = confirm('remove image')
-      if (r == true) {
-        done()
-      } else {
+  export default {
+    data () {
+      return {
+        active: null,
+        text: 'Loremctet ut aliquip ex ea commodo consequat.',
+        text1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
       }
     },
-    editImage (formData, index, fileList) {
-      console.log('edit data', formData, index, fileList)
-    },
-    dataChange (data) {
-      console.log(data)
+    methods: {
+      next () {
+        const active = parseInt(this.active)
+        this.active = (active < 2 ? active + 1 : 0)
+      }
     }
   }
-}
 </script>
+
 
 <style>
 #my-strictly-unique-vue-upload-multiple-image {
@@ -299,4 +64,19 @@ a {
   color: #05c36e;
 }
 
+.contenido{
+  padding: 0px 250px!important;
+}
+
+.boton{
+  margin: 20px 0px 0px 0px;
+}
+.botones{
+  height: 70px;
+  width: 300px;
+  margin: 10px 0px 30px 150px;
+}
+.carrusel{
+  padding: 0px 20px;
+}
 </style>

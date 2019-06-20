@@ -2,7 +2,7 @@
   <section>
     <v-container class="barrabuscar white--text">
          <v-div class="hotelportada">
-        <p class="color text-md-center display-2  " black >Encuenta tu Habitacion</p>
+       
       <v-container class="contenedor  text-xs-center" pa-2>
         <v-layout   class=" justify-space-between row wrap  align-center">
           <v-flex xs12 sm6 md4 pb-0>

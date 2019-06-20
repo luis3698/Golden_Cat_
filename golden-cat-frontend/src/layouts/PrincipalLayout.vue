@@ -26,11 +26,11 @@
         </v-btn>
         <div color="indigo darken-4"  class="text-xs-center">
     <v-menu posicion-x >
-      <template v-slot:activator="{ on }">
+     <template v-slot:activator="{ on }">
         <v-btn v-on="on" small  dark flat left> cuenta
           <v-icon small>account_circle</v-icon>
         </v-btn>
-       </template >
+       </template>
       <v-card   class="clase">
         <v-list>
           <v-list-tile avatar>
@@ -64,6 +64,17 @@
     </v-menu>
     </div>
       </v-toolbar>
+      
+
+
+      
+
+
+
+
+
+
+      
     <v-content >
       <v-container>
         <v-layout row wrap>
@@ -222,4 +233,5 @@ export default {
 .v-toolbar{
   z-index: 5;
 }
+
 </style>
