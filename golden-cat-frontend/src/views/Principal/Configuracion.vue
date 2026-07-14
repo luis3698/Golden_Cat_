@@ -1,195 +1,138 @@
 <template>
-  <v-container fluid>
-    <v-layout row>
-      <v-flex xs3 order-lg2>
-        <v-card-text  class="transparent text-xs-center">
-           <div > FOTO DE PERFIL</div>
-        </v-card-text>
-        <material-card class="v-card-profile">
-          <v-avatar class="text-xs-center mx-auto d-block" slot="offset"  size="130">
-            <img  :src="imgUrl" >
+  <v-container class="gc-section" style="max-width:900px">
+    <div class="text-xs-center mb-4">
+      <div class="gc-eyebrow">Mi cuenta</div>
+      <h2 class="section-title">Configuración de perfil</h2>
+      <div class="gc-rule"></div>
+    </div>
+
+    <v-layout row wrap>
+      <!-- Avatar -->
+      <v-flex xs12 md4 pa-2>
+        <v-card class="text-xs-center pa-3 fill-height">
+          <v-avatar size="140" class="mx-auto d-block elevation-2">
+            <img :src="imgUrl">
           </v-avatar>
-          <v-card-text class="text-xs-center">
-            <v-form name="formulario" method="post" enctype="form-data">
-              <v-text-field label="Select Image" @click='pickFile' v-model='imageName' prepend-icon='attach_file'></v-text-field>
-              <input type="file" style="display: none" ref="image" accept="image/*" @change="onFilePicked">
-            </v-form>
-          </v-card-text>
-        </material-card>
+          <div class="subheading primary--text mt-3">{{ user.name }} {{ user.lastName }}</div>
+          <div class="caption grey--text">{{ user.email }}</div>
+          <v-btn small color="primary" class="mt-2" @click="pickFile">
+            <v-icon small left>photo_camera</v-icon>Cambiar foto
+          </v-btn>
+          <input type="file" style="display:none" ref="image" accept="image/*" @change="onFilePicked">
+        </v-card>
       </v-flex>
-    </v-layout>
-    <v-divider> </v-divider>
-    <v-card-text class="transparent text-xs-center">
-      <div > DATOS PERSONALES</div>
-    </v-card-text>
-    <v-layout  row>
-      <v-flex xs2 order-lg2 class="transparent text-xs-center">
-        <v-card-text>NOMBRE :</v-card-text>
-      </v-flex>
-     <v-flex xs3 order-lg2>
-        <v-text-field color="blue darken-4" small label="" solo v-model="user.name"></v-text-field>
-      </v-flex>
-      <v-flex   xs2 order-lg2 class="transparent text-xs-center">
-       <v-card-text>PAIS :</v-card-text>
-      </v-flex>
-      <v-flex xs3 order-lg2>
-        <v-select :items="items" solo v-model="user.countryId" ></v-select>
-      </v-flex>
-    </v-layout>
-    <v-layout  row>
-      <v-flex xs2 order-lg2 class="transparent text-xs-center">
-        <v-card-text>APELLIDO :</v-card-text>
-      </v-flex>
-      <v-flex xs3 order-lg2>
-        <v-text-field color="blue darken-4" small label="" solo v-model="user.lastName"></v-text-field>
-      </v-flex>
-      <v-flex xs2 order-lg2 class="transparent text-xs-center">
-        <v-card-text>CIUDAD :</v-card-text>
-      </v-flex>
-      <v-flex xs3 order-lg2>
-        <v-text-field color="blue darken-4" small label="" solo v-model="user.city"></v-text-field>
-      </v-flex>
-    </v-layout>
-    <v-layout row>
-      <v-flex xs2 order-lg2 class="transparent text-xs-center">
-        <v-card-text>CC :</v-card-text>
-      </v-flex>
-      <v-flex xs3 order-lg2>
-        <v-text-field color="blue darken-4" small label="" solo v-model="user.identification" ></v-text-field>
-      </v-flex>
-      <v-flex   xs2 order-lg2 class="transparent text-xs-center">
-        <v-card-text>TELEFONO :</v-card-text>
-      </v-flex>
-      <v-flex xs3 order-lg2>
-        <v-text-field color="blue darken-4" small label="" phone solo  v-model="user.phone"></v-text-field>
+
+      <!-- Datos personales -->
+      <v-flex xs12 md8 pa-2>
+        <v-card class="pa-3 fill-height">
+          <v-card-title class="subheading primary--text pt-0">Datos personales</v-card-title>
+          <v-layout row wrap>
+            <v-flex xs12 sm6 pa-2><v-text-field label="Nombre" color="primary" v-model="user.name"></v-text-field></v-flex>
+            <v-flex xs12 sm6 pa-2><v-text-field label="Apellido" color="primary" v-model="user.lastName"></v-text-field></v-flex>
+            <v-flex xs12 sm6 pa-2><v-text-field label="Identificación" color="primary" v-model="user.identification"></v-text-field></v-flex>
+            <v-flex xs12 sm6 pa-2><v-text-field label="Teléfono" color="primary" v-model="user.phone"></v-text-field></v-flex>
+            <v-flex xs12 pa-2><v-text-field label="Correo electrónico" color="primary" v-model="user.email" readonly hint="El correo no se puede modificar" persistent-hint></v-text-field></v-flex>
+          </v-layout>
+          <v-card-actions class="px-2">
+            <v-btn flat color="primary" @click="dialogPassword = true">
+              <v-icon small left>lock</v-icon>Cambiar contraseña
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn color="accent" class="black--text" :loading="saving" @click="saveProfile">Guardar cambios</v-btn>
+          </v-card-actions>
+        </v-card>
       </v-flex>
     </v-layout>
 
-    <v-divider> </v-divider>
-    <v-card-text class="transparent text-xs-center">
-      <div > DATOS CUENTA</div>
-    </v-card-text>
-    <v-layout row>
-
-      <v-flex xs12 order-lg2  class="transparent text-xs-center">
-        <v-dialog v-model="dialogPassword" persistent max-width="600px">
-          <template v-slot:activator="{ on }">
-            <v-btn color="blue darken-4" dark v-on="on">Editar Contraseña</v-btn>
-            <v-btn  color="success">Guardar cambios </v-btn>
-          </template>
-
-          <v-card>
-            <v-card-title>
-              <span class="headline">CONTRASEÑA USUARIO</span>
-            </v-card-title>
-            <v-card-text>
-              <v-container grid-list-md>
-                <v-layout wrap>
-                  <v-flex xs12>
-                    <v-text-field color="blue darken-4" label="Escribe Password actual*" type="password" required></v-text-field>
-                  </v-flex>
-                  <v-flex xs12>
-                    <v-text-field color="blue darken-4" label="Escribe Password nuevo*" type="password" required></v-text-field>
-                  </v-flex>
-                  <v-flex xs12>
-                    <v-text-field color="blue darken-4" label="Confirma Password nuevo*" type="password" required></v-text-field>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-              <small>*indicates required field</small>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-4" dark @click="dialogPassword = false">Close</v-btn>
-              <v-btn color="blue darken-4" dark @click="dialogPassword = false">Save</v-btn>
-            </v-card-actions>
-          </v-card>
-
-        </v-dialog>
-      </v-flex>
-    </v-layout>
-
+    <!-- Diálogo contraseña -->
+    <v-dialog v-model="dialogPassword" persistent max-width="480px">
+      <v-card>
+        <v-toolbar color="primary" dark dense flat><v-toolbar-title>Cambiar contraseña</v-toolbar-title></v-toolbar>
+        <v-card-text class="pt-3">
+          <v-text-field color="primary" label="Contraseña actual" type="password"></v-text-field>
+          <v-text-field color="primary" label="Nueva contraseña" type="password"></v-text-field>
+          <v-text-field color="primary" label="Confirmar nueva contraseña" type="password"></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn flat @click="dialogPassword = false">Cancelar</v-btn>
+          <v-btn color="primary" @click="dialogPassword = false">Guardar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 <script>
 import { mapState } from 'vuex'
-import storage from '@/plugins/firebase'
-import uuid from 'uuid/v4'
+import { uploadImage } from '@/plugins/upload'
 import Swal from 'sweetalert2'
 import api from '@/plugins/api'
+
+const AVATAR_PLACEHOLDER = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="130" height="130"><rect width="100%" height="100%" fill="#e8eaf6"/><circle cx="65" cy="52" r="26" fill="#9fa8da"/><rect x="28" y="86" width="74" height="40" rx="20" fill="#9fa8da"/></svg>'
+)
 
 export default {
   computed: {
     ...mapState(['user'])
   },
-  created () {
-    this.getroom()
-  },
   data: () => ({
-    imgUrl: 'data:image/png;base64,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',
+    imgUrl: AVATAR_PLACEHOLDER,
     imageName: '',
+    items: [],
+    saving: false,
     dialogEmail: false,
     dialogPassword: false
   }),
+  created () {
+    // Si el usuario ya tiene avatar guardado, lo mostramos
+    if (this.user && Array.isArray(this.user.images) && this.user.images.length) {
+      this.imgUrl = this.user.images[0]
+    }
+  },
   methods: {
-    async getuser () {
-      const res = await api.get('/user')
-    },
-    resetForm () {
-      this.$refs.form.reset()
-    },
-    async save () {
-      try {
-        if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
-        } else {
-          this.desserts.push(this.editedItem)
-        }
-        this.close()
-        this.resetForm()
-      } catch (error) {
-        console.error(error)
-      }
-    },
     pickFile () {
       this.$refs.image.click()
     },
-
-    onFilePicked (e) {
+    async onFilePicked (e) {
       const files = e.target.files
-      if (files[0] !== undefined) {
-        this.imageName = files[0].name
-        if (this.imageName.lastIndexOf('.') <= 0) {
-          return
-        }
-        for (let f = 0; f < files.length; f++) {
-          const fr = new FileReader()
-          fr.readAsDataURL(files[f])
-          fr.addEventListener('load', async () => {
-            this.imgUrl = fr.result
-            const name = uuid()
-            var imageRef = storage.ref().child(`images/${name}.jpg`)
-            const imageUpload = await imageRef.putString(fr.result, 'data_url')
-            const imageUrl = await imageRef.getDownloadURL()
-            this.images.push({ imageRef: imageUpload.metadata.fullPath, url: imageUrl })
-          })
-        }
-      } else {
+      if (!files || files[0] === undefined) {
         this.imageName = ''
-        // this.imageFile = ''
-        this.imageUrl = ''
+        return
+      }
+      const file = files[0]
+      this.imageName = file.name
+      if (this.imageName.lastIndexOf('.') <= 0) return
+      try {
+        this.imgUrl = URL.createObjectURL(file)
+        const image = await uploadImage(file, { entityType: 'user', entityId: this.user.uuid })
+        this.imgUrl = image.url
+        this.$store.commit('SET_USER', { ...this.user, images: [image.url] })
+      } catch (error) {
+        console.error(error)
+        Swal.fire('Error', 'No se pudo subir la imagen', 'error')
       }
     },
-    initialize () {
-      this.desserts = [
-        {
-          tema: '',
-          descripcion: '',
-          titulo: '',
-          contenido: '',
-          imgUrl: ''
-        }
-      ]
+    async saveProfile () {
+      if (!this.user || !this.user.uuid) return
+      this.saving = true
+      try {
+        await api.put(`/user/${this.user.uuid}`, {
+          userUpdate: {
+            name: this.user.name,
+            lastName: this.user.lastName,
+            phone: this.user.phone,
+            identification: this.user.identification,
+            images: this.user.images
+          }
+        })
+        Swal.fire('Guardado', 'Tus datos se actualizaron correctamente', 'success')
+      } catch (error) {
+        console.error(error)
+        Swal.fire('Error', 'No se pudieron guardar los cambios', 'error')
+      } finally {
+        this.saving = false
+      }
     }
   }
 }

@@ -1,422 +1,224 @@
 <template>
-     <div class="todooo">
-      <br><br>
-   <v-subheader class="subheader black--text display-1 font-weight-bold ">Habitaciones</v-subheader>
-    <v-form>
-      <v-container>
-        <v-layout row wrap>
-          <v-flex xs12 sm4>
-            <v-text-field
-              v-model="editedItem.Nohb"
-              box
-              label="No. Habitacion"
-              clearable
-            ></v-text-field>
-          </v-flex>
+  <div>
+    <h2 class="admin-title">Habitaciones</h2>
+    <p class="grey--text mb-3">Administra las habitaciones del hotel, sus tarifas e imágenes.</p>
 
-          <v-flex xs12 sm4>
-            <v-combobox
-              v-model="editedItem.estado"
-              box
-              label="Estado"
-              :items="items"
-            ></v-combobox>
-          </v-flex>
-          <v-flex xs12 sm4>
-            <v-text-field
-              v-model="editedItem.maximo"
-              box
-              label="No. maximo "
-              clearable
-            ></v-text-field>
-          </v-flex>
-          <v-flex xs12 sm4>
-            <v-text-field
-              v-model="editedItem.NMPrecioBase"
-              box
-              label="No. Maximo de Precio Base"
-              clearable
-            ></v-text-field>
-          </v-flex>
-            <v-flex xs12 sm4>
-            <v-text-field
-              v-model="editedItem.VBase"
-              box
-              label="Valor Base"
-              clearable
-            ></v-text-field>
-          </v-flex>
-          <v-flex xs12 sm4>
-            <v-text-field
-              v-model="editedItem.VCabeza"
-              box
-              label="Valor por Cabeza"
-              clearable
-            ></v-text-field>
-          </v-flex>
-           <v-flex xs12 sm6>
-            <material-card class="v-card-profile">
-              <v-avatar class="text--center mx-auto d-block" >
-
-                  <img class="imagenq" :src="imgUrl">
-
-              </v-avatar>
-              <v-card-text class="margen text-xs-center">
-                  <v-form name="formulario" method="post" enctype="form-data">
-                    <v-btn class="botonn" @click='pickFile' v-model='imageName' prepend-icon='attach_file'>Selecciona imagen del Tip</v-btn>
-                      <input type="file" style="display: none" ref="image" accept="image/*" @change="onFilePicked" >
-                  </v-form>
-              </v-card-text>
-            </material-card>
-            <v-btn
-              :loading="loading3"
-              :disabled="loading3"
-              color="blue-grey"
-              class="white--text"
-              @click="loader = 'loading3'"
-            >
-              Upload
-              <v-icon right dark>cloud_upload</v-icon>
-            </v-btn>
-        </v-flex>
-        <v-flex xs12 sm6>
-          <v-btn color="blue darken-1" class="botones white--text headline" @click="save" >Agregar Habitacion</v-btn>
-          <v-btn color="red darken-1" class="botones white--text headline" >Cancelar</v-btn>
-        </v-flex>
-        </v-layout>
-      </v-container>
-    </v-form>
-     <v-toolbar flat color="white">
-      <v-spacer></v-spacer>
-      <v-dialog v-model="dialog" max-width="500px">
-        <template v-slot:activator="{ on }">
-        </template>
+    <v-layout row wrap>
+      <!-- Formulario -->
+      <v-flex xs12 md5 pa-2>
         <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.Nohb" label="No. habitacion"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.estado" label="Estado"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.maximo" label="No. maiximo"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.NMPrecioBase" label="No. Maximo de Precio Base"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.VBase" label="Valor Base"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.VCabeza" label="Valor por cabeza"></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
-
+          <v-toolbar color="primary" dark flat dense>
+            <v-icon left>meeting_room</v-icon>
+            <v-toolbar-title>{{ editando ? 'Editar habitación' : 'Nueva habitación' }}</v-toolbar-title>
+          </v-toolbar>
+          <v-container grid-list-md>
+            <v-layout wrap>
+              <v-flex xs12 sm6><v-text-field v-model="form.code" label="No. habitación" color="primary"></v-text-field></v-flex>
+              <v-flex xs12 sm6>
+                <v-select v-model="form.estado" :items="['Disponible', 'Mantenimiento']" label="Estado" color="primary"></v-select>
+              </v-flex>
+              <v-flex xs12 sm6>
+                <v-select v-model="form.typeRoomId" :items="tipoOptions" item-text="label" item-value="id" label="Tipo" color="primary"></v-select>
+              </v-flex>
+              <v-flex xs12 sm6><v-text-field v-model="form.number_max" type="number" label="No. máximo personas" color="primary"></v-text-field></v-flex>
+              <v-flex xs12 sm6><v-text-field v-model="form.number_max_precio_base" type="number" label="Máx. a precio base" color="primary"></v-text-field></v-flex>
+              <v-flex xs12 sm6><v-text-field v-model="form.value_base" type="number" label="Valor base" color="primary" prefix="$"></v-text-field></v-flex>
+              <v-flex xs12 sm6><v-text-field v-model="form.value_persona" type="number" label="Valor por persona" color="primary" prefix="$"></v-text-field></v-flex>
+              <v-flex xs12 sm6 class="text-xs-center">
+                <v-avatar tile size="80" class="grey lighten-3">
+                  <img v-if="form.imagen" :src="form.imagen">
+                  <v-icon v-else color="grey">image</v-icon>
+                </v-avatar>
+                <div>
+                  <v-btn small flat color="primary" :loading="uploading" @click="pickFile">Subir imagen</v-btn>
+                  <input type="file" style="display:none" ref="image" accept="image/*" @change="onFilePicked">
+                </div>
+              </v-flex>
+            </v-layout>
+          </v-container>
           <v-card-actions>
+            <v-btn flat @click="reset">Limpiar</v-btn>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="close">Cancelar</v-btn>
-            <v-btn color="blue darken-1" flat @click="save">Guardar</v-btn>
+            <v-btn color="accent" class="black--text" :loading="saving" @click="guardar">{{ editando ? 'Actualizar' : 'Agregar' }}</v-btn>
           </v-card-actions>
         </v-card>
-      </v-dialog>
-    </v-toolbar>
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      class="elevation-1"
-    >
-      <template v-slot:items="props">
-        <td class="text-xs-center">{{ props.item.Nohb }}</td>
-        <td class="text-xs-left">{{ props.item.estado }}</td>
-        <td class="text-xs-left">{{ props.item.maximo }}</td>
-        <td class="text-xs-left">{{ props.item.NMPrecioBase }}</td>
-        <td class="text-xs-left">{{ props.item.VBase}}</td>
-        <td class="text-xs-left">{{ props.item.VCabeza }}</td>
-        <td class="text-xs-left">{{ props.item.imgUrl }}</td>
-        <td class="justify-center layout px-0">
-          <v-icon
-            small
-            class="mr-2"
-            @click="editItem(props.item)"
-          >
-            edit
-          </v-icon>
-          <v-icon
-            small
-            @click="deleteItem(props.item)"
-          >
-            delete
-          </v-icon>
-        </td>
-      </template>
-    </v-data-table>
+      </v-flex>
 
-    </div>
+      <!-- Tabla -->
+      <v-flex xs12 md7 pa-2>
+        <v-card>
+          <v-toolbar color="secondary" dark flat dense>
+            <v-icon left>list</v-icon>
+            <v-toolbar-title>Habitaciones registradas</v-toolbar-title>
+          </v-toolbar>
+          <v-data-table :headers="headers" :items="rooms" class="elevation-0">
+            <template v-slot:items="props">
+              <td>{{ props.item.code }}</td>
+              <td>{{ tipos[props.item.typeRoomId] || '—' }}</td>
+              <td>
+                <v-chip small :color="props.item.state === 'Disponible' ? 'success' : 'warning'" text-color="white">{{ props.item.state }}</v-chip>
+              </td>
+              <td>{{ formatoPrecio(props.item.value_base) }}</td>
+              <td class="text-xs-right">
+                <v-icon small class="mr-2" color="primary" @click="editar(props.item)">edit</v-icon>
+                <v-icon small color="error" @click="eliminar(props.item)">delete</v-icon>
+              </td>
+            </template>
+            <template v-slot:no-data>
+              <div class="text-xs-center pa-3 grey--text">No hay habitaciones registradas.</div>
+            </template>
+          </v-data-table>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </div>
 </template>
 
 <script>
-import storage from '@/plugins/firebase'
-import uuid from 'uuid/v4'
-import Swal from 'sweetalert2'
 import api from '@/plugins/api'
+import Swal from 'sweetalert2'
+import { uploadImage } from '@/plugins/upload'
+
+const emptyForm = () => ({
+  uuid: null, code: '', estado: 'Disponible', typeRoomId: null,
+  number_max: '', number_max_precio_base: '', value_base: '', value_persona: '',
+  imagen: '', images: []
+})
 
 export default {
-  created () {
-    this.getroom()
-    this.$store.commit('SET_LAYOUT', 'administrador-layout')
-  },
+  name: 'administrador-habitaciones',
   data: () => ({
-    loader: null,
-    loading: false,
-    loading2: false,
-    loading3: false,
-    loading4: false,
-    items: [
-      'Disponible',
-      'Mantenimiento'
-    ],
-    dialog: false,
-    imgUrl: 'data:image/png;base64,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',
-    imageName: '',
-    images: [],
+    rooms: [],
+    tipos: {},
+    tipoList: [],
+    saving: false,
+    uploading: false,
+    form: emptyForm(),
     headers: [
-      {
-        text: 'No. habitacion',
-        align: 'center',
-        sortable: false,
-        value: 'Nohb'
-      },
-      { text: 'Estado', value: 'estado' },
-      { text: 'No. maximo', value: 'maximo' },
-      { text: 'No. Maximo de Precio Base', value: 'NMPrecioBase' },
-      { text: 'Valor Base', value: 'VBase' },
-      { text: 'Valor por Cabeza', value: 'VCabeza' },
-      { text: 'Imagen', value: 'imgUrl' }
-    ],
-    desserts: [],
-    editedIndex: -1,
-    editedItem: {
-      Nohb: '',
-      estado: '',
-      maximo: '',
-      NMPrecioBase: '',
-      VBase: '',
-      VCabeza: '',
-      imgUrl: ''
-    },
-    defaultItem: {
-      Nohb: '',
-      estado: '',
-      maximo: '',
-      NMPrecioBase: '',
-      VBase: '',
-      VCabeza: '',
-      imgUrl: ''
-
-    }
-
+      { text: 'No.', value: 'code' },
+      { text: 'Tipo', value: 'typeRoomId' },
+      { text: 'Estado', value: 'state' },
+      { text: 'Valor base', value: 'value_base' },
+      { text: 'Acciones', value: 'code', sortable: false, align: 'right' }
+    ]
   }),
-
   computed: {
-    formTitle () {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+    editando () { return !!this.form.uuid },
+    tipoOptions () {
+      return this.tipoList.map(t => ({ id: t.id, label: t.name.charAt(0).toUpperCase() + t.name.slice(1) }))
     }
   },
-
-  watch: {
-    dialog (val) {
-      val || this.close()
-    },
-    loader () {
-      const l = this.loader
-      this[l] = !this[l]
-
-      setTimeout(() => (this[l] = false), 3000)
-
-      this.loader = null
-    }
+  created () {
+    this.$store.commit('SET_LAYOUT', 'administrador-layout')
+    this.cargar()
   },
   methods: {
-    async getroom () {
-      const res = await api.get('/room')
-    },
-
-    resetForm () {
-      this.$refs.form.reset()
-    },
-    async save () {
+    async cargar () {
       try {
-        const res = await api.post('/room',
-          {
-            roomNew: {
-              code: this.editedItem.Nohb,
-               number_max: this.editedItem.maximo,
-              number_max_precio_base: this.editedItem.NMPrecioBase,
-              value_base: this.editedItem.VBase,
-              value_persona: this.editedItem.VCabeza,
-              state: this.editedItem.estado
-            }
-          })
-        const aler = await Swal.fire(
-          'Registro exitoso!',
-          'Habitacion Registrada!',
-          'success'
-        )
-
-        if (this.editedIndex > -1) {
-          Object.assign(this.desserts[this.editedIndex], this.editedItem)
-        } else {
-          this.desserts.push(this.editedItem)
-        }
-        this.close()
-        this.resetForm()
+        const [rooms, tipos] = await Promise.all([api.get('/room'), api.get('/type_room')])
+        this.rooms = rooms.data
+        this.tipoList = tipos.data
+        this.tipos = (tipos.data || []).reduce((a, t) => { a[t.id] = t.name; return a }, {})
       } catch (error) {
         console.error(error)
       }
     },
-    pickFile () {
-      this.$refs.image.click()
-    },
-    onFilePicked (e) {
-      const files = e.target.files
-      if (files[0] !== undefined) {
-        this.imageName = files[0].name
-        if (this.imageName.lastIndexOf('.') <= 0) {
-          return
-        }
-        for (let f = 0; f < files.length; f++) {
-          const fr = new FileReader()
-          fr.readAsDataURL(files[f])
-          fr.addEventListener('load', async () => {
-            this.imgUrl = fr.result
-            const name = uuid()
-            var imageRef = storage.ref().child(`images/${name}.jpg`)
-            const imageUpload = await imageRef.putString(fr.result, 'data_url')
-            const imageUrl = await imageRef.getDownloadURL()
-            this.images.push({ imageRef: imageUpload.metadata.fullPath, url: imageUrl })
-          })
-        }
-        // const fr = new FileReader()
-        // fr.readAsDataURL(files[0])
-        // fr.addEventListener('load', async () => {
-        //   this.imgUrl = fr.result
-        //   const name = uuid()
-        //   var imageRef = storage.ref().child(`images/${name}.jpg`);
-        //   const imageUpload = await imageRef.putString(fr.result, 'data_url')
-        //   const imageUrl = await imageRef.getDownloadURL()
-        //   console.log(imageUrl)
-        //   // this.imageFile = files[0] // this is an image file that can be sent to server...
-        // })
-      } else {
-        this.imageName = ''
-        // this.imageFile = ''
-        this.imageUrl = ''
+    formatoPrecio (v) { return v != null ? '$' + Number(v).toLocaleString('es-CO') : '' },
+    pickFile () { this.$refs.image.click() },
+    async onFilePicked (e) {
+      const file = (e.target.files || [])[0]
+      if (!file) return
+      this.uploading = true
+      try {
+        this.form.imagen = URL.createObjectURL(file)
+        const image = await uploadImage(file, { entityType: 'room' })
+        this.form.imagen = image.url
+        this.form.images = [image.url]
+      } catch (error) {
+        console.error(error)
+        Swal.fire('Error', 'No se pudo subir la imagen', 'error')
+      } finally {
+        this.uploading = false
+        this.$refs.image.value = ''
       }
     },
-    initialize () {
-      this.desserts = [
-        {
-          tema: '',
-          descripcion: '',
-          titulo: '',
-          contenido: '',
-          imgUrl: ''
+    reset () { this.form = emptyForm() },
+    editar (room) {
+      this.form = {
+        uuid: room.uuid,
+        code: room.code,
+        estado: room.state,
+        typeRoomId: room.typeRoomId,
+        number_max: room.number_max,
+        number_max_precio_base: room.number_max_precio_base,
+        value_base: room.value_base,
+        value_persona: room.value_persona,
+        imagen: (room.images && room.images[0]) || '',
+        images: room.images || []
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    },
+    payload () {
+      return {
+        code: this.form.code,
+        state: this.form.estado,
+        typeRoomId: this.form.typeRoomId,
+        number_max: Number(this.form.number_max) || 1,
+        number_max_precio_base: Number(this.form.number_max_precio_base) || 1,
+        value_base: Number(this.form.value_base) || 0,
+        value_persona: Number(this.form.value_persona) || 0,
+        images: this.form.images
+      }
+    },
+    async guardar () {
+      if (!this.form.code) {
+        Swal.fire('Atención', 'Ingresa el número de habitación', 'warning')
+        return
+      }
+      this.saving = true
+      try {
+        if (this.editando) {
+          await api.put(`/room/${this.form.uuid}`, { roomUpdate: this.payload() })
+        } else {
+          await api.post('/room', { roomNew: this.payload() })
         }
-      ]
+        await this.cargar()
+        this.reset()
+        Swal.fire('¡Listo!', 'Habitación guardada', 'success')
+      } catch (error) {
+        console.error(error)
+        Swal.fire('Error', 'No se pudo guardar la habitación', 'error')
+      } finally {
+        this.saving = false
+      }
     },
-    editItem (item) {
-      this.editedIndex = this.desserts.indexOf(item)
-      this.editedItem = Object.assign({}, item)
-      this.dialog = true
-    },
-
-    deleteItem (item) {
-      const index = this.desserts.indexOf(item)
-      confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
-    },
-
-    close () {
-      this.dialog = false
-      setTimeout(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
-      }, 300)
+    async eliminar (room) {
+      const res = await Swal.fire({
+        title: '¿Eliminar habitación?',
+        text: `Habitación ${room.code}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#C0392B'
+      })
+      if (!res.value) return
+      try {
+        await api.delete(`/room/${room.uuid}`)
+        await this.cargar()
+      } catch (error) {
+        console.error(error)
+        Swal.fire('Error', 'No se pudo eliminar', 'error')
+      }
     }
-
-    // save () {
-    //   if (this.editedIndex > -1) {
-    //     Object.assign(this.desserts[this.editedIndex], this.editedItem)
-    //   } else {
-    //     this.desserts.push(this.editedItem)
-    //   }
-    //   this.close()
-    // }
   }
 }
 </script>
-<style>
-.imagenq{
-  width: 150px !important;
-  height: 150px !important;
-  margin: 0px 0px 0px -100px;
-  border-radius: 0%
+
+<style scoped>
+.admin-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--gc-teal, #0F4C46);
+  font-size: 28px;
 }
-.botonn{
-  margin: 110px 110px 0px 0px
-}
-.botones{
-  height: 70px;
-  width: 300px;
-  margin: 10px 0px 30px 150px
-}
-.theme--light.v-text-field--box > .v-input__control > .v-input__slot {
-    background: white;
-}
-.todooo{
-  background-color:gray
-}
-.custom-loader {
-    animation: loader 1s infinite;
-    display: flex;
-  }
-  @-moz-keyframes loader {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  @-webkit-keyframes loader {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  @-o-keyframes loader {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes loader {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
 </style>

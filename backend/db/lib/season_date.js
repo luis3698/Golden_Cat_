@@ -18,10 +18,8 @@ function setupSeason_date(season_dateModel) {
   function findAllSeason_date() {
     return season_dateModel.findAll()
   }
-async function finUuidSeason_date(uuid) {
-    const cond = { where: { uuid } }
-    const result = await type_roomModel.findOne(cond)
-    return result
+  async function findUuidSeason_date (uuid) {
+    return season_dateModel.findOne({ where: { uuid } })
   }
 
   return {
@@ -29,7 +27,7 @@ async function finUuidSeason_date(uuid) {
     deleteSeason_dateUuid,
     updateSeason_date,
     findAllSeason_date,
-    finUuidSeason_date
+    findUuidSeason_date
   }
 
 }

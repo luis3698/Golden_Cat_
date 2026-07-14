@@ -1,141 +1,95 @@
 <template>
-  <div>
-    <div class="mapouter">
-      <div class="gmap_canvas">
-        <iframe id="gmap_canvas"  width="100%" height="100%" src="https://maps.google.com/maps?q=google&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"  marginheight="0"  marginwidth="0" />
-      </div>
+  <section>
+    <!-- Mapa -->
+    <div class="map-wrap">
+      <iframe
+        title="Ubicación Golden Cat"
+        width="100%" height="100%" frameborder="0" scrolling="no"
+        marginheight="0" marginwidth="0"
+        src="https://maps.google.com/maps?q=google&t=&z=13&ie=UTF8&iwloc=&output=embed">
+      </iframe>
     </div>
-    <v-card flatcolor="transparent" >
-      <v-card-text  class=" text-xs-center">
-        <div class="  text-xs-center">
-          <span class="letra4">CORREOS ELECTRONICOS</span>
-        </div>
-        <span >HOTELGOLDENCAT@GMAIL.COM     <v-icon small>email</v-icon>
-        </span> <br>
-        <span >HOTELGOLDENCAT@HOTMAIL.COM     <v-icon small>email</v-icon>
-        </span>
-      </v-card-text>
-      <v-card-text class="text-xs-center">
-        <div class=" text-xs-center">
-          <span class="letra4">LINEAS TELEFONICAS</span>
-        </div>
-        <v-card-text>
-          <span >32346545
-            <v-icon small>call</v-icon>
-          </span> <br>
-          <span  >72435565
-            <v-icon small>call</v-icon>
-          </span>
-        </v-card-text>
-        <div class="  text-xs-center">
-          <span class="letra4">TRABAJA CON NOSOTROS</span>
-        </div>
-        <v-layout row>
-          <v-flex xs4 >
-            <v-container>
-              <v-card>
-                <v-card>
-                  <v-img class="tamañoimg" :src="limpiesa"></v-img>
-                  <v-card-title primary-title>
-                    <div>
-                      <h3 class="headline mb-0">LIMPIESA</h3>
-                      <p class="tamañop text-sm-left">  se requiere hombre o mujeres para trabajar como operarios de limpieza
-                      con experiencia en limpieza, para realizar funciones propias del cargo, desinfección de baños,
-                      pisos, manejo de maquinaria de pisos, paredes, vidrios, techos, consultorios</p>
-                    </div>
-                  </v-card-title>
-                  <v-card-actions>
-                    <p>correo de contacto: <b>GoldenCat@gmail.com</b></p>
-                  </v-card-actions>
-                </v-card>
-              </v-card>
-            </v-container>
-          </v-flex>
-          <v-flex xs4>
-            <v-container>
-              <v-card>
-                <v-card>
-                  <v-img class="tamañoimg" :src="recepcionista"></v-img>
-                  <v-card-title primary-title>
-                    <div>
-                      <h3 class="headline mb-0">RECEPCIONISTA</h3>
-                      <p class="tamañop text-sm-left" >Empresa requiere profesional en administración o carreras afines para que desempeñe
-                      funciones, como administrador, manejo de proveedores y manejo de personal. Ademas es
-                      Indispensable tener experiencia en Catering, servicio y atención a eventos. Liderazgo,
-                      manejo de personal masivo y manejo de Excel, un año de experiencia laboral.</p>
-                    </div>
-                  </v-card-title>
-                  <v-card-actions>
-                    <p>correo de contacto: <b>GoldenCat@gmail.com</b></p>
-                  </v-card-actions>
-                </v-card>
-              </v-card>
-            </v-container>
-          </v-flex>
-          <v-flex xs4>
-            <v-container>
-              <v-card >
-                <v-card>
-                  <v-img class="tamañoimg" :src="mesero"></v-img>
-                  <v-card-title primary-title>
-                    <div>
-                      <h3 class="headline mb-0">MESA Y BAR</h3>
-                      <p class="tamañop text-sm-left" >Empresa requiere profesional en administración o carreras afines para que desempeñe
-                      funciones, como administrador, manejo de proveedores y manejo de personal. Ademas es
-                      Indispensable tener experiencia en Catering, servicio y atención a eventos. Liderazgo,
-                      manejo de personal masivo y manejo de Excel, un año de experiencia laboral.</p>
-                    </div>
-                  </v-card-title>
-                  <v-card-actions>
-                    <p>correo de contacto: <b>GoldenCat@gmail.com</b></p>
-                  </v-card-actions>
-                </v-card>
-              </v-card>
-            </v-container>
-          </v-flex>
-        </v-layout>
-      </v-card-text>
-    </v-card>
-  </div>
+
+    <v-container class="gc-section">
+      <!-- Datos de contacto -->
+      <v-layout row wrap>
+        <v-flex xs12 md6 pa-2>
+          <v-card class="fill-height">
+            <v-card-text class="text-xs-center">
+              <v-icon size="42" color="primary">email</v-icon>
+              <h3 class="contact-title">Correos electrónicos</h3>
+              <div class="contact-item">HOTELGOLDENCAT@GMAIL.COM</div>
+              <div class="contact-item">HOTELGOLDENCAT@HOTMAIL.COM</div>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 md6 pa-2>
+          <v-card class="fill-height">
+            <v-card-text class="text-xs-center">
+              <v-icon size="42" color="primary">call</v-icon>
+              <h3 class="contact-title">Líneas telefónicas</h3>
+              <div class="contact-item">32346545</div>
+              <div class="contact-item">72435565</div>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+
+      <!-- Trabaja con nosotros -->
+      <div class="text-xs-center mt-5 mb-3">
+        <div class="gc-eyebrow">Únete al equipo</div>
+        <h2 class="section-title">Trabaja con nosotros</h2>
+        <div class="gc-rule"></div>
+      </div>
+
+      <v-layout row wrap>
+        <v-flex v-for="job in vacantes" :key="job.titulo" xs12 sm6 md4 pa-2>
+          <v-card class="fill-height job-card">
+            <v-img :src="job.img" height="180"></v-img>
+            <v-card-title><span class="job-title">{{ job.titulo }}</span></v-card-title>
+            <v-card-text class="grey--text text--darken-1">{{ job.desc }}</v-card-text>
+            <v-card-actions class="px-3 pb-3">
+              <v-icon small color="accent" class="mr-1">email</v-icon>
+              <span class="caption">GoldenCat@gmail.com</span>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </section>
 </template>
+
 <script>
 import LIMPIEZA from '@/assets/limpieza.jpg'
 import RECEPCIONISTA from '@/assets/Recepcionista.jpg'
 import MESERO from '@/assets/mesero.jpg'
-export default ({
-  data () {
-    return {
-      limpiesa: LIMPIEZA,
-      recepcionista: RECEPCIONISTA,
-      mesero: MESERO
-    }
+
+export default {
+  name: 'contactanos',
+  data: () => ({
+    vacantes: [
+      { titulo: 'Limpieza', img: LIMPIEZA, desc: 'Se requieren operarios de limpieza con experiencia para desinfección de baños, pisos, vidrios y manejo de maquinaria.' },
+      { titulo: 'Recepcionista', img: RECEPCIONISTA, desc: 'Profesional en administración o afines para atención al huésped, manejo de proveedores y de personal. Experiencia en servicio.' },
+      { titulo: 'Mesa y bar', img: MESERO, desc: 'Personal con experiencia en catering, servicio y atención a eventos. Liderazgo y un año de experiencia laboral.' }
+    ]
+  }),
+  created () {
+    this.$store.commit('SET_LAYOUT', 'principal-layout')
   }
-})
+}
 </script>
 
-<style scope>
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
-.mapouter {
-  text-align:right;
-  height:400px;
-  width:1200px;
+<style scoped>
+.map-wrap { width: 100%; height: 360px; overflow: hidden; }
+.map-wrap iframe { display: block; border: 0; }
+.section-title { font-size: 30px; color: var(--gc-teal, #0F4C46); margin: 4px 0; }
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--gc-teal, #0F4C46);
+  margin: 10px 0 6px;
 }
-.gmap_canvas {
-  overflow:hidden;
-  background:none!important;
-  height:100%;
-  width:100%;
-}
-.letra4{
-    font-family: 'Amatic SC', cursive;
-  font-size: 50px;
-}
-.tamañoimg{
-   height:138px;
-
-}
-.tamañop{
-   height:138px;
-}
+.contact-item { font-size: 15px; color: #555; letter-spacing: .5px; }
+.job-card { overflow: hidden; display: flex; flex-direction: column; }
+.job-title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gc-teal, #0F4C46); }
+@media (max-width: 599px) { .map-wrap { height: 260px; } }
 </style>

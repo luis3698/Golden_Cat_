@@ -20,8 +20,8 @@ router.post('/', async function (req, res, next) {
 router.delete('/:uuid', async function(req, res, next) {
   try {
     const { uuid } = req.params
-    const { Type_room } = await db()
-    const result = await Type_room.deleteType_room(uuid)
+    const { Type_Room } = await db()
+    const result = await Type_Room.deleteType_roomUuid(uuid)
     res.send(result)
   } catch (err) {
     next(err)
@@ -32,8 +32,8 @@ router.put('/:uuid', async function(req, res, next){
   try {
     const { uuid } = req.params
     const {type_roomUpdate } = req.body
-    const { Type_room } = await db()
-    const result = await Type_room.updateType_room(uuid, type_roomUpdate)
+    const { Type_Room } = await db()
+    const result = await Type_Room.updateType_room(uuid, type_roomUpdate)
     res.send(result)
   } catch (err) {
     next(err)
@@ -41,8 +41,8 @@ router.put('/:uuid', async function(req, res, next){
 })
 router.get('/', async function(req, res, next){
   try {
-    const { Type_room } = await db()
-    const result = await Type_room.findAllType_room()
+    const { Type_Room } = await db()
+    const result = await Type_Room.findAllType_room()
     res.send(result)
   } catch (err) {
     next(err)
@@ -51,8 +51,8 @@ router.get('/', async function(req, res, next){
 router.get('/:uuid', async function(req, res, next){
   try {
     const { uuid } = req.params
-    const { Type_room } = await db()
-    const result = await Type_room.findUuidType_room(uuid)
+    const { Type_Room } = await db()
+    const result = await Type_Room.findUuidType_room(uuid)
     res.send(result)
   } catch (err) {
     next(err)

@@ -1,241 +1,105 @@
 <template>
-   <v-container fluid>
-      <v-layout row wrap>
-        <v-flex d-flex xs6 sm md>
-          <v-card flatcolor="transparent" >
-            <v-card-text>
-            <v-container  fill-height fluid>
-              <v-layout fill-height>
-                <v-flex  justify-center align-center xs12 align-end flexbox>
-                  <v-card-title class="headline center font-weight-regular indigo darken-4 ">BAR Y CAFETERIA</v-card-title>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          <v-card-title>
-            <div>
-              <h3 class="headline">Bar y Cafeteria las 24 Horas </h3>
-              <span>Brindar un sitio atractivo y exclusivo con horarios
-                    extendidos y de muy buen ambiente, ofreciendo a nuestros
-                    visitantes una atmósfera alegre y de distracción acompañada
-                    de productos de calidad, música selecta y excelente servicio</span>
-            </div>
-          </v-card-title>
-            </v-card-text>
-          </v-card>
-        </v-flex >
-         <v-flex  d-flex xs6 sm6 md6>
-          <v-carousel height="300px">
-            <v-carousel-item v-for="(item1,i) in items1" :key="i" :src="item1.src">
-            </v-carousel-item>
-          </v-carousel>
-        </v-flex>
-      </v-layout>
+  <v-container class="gc-section">
+    <div class="text-xs-center mb-4">
+      <div class="gc-eyebrow">Golden Cat</div>
+      <h2 class="section-title">Nuestros servicios</h2>
+      <div class="gc-rule"></div>
+      <p class="grey--text text--darken-1 mx-auto" style="max-width:640px">
+        Todo lo que necesitas para una estancia perfecta, con la calidez y el detalle
+        que caracterizan a Golden Cat.
+      </p>
+    </div>
 
-       <v-layout row wrap>
-       <v-flex  d-flex xs6 sm6 md6>
-          <v-carousel height="300px">
-      <v-carousel-item v-for="(item2,i) in items2" :key="i" :src="item2.src">
-      </v-carousel-item>
-    </v-carousel>
-        </v-flex>
-        <v-flex d-flex xs6 sm md>
-          <v-card flatcolor="transparent" >
-            <v-card-text>
-            <v-container fill-height fluid>
-              <v-layout fill-height>
-                <v-flex xs12 align-end flexbox>
-                  <v-card-title class="headline font-weight-regular indigo darken-4   white--text">ZONA HUMEDA</v-card-title>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          <v-card-title>
-            <div>
-              <h3 class="headline">Spa en Pareja con Turco Privado y Sauna</h3>
-              <span>Somos un Centro Integral de Estética Facial y Corporal dedicado
-                 a mejorar y mantener la belleza del rostro y cuerpo buscando la
-                 unificación del concepto belleza-salud, mediante productos de alta
-                 calidad en combinación con aparatología de última generación y lo último
-                 en técnicas manuales</span>
-            </div>
+    <v-layout row wrap>
+      <v-flex v-for="serv in serviciosView" :key="serv.name" xs12 sm6 md4 pa-2>
+        <v-card class="serv-card fill-height">
+          <v-img :src="serv.img" height="200" gradient="to top, rgba(0,0,0,.45), rgba(0,0,0,0)">
+            <v-chip small color="accent" text-color="black" class="serv-card__tag">{{ serv.pressure }}</v-chip>
+          </v-img>
+          <v-card-title class="pb-1">
+            <v-icon color="primary" class="mr-2">{{ serv.icon }}</v-icon>
+            <span class="serv-card__title">{{ serv.name }}</span>
           </v-card-title>
-            </v-card-text>
-          </v-card>
-        </v-flex >
-      </v-layout>
-
-      <v-layout row wrap>
-        <v-flex d-flex xs6 sm md>
-          <v-card flatcolor="transparent" >
-            <v-card-text>
-            <v-container fill-height fluid>
-              <v-layout fill-height>
-                <v-flex xs12 align-end flexbox>
-                  <v-card-title class="headline font-weight-regular indigo darken-4 white--text">RESTAURANTE</v-card-title>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          <v-card-title>
-            <div>
-              <h3 class="headline">¡Un Restaurante Ideal para Ti!</h3>
-              <span>Estamos dedicados a brindar momentos inolvidables y
-                servicios gastronómicos de alta calidad, ponemos todo nuestro
-                amor y máximo empeño en beneficio de nuestros comensales.</span>
-            </div>
-          </v-card-title>
-            </v-card-text>
-          </v-card>
-        </v-flex >
-         <v-flex  d-flex xs6 sm6 md6>
-          <v-carousel height="300px">
-             <v-carousel-item v-for="(item3,i) in items3" :key="i" :src="item3.src">
-             </v-carousel-item>
-          </v-carousel>
-        </v-flex>
-      </v-layout>
-
-       <v-layout row wrap>
-         <v-flex  d-flex xs6 sm6 md6>
-          <v-carousel height="300px">
-             <v-carousel-item v-for="(item4,i) in items4" :key="i" :src="item4.src">
-               </v-carousel-item>
-            </v-carousel>
-        </v-flex>
-        <v-flex d-flex xs6 sm md>
-          <v-card flatcolor="transparent" >
-            <v-card-text>
-            <v-container fill-height fluid>
-              <v-layout fill-height>
-                <v-flex xs12 align-end flexbox>
-                  <v-card-title class="headline font-weight-regular indigo darken-4   white--text">EL MEJOR SERVICIO</v-card-title>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          <v-card-title>
-            <div>
-              <h3 class="headline">Spa en Pareja con Turco Privado y Sauna</h3>
-              <span>Somos un Centro Integral de Estética Facial y Corporal dedicado
-                 a mejorar y mantener la belleza del rostro y cuerpo buscando la
-                 unificación del concepto belleza-salud, mediante productos de alta
-                 calidad en combinación con aparatología de última generación y lo último
-                 en técnicas manuales</span>
-            </div>
-          </v-card-title>
-            </v-card-text>
-          </v-card>
-        </v-flex >
-      </v-layout>
-
-       <v-layout row wrap>
-        <v-flex d-flex xs6 sm md>
-          <v-card flatcolor="transparent" >
-            <v-card-text>
-            <v-container fill-height fluid>
-              <v-layout fill-height>
-                <v-flex xs12 align-end flexbox>
-                  <v-card-title class="headline font-weight-regular indigo darken-4 white--text">ZONAS VERDES</v-card-title>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          <v-card-title>
-            <div>
-              <h3 class="headline">¡Un Restaurante Ideal para Ti!</h3>
-              <span>Estamos dedicados a brindar momentos inolvidables y
-                servicios gastronómicos de alta calidad, ponemos todo nuestro
-                amor y máximo empeño en beneficio de nuestros comensales.</span>
-            </div>
-          </v-card-title>
-            </v-card-text>
-          </v-card>
-        </v-flex >
-        <v-flex  d-flex xs6 sm6 md6>
-          <v-carousel  height="300px">
-            <v-carousel-item v-for="(item5,i) in items5" :key="i" :src="item5.src">
-             </v-carousel-item>
-            </v-carousel>
-        </v-flex>
-      </v-layout>
-    </v-container>
+          <v-card-text class="grey--text text--darken-1">{{ serv.description }}</v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
+
 <script>
+import api from '@/plugins/api'
+import SPA from '@/assets/spa.jpg'
+import RESTAURANTE from '@/assets/restaurante.jpg'
+import BAR from '@/assets/bar.jpg'
+import GYM from '@/assets/gym.jpg'
+import PISCINA from '@/assets/piscina1.jpg'
+import ZONAVERDE from '@/assets/zonaverde.jpg'
+
+const IMG = {
+  restaurante: RESTAURANTE,
+  bar: BAR,
+  spa: SPA,
+  gimnasio: GYM,
+  piscina: PISCINA,
+  'zonas verdes': ZONAVERDE
+}
+const ICON = {
+  restaurante: 'restaurant',
+  bar: 'local_bar',
+  spa: 'spa',
+  gimnasio: 'fitness_center',
+  piscina: 'pool',
+  'zonas verdes': 'park'
+}
 
 export default {
-
-  data () {
-    return {
-      items1: [
-        {
-          src: 'https://static.iris.net.co/arcadia/upload/images/2017/10/6/66024_1.jpg'
-        },
-        {
-          src: 'https://globalmediarocks.s3-us-west-1.amazonaws.com/uploads/cae2f693-0295-4e67-90fd-f9bd7a2a6999/BARES.jpg'
-        },
-        {
-          src: 'https://media-cdn.tripadvisor.com/media/photo-s/0e/69/76/c2/sanno-cafeteria.jpg'
-        },
-        {
-          src: 'http://4.bp.blogspot.com/-1Mmc87d3QQs/T_1bekHTs1I/AAAAAAAAAM0/jTuvUwOgPEQ/s1600/CARTA-OPEN2.jpg'
+  name: 'servicios',
+  data: () => ({
+    servicios: []
+  }),
+  computed: {
+    serviciosView () {
+      const list = this.servicios.length ? this.servicios : this.fallback
+      return list.map(s => {
+        const key = (s.name || '').toLowerCase()
+        return {
+          ...s,
+          img: IMG[key] || SPA,
+          icon: ICON[key] || 'star'
         }
-
-      ],
-      items2: [
-        {
-          src: 'https://static1.ideal.es/www/multimedia/201707/24/media/cortadas/piscina-kECB-U404135467062XF-624x385@Ideal.jpg'
-        },
-        {
-          src: 'https://www.hotelvillalba.com/files/piscina-spa.jpg'
-        },
-        {
-          src: 'https://www.lagunaparkhotel.com/images/galcms/1920x1080c50q80/galleryone/laguna-spa/zoom/_dsc5853_10099.jpg'
-        },
-        {
-          src: 'https://storage.googleapis.com/mmc-elcaribe-bucket/uploads/2019/01/9d6183b0-spa.jpg'
-        }
-      ],
-      items3: [
-        {
-          src: 'https://u.tfstatic.com/restaurant_photos/658/69658/169/612/l-o-restaurante-marquise-3b9f9.jpg'
-        },
-        {
-          src: 'http://novedadesonline.com.ar/wp-content/uploads/2018/11/ticr_890_370.jpg'
-        },
-        {
-          src: 'https://okdiario.com/img/2017/09/01/carta-de-vinos-655x368.jpg'
-        },
-        {
-          src: 'https://i.blogs.es/21641c/dinner-939434_1280/450_1000.jpg'
-        }
-      ],
-      items4: [
-        {
-          src: 'https://www.cesae.es/images/articulos/foto%20recepcion.jpg'
-        },
-        {
-          src: 'https://blog.sercotelhoteles.com/wp-content/uploads/2017/11/Dia-Mundial-del-Botones.jpg'
-        },
-        {
-          src: 'https://3.bp.blogspot.com/-38Fd4Y7whrU/W5bB6_Zo4AI/AAAAAAAAHO0/mJL6Tbqn3-Yi-mC9jaQW9dvqrAd5NViMQCPcBGAYYCw/s640/mucamas-000-696x464.jpg'
-        },
-        {
-          src: 'https://cdn0.bodas.com.mx/emp/fotos/6/1/4/3/img-0673_5_106143.jpg'
-        }
-      ],
-      items5: [
-        {
-          src: 'https://compartirpalabramaestra.org/sites/default/files/styles/articulos/public/field/image/docentes-y-estudiantes-recuperan-zona-verde-en-tuquerres-narino.jpg'
-        },
-        {
-          src: 'https://estaticos.qdq.com/swdata/photos/672/672628912/ea1506215fbb4c5c856c366d4db460ea.jpg'
-        },
-        {
-          src: 'https://media-cdn.tripadvisor.com/media/photo-s/0c/e8/32/74/zona-verde.jpg'
-        }
+      })
+    },
+    fallback () {
+      return [
+        { name: 'Restaurante', description: 'Gastronomía local e internacional preparada con ingredientes frescos.', pressure: 'Incluido' },
+        { name: 'Bar', description: 'Cócteles de autor y una selecta carta de vinos.', pressure: 'Opcional' },
+        { name: 'Spa', description: 'Masajes y tratamientos para tu relajación total.', pressure: 'Opcional' },
+        { name: 'Gimnasio', description: 'Equipamiento cardiovascular y de fuerza a tu disposición.', pressure: 'Incluido' },
+        { name: 'Piscina', description: 'Piscina climatizada con amplia zona de descanso.', pressure: 'Incluido' },
+        { name: 'Zonas verdes', description: 'Jardines y áreas al aire libre para desconectar.', pressure: 'Incluido' }
       ]
+    }
+  },
+  async created () {
+    this.$store.commit('SET_LAYOUT', 'principal-layout')
+    try {
+      const { data } = await api.get('/services')
+      this.servicios = data
+    } catch (error) {
+      console.error(error)
     }
   }
 }
-
 </script>
 
 <style scoped>
-
+.section-title { font-size: 32px; color: var(--gc-teal, #0F4C46); margin: 4px 0; }
+.serv-card { overflow: hidden; display: flex; flex-direction: column; }
+.serv-card__tag { position: absolute; top: 10px; right: 10px; }
+.serv-card__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--gc-teal, #0F4C46);
+}
 </style>

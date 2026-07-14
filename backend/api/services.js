@@ -34,7 +34,7 @@ router.put('/:uuid', async function(req, res, next) {
     const { uuid } = req.params
     const { servicesUpdate } = req.body
     const { Services } = await db()
-    const result = await Services.updateRate(uuid, servicesUpdate)
+    const result = await Services.updateServices(uuid, servicesUpdate)
     res.send(result)
   } catch (err) {
     next(err)

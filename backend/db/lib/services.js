@@ -17,7 +17,10 @@ function setupServices(servicesModel) {
       return result ? servicesModel.findOne(cond) : new Error('no se actualizo ninguna tarifa')
       }
       function findAllServices() {
-        return rateModel.findAll()
+        return servicesModel.findAll()
+      }
+      async function findUuidServices (uuid) {
+        return servicesModel.findOne({ where: { uuid } })
       }
     
     
@@ -25,7 +28,8 @@ function setupServices(servicesModel) {
         createServices,
         deleteServicesUuid,
         updateServices,
-        findAllServices
+        findAllServices,
+        findUuidServices
       }
     
     }

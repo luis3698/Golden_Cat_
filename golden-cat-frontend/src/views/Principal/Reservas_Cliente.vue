@@ -1,150 +1,125 @@
 <template>
-  <v-flex xs12>
-    <div>
-      <v-tabs v-model="active" color="indigo darken-4" dark slider-color="greed" >
-        <v-tab ripple> reservas activas</v-tab>
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text>
-              <template v-for="n in 8">
-              <v-flex xs12 :key="n" mb-3>
-                <v-card color="bl" class="indigo darken-4">
-                  <v-layout row >
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="headline mb-4">tipo de habitacion: doble</div>
-                          <div  class="mb-4">fecha de la reserva  : 25/05/2017 </div>
-                          <div  class=" mb-4">numero de adultos : 2</div>
-                          <div  class=" mb-4">tipo de habitacion: estandar</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-
-                          <div class="headline mb-4">precio de la habitacion </div>
-                          <div  class="title mb-4 ">650000$ </div>
-                          <div>numero de niños: 0</div>
-
-                        </div>
-
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-img :src="habitacion2" contain></v-img>
-                    </v-flex>
-                  </v-layout>
-                  <v-divider light></v-divider>
-                  <v-expansion-panel>
-                        <v-expansion-panel-content >
-                          <template v-slot:header>
-                            <div>detalles</div>
-                          </template>
-                          <v-card>
-                            <v-card-text>
-                              *Aire acondicionado <br>
-                              *Baño con ducha, secador de pelo y servicio de *amenidades diarias<br>
-                              *Caja de seguridad electrónica<br>
-                              * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
-                              *Minibar con agua, refrescos, cervezas y más ($)<br>
-                              *Teléfono directo en dormitorio y baño<br>
-                              *1 cama extra o una cuna (a solicitud)<br>
-                              *2 Baños
-
-                            </v-card-text>
-                            <v-btn small color="red"  >borrar reserva<v-icon small>business</v-icon>
-                            </v-btn>
-                          </v-card>
-                        </v-expansion-panel-content>
-                      </v-expansion-panel>
-                </v-card>
-              </v-flex>
-              </template >
-            </v-card-text>
-          </v-card>
-        </v-tab-item>
-
-        <v-tab ripple> reservas canceladas</v-tab>
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text> <template v-for="n in 8">
-              <v-flex xs12 :key="n" mb-3>
-                <v-card color="orange darken-4" class="white--text">
-                  <v-layout row >
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="headline mb-4">tipo de habitacion: doble</div>
-                          <div  class="mb-4">fecha de la reserva  : 25/05/2017 </div>
-                          <div  class=" mb-4">numero de adultos : 2</div>
-                          <div  class=" mb-4">tipo de habitacion: estandar</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="headline mb-4">precio de la habitacion </div>
-                          <div  class="title mb-4 ">650000$ </div>
-                          <div>numero de niños: 0</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs4>
-                      <v-img :src="habitacion2" contain></v-img>
-                    </v-flex>
-                  </v-layout>
-                  <v-divider light></v-divider>
-                  <v-expansion-panel>
-                        <v-expansion-panel-content >
-                          <template v-slot:header>
-                            <div>detalles</div>
-                          </template>
-                          <v-card>
-                            <v-card-text>
-                              *Aire acondicionado <br>
-                              *Baño con ducha, secador de pelo y servicio de *amenidades diarias<br>
-                              *Caja de seguridad electrónica<br>
-                              * Voltaje (corriente): 220 V/60 Hz (los baños cuentan con tomas de 110 V para equipos hasta 50 W)<br>
-                              *Minibar con agua, refrescos, cervezas y más ($)<br>
-                              *Teléfono directo en dormitorio y baño<br>
-                              *1 cama extra o una cuna (a solicitud)<br>
-                              *2 Baños
-                            </v-card-text>
-                          </v-card>
-                        </v-expansion-panel-content>
-                      </v-expansion-panel>
-                </v-card>
-              </v-flex>
-              </template >
-            </v-card-text>
-          </v-card>
-        </v-tab-item>
-      </v-tabs>
+  <v-container class="gc-section">
+    <div class="text-xs-center mb-4">
+      <div class="gc-eyebrow">Mi cuenta</div>
+      <h2 class="section-title">Mis reservas</h2>
+      <div class="gc-rule"></div>
     </div>
-  </v-flex>
+
+    <v-tabs v-model="active" color="primary" dark slider-color="accent" grow>
+      <v-tab ripple>Activas</v-tab>
+      <v-tab ripple>Canceladas</v-tab>
+
+      <!-- Activas -->
+      <v-tab-item>
+        <div class="pt-3">
+          <v-layout v-if="activas.length" row wrap>
+            <v-flex v-for="r in activas" :key="r.uuid" xs12 md6 pa-2>
+              <v-card class="fill-height">
+                <v-layout row wrap>
+                  <v-flex xs12 sm5><v-img :src="habitacion2" height="160"></v-img></v-flex>
+                  <v-flex xs12 sm7>
+                    <v-card-title primary-title>
+                      <div>
+                        <div class="subheading font-weight-bold primary--text">Reserva {{ r.uuid.slice(0,8) }}</div>
+                        <div class="caption grey--text">Entrada: {{ fecha(r.date_arrival) }}</div>
+                        <div class="caption grey--text">Salida: {{ fecha(r.date_exit) }}</div>
+                        <div class="caption grey--text">Personas: {{ r.number_personas }}</div>
+                        <v-chip small label color="success" text-color="white" class="mt-2">{{ r.state }}</v-chip>
+                      </div>
+                    </v-card-title>
+                  </v-flex>
+                </v-layout>
+                <v-divider></v-divider>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn small flat color="error" @click="borrar(r)"><v-icon small left>delete</v-icon>Cancelar reserva</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-flex>
+          </v-layout>
+          <div v-else class="text-xs-center grey--text py-5">
+            <v-icon size="64" color="grey lighten-1">event_busy</v-icon>
+            <div class="mt-2">Aún no tienes reservas activas.</div>
+            <v-btn color="primary" class="mt-3" to="/">Explorar habitaciones</v-btn>
+          </div>
+        </div>
+      </v-tab-item>
+
+      <!-- Canceladas -->
+      <v-tab-item>
+        <div class="pt-3">
+          <v-layout v-if="canceladas.length" row wrap>
+            <v-flex v-for="r in canceladas" :key="r.uuid" xs12 md6 pa-2>
+              <v-card class="fill-height">
+                <v-layout row wrap>
+                  <v-flex xs12 sm5><v-img :src="habitacion2" height="160"></v-img></v-flex>
+                  <v-flex xs12 sm7>
+                    <v-card-title primary-title>
+                      <div>
+                        <div class="subheading font-weight-bold primary--text">Reserva {{ r.uuid.slice(0,8) }}</div>
+                        <div class="caption grey--text">Entrada: {{ fecha(r.date_arrival) }}</div>
+                        <div class="caption grey--text">Salida: {{ fecha(r.date_exit) }}</div>
+                        <div class="caption grey--text">Personas: {{ r.number_personas }}</div>
+                        <v-chip small label color="error" text-color="white" class="mt-2">{{ r.state }}</v-chip>
+                      </div>
+                    </v-card-title>
+                  </v-flex>
+                </v-layout>
+              </v-card>
+            </v-flex>
+          </v-layout>
+          <div v-else class="text-xs-center grey--text py-5">
+            <v-icon size="64" color="grey lighten-1">event_busy</v-icon>
+            <div class="mt-2">No tienes reservas canceladas.</div>
+          </div>
+        </div>
+      </v-tab-item>
+    </v-tabs>
+  </v-container>
 </template>
 
-<script scope>
-import HABITACION2 from '@/assets/habitacion2.png'
+<script>
+import HABITACION2 from '@/assets/habitacion2.jpg'
+import api from '@/plugins/api'
+
 export default {
-  name: 'inicio',
-  data () {
-    return {
-      habitacion2: HABITACION2,
-      active: null
-    }
+  name: 'reservas-cliente',
+  data: () => ({
+    habitacion2: HABITACION2,
+    active: null,
+    reservas: []
+  }),
+  computed: {
+    activas () { return this.reservas.filter(r => r.state !== 'Cancelada') },
+    canceladas () { return this.reservas.filter(r => r.state === 'Cancelada') }
   },
   created () {
     this.$store.commit('SET_LAYOUT', 'principal-layout')
+    this.cargar()
   },
   methods: {
-    next () {
-      const active = parseInt(this.active)
-      this.active = (active < 2 ? active + 1 : 0)
+    fecha (d) { return d ? new Date(d).toLocaleDateString('es-CO') : '—' },
+    async cargar () {
+      try {
+        const { data } = await api.get('/reservation')
+        this.reservas = data
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async borrar (r) {
+      try {
+        await api.delete(`/reservation/${r.uuid}`)
+        this.reservas = this.reservas.filter(x => x.uuid !== r.uuid)
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }
 </script>
+
+<style scoped>
+.section-title { font-size: 32px; color: var(--gc-teal, #0F4C46); margin: 4px 0; }
+</style>

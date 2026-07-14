@@ -1,446 +1,201 @@
 <template>
-  <section>
-    <v-stepper  v-model="e1" v-show="!reservaConfirm">
+  <v-container class="gc-section" style="max-width:960px">
+    <!-- ===== Flujo de reserva ===== -->
+    <v-stepper v-model="e1" v-show="!reservaConfirm" class="elevation-2">
       <v-stepper-header>
-        <v-stepper-step :complete="e1 > 1" step="1"  color="indigo darken-4" >Datos reserva</v-stepper-step>
+        <v-stepper-step :complete="e1 > 1" step="1" color="primary">Datos de reserva</v-stepper-step>
         <v-divider></v-divider>
-        <v-stepper-step :complete="e1 > 2" step="2"  color="indigo darken-4" >datos cliente</v-stepper-step>
+        <v-stepper-step :complete="e1 > 2" step="2" color="primary">Datos del cliente</v-stepper-step>
         <v-divider></v-divider>
-        <v-stepper-step step="3"  color="indigo darken-4" >generar reserva</v-stepper-step>
+        <v-stepper-step step="3" color="primary">Pago</v-stepper-step>
       </v-stepper-header>
+
       <v-stepper-items>
+        <!-- Paso 1 -->
         <v-stepper-content step="1">
-          <v-card class="mb-5" color="grey lighten-1" height="450px" width="1100px">
-            <v-container fluid class="indigo darken-3">
-              <v-layout row>
-                <v-flex xs6 >
-                  <v-card dark tile flat>
-                    <div class="indigo darken-4 darken-2 text-xs-center">
-                      <h3 class="headline font-weight-light mb-0">Datos de reserva</h3>
-                    </div>
-                    <v-card>
-                      <v-layout row>
-                        <v-flex xs8>
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >tipo de habitacion :</v-card-text>
-                        </v-flex>
-                        <v-flex xs4>
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >doble</v-card-text>
-                        </v-flex>
-                      </v-layout>
-                      <v-layout row>
-                        <v-flex xs8  >
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >Fecha de inicia de la reserva :</v-card-text>
-                        </v-flex>
-                        <v-flex xs4>
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >00/00/0000 </v-card-text>
-                        </v-flex>
-                      </v-layout>
-                      <v-layout row>
-                        <v-flex xs8 >
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >Fecha final de la reserva :</v-card-text>
-                        </v-flex>
-                        <v-flex xs4>
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >00/00/0000</v-card-text>
-                        </v-flex>
-                      </v-layout>
-                      <v-layout row>
-                        <v-flex xs8 >
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >Numero de adultos :</v-card-text>
-                        </v-flex>
-                        <v-flex xs4>
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >2</v-card-text>
-                        </v-flex>
-                      </v-layout>
-                      <v-layout row>
-                        <v-flex>
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >Numeros de niños :</v-card-text>
-                        </v-flex>
-                        <v-flex xs4>
-                          <v-card-text class=" font-weight-light text-sm-left .headline" >2</v-card-text>
-                        </v-flex>
-                      </v-layout>
-                    </v-card>
-                  </v-card>
-                </v-flex>
-                <v-flex xs6 >
-                  <v-card  tile flat color="indigo darken-3" >
-                    <div class="indigo darken-4 darken-2 text-xs-center">
-                      <h3 class="headline font-weight-light mb-0">Datos de reserva</h3>
-                    </div>
-                    <v-layout row>
-                      <v-flex xs12 mt-5>
-                        <v-card dark tile flat color="indigo darken-3">
-                          <v-card-text class="caption">
-                            *Aire acondicionado <br>
-                            *Baño con ducha, secador de pelo<br>
-                            *Caja de seguridad electrónica<br>
-                            *Minibar con agua, refrescos, cervezas y más ($)<br>
-                            *Teléfono directo en dormitorio y baño<br>
-                            *1 cama extra o una cuna (a solicitud)<br>
-                            *2 Baños
-                          </v-card-text>
-                          <v-dialog v-model="dialogImg"  width="900"  >
-                           <template v-slot:activator="{ on }" >
-                              <v-btn  color="indigo darken-4"  dark  v-on="on" >ver habitacion</v-btn>
-                            </template>
-                            <v-card >
-                              <v-carousel >
-                                <v-carousel-item v-for="(item1,i) in items1" :key="i" :src="item1.src"></v-carousel-item>
-                              </v-carousel>
-                             </v-card>
-                          </v-dialog>
-                        </v-card>
-                      </v-flex>
-                    </v-layout>
-                  </v-card>
-                </v-flex>
-              </v-layout>
-              <v-layout row>
-                <v-flex xs12 order-md2 order-xs1>
-                  <v-card dark tile flat color="indigo darken-3">
-                    <v-card-text>
-                      <v-layout row>
-                        <v-flex xs9>
-                          <v-card-text class=" font-weight-light text-lg-right display-2" >TOTAL:</v-card-text>
-                        </v-flex>
-                        <v-flex xs2>
-                          <v-card-text class=" font-weight-light text-sm-left display-2" >10.000$</v-card-text>
-                        </v-flex>
-                      </v-layout>
-                    </v-card-text>
-                  </v-card>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card>
-          <v-btn  color="indigo darken-4" @click="e1 = 2"> Continue</v-btn>
-          <v-btn flat to="/" >CANCELAR</v-btn>
-        </v-stepper-content>
-        <v-stepper-content step="2">
-          <div class="indigo darken-4 darken-2 text-xs-center">
-            <h3 class="headline font-weight-light mb-0">Datos del cliente</h3>
-          </div>
-          <v-card class="mb-5"  height="300px" width="1100px">
-            <v-layout row wrap>
-              <v-flex xs12 sm6 md3 order-md1 order-sm2>
-                <v-card dark tile flat >
-                  <v-card-text class="text-lg-right">NOMBRE :</v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md2 order-sm1>
-                <v-card dark tile flat >
-                  <v-text-field small label="nombre" solo ></v-text-field>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md3 order-sm4>
-                <v-card dark tile flat >
-                  <v-card-text >APELLIDO :</v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md4 order-sm3>
-                <v-card dark tile flat >
-                  <v-text-field small class="text-sm-left" label="apellido" solo ></v-text-field>
-                </v-card>
-              </v-flex>
-            </v-layout>
-            <v-layout row wrap>
-              <v-flex xs12 sm6 md3 order-md1 order-sm2>
-                <v-card dark tile flat >
-                  <v-card-text class="text-lg-right"> CC :</v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md2 order-sm1>
-                <v-card dark tile flat >
-                  <v-text-field small label="cc" solo ></v-text-field>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md3 order-sm4>
-                <v-card dark tile flat >
-                  <v-card-text >TELEFONO :</v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md4 order-sm3>
-                <v-card dark tile flat>
-                  <v-text-field small label="telefono" solo ></v-text-field>
-                </v-card>
-              </v-flex>
-            </v-layout>
-            <v-layout row wrap>
-              <v-flex xs12 sm6 md3 order-md1 order-sm2>
-                <v-card dark tile flat >
-                  <v-card-text class="text-lg-right">CORREO ELECTRONICO :</v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md2 order-sm1>
-                <v-card dark tile flat>
-                  <v-text-field small label="correo electronico" solo ></v-text-field>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md3 order-sm4>
-                <v-card dark tile flat >
-                  <v-card-text >CIUDAD :</v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm6 md3 order-md4 order-sm3>
-                <v-card dark tile flat >
-                  <v-text-field small label="ciudad" solo ></v-text-field>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-card>
-          <v-btn color="indigo darken-4" @click="e1 = 3"> Continue</v-btn>
-          <v-btn flat  @click="e1 = 1">ATRAS</v-btn>
-        </v-stepper-content>
-        <v-stepper-content step="3">
-          <v-card class="mb-5" color="grey lighten-1" height="300px" >
-            <div class="indigo darken-4 darken-2 text-xs-center">
-              <h3 class="headline font-weight-light mb-0">Datos pago</h3>
-            </div>
-            <v-flex xs12 order-lg2  class="colort ransparent text-xs-center">
-              <v-dialog v-model="dialogTarjeta" persistent max-width="600px">
-                <template v-slot:activator="{ on }">
-                  <v-btn color="blue darken-4" dark v-on="on">tarjeta de credito</v-btn>
-                </template>
-                <v-card>
-                  <v-card-title>
-                    <span class="headline">EDiTAR E-MAIL</span>
-                  </v-card-title>
-                  <v-card-text >
-                    <v-container grid-list-md>
-                      <v-layout wrap>
-                        <v-flex xs12>
-                          <v-text-field label="Email actual*" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                          <v-text-field label="Email nuevo*" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                          <v-text-field label="confirma Email nuevo*" required></v-text-field>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                    <small>verifique que tidos los datos esten correctamente escritos</small>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="blue darken-4"  dark @click="dialogTarjeta = false">Close</v-btn>
-                    <v-btn color="blue darken-4"  dark @click="dialogTarjeta = false">Save</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
+          <v-layout row wrap>
+            <v-flex xs12 md6 pa-2>
+              <v-card color="primary" dark class="fill-height">
+                <v-card-title class="subheading">Detalle de la reserva</v-card-title>
+                <v-divider dark></v-divider>
+                <v-list dark dense class="transparent">
+                  <v-list-tile v-for="d in detalleReserva" :key="d.label">
+                    <v-list-tile-content>{{ d.label }}</v-list-tile-content>
+                    <v-list-tile-content class="align-end">{{ d.value }}</v-list-tile-content>
+                  </v-list-tile>
+                </v-list>
+              </v-card>
             </v-flex>
-            <v-flex xs12 order-lg2  class="colort ransparent text-xs-center">
-              <v-dialog v-model="dialogEfecty" persistent max-width="600px">
-                <template v-slot:activator="{ on }">
-                  <v-btn color="blue darken-4" dark v-on="on">efecty</v-btn>
-                </template>
-                <v-card>
-                  <v-card-title>
-                    <span class="headline">Efecty</span>
-                  </v-card-title>
-                  <v-card-text >
-                    <v-container grid-list-md>
-                      <v-layout wrap>
-                        <v-flex xs12>
-                          <v-text-field label="Email actual*" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                          <v-text-field label="Email nuevo*" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                          <v-text-field label="confirma Email nuevo*" required></v-text-field>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                    <small>verifique que tidos los datos esten correctamente escritos</small>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="blue darken-4"  dark @click="dialogEfecty = false">Close</v-btn>
-                    <v-btn color="blue darken-4"  dark @click="dialogEfecty = false">Save</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-            </v-flex>
-            <v-flex xs12 order-lg2  class="colort ransparent text-xs-center">
-              <v-dialog v-model="dialogPaypal" persistent max-width="600px">
-                <template v-slot:activator="{ on }">
-                  <v-btn color="blue darken-4" dark v-on="on">pay pal</v-btn>
-                </template>
-                <v-card>
-                  <v-card-title>
-                    <span class="headline">EDiTAR E-MAIL</span>
-                  </v-card-title>
-                  <v-card-text >
-                    <v-container grid-list-md>
-                      <v-layout wrap>
-                        <v-flex xs12>
-                          <v-text-field label="Email actual*" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                          <v-text-field label="Email nuevo*" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                          <v-text-field label="confirma Email nuevo*" required></v-text-field>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                    <small>verifique que tidos los datos esten correctamente escritos</small>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="blue darken-4"  dark @click="dialogPaypal = false">Close</v-btn>
-                    <v-btn color="blue darken-4"  dark @click="dialogPaypal = false">Save</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-            </v-flex>
-            <v-flex xs12 order-lg2  class="colort ransparent text-xs-center">
-              <v-dialog v-model="dialogHotel" persistent max-width="600px">
-                <template v-slot:activator="{ on }">
-                  <v-btn color="blue darken-4" dark v-on="on">al llegar</v-btn>
-                </template>
-                <v-card>
-                  <v-card-title>
-                    <span class="headline">EDiTAR E-MAIL</span>
-                  </v-card-title>
-                  <v-card-text >
-                    <v-container grid-list-md>
-                      <v-layout wrap>
-                        <v-flex xs12>
-                          <v-text-field label="Email actual*" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                          <v-text-field label="Email nuevo*" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                          <v-text-field label="confirma Email nuevo*" required></v-text-field>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                    <small>verifique que tidos los datos esten correctamente escritos</small>
-                  </v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="blue darken-4"  dark @click="dialogHotel = false">Close</v-btn>
-                    <v-btn color="blue darken-4"  dark @click="dialogHotel = false">Save</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-            </v-flex>
-          </v-card>
-          <v-layout row justify-center>
-            <v-dialog v-model="dialogConfirmar" persistent max-width="290">
-              <template v-slot:activator="{ on }">
-                <v-btn color="indigo darken-4" dark v-on="on">reservar</v-btn>
-                <v-btn flat @click="e1 = 2">atras</v-btn>
-              </template>
-              <v-card>
-                <v- class="headline">esta seguro que desea generar la reserva?</v->
-                <v-card-text>al confirmar  esta reserva se generara una reserva a esta cuenta de usuario </v-card-text>
-                <v-card-text>en caso de cancelar la reserva lo podra hacer en el menu cuenta/reservas</v-card-text>
-                <v-card-text>en caso de cancelar reseva y tener metodo de pago de forma virtual su dinero sera reembolsado a la misma cuenta entre las proximas 24 a 48 horas de la cancelacion </v-card-text>
-                <v-card-text>en caso de no generarse el reembolso en las horas estrablecidas ponerce en conctacto con nuestros numero de atencion al cliente 32346545 - 72435565 </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="indigo darken-4"  @click="e1 = 0, dialogConfirmar = false , reservaConfirm = true"  > confirma reserva</v-btn>
-                  <v-btn flat>Cancel</v-btn>
+            <v-flex xs12 md6 pa-2>
+              <v-card class="fill-height">
+                <v-card-title class="subheading primary--text">Comodidades</v-card-title>
+                <v-divider></v-divider>
+                <v-card-text class="grey--text text--darken-1">
+                  <div v-for="a in amenidades" :key="a"><v-icon small color="accent" class="mr-1">check</v-icon>{{ a }}</div>
+                </v-card-text>
+                <v-card-actions class="px-3 pb-3">
+                  <v-btn small color="secondary" dark @click="dialogImg = true">
+                    <v-icon small left>photo</v-icon>Ver habitación
+                  </v-btn>
                 </v-card-actions>
               </v-card>
-            </v-dialog>
+            </v-flex>
           </v-layout>
+          <v-card color="secondary" dark class="mt-2">
+            <v-card-text class="text-xs-right">
+              <span class="title">TOTAL:</span>
+              <span class="display-1 font-weight-bold ml-3">{{ formatoPrecio(total) }}</span>
+            </v-card-text>
+          </v-card>
+          <div class="mt-3">
+            <v-btn color="primary" @click="e1 = 2">Continuar</v-btn>
+            <v-btn flat to="/">Cancelar</v-btn>
+          </div>
+        </v-stepper-content>
+
+        <!-- Paso 2 -->
+        <v-stepper-content step="2">
+          <v-card class="pa-3">
+            <v-card-title class="subheading primary--text">Datos del cliente</v-card-title>
+            <v-layout row wrap>
+              <v-flex xs12 sm6 pa-2><v-text-field label="Nombre" v-model="cliente.nombre" color="primary"></v-text-field></v-flex>
+              <v-flex xs12 sm6 pa-2><v-text-field label="Apellido" v-model="cliente.apellido" color="primary"></v-text-field></v-flex>
+              <v-flex xs12 sm6 pa-2><v-text-field label="Documento (CC)" v-model="cliente.cc" color="primary"></v-text-field></v-flex>
+              <v-flex xs12 sm6 pa-2><v-text-field label="Teléfono" v-model="cliente.telefono" color="primary"></v-text-field></v-flex>
+              <v-flex xs12 sm6 pa-2><v-text-field label="Correo electrónico" v-model="cliente.correo" color="primary"></v-text-field></v-flex>
+              <v-flex xs12 sm6 pa-2><v-text-field label="Ciudad" v-model="cliente.ciudad" color="primary"></v-text-field></v-flex>
+            </v-layout>
+          </v-card>
+          <div class="mt-3">
+            <v-btn color="primary" @click="e1 = 3">Continuar</v-btn>
+            <v-btn flat @click="e1 = 1">Atrás</v-btn>
+          </div>
+        </v-stepper-content>
+
+        <!-- Paso 3 -->
+        <v-stepper-content step="3">
+          <v-card class="pa-3">
+            <v-card-title class="subheading primary--text">Método de pago</v-card-title>
+            <v-layout row wrap>
+              <v-flex v-for="m in metodosPago" :key="m.value" xs12 sm6 md3 pa-2>
+                <v-btn block large
+                  :color="pago === m.value ? 'primary' : 'grey lighten-3'"
+                  :class="pago === m.value ? 'white--text' : ''"
+                  @click="pago = m.value">
+                  <v-icon left>{{ m.icon }}</v-icon>{{ m.label }}
+                </v-btn>
+              </v-flex>
+            </v-layout>
+          </v-card>
+          <div class="mt-3">
+            <v-btn color="accent" class="black--text" :disabled="!pago" @click="dialogConfirmar = true">Reservar</v-btn>
+            <v-btn flat @click="e1 = 2">Atrás</v-btn>
+          </div>
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
 
-    <v-container v-show="reservaConfirm">
-      <v-layout>
-        <v-flex xs12>
-          <v-card tile flat color="transparent">
-            <v-card-text class="display-2 text-xs-center">datos reserva</v-card-text>
+    <!-- ===== Confirmación ===== -->
+    <v-card v-show="reservaConfirm" class="pa-4 text-xs-center">
+      <v-icon size="72" color="success">check_circle</v-icon>
+      <h2 class="section-title mt-2">¡Reserva confirmada!</h2>
+      <div class="gc-rule"></div>
+      <v-layout row wrap class="text-xs-left mt-3">
+        <v-flex xs12 sm6 pa-2>
+          <v-card flat class="grey lighten-4 pa-3">
+            <div class="subheading primary--text mb-2">Datos de la reserva</div>
+            <div v-for="d in detalleReserva" :key="d.label"><b>{{ d.label }}</b> {{ d.value }}</div>
+          </v-card>
+        </v-flex>
+        <v-flex xs12 sm6 pa-2>
+          <v-card flat class="grey lighten-4 pa-3">
+            <div class="subheading primary--text mb-2">Datos del cliente</div>
+            <div><b>Nombre:</b> {{ cliente.nombre }} {{ cliente.apellido }}</div>
+            <div><b>Teléfono:</b> {{ cliente.telefono }}</div>
+            <div><b>Correo:</b> {{ cliente.correo }}</div>
+            <div><b>Ciudad:</b> {{ cliente.ciudad }}</div>
+            <div class="title primary--text mt-2">Total: {{ formatoPrecio(total) }}</div>
           </v-card>
         </v-flex>
       </v-layout>
-      <v-layout row>
-        <v-flex xs3 >
-          <v-card  tile flat color="transparent">
-              <v-card-text >TIPO DE HABITACION :</v-card-text>
-              <v-card-text >FECHA INICIO DE RESERVA :</v-card-text>
-              <v-card-text >FECHA FINAL DE RESERVA :</v-card-text>
-              <v-card-text >NUMERO DE ADULTOS :</v-card-text>
-              <v-card-text >NUMERO DE NIÑOS :</v-card-text>
-              <v-btn color="indigo darken-4" to="/" dark >salir</v-btn>
-          </v-card>
-        </v-flex>
-        <v-flex xs3 >
-          <v-card  tile flat color="transparent">
-            <v-card-text >DOBLE</v-card-text>
-            <v-card-text >12/5/2019</v-card-text>
-            <v-card-text >15/5/2019</v-card-text>
-            <v-card-text >2</v-card-text>
-            <v-card-text >2</v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex xs3 >
-          <v-card  tile flat color="transparent">
-            <v-card-text >NOMBRE :</v-card-text>
-            <v-card-text >APELLIDO :</v-card-text>
-            <v-card-text >TELEFONO :</v-card-text>
-            <v-card-text >CC :</v-card-text>
-            <v-card-text >CIUDAD :</v-card-text>
-            <v-card-text class="display-2" >PRECIO :</v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex xs3 >
-          <v-card  tile flat color="transparent">
-            <v-card-text >CARLOS</v-card-text>
-            <v-card-text >VERA</v-card-text>
-            <v-card-text >3205458545</v-card-text>
-            <v-card-text >1100975458</v-card-text>
-            <v-card-text >CUCUTA</v-card-text>
-            <v-card-text class="display-2" >$10000</v-card-text>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </section>
+      <v-btn color="primary" to="/" class="mt-3">Volver al inicio</v-btn>
+    </v-card>
+
+    <!-- Diálogo galería -->
+    <v-dialog v-model="dialogImg" width="900">
+      <v-card>
+        <v-img :src="habitacion2" height="480"></v-img>
+      </v-card>
+    </v-dialog>
+
+    <!-- Diálogo confirmar -->
+    <v-dialog v-model="dialogConfirmar" persistent max-width="420">
+      <v-card>
+        <v-toolbar color="primary" dark dense flat><v-toolbar-title>Confirmar reserva</v-toolbar-title></v-toolbar>
+        <v-card-text class="pt-3">
+          ¿Deseas generar la reserva? Al confirmar, se asociará a tu cuenta. Podrás cancelarla
+          desde <b>Mi cuenta → Mis reservas</b>.
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn flat @click="dialogConfirmar = false">Cancelar</v-btn>
+          <v-btn color="primary" @click="confirmar">Confirmar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-container>
 </template>
+
 <script>
-import HABITACION2 from '@/assets/habitacion2.png'
+import HABITACION2 from '@/assets/habitacion2.jpg'
+
 export default {
-  name: 'datos compra',
+  name: 'datos-compra',
   data: () => ({
     reservaConfirm: false,
     habitacion2: HABITACION2,
-    e1: 0,
+    e1: 1,
+    total: 650000,
+    pago: '',
     dialogImg: false,
-    dialogTarjeta: false,
-    dialogEfecty: false,
-    dialogPaypal: false,
-    dialogHotel: false,
     dialogConfirmar: false,
-
-    items1: [
-      {
-        src: 'https://www.hotelbestpricegracia.com/wp-content/uploads/2015/07/bestprice-90.jpg'
-      },
-      {
-        src: 'https://www.hotelbestpricegracia.com/wp-content/uploads/2015/07/bestprice-169.jpg'
-      },
-      {
-        src: 'https://www.hotelbestpricegracia.com/wp-content/uploads/2015/07/room17.jpg'
-      },
-      {
-        src: 'https://www.hotelbestpricegracia.com/wp-content/uploads/2015/07/bestprice-66.jpg'
-      }
+    cliente: { nombre: '', apellido: '', cc: '', telefono: '', correo: '', ciudad: '' },
+    detalleReserva: [
+      { label: 'Tipo de habitación', value: 'Doble' },
+      { label: 'Fecha de entrada', value: '12/05/2025' },
+      { label: 'Fecha de salida', value: '15/05/2025' },
+      { label: 'Adultos', value: '2' },
+      { label: 'Niños', value: '0' }
+    ],
+    amenidades: [
+      'Aire acondicionado',
+      'Baño con ducha y secador de pelo',
+      'Caja de seguridad electrónica',
+      'Minibar con agua, refrescos y más',
+      'Teléfono directo en dormitorio y baño',
+      'Cama extra o cuna (a solicitud)'
+    ],
+    metodosPago: [
+      { value: 'tarjeta', label: 'Tarjeta', icon: 'credit_card' },
+      { value: 'efecty', label: 'Efecty', icon: 'point_of_sale' },
+      { value: 'paypal', label: 'PayPal', icon: 'account_balance_wallet' },
+      { value: 'hotel', label: 'Al llegar', icon: 'hotel' }
     ]
-  })
-}
-
-</script>
-  <style scoped>
-  .tamañoct{
-        width: 1400px;
+  }),
+  created () {
+    this.$store.commit('SET_LAYOUT', 'principal-layout')
+  },
+  methods: {
+    formatoPrecio (v) { return '$' + Number(v).toLocaleString('es-CO') },
+    confirmar () {
+      this.dialogConfirmar = false
+      this.reservaConfirm = true
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
+}
+</script>
 
-  </style>
+<style scoped>
+.section-title { font-size: 30px; color: var(--gc-teal, #0F4C46); margin: 4px 0; }
+</style>

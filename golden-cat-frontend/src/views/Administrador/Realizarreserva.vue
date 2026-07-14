@@ -1,351 +1,193 @@
 <template>
-   <v-flex  md12>
-        <v-toolbar>
-
-          <v-flex xs12 sm6 md3>
-      <v-menu
-        ref="menu"
-        v-model="menu"
-        :close-on-content-click="false"
-        :nudge-right="40"
-        :return-value.sync="date"
-        lazy
-        transition="scale-transition"
-        offset-y
-        full-width
-        min-width="290px"
-      >
-        <template v-slot:activator="{ on }">
-          <v-text-field
-            v-model="date"
-            label="Picker in menu"
-            prepend-icon="event"
-            readonly
-            v-on="on"
-          ></v-text-field>
-        </template>
-        <v-date-picker v-model="date" no-title scrollable>
-          <v-spacer></v-spacer>
-          <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-          <v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
-        </v-date-picker>
-      </v-menu>
-    </v-flex>
-        <v-flex xs1></v-flex>
-        <v-flex  md2>
-          <v-text-field
-            regular
-            type="number"
-            label="No. habitacion"
-          ></v-text-field>
-        </v-flex>
-        <v-flex xs1></v-flex>
-        <v-flex md2>
-        <v-select
-          :items="items"
-          label="Tipo habitación"
-        ></v-select>
+  <div>
+    <v-layout row wrap align-center class="mb-2">
+      <v-flex>
+        <h2 class="admin-title">Reservas</h2>
+        <p class="grey--text mb-0">Gestiona las reservas del hotel.</p>
       </v-flex>
-      <v-flex xs1></v-flex>
-      <v-btn color="success">Buscar</v-btn>
-        </v-toolbar>
-    <v-flex xs12>
-      <div class="rojo">
-        <v-tabs color="blue darken-1">
-          <v-tab ripple>Reservas activas</v-tab>
-          <v-tab-item>
-            <v-card flat>
-              <v-card-text color="green">
-                <div>
-    <v-toolbar flat color="white">
-      <v-spacer></v-spacer>
-      <v-dialog v-model="dialog" max-width="500px">
-        <template v-slot:activator="{ on }">
-          <v-btn color="primary" dark class="mb-2" v-on="on">Realizar reserva</v-btn>
-        </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
+      <v-flex shrink>
+        <v-btn color="accent" class="black--text" @click="openDialog">
+          <v-icon left>add</v-icon>Nueva reserva
+        </v-btn>
+      </v-flex>
+    </v-layout>
 
-          <v-card-text md12>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 sm6>
-                  <v-select v-model="editedItem.habitacion" :items="items" label="Tipo habitacion"></v-select>
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-text-field background-color="white" color="white" dark="false" regular class="fecha,todo" label="seleccionar fechas" ref="myinput"  v-model="editedItem.range"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm12 class="todo">
-                  {{date1}}
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-text-field v-model="editedItem.personas" label="No. personas"></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.precio" label="Precio"></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
+    <v-card>
+      <v-tabs v-model="active" color="primary" dark slider-color="accent" grow>
+        <v-tab>Activas</v-tab>
+        <v-tab>En curso</v-tab>
+        <v-tab>Finalizadas</v-tab>
+        <v-tab>Canceladas</v-tab>
 
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="close">Cancel</v-btn>
-            <v-btn color="blue darken-1" flat @click="save">Save</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-toolbar>
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      class="elevation-1"
-    >
-      <template v-slot:items="props">
-        <td class="text-xs-right">{{ props.item.habitacion }}</td>
-        <td class="text-md3-right">{{ props.item.range }}</td>
-        <td class="text-xs-right">{{ props.item.personas }}</td>
-        <td class="text-xs-right">{{ props.item.precio }}</td>
-        <td class="justify-center layout px-0">
-          <v-icon
-            small
-            class="mr-2"
-            @click="editItem(props.item)"
-          >
-            edit
-          </v-icon>
-          <v-icon
-            small
-            @click="deleteItem(props.item)"
-          >
-            delete
-          </v-icon>
-        </td>
-      </template>
-      <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize">Reset</v-btn>
-      </template>
-    </v-data-table>
-  </div>
-            </v-card-text>
-          </v-card>
-        </v-tab-item>
-        <v-tab ripple>Reservas en curso</v-tab>
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text color="blue darken-1">
-              <div>
-                  <v-data-table
-                    :headers="headers1"
-                    :items="desserts1"
-                    class="elevation-1"
-                  >
-                    <template v-slot:items="props">
-                      <td>{{ props.item.name1 }}</td>
-                      <td class="text-xs-right">{{ props.item.apellidos1 }}</td>
-                      <td class="text-xs-right">{{ props.item.id1 }}</td>
-                      <td class="text-xs-right">{{ props.item.email1 }}</td>
-                      <td class="text-xs-right">{{ props.item.telefono1 }}</td>
-                      <td class="text-xs-right">{{ props.item.habitacion1 }}</td>
-                      <td class="text-md3-right">{{ props.item.range1 }}</td>
-                      <td class="text-xs-right">{{ props.item.personas1 }}</td>
-                      <td class="text-xs-right">{{ props.item.departamento1 }}</td>
-                      <td class="text-xs-right">{{ props.item.country1 }}</td>
-                      <td class="text-xs-right">{{ props.item.precio1 }}</td>
-                    </template>
-                  </v-data-table>
-              </div>
-            </v-card-text>
-          </v-card>
-        </v-tab-item>
-        <v-tab ripple>Reservas Canceladas</v-tab>
-        <v-tab-item>
-          <v-card flat>
-            <v-card-text color="blue darken-1">
-              <div>
-                <v-data-table
-                  :headers="headers2"
-                  :items="desserts2"
-                  class="elevation-1"
-                >
-                  <template v-slot:items="props">
-                    <td>{{ props.item.name2 }}</td>
-                      <td class="text-xs-right">{{ props.item.apellidos2 }}</td>
-                      <td class="text-xs-right">{{ props.item.id2 }}</td>
-                      <td class="text-xs-right">{{ props.item.email2 }}</td>
-                      <td class="text-xs-right">{{ props.item.telefono2 }}</td>
-                      <td class="text-xs-right">{{ props.item.habitacion2 }}</td>
-                      <td class="text-md3-right">{{ props.item.range2 }}</td>
-                      <td class="text-xs-right">{{ props.item.personas2 }}</td>
-                      <td class="text-xs-right">{{ props.item.departamento2 }}</td>
-                      <td class="text-xs-right">{{ props.item.country2 }}</td>
-                      <td class="text-xs-right">{{ props.item.precio2 }}</td>
-                  </template>
-                </v-data-table>
-              </div>
-            </v-card-text>
-          </v-card>
+        <v-tab-item v-for="estado in estados" :key="estado">
+          <v-data-table :headers="headers" :items="porEstado(estado)" class="elevation-0">
+            <template v-slot:items="props">
+              <td>{{ props.item.uuid.slice(0, 8) }}</td>
+              <td>{{ nombreHabitacion(props.item) }}</td>
+              <td>{{ props.item.number_personas }}</td>
+              <td>{{ fecha(props.item.date_arrival) }}</td>
+              <td>{{ fecha(props.item.date_exit) }}</td>
+              <td>
+                <v-chip small :color="colorEstado(props.item.state)" text-color="white">{{ props.item.state }}</v-chip>
+              </td>
+              <td class="text-xs-right">
+                <v-icon small color="error" @click="eliminar(props.item)">delete</v-icon>
+              </td>
+            </template>
+            <template v-slot:no-data>
+              <div class="text-xs-center pa-3 grey--text">No hay reservas en este estado.</div>
+            </template>
+          </v-data-table>
         </v-tab-item>
       </v-tabs>
-    </div>
-  </v-flex>
-   </v-flex>
+    </v-card>
+
+    <!-- Nueva reserva -->
+    <v-dialog v-model="dialog" max-width="560px">
+      <v-card>
+        <v-toolbar color="primary" dark flat dense><v-toolbar-title>Nueva reserva</v-toolbar-title></v-toolbar>
+        <v-container grid-list-md>
+          <v-layout wrap>
+            <v-flex xs12>
+              <v-select v-model="form.roomId" :items="roomOptions" item-text="label" item-value="id" label="Habitación" color="primary"></v-select>
+            </v-flex>
+            <v-flex xs12 sm6><v-text-field v-model="form.number_personas" type="number" label="No. de personas" color="primary"></v-text-field></v-flex>
+            <v-flex xs12 sm6>
+              <v-select v-model="form.state" :items="estados" label="Estado" color="primary"></v-select>
+            </v-flex>
+            <v-flex xs12 sm6><v-text-field v-model="form.date_arrival" type="date" label="Fecha entrada" color="primary"></v-text-field></v-flex>
+            <v-flex xs12 sm6><v-text-field v-model="form.date_exit" type="date" label="Fecha salida" color="primary"></v-text-field></v-flex>
+          </v-layout>
+        </v-container>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn flat @click="dialog = false">Cancelar</v-btn>
+          <v-btn color="primary" :loading="saving" @click="guardar">Guardar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
+
 <script>
-import { Spanish } from 'flatpickr/dist/l10n/es.js'
-import 'flatpickr/dist/flatpickr.css'
-import 'flatpickr/dist/themes/material_blue.css'
+import api from '@/plugins/api'
+import Swal from 'sweetalert2'
+
 export default {
+  name: 'realizar-reserva',
+  data: () => ({
+    active: null,
+    dialog: false,
+    saving: false,
+    reservas: [],
+    rooms: [],
+    tipos: {},
+    estados: ['Activa', 'En curso', 'Finalizada', 'Cancelada'],
+    headers: [
+      { text: 'Código', value: 'uuid', sortable: false },
+      { text: 'Habitación', value: 'roomId' },
+      { text: 'Personas', value: 'number_personas' },
+      { text: 'Entrada', value: 'date_arrival' },
+      { text: 'Salida', value: 'date_exit' },
+      { text: 'Estado', value: 'state' },
+      { text: 'Acciones', value: 'uuid', sortable: false, align: 'right' }
+    ],
+    form: { roomId: null, number_personas: '2', state: 'Activa', date_arrival: '', date_exit: '' }
+  }),
   computed: {
-    formTitle () {
-      return this.editedIndex === -1 ? 'Nueva reserva' : 'Edit Item'
-    },
-    form () {
-      return {
-        country: this.country,
-        departamento: this.departamento
-      }
+    roomOptions () {
+      return this.rooms.map(r => ({
+        id: r.id,
+        uuid: r.uuid,
+        typeRoomId: r.typeRoomId,
+        label: `Habitación ${r.code} · ${this.tipos[r.typeRoomId] || 'estándar'}`
+      }))
     }
   },
   created () {
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
-    this.initialize()
-  },
-  mounted () {
-    const myInput = this.$refs.myinput.$el.querySelector('input')
-    const flat = flatpickr(myInput, this.configFlat)
-  },
-  data: () => ({
-    dialog: false,
-    headers1: [
-      {
-        text: 'Nombres',
-        align: 'left',
-        sortable: false,
-        value: 'name'
-      },
-      { text: 'Apellidos', value: 'apellidos1' },
-      { text: 'Identificacion', value: 'id1' },
-      { text: 'Email', value: 'email1' },
-      { text: 'Telefono', value: 'telefono1' },
-      { text: 'Tipo habitacion', value: 'habitacion1' },
-      { text: 'Fecha', value: 'range1' },
-      { text: 'No. personas', value: 'personas1' },
-      { text: 'Departamento', value: 'departamento1' },
-      { text: 'Pais', value: 'country1' },
-      { text: 'Precio', value: 'precio1' }
-    ],
-    headers2: [
-      {
-        text: 'Nombres',
-        align: 'left',
-        sortable: false,
-        value: 'name'
-      },
-      { text: 'Apellidos', value: 'apellidos2' },
-      { text: 'Identificacion', value: 'id2' },
-      { text: 'Email', value: 'email2' },
-      { text: 'Telefono', value: 'telefono2' },
-      { text: 'Tipo habitacion', value: 'habitacion2' },
-      { text: 'Fecha', value: 'range2' },
-      { text: 'No. personas', value: 'personas2' },
-      { text: 'Departamento', value: 'departamento2' },
-      { text: 'Pais', value: 'country2' },
-      { text: 'Precio', value: 'precio2' }
-    ],
-    headers: [
-      { text: 'Tipo habitacion', value: 'habitacion' },
-      { text: 'Fecha', value: 'range' },
-      { text: 'No. personas', value: 'personas' },
-      { text: 'Precio', value: 'precio' },
-      { text: 'Acciones', value: 'name', sortable: false }
-    ],
-    desserts: [],
-    desserts1: [],
-    desserts2: [],
-    editedIndex: -1,
-    editedItem: {
-      name: '',
-      apellidos: '',
-      id: '',
-      email: '',
-      telefono: '',
-      habitacion: '',
-      range: '',
-      personas: '',
-      departamento: '',
-      country: '',
-      precio: ''
-    },
-    defaultItem: {
-      name: '',
-      apellidos: '',
-      id: '',
-      email: '',
-      telefono: '',
-      habitacion: '',
-      range: '',
-      personas: '',
-      departamento: '',
-      country: '',
-      precio: ''
-    },
-    date: new Date().toISOString().substr(0, 10),
-    date1: null,
-    menu: false,
-    configFlat: { mode: 'range', dateFormat: 'Y-m-d H:i', locale: Spanish },
-    range: '',
-    countries: ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Anguilla', 'Antigua Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia Herzegovina', 'Botswana', 'Brazil', 'British Virgin Islands', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Cape Verde', 'Cayman Islands', 'Chad', 'Chile', 'China', 'Colombia', 'Congo', 'Cook Islands', 'Costa Rica', 'Cote D Ivoire', 'Croatia', 'Cruise Ship', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Estonia', 'Ethiopia', 'Falkland Islands', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'French Polynesia', 'French West Indies', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kuwait', 'Kyrgyz Republic', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Mauritania', 'Mauritius', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Namibia', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russia', 'Rwanda', 'Saint Pierre Miquelon', 'Samoa', 'San Marino', 'Satellite', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'St Kitts Nevis', 'St Lucia', 'St Vincent', 'St. Lucia', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', "Timor L'Este", 'Togo', 'Tonga', 'Trinidad  Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks Caicos', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe'],
-    items: ['Sencilla', 'Doble', 'Swite', 'Presidencial'],
-    departamentos: ['AMAZONAS', 'ANTIOQUIA', 'ARAUCA', 'ATLÁNTICO', 'BOLÍVAR', 'BOYACÁ', 'CALDAS', 'CAQUETÁ', 'CASANARE', 'CAUCA', 'CESAR', 'CHOCÓ', 'CÓRDOBA', 'CUNDINAMARCA', 'DISTRITO CAPITAL', 'GUAINÍA', 'GUAVIARE', 'HUILA', 'LA GUAJIRA', 'MAGDALENA', 'META', 'NARIÑO', 'NORTE DE SANTANDER', 'PUTUMAYO', 'QUINDÍO', 'RISARALDA', 'SAN ANDRÉS Y PROVIDENCIA', 'SANTANDER', 'SUCRE', 'TOLIMA', 'VALLE', 'VAUPÉS', 'VICHADA']
-
-  }),
-  watch: {
-    dialog (val) {
-      val || this.close()
-    }
+    this.cargar()
   },
   methods: {
-    initialize () {
-      this.desserts = [
-
-      ]
+    async cargar () {
+      try {
+        const [reservas, rooms, tipos] = await Promise.all([
+          api.get('/reservation'), api.get('/room'), api.get('/type_room')
+        ])
+        this.reservas = reservas.data
+        this.rooms = rooms.data
+        this.tipos = (tipos.data || []).reduce((a, t) => { a[t.id] = t.name; return a }, {})
+      } catch (error) {
+        console.error(error)
+      }
     },
-
-    editItem (item) {
-      this.editedIndex = this.desserts.indexOf(item)
-      this.editedItem = Object.assign({}, item)
+    porEstado (estado) { return this.reservas.filter(r => r.state === estado) },
+    fecha (d) { return d ? new Date(d).toLocaleDateString('es-CO') : '—' },
+    colorEstado (s) {
+      return { 'Activa': 'success', 'En curso': 'info', 'Finalizada': 'primary', 'Cancelada': 'error' }[s] || 'grey'
+    },
+    nombreHabitacion (r) {
+      const room = this.rooms.find(x => x.id === r.roomId)
+      return room ? `Habitación ${room.code}` : '—'
+    },
+    openDialog () {
+      this.form = { roomId: null, number_personas: '2', state: 'Activa', date_arrival: '', date_exit: '' }
       this.dialog = true
     },
-
-    deleteItem (item) {
-      const index = this.desserts.indexOf(item)
-      confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
-    },
-
-    close () {
-      this.dialog = false
-      setTimeout(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
-      }, 300)
-    },
-
-    save () {
-      if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem)
-      } else {
-        this.desserts.push(this.editedItem)
+    async guardar () {
+      if (!this.form.roomId || !this.form.date_arrival || !this.form.date_exit) {
+        Swal.fire('Atención', 'Completa habitación y fechas', 'warning')
+        return
       }
-      this.close()
+      const room = this.rooms.find(r => r.id === this.form.roomId)
+      this.saving = true
+      try {
+        await api.post('/reservation', {
+          reservationNew: {
+            id_type_room: String(room.typeRoomId || room.uuid),
+            number_personas: Number(this.form.number_personas),
+            date_arrival: this.form.date_arrival,
+            date_exit: this.form.date_exit,
+            state: this.form.state,
+            roomId: this.form.roomId
+          }
+        })
+        await this.cargar()
+        this.dialog = false
+        Swal.fire('¡Listo!', 'Reserva creada', 'success')
+      } catch (error) {
+        console.error(error)
+        Swal.fire('Error', 'No se pudo crear la reserva', 'error')
+      } finally {
+        this.saving = false
+      }
+    },
+    async eliminar (item) {
+      const res = await Swal.fire({
+        title: '¿Eliminar reserva?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#C0392B'
+      })
+      if (!res.value) return
+      try {
+        await api.delete(`/reservation/${item.uuid}`)
+        await this.cargar()
+      } catch (error) {
+        console.error(error)
+        Swal.fire('Error', 'No se pudo eliminar', 'error')
+      }
     }
   }
 }
 </script>
-<style scope>
-.card{
-  background-color: white !important
+
+<style scoped>
+.admin-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--gc-teal, #0F4C46);
+  font-size: 28px;
 }
 </style>

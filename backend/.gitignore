@@ -4,6 +4,12 @@ node_modules
 package-lock.json
 logs
 npm-debug.log
+
+# Base de datos SQLite y archivos subidos (generados en runtime)
+data
+uploads/*
+!uploads/.gitkeep
+.env
 # local env files
 .env.local
 .env.*.local

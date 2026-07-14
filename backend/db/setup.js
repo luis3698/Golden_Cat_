@@ -1,26 +1,30 @@
 'use strict'
 
-const { getLogger, terminate } = require('@golden-cat/utils')
-const inquirer = require('inquirer')
+// Crea el esquema de la base de datos y carga los datos de ejemplo.
+// Uso:  npm run setup        (backend)
+//
+// ADVERTENCIA: se ejecuta con sync({ force: true }), lo que ELIMINA y recrea
+// todas las tablas. Pensado para desarrollo / primer arranque.
+
+const { getLogger } = require('@golden-cat/utils')
 const dbs = require('./')
-const { db } = require('@golden-cat/config')
+const seed = require('./seed')
 
 const log = getLogger(__dirname, __filename)
 
-const prompt = inquirer.createPromptModule()
 async function setup () {
-  const answer = await prompt([
-    {
-      type: 'confirm',
-      name: 'setup',
-      message: 'Esto va a destruir la base de datos, esta seguro?'
-    }
-  ])
-  if (!answer.setup) return console.log('No pasa nada!')
-  const { setup } = await dbs()
-  await setup().catch(terminate(1, 'dbError'))
-  console.log('successs!')
+  const services = await dbs()
+  log.info('Recreando el esquema de la base de datos...')
+  await services.setup()
+  log.info('Cargando datos de ejemplo...')
+  const summary = await seed(services)
+  console.log('✔ Base de datos lista:', JSON.stringify(summary))
+  console.log('  Admin:   admin@goldencat.com / admin123')
+  console.log('  Cliente: cliente@goldencat.com / cliente123')
   process.exit(0)
 }
 
-setup()
+setup().catch((err) => {
+  console.error('✖ Error configurando la base de datos:', err.message)
+  process.exit(1)
+})

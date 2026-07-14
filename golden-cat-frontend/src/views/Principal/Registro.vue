@@ -20,7 +20,7 @@
       absolute
       top
       right
-      color="blue darken-4"
+      color="primary"
     >
       <span>Registro exitoso!</span>
     </v-snackbar>
@@ -35,22 +35,22 @@
            </v-flex>
           <v-flex d-flex xs12 sm12 md6>
             <v-card class="elevation-12">
-               <v-toolbar color="indigo darken-4" height="150">
+               <v-toolbar color="primary" height="120">
 
-                <v-toolbar-title class="font-weight-medium white--text display-1">Registro</v-toolbar-title>
+                <v-toolbar-title class="font-weight-medium white--text display-1">Crear cuenta</v-toolbar-title>
                 </v-toolbar>
                   <v-card-text class="contenedor">
                 <v-form class="black--text">
           <v-text-field
-           v-model="Name" color="blue darken-4"
+           v-model="Name" color="primary"
            label="Nombre"
         ></v-text-field>
         <v-text-field
-           v-model="LastName" color="blue darken-4"
+           v-model="LastName" color="primary"
            label="Apellido"
         ></v-text-field>
          <v-text-field
-           v-model="email" color="blue darken-4"
+           v-model="email" color="primary"
            label="Correo electrónico"
            :error-messages="emailError"
             @input="$v.email.$touch()"
@@ -58,17 +58,17 @@
         ></v-text-field>
         <v-text-field
            v-model="Phone"
-           color="blue darken-4"
+           color="primary"
            label="Telefono"
         ></v-text-field>
         <v-text-field
            v-model="Identification"
-           color="blue darken-4"
+           color="primary"
            label="Identificacion"
         ></v-text-field>
         <v-text-field
               v-model="password"
-              color="blue darken-4"
+              color="primary"
               label="Contraseña"
               :error-messages="passErrors"
               @input="$v.password.$touch()"
@@ -83,7 +83,7 @@
                 :error-messages="matchPass"
                 @input="$v.repeatPassword.$touch()"
                 @blur="$v.repeatPassword.$touch()"
-                color="blue darken-4"
+                color="primary"
                 label="Confirmar contraseña"
                 :type="show2 ? 'text' : 'password'"
                 :append-icon="show2 ? 'visibility' : 'visibility_off'"
@@ -111,9 +111,8 @@
         <v-btn class="font-weight-black title font-italic" flat @click="resetForm">Cancelar</v-btn>
         <v-spacer></v-spacer>
         <v-btn
-          v-on="on"
           flat
-          color="blue darken-4"
+          color="primary"
           type="submit"
           class="font-weight-black title font-italic"
           :disabled="$v.$invalid"

@@ -1,9 +1,11 @@
-"use strict"
+'use strict'
+
 // config
 const {
   db: config
 } = require('@golden-cat/config')
-//controladores
+
+// controladores (capa de acceso a datos)
 const setupUser = require('./lib/users')
 const setupRoom = require('./lib/rooms')
 const setupType_room = require('./lib/type_room')
@@ -15,27 +17,34 @@ const setupInvoice = require('./lib/invoice')
 const setupInvoice_detail = require('./lib/invoice_detail')
 const setupServices = require('./lib/services')
 const setupDetail_reservation = require('./lib/detail_reservation')
+const setupImage = require('./lib/images')
 
+// modelos
+const setupDatabase = require('./lib/db')
+const setupUserModel = require('./models/user.model')
+const setupCountryModel = require('./models/country.model')
+const setupInvoiceModel = require('./models/invoice.model')
+const setupInvoice_DetailModel = require('./models/invoice_detail.model')
+const setupServicesModel = require('./models/services.models')
+const setupCityModel = require('./models/city.model')
+const setupRoomModel = require('./models/room.model')
+const setupType_RoomModel = require('./models/type_room.model')
+const setupRateModel = require('./models/rate.model')
+const setupSeasonModel = require('./models/season.model')
+const setupDepartmentsModel = require('./models/departments.model')
+const setupSeason_DateModel = require('./models/season_date.model')
+const setupReservationModel = require('./models/reservation.model')
+const setupDetail_ReservationModel = require('./models/detail_reservation.model')
+const setupImageModel = require('./models/image.model')
 
-//modelos
-const setupDatabase = require("./lib/db")
-const setupUserModel = require("./models/user.model")
-const setupCountryModel = require("./models/country.model")
-const setupInvoiceModel = require("./models/invoice.model")
-const setupInvoice_DetailModel = require("./models/invoice_detail.model")
-const setupServicesModel = require("./models/services.models")
-const setupCityModel = require("./models/city.model")
-const setupRoomModel = require("./models/room.model")
-const setupType_RoomModel = require("./models/type_room.model")
-const setupRateModel = require("./models/rate.model")
-const setupSeasonModel = require("./models/season.model")
-const setupDepartmentsModel = require("./models/departments.model")
-const setupSeason_DateModel = require("./models/season_date.model")
-const setupReservationModel = require("./models/reservation.model")
-const setupDetail_ReservationModel = require("./models/detail_reservation.model")
+// Cache de la instancia inicializada. Se construye una sola vez y se
+// reutiliza en cada petición (antes se reconstruía en cada llamada, lo que
+// redefinía modelos y volvía a autenticar en cada request).
+let servicesPromise = null
 
-module.exports = async function () {
+async function initialize () {
   const sequelize = setupDatabase(config)
+
   const UserModel = setupUserModel(config)
   const CountryModel = setupCountryModel(config)
   const RateModel = setupRateModel(config)
@@ -50,8 +59,9 @@ module.exports = async function () {
   const Type_RoomModel = setupType_RoomModel(config)
   const Season_DateModel = setupSeason_DateModel(config)
   const SeasonModel = setupSeasonModel(config)
+  const ImageModel = setupImageModel(config)
 
-
+  // Relaciones
   CountryModel.hasMany(UserModel)
   UserModel.belongsTo(CountryModel)
 
@@ -67,12 +77,11 @@ module.exports = async function () {
   ReservationModel.hasMany(InvoiceModel)
   InvoiceModel.belongsTo(ReservationModel)
 
-  Detail_ReservationModel.hasMany(ReservationModel)
-  ReservationModel.belongsTo(Detail_ReservationModel)
+  RoomModel.hasMany(ReservationModel)
+  ReservationModel.belongsTo(RoomModel)
 
-  RoomModel.hasMany(Detail_ReservationModel)
-  Detail_ReservationModel.belongsTo(RoomModel)
-
+  ReservationModel.hasMany(Detail_ReservationModel)
+  Detail_ReservationModel.belongsTo(ReservationModel)
 
   DepartmentsModel.hasMany(CityModel)
   CityModel.belongsTo(DepartmentsModel)
@@ -80,21 +89,18 @@ module.exports = async function () {
   CountryModel.hasMany(DepartmentsModel)
   DepartmentsModel.belongsTo(CountryModel)
 
-
   Type_RoomModel.hasMany(RoomModel)
   RoomModel.belongsTo(Type_RoomModel)
-
 
   SeasonModel.hasMany(Season_DateModel)
   Season_DateModel.belongsTo(SeasonModel)
 
-
   SeasonModel.hasMany(RateModel)
   RateModel.belongsTo(SeasonModel)
 
-
   RoomModel.hasMany(RateModel)
   RateModel.belongsTo(RoomModel)
+
   await sequelize.authenticate()
 
   const User = setupUser(UserModel)
@@ -108,13 +114,18 @@ module.exports = async function () {
   const InvoiceDetail = setupInvoice_detail(Invoice_DetailModel)
   const Services = setupServices(ServicesModel)
   const Detail_Reservation = setupDetail_reservation(Detail_ReservationModel)
-
+  const Image = setupImage(ImageModel)
 
   return {
-    async setup() {
-      await sequelize.sync({
-        force: true
-      })
+    sequelize,
+    models: {
+      UserModel, CountryModel, RateModel, RoomModel, Invoice_DetailModel,
+      InvoiceModel, ServicesModel, ReservationModel, Detail_ReservationModel,
+      CityModel, DepartmentsModel, Type_RoomModel, Season_DateModel,
+      SeasonModel, ImageModel
+    },
+    async setup () {
+      await sequelize.sync({ force: true })
     },
     User,
     Room,
@@ -126,7 +137,14 @@ module.exports = async function () {
     Invoice,
     InvoiceDetail,
     Services,
-    Detail_Reservation
-
+    Detail_Reservation,
+    Image
   }
+}
+
+module.exports = function () {
+  if (!servicesPromise) {
+    servicesPromise = initialize()
+  }
+  return servicesPromise
 }

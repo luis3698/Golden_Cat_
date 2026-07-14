@@ -1,5 +1,6 @@
 'use strict'
 
+const fs = require('fs')
 const bole = require('bole')
 const path = require('path')
 const uuid = require('uuid')
@@ -20,12 +21,6 @@ const levels = {
 
 }
 
-const rotator = streamFile({
-  path: `logs/${pkg.name}-${pkg.version}-%Y-%m-%d.log`,
-  symlink: 'logs/current.log',
-  compress: true
-})
-
 const formatter = through((chunk, _, callback) => {
   try {
     let { id, level, name, message } = JSON.parse(chunk)
@@ -39,9 +34,22 @@ const formatter = through((chunk, _, callback) => {
   }
 })
 
+// En producción se escribe a ficheros rotados; en desarrollo, a consola.
+// El rotador solo se instancia en producción para no abrir ficheros de log
+// (ni crear la carpeta logs/) durante desarrollo, tests o el setup de la BD.
+function buildStream () {
+  if (process.env.NODE_ENV !== 'production') return formatter
+  if (!fs.existsSync('logs')) fs.mkdirSync('logs', { recursive: true })
+  return streamFile({
+    path: `logs/${pkg.name}-${pkg.version}-%Y-%m-%d.log`,
+    symlink: 'logs/current.log',
+    compress: true
+  })
+}
+
 bole.output({
   level: process.env.DEBUG ? 'debug' : 'info',
-  stream: process.env.NODE_ENV === 'production' ? rotator : formatter
+  stream: buildStream()
 })
 
 function getLogger (...names) {

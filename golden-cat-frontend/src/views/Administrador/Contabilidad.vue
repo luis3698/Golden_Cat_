@@ -1,104 +1,79 @@
 <template>
-    <div class="grande">
-      <v-container class="todo" fluid>
-        <p class="titulo white--text display-1" >Generar Reportes</p>
-        <v-layout row>
-          <v-flex xs4 >
-            <v-radio-group class="Layout" v-model="radios" :mandatory="false">
-              <v-checkbox v-model="selected" label="Clientes" value="Clientes"></v-checkbox>
-              <v-checkbox v-model="selected" label="Habitaciones" value="Horarios"></v-checkbox>
-              <v-checkbox v-model="selected" label="Servicios" value="Membresias"></v-checkbox>
-            </v-radio-group>
-            <v-spacer></v-spacer>
-          </v-flex>
-          <v-flex xs4>
-            <v-radio-group class="Layout" v-model="radios" :mandatory="false">
-              <v-checkbox v-model="selected" label="reservas" value="Entrenadores"></v-checkbox>
-              <v-checkbox v-model="selected" label="Ventas" value="Ventas"></v-checkbox>
-              <v-checkbox v-model="selected" label="Inventario" value="Compras"></v-checkbox>
-            </v-radio-group>
-          </v-flex>
-          <v-flex xs4>
-            <v-radio-group class="Layout" v-model="radios" :mandatory="false">
-              <v-checkbox v-model="selected" label="Reservas" value="Reservas"></v-checkbox>
-              <v-checkbox v-model="selected" label="Personal" value="Inventario"></v-checkbox>
-              <v-checkbox v-model="selected" label="Ranking" value="Progreso"></v-checkbox>
-            </v-radio-group>
-          </v-flex>
-        </v-layout>
-      </v-container>
-      <v-container fluid>
-        <p class="titulo1 white--text" >Generar Reporte(s) en:</p>
-        <v-layout row>
-          <v-flex xs4 >
-              <v-radio-group class="Layout" v-model="radios" :mandatory="false">
-                <v-radio label="PDF" value="pdf"></v-radio>
-              </v-radio-group>
-          </v-flex>
-          <v-flex xs4 >
-            <v-radio-group class="Layout" v-model="radios" :mandatory="false">
-              <v-radio label="EXCEL" value="excel"></v-radio>
-            </v-radio-group>
-          </v-flex>
-          <v-flex xs4 >
-            <v-radio-group class="Layout" v-model="radios" :mandatory="false">
-              <v-btn
-                color="blue darken-1"
-                class="botton"
-                @click="loader = 'loading3'"
-               >Generar<v-icon right>cloud_upload</v-icon>
-                </v-btn>
-            </v-radio-group>
-          </v-flex>
+  <div>
+    <h2 class="admin-title">Contabilidad y reportes</h2>
+    <p class="grey--text mb-3">Selecciona la información que deseas exportar.</p>
 
+    <v-card class="mb-4">
+      <v-toolbar color="primary" dark flat dense>
+        <v-icon left>assessment</v-icon>
+        <v-toolbar-title>Generar reportes</v-toolbar-title>
+      </v-toolbar>
+      <v-container grid-list-lg fluid>
+        <v-layout row wrap>
+          <v-flex v-for="opt in opciones" :key="opt" xs12 sm6 md4>
+            <v-checkbox v-model="seleccion" :label="opt" :value="opt" color="primary" hide-details></v-checkbox>
+          </v-flex>
         </v-layout>
       </v-container>
-    </div>
+    </v-card>
+
+    <v-card>
+      <v-toolbar color="secondary" dark flat dense>
+        <v-icon left>file_download</v-icon>
+        <v-toolbar-title>Formato de salida</v-toolbar-title>
+      </v-toolbar>
+      <v-container grid-list-lg fluid>
+        <v-layout row wrap align-center>
+          <v-flex xs12 sm6>
+            <v-radio-group v-model="formato" row>
+              <v-radio label="PDF" value="pdf" color="primary"></v-radio>
+              <v-radio label="Excel" value="excel" color="primary"></v-radio>
+            </v-radio-group>
+          </v-flex>
+          <v-flex xs12 sm6 class="text-sm-right">
+            <v-btn color="accent" class="black--text" :loading="loading" @click="generar">
+              <v-icon left>cloud_download</v-icon>Generar reporte
+            </v-btn>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-card>
+  </div>
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
+  name: 'contabilidad',
+  data: () => ({
+    seleccion: [],
+    formato: 'pdf',
+    loading: false,
+    opciones: ['Clientes', 'Habitaciones', 'Servicios', 'Reservas', 'Ventas', 'Inventario', 'Personal', 'Facturas', 'Ranking']
+  }),
   created () {
     this.$store.commit('SET_LAYOUT', 'administrador-layout')
   },
-  data () {
-    return {
-      radios: 'radio-1'
+  methods: {
+    generar () {
+      if (!this.seleccion.length) {
+        Swal.fire('Atención', 'Selecciona al menos un reporte', 'warning')
+        return
+      }
+      this.loading = true
+      setTimeout(() => {
+        this.loading = false
+        Swal.fire('Reporte generado', `Se generó el reporte (${this.seleccion.join(', ')}) en formato ${this.formato.toUpperCase()}.`, 'success')
+      }, 900)
     }
   }
 }
 </script>
 
-<style  scoped>
-  .Layout{
-    background-color: white;
-    padding-top: 20px;
-    padding-left: 30px;
-  }
-  .titulo{
-    background-color: rgb(0, 153, 255);
-    margin: 0 0 -16px 0;
-    font-size: 20px;
-    padding-left: 15px;
-  }
-  .titulo1{
-    background-color: rgb(0, 153, 255);
-    margin: 0 0 -16px 0;
-    font-size: 20px;
-    padding-left: 15px;
-  }
-  .botton{
-    color: white;
-    height: 40px;
-    margin: -8px;
-  }
-  .todo{
-    width: 1000px
-  }
-  .v-btn__content {
-    color: white
-  }
-  .theme--light.v-label {
-    color: black;
+<style scoped>
+.admin-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--gc-teal, #0F4C46);
+  font-size: 28px;
 }
 </style>

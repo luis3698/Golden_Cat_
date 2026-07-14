@@ -12,9 +12,7 @@ const invoice = require('./invoice')
 const invoice_detail = require('./invoice_detail')
 const services = require('./services.js')
 const detail_reservation = require('./detail_reservation')
-
-
-
+const image = require('./image')
 
 const log = getLogger(__dirname, __filename)
 // prueba
@@ -35,7 +33,7 @@ module.exports = {
    invoice_detail,
    services,
    detail_reservation,
-
+   image,
 
   errorHandler (err, req, res, next) {
     if (err) {

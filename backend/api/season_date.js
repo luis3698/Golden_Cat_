@@ -21,8 +21,8 @@ router.post('/', async function (req,res,next) {
 router.delete('/:uuid', async function(req,res,next) {
   try {
     const { uuid } = req.params
-    const { Season_date } = await db()
-    const result = await Season_date.deleteSeason_dateUuid(uuid)
+    const { Season_Date } = await db()
+    const result = await Season_Date.deleteSeason_dateUuid(uuid)
     res.send(result)
   } catch (err) {
     next(err)
@@ -33,8 +33,8 @@ router.put('/:uuid', async function(req, res, next) {
   try {
     const { uuid } = req.params
     const { season_dateUpdate } = req.body
-    const { Season_date } = await db()
-    const result = await Season_date.updateSeason_date(uuid, season_dateUpdate)
+    const { Season_Date } = await db()
+    const result = await Season_Date.updateSeason_date(uuid, season_dateUpdate)
     res.send(result)
   } catch (err) {
     next(err)
@@ -42,9 +42,8 @@ router.put('/:uuid', async function(req, res, next) {
 })
 router.get('/', async function(req, res, next) {
   try {
-    const { uuid } = req.params
-    const { Season_date } = await db()
-    const result = await Season_date.findAllSeason_date(uuid)
+    const { Season_Date } = await db()
+    const result = await Season_Date.findAllSeason_date()
     res.send(result)
   } catch (err) {
     next(err)

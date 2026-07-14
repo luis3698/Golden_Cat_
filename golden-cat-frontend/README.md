@@ -1,29 +1,26 @@
-# golden-cat-frontend
+# Golden Cat — Frontend (Vue 2 + Vuetify)
 
-## Project setup
-```
-npm install
-```
+SPA del sistema de gestión hotelera Golden Cat. Consume la API REST del backend.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Scripts
 
-### Compiles and minifies for production
-```
-npm run build
+```bash
+npm install        # instalar dependencias
+npm run serve      # servidor de desarrollo (http://localhost:8080)
+npm run build      # build de producción (carpeta dist/)
+npm run lint       # linter
 ```
 
-### Run your tests
-```
-npm run test
+> Los scripts ya incluyen `--openssl-legacy-provider` (necesario para Vue CLI 3
+> en Node 17+).
+
+## Configuración
+
+Copia `.env.example` a `.env` y ajusta la URL del backend:
+
+```env
+VUE_APP_API_URL=http://localhost:8000
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+📖 **Documentación completa del proyecto** (arquitectura, base de datos,
+instalación, funcionalidades, etc.) en el [README principal](../README.md).

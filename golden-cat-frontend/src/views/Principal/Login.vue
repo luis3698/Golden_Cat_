@@ -1,40 +1,41 @@
 <template>
-  <v-layout row>
-    <v-flex xs6>
-      <v-card dark tile flat color="transparent">
-        <v-img height="350px" width="300px" :src="logo" ></v-img>
-      </v-card>
-    </v-flex>
-    <v-flex xs6>
-      <v-card dark tile flat color="transparent">
-        <v-layout align-center justify-center >
-          <v-flex xs12 sm md10>
-            <v-card class="elevation-12">
-              <v-toolbar dark color="indigo darken-4">
-                <v-toolbar-title>INICIAR SESION</v-toolbar-title>
-                <v-spacer></v-spacer>
-              </v-toolbar>
-              <v-card-text>
-                <v-form>
-                  <v-text-field prepend-icon="person" name="email" label="email" type="text" v-model="email"></v-text-field>
-                  <v-text-field prepend-icon="lock" name="password" label="Password" id="password" type="password" v-model="password"></v-text-field>
-                </v-form>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="indigo darken-4" @click="login">Iniciar Sesion</v-btn>
-                <v-btn color="indigo darken-4" to="/registro">Crear Cuenta</v-btn>
-                <v-spacer></v-spacer>
-              </v-card-actions>
-              <v-card-text class="text-xs-center">
-                <v-btn flat to="/restaurar_contraseña">Olvide mi contraseña</v-btn>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-container fill-height>
+    <v-layout align-center justify-center>
+      <v-flex xs12 sm8 md5 lg4>
+        <v-card class="elevation-12">
+          <v-toolbar dark color="primary" flat>
+            <v-avatar tile size="36" class="mr-2"><img :src="logo" alt="Golden Cat"></v-avatar>
+            <v-toolbar-title>Iniciar sesión</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text>
+            <v-form @submit.prevent="login">
+              <v-text-field prepend-icon="person" name="email" label="Correo electrónico" type="email" v-model="email" @keyup.enter="login"></v-text-field>
+              <v-text-field
+                prepend-icon="lock"
+                name="password"
+                label="Contraseña"
+                v-model="password"
+                :type="showPassword ? 'text' : 'password'"
+                :append-icon="showPassword ? 'visibility' : 'visibility_off'"
+                @click:append="showPassword = !showPassword"
+                @keyup.enter="login"
+              ></v-text-field>
+            </v-form>
+          </v-card-text>
+          <v-card-actions class="px-3 pb-3">
+            <v-btn flat small color="primary" to="/restaurar_contraseña">¿Olvidaste tu contraseña?</v-btn>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" :loading="loading" @click="login">Entrar</v-btn>
+          </v-card-actions>
+          <v-divider></v-divider>
+          <v-card-text class="text-xs-center">
+            ¿No tienes cuenta?
+            <v-btn flat small color="accent" to="/registro">Crear cuenta</v-btn>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 <script>
 import api from '@/plugins/api'
@@ -45,7 +46,9 @@ export default {
     return {
       logo: Logo,
       email: '',
-      password: ''
+      password: '',
+      showPassword: false,
+      loading: false
     }
   },
   created () {
@@ -53,18 +56,33 @@ export default {
   },
   methods: {
     async login () {
+      if (!this.email || !this.password) {
+        Swal.fire('Atención', 'Ingresa tu correo y contraseña', 'warning')
+        return
+      }
+      this.loading = true
       try {
-        const { data: user } = await api.post('/user/login', {
+        const { data: result } = await api.post('/user/login', {
           email: this.email,
           password: this.password
         })
-        if (!user.login) {
-          Swal.fire('Error!', user.message, 'error')
+        if (!result.login) {
+          Swal.fire('Error', result.message, 'error')
           return
         }
-        this.$router.push('/')
+        this.$store.commit('SET_USER', result.user)
+        if (result.user.typeUser === 'administrador') {
+          this.$store.commit('SET_LAYOUT', 'administrador-layout')
+          this.$router.push('/administrador/usuarios')
+        } else {
+          this.$store.commit('SET_LAYOUT', 'principal-layout')
+          this.$router.push('/')
+        }
       } catch (error) {
         console.error(error)
+        Swal.fire('Error', 'No se pudo conectar con el servidor', 'error')
+      } finally {
+        this.loading = false
       }
     }
   }

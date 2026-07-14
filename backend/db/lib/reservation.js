@@ -11,20 +11,23 @@ function setupReservation(reservationModel) {
     return result ? true : false
   }
   async function updateReservation(uuid, reservation) {
-  const cond = { where: { uuid } }
-  const result = await reservationModel.update(reservation, cond)
-  return result ? reservtionModel.findOne(cond) : new Error('No se actualizo ninguna reservacion')
+    const cond = { where: { uuid } }
+    const result = await reservationModel.update(reservation, cond)
+    return result ? reservationModel.findOne(cond) : new Error('No se actualizo ninguna reservacion')
   }
   function findAllReservation() {
     return reservationModel.findAll()
   }
-
+  async function findUuidReservation(uuid) {
+    return reservationModel.findOne({ where: { uuid } })
+  }
 
   return {
     createReservation,
     deleteReservationUuid,
     updateReservation,
-    findAllReservation
+    findAllReservation,
+    findUuidReservation
   }
 
 }
