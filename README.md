@@ -25,6 +25,8 @@ administración.
 10. [Dependencias](#-dependencias)
 11. [Decisiones técnicas relevantes](#-decisiones-técnicas-relevantes)
 12. [Posibles mejoras futuras](#-posibles-mejoras-futuras)
+13. [Licencia](#-licencia)
+14. [Contribuyentes](#-contribuyentes)
 
 ---
 
@@ -423,6 +425,37 @@ Golden_Cat_/
 - **Almacenamiento de imágenes en la nube** (S3, Cloudinary) para despliegues
   distribuidos.
 - **Paginación y búsqueda** en los listados del panel de administración.
+
+---
+
+## 📄 Licencia
+
+Este proyecto se distribuye bajo la licencia **MIT**. Consulta el archivo
+[`LICENSE`](LICENSE) para el texto completo.
+
+```
+Copyright (c) 2026 Golden Cat Contributors
+```
+
+Eres libre de usar, copiar, modificar y distribuir el software, siempre que se
+mantenga el aviso de copyright y de licencia.
+
+---
+
+## 👥 Contribuyentes
+
+Proyecto desarrollado por:
+
+| Nombre | GitHub |
+|--------|--------|
+| Luis Gerardo Mancilla Gamboa | [@luis3698](https://github.com/luis3698) |
+| Sebastián Mancilla | [@Sebas2125](https://github.com/Sebas2125) |
+| Víctor Gabriel Vargas Buitrago | [@GABRIELVARG](https://github.com/GABRIELVARG) |
+| Michael Sánchez | [@Sanchez908](https://github.com/Sanchez908) |
+| Dixon Cáceres | [@dixoncaceres](https://github.com/dixoncaceres) |
+| Camilo Carvajal | [@CamiloCarvajal99](https://github.com/CamiloCarvajal99) |
+
+Ver también [`CONTRIBUTORS.md`](CONTRIBUTORS.md).
 
 ---
 

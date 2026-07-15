@@ -12,8 +12,16 @@
     "setup": "node db/setup.js",
     "seed": "node db/setup.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Luis Gerardo Mancilla Gamboa",
+  "contributors": [
+    "Luis Gerardo Mancilla Gamboa (@luis3698)",
+    "Sebastián Mancilla (@Sebas2125)",
+    "Víctor Gabriel Vargas Buitrago (@GABRIELVARG)",
+    "Michael Sánchez (@Sanchez908)",
+    "Dixon Cáceres (@dixoncaceres)",
+    "Camilo Carvajal (@CamiloCarvajal99)"
+  ],
+  "license": "MIT",
   "dependencies": {
     "@golden-cat/api": "file:api",
     "@golden-cat/config": "file:config",

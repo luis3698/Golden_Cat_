@@ -2,6 +2,16 @@
   "name": "golden-cat-frontend",
   "version": "0.1.0",
   "private": true,
+  "author": "Luis Gerardo Mancilla Gamboa",
+  "contributors": [
+    "Luis Gerardo Mancilla Gamboa (@luis3698)",
+    "Sebastián Mancilla (@Sebas2125)",
+    "Víctor Gabriel Vargas Buitrago (@GABRIELVARG)",
+    "Michael Sánchez (@Sanchez908)",
+    "Dixon Cáceres (@dixoncaceres)",
+    "Camilo Carvajal (@CamiloCarvajal99)"
+  ],
+  "license": "MIT",
   "scripts": {
     "serve": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build",
