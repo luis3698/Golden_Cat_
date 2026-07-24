@@ -59,7 +59,7 @@ npm run setup
 **Terminal 2 — Frontend** (instala dependencias):
 
 ```bash
-cd golden-cat-frontend
+
 npm install
 ```
 
